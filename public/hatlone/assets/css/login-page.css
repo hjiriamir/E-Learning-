@@ -1,0 +1,125 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #02377D;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+  --pw-wrapper-width:250px;
+}
+.gradient-custom {
+   background-image: url(hatlone/assets/imgs/student-class-looking-course.jpg);
+   background-size: cover;
+    }
+.card{
+    background-color: rgba(128, 128, 128, 0.895);
+    border: none;
+    margin-bottom: 50px;
+}
+.img-wrap{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+.img-wrap i{
+   font-size: 80px;
+   padding: 20px 20px;
+    border-radius: 50%;
+    color: var(--main-color-title);
+    border: 2px solid white;
+}
+    .form-control{
+        border-bottom: 2px solid white;
+        border-top: none !important;
+        border-left: none !important;
+        border-right: none !important;
+        background-color: transparent;
+        border-radius: 0px !important;
+        padding-left: 0px !important;
+    }
+    .form-control::placeholder{
+        text-align: left !important;
+        font-size: 15px;
+        color: white;
+        margin-left: -20px !important;
+
+    }
+    .form-control:focus{
+        background-color: transparent;
+        box-shadow: none !important;
+        border-bottom: 2px solid var(--blue-color) !important;
+    }
+    .form-label{
+        text-align: left !important;
+        font-size: 15px;
+        font-weight: 500;
+    }
+
+    .login-wrap{
+        display: flex;
+    }
+    .login-btn{
+        font-size: 15px;
+        height: 50px;
+        border-radius: 15px;
+        border: none;
+        margin-right: 20px;
+        background-color: var(--blue-color);
+        color: white;
+        font-weight: 500;
+    }
+    .google-btn{
+        font-size: 15px;
+        font-weight: 500;
+        height: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: 2px solid var(--blue-color);
+        border-radius: 15px;
+        background-color: var(--main-border-bottom);
+        color: var(--blue-color);
+    }
+    .card p{
+        margin-top: -10px;
+        
+    }
+    .card a{
+        color: white;
+        font-weight: 500;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+    .footer{
+        margin-top: -50px !important;
+        color: white;
+    }
+    .save-wrap {
+        text-align: center;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center;
+        margin-top:20px;
+    }
+    .save-wrap button{
+        text-align: center !important;
+        margin-right: 0px !important;
+    }
+    .checkbox-box{
+        margin-top:-15px;
+        margin-bottom:10px;
+    }
+    .checkbox-box label{
+        cursor:pointer;
+    }
+    .checkbox-box label a{
+        color:white;
+        font-weight: 400;
+    }
+    .checkbox-box  input{
+        background-color: rgba(128, 128, 128, 0.895);
+        border: 1px solid var(--blue-color) !important;
+    }

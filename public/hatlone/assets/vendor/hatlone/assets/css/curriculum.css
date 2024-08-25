@@ -1,0 +1,602 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #01132b;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+
+.curriculum_course h4 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.curriculum_course .title {
+  color: var(--main-color-title);
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 15px;
+  position: relative;
+  top: 7px;
+  cursor: pointer;
+}
+.curriculum_course .order {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--main-color-title);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+.curriculum_course .nav-item .bi-list {
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--main-color-title);
+}
+
+.curriculum_course .nav-link.active .title {
+  color: var(--blue-color);
+}
+.curriculum_course .nav-link.active .order {
+  background-color: var(--blue-color);
+  color: #fff;
+}
+
+.curriculum_course .nav-link.active > .title {
+  color: var(--blue-color)!important;
+}
+.curriculum_course .nav-link.active > .order {
+  background-color: var(--blue-color);
+  color: #fff;
+}
+.curriculum_course .crud {
+  float: right;
+}
+@media(min-width: 350px) {
+  .curriculum_course .section {
+    display: flex;
+  }
+}
+@media(max-width: 350px) {
+  .curriculum_course .btns {
+    float: right;
+  }
+}
+.curriculum_course .btns .btn:hover,
+.curriculum_course .crud .bi:hover {
+  color: var(--main-text-color);
+}
+.curriculum_course .accordion .accordionLecture,
+.curriculum_course .accordion span {
+  font-size: 18px;
+  font-weight: 500;
+}
+@media(max-width: 992px) {
+    .curriculum_course .accordion .accordionLecture,
+    .curriculum_course .accordion span {
+      font-size: 15px;
+    }
+}
+.curriculum_course .accordion .fa-book {
+  font-size: 25px;
+  color: var(--main-text-color);
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+.curriculum_course .lecture_1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.curriculum_course .lecture_1 .bi-list {
+  color: var(--main-color-title)!important;
+  font-size: 20px;
+  cursor: pointer;
+  position: relative;
+  top: -3px;
+}
+.curriculum_course .lecture_1 .icon {
+  color: var(--main-text-color);
+}
+.curriculum_course .btnsCard {
+  float: right;
+}
+.curriculum_course .btnsCard .bi {
+  margin: 0px 10px;
+}
+.curriculum_course .btnsCard .bi:hover {
+  color: var(--main-text-color);
+}
+
+/* Modal */
+.btn-close:focus {
+  outline: none;
+  box-shadow: none;
+}
+.popup h3 {
+  font-weight: bold;
+  font-size: 15px;
+}
+.popup .title {
+  font-weight: bold;
+  font-size: 13px;
+}
+.popup input,
+.popup textarea {
+  border: 1px solid var(--main-text-color);
+  padding: 5px 10px;
+  width: 100%;
+}
+.popup input:focus,
+.popup textarea:focus {
+  outline: none;
+}
+.popup .input-group-text {
+  border: 1px solid var(--main-text-color);
+  position: relative;
+  top: 0px;
+}
+.popup .input-group input {
+  width: 20%;
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+.popup .bi,
+.popup .material-icons {
+  color: var(--main-color-title);
+  font-size: 60px;
+  text-align: center;
+}
+.popupBox .firstBox .btn {
+  font-size: 15px;
+  font-weight: 600;
+  background-color: var(--blue-color);
+  color: #fff;
+  margin-right: 10px;
+}
+.popupBox .firstBox .btn:hover{
+  background-color: var(--hover-blue-color);
+}
+.popupBox .firstBox span {
+  font-size: 15px;
+  color: var(--main-color-title);
+  font-weight: 500;
+}
+.firstBox .card button:hover{
+  color: var(--blue-color);
+}
+.firstBox .card button {
+  background-color: #fff;
+  font-size: 15px;
+  font-weight: 500;
+}
+.popup .confirm,
+.popup .save {
+  background-color: var(--blue-color);
+  color: #fff;
+  font-weight: 500;
+  padding: 8px 12px;
+}
+.popup .confirm:hover,
+.popup .save:hover {
+  background-color: var(--hover-blue-color);
+}
+
+/* radio button */
+.radioItem {
+  display: inline-block;
+  position: relative;
+  padding: 0 8px;
+  margin: 5px 0 0;
+}
+.radioItem label {
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.radioItem label:before {
+  content: " ";
+  display: inline-block;
+  position: relative;
+  margin: 8px 10px 0px 0;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: var(--main-color-title);
+  border: 1px solid var(--main-color-title);
+}
+.radioItem input[type='checkbox']  {
+  display: none;
+}
+.radioItem input[type=checkbox]:checked + label:after {
+  border-radius: 11px;
+  width: 12px;
+  height: 12px;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  content: " ";
+  display: block;
+  background: green;
+}
+
+.curriculum_course .addContent button {
+  color: var(--blue-color);
+  font-size: 13px;
+  font-weight: 500;
+}
+.curriculum_course .addContent .bi {
+  margin-right: 5px;
+}
+@media(max-width: 992px) {
+  .curriculum_course .contentCurriculum .nav-tabs {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+@media(min-width: 992px) {
+  .curriculum_course .contentCurriculum .nav-tabs {
+    margin-left: 3em;
+  }
+}
+.curriculum_course .contentCurriculum .nav-link {
+  color: var(--main-color-title);
+  font-weight: 600;
+  font-size: 16px;
+  display: flex;
+}
+.curriculum_course .contentCurriculum .nav-link.active,
+.curriculum_course .contentCurriculum .nav-link:hover {
+  color: var(--blue-color);
+}
+
+.curriculum_course .contentCurriculum .btn .bi {
+  font-size: 30px;
+  color: var(--main-color-title);
+}
+.curriculum_course .contentCurriculum .btn .material-icons {
+  font-size: 33px;
+  color: var(--main-color-title);
+}
+.curriculum_course .contentCurriculum .btn .bi:hover,
+.curriculum_course .contentCurriculum .btn .material-icons:hover {
+  color: var(--main-text-color);
+}
+.curriculum_course .contentCurriculum .tab-pane span {
+  position: relative;
+  top: -15px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--main-color-title);
+}
+.uk-tooltip {
+  background-color: rgb(247, 246, 246);
+  color: var(--main-color-title);
+  font-size: 12px;
+  font-weight: 600;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+.uk-tooltip:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f05a";
+  font-size: 20px;
+}
+.modal .account a {
+  color: #000;
+}
+.modal .account a:hover {
+  color: var(--hover-blue-color);
+}
+.modal .account .link {
+  font-weight: 500;
+  font-size: 15px;
+}
+.modal .date input {
+  width: 60%;
+}
+@media(min-width: 992px) {
+  .modal .date .after {
+    display: flex;
+  }
+}
+@media(max-width: 992px) {
+  .modal .inputBox input {
+    width: 60%;
+  }
+}
+
+.boxSkill input { 
+  display: none;  
+  margin-top: 50px;
+}
+.boxSkill .seat_button:hover  {
+  background-color: var(--red-color);
+  color: #fff;
+  border: 1px solid var(--red-color);
+}
+.boxSkill .seat_button { 
+  border: 1px solid #dfdcdc;
+  padding: 3px 15px;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  line-height: 40px; 
+}
+.boxSkill input:checked + .seat_button {
+  background-color: var(--red-color);
+  color: #fff;
+  border: 1px solid var(--red-color);
+}
+
+.addLecture .btn {
+  color: var(--blue-color);
+}
+.addLecture .title {
+  color: var(--blue-color);
+  font-size: 12px;
+  font-weight: 500;
+  margin: 0px 0px 0px 5px;
+}
+
+.questions .bi {
+  color: var(--main-color-title);
+  font-size: 15px;
+  cursor: pointer;
+}
+.questions .bi:hover {
+  color: var(--main-text-color);
+}
+
+.wrongAnswer {
+  border: 1px solid red!important;
+}
+.rightAnswer {
+  border: 1px solid green!important;
+}
+
+.addQuestion .bi-bookmark-plus-fill {
+  color: var(--blue-color);
+  font-size: 20px;
+  margin-right: 5px;
+}
+.addQuestion span {
+  font-size: 15px;
+  color: var(--main-color-title);
+  font-weight: 500;
+}
+
+.true {
+  background-color: green;
+  width: 100%;
+  margin-right: 5px;
+  padding: 8px 0px;
+  color: #fff;
+  font-weight: 500;
+}
+.false {
+  background-color: red;
+  width: 100%;
+  padding: 8px 0px;
+  color: #fff;
+  font-weight: 500;
+}
+
+.curriculum_course .sectionFive input {
+  border: 1px solid var(--main-text-color);
+  margin-right: 5px;
+  font-size: 12px;
+  color: var(--main-text-color);
+  padding: 0px 10px;
+}
+.curriculum_course .myLecture input {
+  border: 1px solid var(--main-text-color);
+  margin-right: 5px;
+  font-size: 12px;
+  color: var(--main-text-color);
+  padding: 7px 10px;
+  margin: -5px 7px;
+}
+@media(max-width: 992px) {
+  .curriculum_course .sectionFive input {
+    width: 50%;
+  }
+  .curriculum_course .myLecture input {
+    width: 100%;
+  }
+}
+@media(min-width: 375px) {
+  .curriculum_course .myLecture input {
+    width: 50%;
+  }
+}
+.curriculum_course .sectionFive .bi {
+  color: #222222;
+  margin-top: 5px;
+}
+.curriculum_course .sectionFive .bi:hover,
+.curriculum_course .myLecture .bi-trash:hover {
+  color: var(--main-text-color);
+}
+
+.curriculum_course .confirmBtn,
+.curriculum_course .confirmBtn:focus {
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-size: 12px!important;
+  float: right!important;
+}
+
+.curriculum_course .confirmBtn:hover {
+  background-color: var(--hover-blue-color)!important;
+}
+
+.curriculum_course .tab-pane textarea {
+  width: 100%;
+  border: 1px solid var(--main-text-color);
+}
+
+.curriculum_course .addLecture .add {
+  color: var(--blue-color);
+  font-size: 15px;
+  font-weight: 500;
+  margin: 5px 0px 0px 5px;
+}
+
+@media(min-width: 992px) {
+  .curriculum_course .sectionTab {
+    margin: auto;
+  }
+}
+
+.curriculum_course .section5 .lectures {
+  display: flex;
+}
+.curriculum_course .section5 .lectures .fa-book {
+  font-size: 25px;
+  color: var(--main-text-color);
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+.curriculum_course .section5 .lectures span {
+  font-size: 18px;
+  font-weight: 500;
+  margin-left: 5px;
+}
+.curriculum_course .section5 .lectures input {
+  border: 1px solid var(--main-text-color);
+  margin: 0px 10px;
+  font-size: 12px;
+  color: var(--main-text-color);
+  padding: 7px 10px;
+  width: 50%;
+}
+.curriculum_course .section5 .lectures .bi:hover {
+  color: var(--main-text-color);
+}
+
+textarea:focus {
+  outline: none;
+}
+
+.curriculum_course .addLecture .lecture-add {
+  color: var(--main-text-color);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.confirmModal p {
+  color: var(--main-color-title);
+  font-weight: 500;
+  font-size: 25px;
+}
+.confirmModal .confirm,
+.confirmModal .cancel,
+.confirmModal .confirm:focus,
+.confirmModal .cancel:focus {
+  background-color: var(--blue-color);
+  color: #fff;
+  padding: 5px;
+  width: 100%;
+}
+.confirmModal .confirm:hover,
+.confirmModal .cancel:hover {
+  background-color: var(--hover-blue-color);
+}
+
+#excelTitle:focus {
+  outline: none;
+}
+
+.flashCard .flash_card {
+  height: 150px;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+  border-radius: 0px;
+  border: 1px solid var(--main-text-color);
+}
+
+.flashCard .card:hover {
+  transform: rotateY(180deg);
+}
+
+.cardContent {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+.cardContent .bi {
+  font-size: 15px; 
+  cursor: pointer; 
+}
+.flashCard .front,
+.flashCard .back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.flashCard .front .text,
+.flashCard .back .text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.flashCard .back {
+  transform: rotateY(180deg);
+  background-color: #aaa;
+  color: var(--main-color-title);
+}
+.flashCard .back #card {
+  padding: 3px 15px;
+  margin-top: 0.2em;
+  font-size: 12px;
+  border: 1px solid #fff;
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.addFlashcard {
+  color: var(--blue-color);
+  font-size: 20px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.flashCard .bi {
+  cursor: pointer;
+  font-size: 15px;
+}
+.flashCard .bi:hover {
+  color: var(--main-text-color);
+}
+
+.addQuestions .bi {
+  font-size: 35px;
+}
+.addQuestions span {
+  font-size: 12px;
+  font-weight: 500;
+}

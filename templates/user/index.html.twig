@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eskul</title>
+    <!-- Favicons -->
+    <link href="{{asset('profile/assets/img/favicon.png')}}" rel="icon">
+    <link href="{{asset('profile/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
+          rel="stylesheet" 
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
+          crossorigin="anonymous">
+    <!-- Botstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- UI Kit -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/css/uikit.min.css" />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- CSS File -->
+    <link href="{{asset('profile/assets/css/style.css')}}" rel="stylesheet">
+    <link href="{{asset('profile/assets/css/navbar.css')}}" rel="stylesheet">
+
+</head>
+<body>
+  <div class="text-center navBarLogin">
+    <span>Become An Instructor</span>
+    <h2 class="mb-4 mt-3">Spread Your Skills Worldwide</h2>
+    <div class="d-flex justify-content-center mb-5">
+      <div class="play-videos-wrap">
+        <div class="d-flex align-items-center">
+          <i class="bi bi-play-circle-fill" data-bs-toggle="modal" data-bs-target="#exampleModal"></i>
+          <p>Tutorial Video</p>
+        </div>
+        <button class="" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">Play Now</button>
+      </div>                               
+    </div>
+    <a href="">Get Started Now</a>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <video controls>
+              <source src="{{asset('profile/assets/vds/angular.mp4')}}" type="video/mp4">
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid nabar_login">
+    <div class="row">
+        <div class="leftNav col-lg-10">
+            <div class="row">
+                <div class="d-flex col-lg-6">
+                    <div class="dropdown list_nav">
+                        <i class="bi bi-list" style="cursor:pointer" data-bs-toggle="dropdown"></i>
+                        <div class="dropdown-menu">
+                            <div class="card rounded-0 ">About us</div>
+                            <div class="card rounded-0 ">Course Academy</div>
+                            <div class="card rounded-0 ">Coaching Academy</div>
+                            <div class="card rounded-0 ">Webinars Academy</div>
+                            <div class="card rounded-0 ">Hatlone guidlines</div>
+                            <div class="card rounded-0 ">Support</div>
+                            <div class="card rounded-0 ">Contact Us</div>
+                            <div class="card rounded-0">
+                            <div class="d-flex ">
+                                <i class="bi bi-door-open" style="margin-right: 10px;"></i>
+                                <span>Log out</span>
+                            </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="logo">hatlone</div>
+                    <div class="search-container">
+                        <form action="">
+                            <input class="text-center" type="text" name="search">
+                            <button type="text">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="d-flex col-lg-4 categories" style="justify-content: space-between;">
+                    <div class="dropdown">
+                        <div style="cursor:pointer; font-weight: 500;" data-bs-toggle="dropdown">
+                            Categories <i class="bi bi-chevron-down"></i>
+                        </div>
+                        <ul class="dropdown-menu rounded-0" style="text-align: center">
+                          <li class="mt-2">
+                            <div class="uk-inline">
+                                <div class="uk-button-default border-0 navHover" style="padding-left: 1em; padding-right: 1em;">Course</div>
+                                <div class="card border-0 rounded-0 box_categories" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                    <div class="category mb-3">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0 arrowNav" style="padding-left: 3em; padding-right: 3em;">Course 1</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="category mb-3">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0" style="padding-left: 3em; padding-right: 3em;">Course 2</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="category">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0" style="padding-left: 3em; padding-right: 3em;">Course 3</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="uk-inline">
+                                <div class="uk-button-default border-0 navHover" style="padding-left: 1em; padding-right: 1em;">Coaching</div>
+                                <div class="card border-0 rounded-0" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                    <div class="category mb-3">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0 arrow_nav" style="padding-left: 3em; padding-right: 3em;">Coaching 1</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="category mb-3">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0" style="padding-left: 3em; padding-right: 3em;">Coaching 2</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="category">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0" style="padding-left: 3em; padding-right: 3em;">Coaching 3</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </li>
+                          <li>
+                            <div class="uk-inline">
+                                <div class="uk-button-default border-0 navHover" style="padding-left: 1em; padding-right: 1em;">Webinars</div>
+                                <div class="card border-0 rounded-0" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                    <div class="category mb-3">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0 arrowWebinar" style="padding-left: 3em; padding-right: 3em;">Webinar 1</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="category mb-3">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0" style="padding-left: 3em; padding-right: 3em;">Webinar 2</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="category">
+                                        <div class="uk-inline">
+                                            <div class="uk-button-default border-0" style="padding-left: 3em; padding-right: 3em;">Webinar 3</div>
+                                            <div class="card border-0 rounded-0 arrowCategory" uk-dropdown="pos: right-top" style="padding: 1em;">
+                                                <div class="category mb-3">Subcategory 1</div>
+                                                <div class="category mb-3">Subcategory 2</div>
+                                                <div class="category">Subcategory 3</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </li>
+                        </ul>
+                    </div>
+                    <div style="cursor:pointer; font-weight: 500;">Subscriptions</div>
+                    <div style="cursor:pointer; font-weight: 500;">Businesses</div>
+                </div>
+                <div class="icons col-lg-2">
+                    <div class="float-end" style="display: flex;">
+                        <i class="bi bi-cart3" style="cursor: pointer;"></i>
+                        <div class="dropdown">
+                            <a data-bs-toggle="dropdown">
+                                <i class="fa fa-globe"></i>
+                            </a>
+                          
+                            <ul class="dropdown-menu overflow-auto languge rounded-0 mt-2" style="max-height: 130px;text-align: center;">
+                                <li class="mt-2">English</li>
+                                <li>French</li>
+                                <li>Espagnol</li>
+                                <li>Deutsch</li>
+                                <li>Arabe</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="rightNav row col-lg-2">
+            <div class="signUp col-lg-6" style="cursor:pointer">
+              <i class="bi bi-person-fill-add"></i>
+              <span>Sign up</span>
+            </div>
+            <div class="login col-lg-6" style="cursor:pointer">
+              <i class="fas fa-lock"></i>
+              <span>Log in</span>
+            </div>
+        </div>
+    </div>
+  </div>
+    <main class="mt-5">
+      <section class="container-fluid sectionOne mt-4">
+        <div class="boxInstructor">
+            <div class="img">
+              <img src="{{asset(pathimg)}}" style="width: 12rem; height: 12rem;" alt="">
+            </div>
+            <div class="container-fluid mt-3">
+              <div class="row">
+                <div class="col-8">
+                  <div class="firstBox">
+                    <h1>
+                      <span>{{firstname}} {{lastename}}</span> 
+                      <i class="bi bi-check2-circle"></i>
+                    </h1>
+                      <span>Senior Web Design & Developer </span>
+                  </div>
+                </div>
+                <div class="col-4">
+                  <div class="secondBox row">
+                    <div class="col">
+                        <button class="btn mb-3 Schedule">Schedule an Interview</button>
+                    </div>
+                    <div class="col">
+                        <button class="btn mb-3 subscribe">Contact</button>
+                    </div>
+                  </div>
+                </div>
+               
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Start Vd  -->
+      <section class="container-fluid sectionTwo card border-0">
+        <div class="boxVd">
+          <div class="vd">
+            <button class="btn" data-bs-toggle="modal" data-bs-target="#vd">
+              <i class="bi bi-caret-right-fill"></i>
+            </button>
+            <div class="vd-img">
+              <a>
+                <img src="{{asset(user.imageVideo)}}" style="max-width: 25rem;" class="rounded-3">
+              </a>
+            </div>
+             <!-- Modal Of Vd -->
+            <div class="modal fade" id="vd" tabindex="-1" aria-labelledby="vdLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <video controls>
+                      <source src="{{asset(user.VideoDescriptive)}}" type="video/mp4">
+                  </video>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="box">
+            <span>Bio</span>
+            <br><span>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi suscipit, 
+                nesciunt deserunt ducimus nemo consectetur impedit magnam possimus voluptate 
+                rem esse dicta officiis, nihil sint voluptatum consequatur unde numquam tenetur?
+            </span>
+            <div class="mt-1">
+                <div class="accordion-item">
+                  <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed"  data-bs-toggle="collapse" data-bs-target="#showMore" aria-controls="showMore">
+                      Voir plus
+                    </button>
+                  </h2>
+                  <div id="showMore" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. 
+                            Itaque tempora nulla voluptatibus ducimus vero distinctio officiis facere eaque deleniti nisi non 
+                            blanditiis, sunt eveniet velit? Omnis in vel expedita debitis?
+                        </p>
+                    </div>
+                  </div>
+                </div>               
+            </div>
+            
+          </div> 
+          <div class="report float-end">
+            <button class="btn-lesson pull-right mt-4">Report</button>
+          </div> 
+        </div>
+        
+    </section>
+    
+      <!-- Start Tabs -->
+      <section class="boxTabs">
+        <div class="container-fluid">
+            <div class="tabs mt-4 rounded-0">
+                <ul class="nav nav-tabs tabOne" id="myTab">
+                  
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link tabLinks active" id="portfolio-tab" data-bs-toggle="tab" data-bs-target="#portfolio-tab-pane">Career</button>
+                  </li>
+                  <li class="nav-item" role="presentation">
+                    <button class="nav-link tabLinks" id="marktplace-tab" data-bs-toggle="tab" data-bs-target="#marktplace-tab-pane">Projects</button>
+                  </li>
+                  
+                </ul>
+            
+                <div class="tab-content mt-3" id="myTabContent">
+                  
+
+                  <div class="tab-pane portfolio show active" id="portfolio-tab-pane">
+                    <div class="container ">
+                      <div class="row">
+                        <div class="col-lg leftCard mb-4">
+                          <!-- SKILLS SECTION -->
+                          <div class="skills-section">
+                            <div class="boxTitle">
+                              <h3>Skills</h3>
+                            </div>
+                            <div class="text-center">
+                              <button class="rounded-5 mb-2">Ideas</button>
+                              <button class="rounded-5 mb-2">Funricing</button>
+                              <button class="rounded-5 mb-2">Charity</button>
+                              <button class="rounded-5 mb-2">Children</button>
+                              <button class="rounded-5 mb-2">Food</button>
+                              <button class="rounded-5 mb-2">Ideas</button>
+                              <button class="rounded-5 mb-2">Funricing</button>
+                              <button class="rounded-5 mb-2">Charity</button>
+                              <button class="rounded-5 mb-2">Children</button>
+                            </div>
+                          </div>
+  
+                          <!---EDUCATION SECTION-->
+                          <section class="eductaion-section mt-5">
+                            <h3>Education</h3>
+                            <h4>B.A.- Web develepment</h4>
+                            <p>Copenhagen School of design and technology, Denmark, Diplômé 2022</p>
+                          </section>
+  
+                           <!--DIPLOMAS SECTION-->
+                           <section class="diploma-section mt-4">
+                            <h3>Diplomas</h3>
+                            <h4>Multimedia Design And Communication</h4>
+                            <p>Business Academy SouthWest, Denmark 2020</p>
+                            <h4>Multimedia Design And Communication</h4>
+                            <p>Business Academy SouthWest, Denmark 2020</p>
+                          </section>
+  
+                          <!--LANGUAGES SECTION-->
+                          <section class="languages-section mt-4">
+                          <h3>Languages</h3>
+                          {% for language in languages %}
+                            <p>{{language.Langue}} <strong>(alias)</strong> - {{language.niveau}} </p>
+                            {% endfor %}
+                          </section>
+                          <section>
+                            <iframe src="{{ asset(pathcv) }}" width="100%" height="600px"></iframe>
+
+                          </section>
+                        </div>
+                        <div class="col-lg rightCard mb-4">
+                          <!--COURSES SECTION -->
+                          <section class="courses-section">
+                            <h3>Courses Accomplishments</h3>
+                            <div class="row">
+                              <div class="justify-content-center align-items-center col-4">
+                                <img id="img1" src="{{asset('profile/assets/imgs/portfolio/school.jpg')}}" style="width: 100px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Multimedia Design And Communication</h4>
+                                  <p class="p-dat">Oct 2020</p>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col-4">
+                                <img src="{{asset('profile/assets/imgs/portfolio/school2.jpg')}}" style="width: 80px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Multimedia Design And Communication</h4>
+                                  <p class="p-dat">Oct 2020</p>
+                              </div>
+                              </div>
+                            </div>
+                          </section>
+  
+                          <!--CERTIFICATIONS SECTION -->
+                          <section class="certification-section mt-4">
+                            <h3>Obtained Certifications</h3>
+                            <div class="row">
+                              <div class="justify-content-center align-items-center col-4">
+                                <img  src="{{asset('profile/assets/imgs/portfolio/22.png')}}" style="width: 100px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Certification name</h4>
+                                  <p>School name</p>
+                                  <p class="p-dat">Oct 2020</p>
+                                </div>
+                              </div>
+                            </div>
+  
+                            <div class="row mt-3">
+                              <div class="justify-content-center align-items-center col-4">
+                                <img src="{{asset('profile/assets/imgs/portfolio/55.png')}}" style="width: 80px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Certification name</h4>
+                                  <p>School name</p>
+                                  <p class="p-dat">Oct 2020</p>
+                                </div>
+                              </div>
+                            </div>
+  
+                            <div class="row mt-3">
+                              <div class="justify-content-center align-items-center col-4">
+                                <img src="{{asset('profile/assets/imgs/portfolio/11.png')}}" style="width: 100px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Certification name</h4>
+                                  <p>School name</p>
+                                  <p class="p-dat">Oct 2020</p>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+  
+                          <!--RECOMMONDATION SECTION -->
+                          <section class="recommandation-section mt-4">
+                            <h3>Recommendations</h3>
+                            <div class="row">
+                              <div class="justify-content-center align-items-center col-4">
+                                <img src="{{asset('profile/assets/imgs/portfolio/airbnd.JPG')}}" style="width: 110px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Airbnb Inc</h4>
+                                  <p>Great Developper with high performance</p>
+                                  <p class="p-dat">Oct 2020</p>
+                                </div>
+                              </div>
+                            </div>
+  
+                            <div class="row mt-3">
+                              <div class="justify-content-center align-items-center col-4">
+                                <img src="{{asset('profile/assets/imgs/portfolio/school2.jpg')}}" class="img3" style="width: 100px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Mathew School</h4>
+                                <p>One of the best student</p>
+                                <p class="p-dat">Oct 2020</p>
+                                </div>
+                              </div>
+                            </div>
+  
+                            <div class="row mt-3">
+                              <div class="justify-content-center align-items-center col-4">
+                                <img src="{{asset('profile/assets/imgs/portfolio/man1.jpg')}}" class="img4" style="width: 90px;" alt="">
+                              </div>
+                              <div class="justify-content-center align-items-center col-8">
+                                <div id="title1" class="title">
+                                  <h4>Peter Jonson</h4>
+                                  <p>One of the best student</p>
+                                  <p class="p-dat">Oct 2020</p>
+                                </div>
+                              </div>
+                            </div>
+                          </section>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!--===========================================PROJECTS====================================-->
+                  <div class="tab-pane marktplace fade" id="marktplace-tab-pane">
+                    <div class="project">
+                      <div class="">
+                        <div class="container">
+                          <div class="tabs mt-4 row border-0 card">
+                              <div class="col">
+                                <div class="boxList ">
+                                  <ul class="nav nav-tabs" id="myTab">
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link links active" id="gridProjects-tab" data-bs-toggle="tab" data-bs-target="#gridProjects-tab-pane">
+                                          <i class="bi bi-grid-3x3-gap-fill"></i>
+                                      </button>
+                                    </li>
+                                    <li class="nav-item" role="presentation">
+                                      <button class="nav-link links" id="listProjects-tab" data-bs-toggle="tab" data-bs-target="#listProjects-tab-pane">
+                                          <i class="bi bi-list-ul"></i>
+                                      </button>
+                                    </li>
+                                    
+                                  </ul>
+                                  
+                                </div>
+                              </div>
+                          
+                              <div class="col">
+                                <div class="tab-content " id="myTabContent">
+                                  <div class="tab-pane mt-4 tab2  fade show active" id="gridProjects-tab-pane">
+                                    <div class="uk-slider-container-offset " uk-slider>
+                                        <div class="uk-position-relative p-1 uk-visible-toggle uk-light card border-0 p-1" tabindex="-1">
+                                          <input type="radio" id="allProjects" name="categories" value="allProjects" checked>
+                                          <input type="radio" id="newProjects" name="categories" value="newProjects">
+                                          <input type="radio" id="trendyProjects" name="categories" value="trendyProjects">
+                                          <input type="radio" id="popularProjects" name="categories" value="popularProjects">
+                                          <input type="radio" id="freeProjects" name="categories" value="freeProjects">
+  
+                                          <div class="filters-pane">
+                                            <ol class="filters">
+                                              <li>
+                                                <label class="mb-2" for="allProjects">All</label>
+                                              </li>
+                                              <li>
+                                                <label class="mb-2" for="newProjects">New</label>
+                                              </li>
+                                              <li>
+                                                <label class="mb-2" for="trendyProjects">Trendy</label>
+                                              </li>
+                                              <li>
+                                                <label class="mb-2" for="popularProjects">Popular</label>
+                                              </li>
+                                              <li>
+                                                <label class="mb-2" for="freeProjects">Free</label>
+                                              </li>
+                                            </ol>
+
+
+                                          </div>
+  
+                                          <ul class="uk-child-width-1-3@s uk-grid mt-3 posts">
+                                            <div class="post" data-category="newProjects">
+                                              <li class="">
+                                                <div class="card rounded-0">
+                                                  <div class="gridBox">
+                                                    <img src="{{asset('profile/assets/imgs/project/project3.png')}}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                      <div class="title-post d-flex">
+                                                        <h2>Title</h2>
+                                                        <i class="material-icons">task_alt</i>
+                                                      </div>
+                                                      <div class="language-items">
+                                                        <span class="language">F R</span>
+                                                        <span class="language">E N</span>
+                                                      </div>
+                                                      <div class="text">
+                                                        <p>Oct 2020</p>
+                                                        <p>
+                                                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                                                          Animi, deleniti consectetur, nemo consequatur est ipsam reiciendis, 
+                                                        </p>
+                                                      </div>
+                                                      <div class="icon text-center">
+                                                        <div>
+                                                            <i class="bi bi-heart"></i>
+                                                            <p>50</p>
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-eye"></i>
+                                                            <p>115</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            </div>
+                                            <div class="post" data-category="popularProjects">
+                                              <li class="mb-4">
+                                                <div class="card rounded-0">
+                                                  <div class="gridBox">
+                                                    <img src="{{asset('profile/assets/imgs/project/project1.png')}}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                      <div class="title-post">
+                                                        <h2>Title</h2>
+                                                        <i class="material-icons">task_alt</i>
+                                                      </div>
+                                                      <div class="language-items">
+                                                        <span class="language">F R</span>
+                                                        <span class="language">E N</span>
+                                                      </div>
+                                                      <div class="text">
+                                                        <p>Oct 2020</p>
+                                                        <p>
+                                                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                                                          Animi, deleniti consectetur, nemo consequatur est ipsam reiciendis, 
+                                                        </p>
+                                                      </div>
+                                                      <div class="icon text-center">
+                                                        <div>
+                                                            <i class="bi bi-heart"></i>
+                                                            <p>50</p>
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-eye"></i>
+                                                            <p>115</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            </div>
+                                            <div class="post" data-category="trendyProjects">
+                                              <li class="mb-4">
+                                                <div class="card rounded-0">
+                                                  <div class="gridBox">
+                                                    <img src="{{asset('profile/assets/imgs/project/project2.png')}}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                      <div class="title-post">
+                                                        <h2>Title</h2>
+                                                        <i class="material-icons">task_alt</i>
+                                                      </div>
+                                                      <div class="language-items">
+                                                        <span class="language">F R</span>
+                                                        <span class="language">E N</span>
+                                                      </div>
+                                                      <div class="text">
+                                                        <p>Oct 2020</p>
+                                                        <p>
+                                                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                                                          Animi, deleniti consectetur, nemo consequatur est ipsam reiciendis, 
+                                                        </p>
+                                                      </div>
+                                                      <div class="icon text-center">
+                                                        <div>
+                                                            <i class="bi bi-heart"></i>
+                                                            <p>50</p>
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-eye"></i>
+                                                            <p>115</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            </div>
+                                            <div class="post" data-category="trendyProjects">
+                                              <li class="mb-4">
+                                                <div class="card rounded-0">
+                                                  <div class="gridBox">
+                                                    <img src="{{asset('profile/assets/imgs/project/project4.png')}}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                      <div class="title-post">
+                                                        <h2>Title</h2>
+                                                        <i class="material-icons">task_alt</i>
+                                                      </div>
+                                                      <div class="language-items">
+                                                        <span class="language">F R</span>
+                                                        <span class="language">E N</span>
+                                                      </div>
+                                                      <div class="text">
+                                                        <p>Oct 2020</p>
+                                                        <p>
+                                                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                                                          Animi, deleniti consectetur, nemo consequatur est ipsam reiciendis, 
+                                                        </p>
+                                                      </div>
+                                                      <div class="icon text-center">
+                                                        <div>
+                                                            <i class="bi bi-heart"></i>
+                                                            <p>50</p>
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-eye"></i>
+                                                            <p>115</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            </div>
+                                            <div class="post" data-category="freeProjects">
+                                              <li class="mb-4">
+                                                <div class="card rounded-0">
+                                                  <div class="gridBox">
+                                                    <img src="{{asset('profile/assets/imgs/project/project3.png')}}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                      <div class="title-post">
+                                                        <h2>Title</h2>
+                                                        <i class="material-icons">task_alt</i>
+                                                      </div>
+                                                      <div class="language-items">
+                                                        <span class="language">F R</span>
+                                                        <span class="language">E N</span>
+                                                      </div>
+                                                      <div class="text">
+                                                        <p>Oct 2020</p>
+                                                        <p>
+                                                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                                                          Animi, deleniti consectetur, nemo consequatur est ipsam reiciendis, 
+                                                        </p>
+                                                      </div>
+                                                      <div class="icon text-center">
+                                                        <div>
+                                                            <i class="bi bi-heart"></i>
+                                                            <p>50</p>
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-eye"></i>
+                                                            <p>115</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            </div>
+                                            <div class="post" data-category="newProjects">
+                                              <li class="mb-4">
+                                                <div class="card rounded-0">
+                                                  <div class="gridBox">
+                                                    <img src="{{asset('profile/assets/imgs/project/project1.png')}}" class="card-img-top" alt="...">
+                                                    <div class="card-body">
+                                                      <div class="title-post">
+                                                        <h2>Title</h2>
+                                                        <i class="material-icons">task_alt</i>
+                                                      </div>
+                                                      <div class="language-items">
+                                                        <span class="language">F R</span>
+                                                        <span class="language">E N</span>
+                                                      </div>
+                                                      <div class="text">
+                                                        <p>Oct 2020</p>
+                                                        <p>
+                                                          Lorem ipsum dolor sit, amet consectetur adipisicing elit. 
+                                                          Animi, deleniti consectetur, nemo consequatur est ipsam reiciendis, 
+                                                        </p>
+                                                      </div>
+                                                      <div class="icon text-center">
+                                                        <div>
+                                                            <i class="bi bi-heart"></i>
+                                                            <p>50</p>
+                                                        </div>
+                                                        <div>
+                                                            <i class="bi bi-eye"></i>
+                                                            <p>115</p>
+                                                        </div>
+                                                      </div>
+                                                    </div>
+                                                  </div>
+                                                </div>
+                                              </li>
+                                            </div>
+                                          </ul>
+                                        </div>
+                                    </div>
+                                  </div>
+  
+                                  <div class="tab-pane tabTwo listProjects mt-4 fade" id="listProjects-tab-pane">
+                                    <div class="card border-0 mb-4" >
+                                      <div class="listBox">
+                                        <img src="{{asset('profile/assets/imgs/project/project3.png')}}" class="img-fluid rounded-2" alt="...">
+                                        <div class="card-body pt-4">
+                                          <div class="title-post">
+                                            <h2>Title</h2>
+                                            <i class="material-icons">task_alt</i>
+                                          </div>
+                                          <div class="language-items">
+                                            <span class="language">F R</span>
+                                            <span class="language">E N</span>
+                                          </div>
+                                          <div class="text">
+                                            <p>Oct 2020</p>
+                                            <p>
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                              Alias eveniet harum animi est dolore officiis, possimus ipsam sapiente. 
+                                              Recusandae non pariatur suscipit nihil neque nesciunt voluptas velit repudiandae nisi rerum.
+                                            </p>
+                                          </div>
+                                          <div class="likes-views">
+                                            <div class="likes">
+                                              <i class="bi bi-heart"></i>
+                                              <p>50</p>
+                                             </div>
+                                             <div class="views">
+                                                <i class="bi bi-eye"></i>
+                                                <p>115</p>
+                                             </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+      
+                                    <div class="card border-0 mb-4" >
+                                      <div class="listBox">
+                                        <img src="{{asset('profile/assets/imgs/project/project1.png')}}" class="img-fluid rounded-2" alt="...">
+                                        <div class="card-body pt-4">
+                                          <div class="title-post">
+                                            <h2>Title</h2>
+                                            <i class="material-icons">task_alt</i>
+                                          </div>
+                                          <div class="language-items">
+                                            <span class="language">F R</span>
+                                            <span class="language">E N</span>
+                                          </div>
+                                          <div class="text">
+                                            <p>Oct 2020</p>
+                                            <p>
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                              Alias eveniet harum animi est dolore officiis, possimus ipsam sapiente. 
+                                              Recusandae non pariatur suscipit nihil neque nesciunt voluptas velit repudiandae nisi rerum.
+                                            </p>
+                                          </div>
+                                          <div class="likes-views">
+                                            <div class="likes">
+                                              <i class="bi bi-heart"></i>
+                                              <p>50</p>
+                                             </div>
+                                             <div class="views">
+                                                <i class="bi bi-eye"></i>
+                                                <p>115</p>
+                                             </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+      
+                                    <div class="card border-0 mb-4" >
+                                      <div class="listBox">
+                                        <img src="{{asset('profile/assets/imgs/project/project2.png')}}" class="img-fluid rounded-2" alt="...">
+                                        <div class="card-body pt-4">
+                                          <div class="title-post">
+                                            <h2>Title</h2>
+                                            <i class="material-icons">task_alt</i>
+                                          </div>
+                                          <div class="language-items">
+                                            <span class="language">F R</span>
+                                            <span class="language">E N</span>
+                                          </div>
+                                          <div class="text">
+                                            <p>Oct 2020</p>
+                                            <p>
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                              Alias eveniet harum animi est dolore officiis, possimus ipsam sapiente. 
+                                              Recusandae non pariatur suscipit nihil neque nesciunt voluptas velit repudiandae nisi rerum.
+                                            </p>
+                                          </div>
+                                          <div class="likes-views">
+                                            <div class="likes">
+                                              <i class="bi bi-heart"></i>
+                                              <p>50</p>
+                                             </div>
+                                             <div class="views">
+                                                <i class="bi bi-eye"></i>
+                                                <p>115</p>
+                                             </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+      
+                                    <div class="card border-0 mb-4" >
+                                      <div class="listBox">
+                                        <img src="{{asset('profile/assets/imgs/project/project4.png')}}" class="img-fluid rounded-2" alt="...">
+                                        <div class="card-body pt-4">
+                                          <div class="title-post">
+                                            <h2>Title</h2>
+                                            <i class="material-icons">task_alt</i>
+                                          </div>
+                                          <div class="language-items">
+                                            <span class="language">F R</span>
+                                            <span class="language">E N</span>
+                                          </div>
+                                          <div class="text">
+                                            <p>Oct 2020</p>
+                                            <p>
+                                              Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+                                              Alias eveniet harum animi est dolore officiis, possimus ipsam sapiente. 
+                                              Recusandae non pariatur suscipit nihil neque nesciunt voluptas velit repudiandae nisi rerum.
+                                            </p>
+                                          </div>
+                                          <div class="likes-views">
+                                            <div class="likes">
+                                              <i class="bi bi-heart"></i>
+                                              <p>50</p>
+                                             </div>
+                                             <div class="views">
+                                                <i class="bi bi-eye"></i>
+                                                <p>115</p>
+                                             </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                  </div><!--fin projects-->
+
+
+
+                  <div class="tab-pane review fade" id="review-tab-pane">6</div>
+                </div>
+            </div>
+        </div>
+      </section>
+    </main>
+    
+    <button id="back-to-top">
+      <i class="bi bi-arrow-up-short"></i>
+    </button>
+    <!-- JavaScript Bottstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
+        crossorigin="anonymous">
+    </script>
+    <!-- UI Kit -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/js/uikit-icons.min.js"></script>
+    <!-- Template Main JS File -->
+    <script src="{{asset('profile/assets/js/main.js')}}"></script>
+
+</body>
+</html>

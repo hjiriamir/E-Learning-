@@ -1,0 +1,56 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #01132b;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+
+@media(min-width: 992px) {
+  .marketplace {
+    padding: 0px 70px;
+  }
+}
+.marketplace .addProduct {
+  color: var(--blue-color);
+  font-weight: 500;
+}
+.marketplace .addProduct:hover {
+  color: var(--hover-blue-color);
+}
+.marketplace .btns .btn {
+  background-color: var(--blue-color);
+  border-radius: 0px;
+  color: #fff;
+  font-weight: 500;
+}
+.marketplace .btns .btn:hover {
+  background-color: var(--hover-blue-color);
+}
+.marketplace input,
+.marketplace textarea {
+  border: 1px solid var(--main-text-color);
+  border-radius: 15px;
+  padding: 5px 10px;
+}
+.marketplace textarea:focus {
+  outline: none;
+}
+.marketplace p {
+  font-weight: 500;
+  margin-top: 5px;
+}
+.marketplace .add {
+  background-color: var(--blue-color);
+  color: #fff;
+  font-weight: 500;
+}
+.marketplace .add:hover {
+  background-color: var(--hover-blue-color);
+}

@@ -1,0 +1,219 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #01132b;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+
+.sections .nav-item a {
+  text-decoration: none;
+}
+.sections h4 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.sections .title {
+  color: var(--main-color-title);
+  font-weight: 500;
+  font-size: 15px;
+  margin-right: 15px;
+  position: relative;
+  top: 7px;
+}
+.sections .nav-link.active > .title {
+  color: var(--blue-color);
+  font-weight: 600;
+  font-size: 16px;
+}
+.nav-link .step,
+.nav-link .bi-list,
+.nav-link .title {
+  cursor: pointer;
+}
+.sections .nav-link.active > .step {
+  color: #fff;
+  background-color: var(--blue-color);
+  border: 1px solid var(--blue-color);
+}
+
+.sectionStep:focus {
+  color: #fff!important;
+  background-color: var(--blue-color)!important;
+  border: 1px solid var(--blue-color)!important;
+}
+
+.sections .nav-link .bi-list {
+  color: var(--main-color-title);
+  font-size: 20px;
+  margin-right: 15px;
+  position: relative;
+  top: 3px;
+}
+.sections .bi-pencil-square,
+.sections .bi-gear-fill {
+  margin-right: -10px!important;
+}
+.addSection .btn,
+.sections .addLecture .btn,
+.addContent .bi-plus-square-fill {
+  color: var(--blue-color)!important;
+}
+.addSection span,
+.addLecture span,
+.addContent .moreContent {
+  color: var(--blue-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+.addSection {
+  margin-left: 25px;
+}
+.lectureAdded .time {
+  position: relative;
+  top: -5px;
+}
+.addContent {
+  margin-left: 40px;
+}
+.sectionBox {
+  margin-left: 35px;
+}
+.accordion .fa-book,
+.accordion .lecture {
+  cursor: pointer;
+}
+.accordion-header .row .bi-list {
+  color: var(--main-color-title);
+  font-size: 20px;
+}
+
+.sections .accordion-header .row span {
+  font-size: 18px;
+  font-weight: 500;
+}
+.sections .accordion-header .row .fa-book {
+  font-size: 25px;
+  color: var(--main-text-color);
+  margin-right: 5px;
+  position: relative;
+  top: 4px;
+}
+.sections .accordion-header .row .btn:hover {
+  color: var(--main-text-color);
+}
+
+.elements {
+  margin-left: 1.6em;
+}
+ .introduction {
+  padding: 0px 45px;
+}
+ .introduction .bi-fast-forward-btn-fill {
+  color: var(--main-text-color);
+  margin: 0px 10px;
+}
+ .introduction .picture {
+  color: var(--main-text-color);
+  margin: 0px 10px 0px 28px;
+}
+ .introduction .material-icons {
+  color: var(--main-text-color);
+  margin: 0px 7px 0px 24px;
+}
+ .time {
+  margin-left: 15px;
+}
+.boxTitle .introduction .bi-check-circle,
+.boxTitle .introduction .bi-x-circle{
+  color: var(--main-text-color);
+}
+.boxTitle .introduction .bi-check-circle {
+  margin-left: 13px;
+}
+.boxTitle .introduction .bi-x-circle{
+  margin-right: 10px;
+}
+.boxTitle .introduction span {
+  font-weight: 400;
+}
+.boxTitle .introduction .btn:hover,
+.course .btn:hover,
+.microsoft .btn:hover,
+.sheet .btn:hover {
+  color: var(--main-text-color);
+}
+.draggable-droppable .bi-fast-forward-btn-fill,
+.draggable-droppable .bi-list,
+.draggable-droppable .draggableTitle {
+  cursor: pointer;
+}
+.step,
+.sectionStep {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--main-color-title);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+.lectureAdded {
+  margin-left: 7px;
+}
+
+/*.lectureAdded {
+  font-size: 18px;
+  font-weight: 500;
+  color: #404040;
+  position: relative;
+  top: 5px;
+}*/
+/*.lectureAdded .title {
+  font-size: 18px;
+  font-weight: 500;
+  color: #404040;
+  cursor: pointer;
+  position: relative;
+  top: 0px;
+  margin-left: 10px;
+}*/
+.lectureAdded .btn {
+  position: relative;
+  top: -5px;
+}
+.lectureAdded .btn:hover,
+.sectionAdded .btn:hover,
+.bi-trash:hover {
+  color: var(--main-text-color);
+}
+.lectureAdded .bi-pencil-square {
+  margin-right: 0px!important;
+}
+.lectureAdded .bi-trash {
+  margin-right: 8px!important;
+  margin-left: 7px!important;
+}
+
+
+
+#bgHead {
+  color: var(--main-color-title);
+  font-weight: 500;
+  font-size: 12px;
+}
+
+
+

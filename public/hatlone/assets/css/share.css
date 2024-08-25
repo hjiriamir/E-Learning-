@@ -1,0 +1,1017 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --color: rgb(216,81,125);
+  --color-hover: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #02377D;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+
+/*--------------------------------------------------------------
+## Start Left Box ##
+--------------------------------------------------------------*/
+/* Start Box One*/
+.leftBox {
+  padding: 0px 60px 0px 0px;
+}
+.leftBox .boxOne .title {
+  border-bottom: 2px solid #dfdcdc;
+}
+.leftBox .boxOne .title h4 {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--main-color-title);
+  font-family: Arial, sans-serif;
+  margin-bottom: -15px;
+}
+.leftBox .boxOne .title p {
+  font-size: 12px;
+  color: rgba(216, 81, 126, 0.363);
+  margin-bottom: 10px;
+}
+.leftBox .boxOne .students {
+  display: flex;
+  justify-content: space-between;
+}
+.leftBox .boxOne .team {
+  position: relative;
+}
+.leftBox .boxOne .team a {
+  position: absolute;
+}
+.leftBox .boxOne .team span {
+  position: relative;
+  margin-left: 80px;
+  font-size: 12px;
+  top: 2px;
+  font-weight: bold;
+  color: var(--main-color-title);
+}
+.leftBox .boxOne .team img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid white;
+}
+.team {
+  position: relative;
+}
+.team a:nth-child(2) {
+  left: 30px;
+}
+.team a:nth-child(3) {
+  left: 45px;
+}
+.team a:nth-child(4) {
+  left: 60px;
+}
+.leftBox .boxOne .star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  position: relative;
+  top: 4px;
+}
+.leftBox .boxOne .star .bi-star-fill {
+  font-size: 25px;
+  margin-right: 7px;
+  color: var(--star-color);
+}
+.leftBox .boxOne .star span:first-child {
+  color: var(--star-color);
+}
+.leftBox .boxOne .star span {
+  position: relative;
+  bottom: 1px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--main-color-title);
+}
+.leftBox .boxOne .level {
+  margin-top: 4px;
+}
+.leftBox .boxOne .level i{
+  font-size: 27px;
+  color: var(--blue-color);
+  margin-right: 5px;
+}
+.leftBox .boxOne .level span {
+  position: relative;
+  bottom: 6px;
+  font-size: 12px;
+  font-weight: bold;
+  color: var(--main-color-title);
+}
+.leftBox .boxOne button{
+  color: var(--color);
+  font-size: 25px;
+  margin-top: 5px;
+}
+
+
+.leftBox .vdBox {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+@media (max-width: 992px) {
+  .leftBox .vdBox{
+    width: 20rem;
+  }
+  .leftBox .vdBox .btn {
+    background-color: var(--color);
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    left: 135px;
+    top: 75px;
+    z-index: 1;
+  }
+  .leftBox .vdBox .btn i {
+    color: #fff;
+    font-size: 25px;
+  }
+}
+@media (min-width: 992px) {
+  .leftBox .vdBox{
+    width: 37rem;
+  }
+  .leftBox .vdBox .btn {
+    background-color: var(--color);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    left: 260px;
+    top: 160px;
+    z-index: 1;
+  }
+  .leftBox .vdBox .btn i {
+    color: #fff;
+    font-size: 35px;
+  }
+}
+.leftBox .vdBox .btn:hover {
+  background-color: var(--color-hover);
+}
+.leftBox .vdBox .modal {
+  margin-top: 120px;
+}
+.leftBox .vdBox img {
+  cursor: pointer;
+  border-radius: 10px;
+}
+.leftBox .vd:hover .vd-img a::after {
+  opacity: 1;
+}
+.leftBox .vd-img {
+  position: relative;
+}
+.leftBox .vd-img>a {
+  display: block;
+  cursor: pointer;
+}
+.leftBox .vd-img>a::after {
+  background: rgba(0, 0, 0, 0.418);
+  bottom: 0;
+  content: "";
+  height: 100%;
+  border-radius: 5px;
+  left: 0;
+  position: absolute;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  opacity: 0;
+}
+
+/* Start Tabs */
+.leftBox .tabs .nav-tabs {
+  border: 0;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+.leftBox .tabs .tabOne .nav-link {
+  border: 0;
+  padding-left: 23px;
+  transition: 0.3s;
+  color: #818080;
+  border-radius: 0;
+  border-bottom: 2px solid #fff;
+  font-weight: 600;
+  font-size: 17px;
+}
+.leftBox .tabOne .nav-link:hover {
+  color: var(--color);
+}
+.leftBox .tabOne .nav-link.active {
+  color: var(--color);
+  border-color: var(--color);
+}
+.leftBox .tabs .details h3 {
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 20px;
+  color: var(--main-color-title);
+}
+.leftBox .tabs .details p:last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 992px) {
+  .leftBox {
+    padding: 0px;
+  }
+}
+
+/* Start Timeline */ 
+.leftBox .base-timeline {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 2;
+    width: 55%;  
+    margin-top: 38px;
+    justify-content: space-between;
+}
+.leftBox .base-timeline button:hover {
+  color: var(--blue-color);
+}
+.leftBox .base-timeline button.active {
+  color: var(--hover-blue-color);
+  border-color: var(--hover-blue-color);
+  color: var(--hover-blue-color);
+  width: 55px;
+  height: 55px;
+}
+@media (min-width: 992px) {
+  .leftBox .base-timeline::before {
+    content: '';
+    width: 100%;
+    border-top: 3px solid #ccc9c9;
+    display: inline-block;
+    position: absolute;
+    top: 50%;
+    z-index: -1;
+  }
+}
+.leftBox .base-timeline button {
+  color: var(--main-color-title);
+  background-color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  border: 1px solid #eee9e9;
+}
+
+/* Start Section Introduction */
+.leftBox .curriculum .sectionIntroduction {
+  padding: 0px 80px;
+}
+.leftBox .curriculum .sectionIntroduction .accordion-header {
+  justify-content: space-between;
+} 
+.leftBox .curriculum .sectionIntroduction .accordion-header span{
+  font-size: 15px;
+  font-family: Arial, sans-serif;
+  color: var(--main-text-color);
+  font-weight: 500;
+}
+.leftBox .curriculum .sectionIntroduction .secondTitle{
+  font-size: 10px;
+  font-family: Arial, sans-serif;
+  color: var(--main-color-title);
+  font-weight: bold;
+  padding: 0px 60px;
+  margin-top: -5px;
+}
+.leftBox .curriculum .sectionIntroduction .accordion-header p{
+  font-size: 10px;
+  font-family: Arial, sans-serif;
+  color: var(--main-color-title);
+  font-weight: bold;
+}
+.leftBox .curriculum .accordion-header .bi {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--main-color-title);
+  background-color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  border: 1px solid #eee9e9;
+  margin-right: 20px;
+}
+.leftBox .curriculum .accordion-body{
+  padding: 10px 80px;
+}
+.leftBox .curriculum .accordion-body .box{
+  justify-content: space-between;
+  font-size: 12px;
+  font-weight: 400;
+}
+.leftBox .curriculum .accordion-body button{
+  background-color: var(--color);
+  color: #fff;
+  padding: 4px;
+  font-weight: 600;
+}
+.leftBox .curriculum .accordion-body span{
+  color: var(--main-text-color);
+}
+.leftBox .curriculum .accordion-body .bi{
+  color: var(--main-color-title);
+}
+
+/* Start Marketplace */
+/*.tabsMarket .card-body {
+  padding: 0px 30px;
+} */
+.marketplace .slider1 {
+  padding: 0px 30px;
+} 
+.tabsMarket .marketplace h3 span {
+  color: var(--color);
+}
+.marketplace .market .firstBox,
+.marketplace .relatedProduct .firstBox {
+  display: flex;
+  justify-content: space-between;
+}
+.leftBox .marketplace .newPrice {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--main-color-title);
+  margin-right: 10px;
+ /* display: flex;
+  justify-content: space-between; */
+}
+.marketplace .market .label {
+  background-color: var(--color);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+  margin-top: 15px;
+}
+.relatedProduct .teacher .instructor{
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 2px;
+    box-shadow: 0 0 5px #ddd;
+    margin-left: 10px;
+    margin-top: -25px;
+}
+.relatedProduct .teacher span{
+  color: var(--main-text-color);
+  font-family: 800;
+  font-size: 15px;
+}
+.leftBox .teacher .bi{
+  color: var(--star-color);
+  font-size: 12px;
+}
+.marketplace .icons .bi{
+  font-size: 17px;
+  color: var(--main-text-color);
+}
+.marketplace .icons .bi-heart{ 
+  margin-right: 8px;
+}
+/*.marketplace .firstBox span {
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--main-color-title);
+}*/
+.marketplace .market .card-text {
+  border-bottom: 1px solid #eee9e9;
+}
+.marketplace .market .card-text span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--main-color-title);
+}
+.marketplace .market .card-text span:hover {
+  color: var(--color-hover);
+}
+.marketplace .market .card-text a {
+    text-decoration: none;
+  }
+.marketplace .relatedProduct .title {
+  border-bottom: 1px solid #eee9e9;
+}
+.marketplace .relatedProduct .title a{
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--main-color-title);
+  text-decoration: none;
+}
+.marketplace .relatedProduct .title a:hover{
+  color: var(--color-hover);
+}
+.marketplace .level {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--main-text-color);
+}
+.marketplace .slider1 .btn{
+  color: var(--color);
+  border: 1px solid var(--color);
+  width: 100%;
+}
+.marketplace .slider1 .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--main-color-title);
+}
+/*.marketplace .slider1 .text .label {
+  background-color: var(--color);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 10px;
+  width: 40%;
+}*/
+.marketplace .relatedProduct .text {
+  padding: 0px 10px;
+}
+.marketplace .relatedProduct .label {
+  position: absolute;
+  writing-mode: horizontal-tb;
+  background-color: var(--color);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 10px;
+}
+.marketplace .slider1 .btn:hover {
+  color: var(--color-hover);
+  border: 1px solid var(--color-hover);
+}
+/* End Marketplace*/
+
+/* Start About Box */
+.about .boxText {
+  padding: 0px 60px;
+}
+.about .boxText span{
+  color: var(--main-color-title);
+}
+.about .boxText p{
+  color: var(--main-text-color);
+  font-size: 12px;
+}
+/* End About Box */
+
+/* Start List Marketplace */
+.tabsMarket .tab1 .card-title{
+  justify-content: space-between;
+}
+.tabsMarket .tab1 .card-title .btn {
+  color: var(--main-text-color);
+  font-size: 20px;
+}
+.tabsMarket .tab1 .card-title .bi-heart {
+  margin-right: -20px;
+}
+.tabsMarket .tab1 .card-title .btn:hover {
+  color: var(--color);
+}
+.tabsMarket .tab1 .card-title span:first-child {
+  color: var(--main-color-title);
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.tabsMarket .tab1 .card-title .label {
+  background-color: var(--color);
+  color: white;
+  font-weight: bold;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  position: relative;
+  top: -10px;
+  margin-top: 20px;
+  margin-left: 10px;
+}
+.tabsMarket .tab1 .card-text .title { 
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--main-color-title);
+}
+.tabsMarket .tab1 .card-text a { 
+  text-decoration: none;
+}
+.tabsMarket .tab1 .card-text .title:hover { 
+  color: var(--color);
+}
+.tabsMarket .tab1 .card-text span:nth-child(3) { 
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--main-color-title);
+}
+.tabsMarket .tab1 .card-text .level  {
+  font-size: 12px;
+  justify-content: space-between;
+  color: var(--main-text-color);
+}
+.tabsMarket .tab1 .card-text .level .bi-star-fill {
+  color: var(--star-color);
+}
+.tabsMarket .tab1 .card-text .btn {
+  background-color: var(--color);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  width: 25%;
+  font-weight: 500;
+}
+.tabsMarket .tab1 .card-text .btn:hover{
+background-color: var(--color-hover);
+}
+/* End List Marketplace */
+
+/* Start Course Box */
+.leftBox .curriculum .course,
+.leftBox .relatedCourses{
+  padding: 0px 27px;
+  display: flex;
+  justify-content: space-between;
+  color: var(--main-text-color);
+  font-size: 15px;
+  box-shadow: none;
+}
+.leftBox .curriculum .cardTwo{
+  /*padding-bottom: 28px;*/
+  display: block;
+  margin-top: 20px;
+  padding-bottom: 9px;
+}
+.leftBox .curriculum .course h3,
+.leftBox .relatedCourses h3,
+.tabsMarket .marketplace h3 {
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  color: var(--main-color-title);
+}
+.leftBox .relatedCourses h3:hover {
+  color: var(--color-hover);
+}
+.relatedProduct .view {
+  background-color: var(--blue-color);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px;
+}
+.relatedProduct .view:hover {
+  background-color: var(--hover-blue-color);
+}
+.leftBox .course h3:before,
+.leftBox .relatedCourses h3:before,
+.leftBox .relatedProduct h3:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+}
+
+/* list & grid marketplace buttons */
+.leftBox .tabsMarket .nav-item button {
+  padding: 0px;
+  border: 0px;
+  color: var(--main-color-title);
+  font-size: 22px;
+}
+.leftBox .tabsMarket .nav-item .bi-grid-3x3-gap-fill {
+  margin-right: 10px;
+}
+.leftBox .tabsMarket .nav-link:hover {
+  color: var(--color);
+}
+.leftBox .tabsMarket .nav-link.active {
+  color: var(--color);
+}
+.leftBox .tabsMarket .btns {
+  justify-content: space-between;
+}
+
+/*--------------------------------------------------------------
+## Start Right Box ## 
+--------------------------------------------------------------*/
+/* Start Box One */
+.rightBox .boxTwo .body p {
+  color: var(--main-color-title);
+  font-weight: bold;
+  font-size: 30px;
+}
+.rightBox .boxTwo .body .buy {
+  width: 100%;
+  background-color: var(--blue-color);
+}
+.rightBox .boxTwo .body .buy:hover {
+  width: 100%;
+  background-color: var(--hover-blue-color);
+}
+.rightBox .boxTwo .body .add {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--main-color-title);
+  text-decoration: underline;
+}
+.rightBox .boxTwo .body .add::after{
+  background: var(--main-color-title);
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  bottom: 0;
+  left: 0;
+  margin-top: -4px;
+}
+.rightBox .boxTwo .body {
+  border-bottom: 1px solid #ccc9c9;
+}
+/* Start Highlights 
+.highlights span {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--blue-color);
+}*/
+
+/* Start Course Info */
+/* Start Title Right Box */
+.rightBox .titleSkills,
+.rightBox .titleInstructor,
+.rightBox .titleShare,
+.rightBox .titleInfo,
+.rightBox .titleHighlight  {
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+.rightBox .titleSkills i {
+  font-size: 33px;
+  color: var(--blue-color);
+  margin-right: 10px;
+}
+.rightBox .titleInstructor i,
+.rightBox .titleShare i,
+.rightBox .titleInfo i,
+.rightBox .titleHighlight i {
+  font-size: 27px;
+  color: var(--blue-color);
+  margin-right: 10px;
+}
+.rightBox .titleSkills span,
+.rightBox .titleInstructor span,
+.rightBox .titleShare span,
+.rightBox .titleInfo span,
+.rightBox .titleHighlight span {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--main-color-title);
+  margin-top: 4px;
+}
+/* End Title Right Box */
+.rightBox .boxTwo .information span{
+  color: var(--main-text-color);
+  font-weight: 600;
+  font-size: 12px;
+}
+.rightBox .boxTwo .information .bi{
+  font-size: 15px;
+  color: var(--main-text-color);
+  margin-right: 5px;
+}
+.rightBox .boxTwo .information .info{
+  color: var(--blue-color);
+}
+.rightBox .boxTwo .courseFeatures .accordion {
+  color: var(--blue-color);
+  font-size: 15px;
+  font-weight: 600;
+}
+.rightBox .boxTwo .courseFeatures .accordion-body {
+  font-size: 12px;
+}
+.rightBox .boxTwo .courseFeatures .accordion-body p{
+  color: var(--main-color-title);
+  margin-bottom: -10px;
+}
+.rightBox .boxTwo .courseFeatures .accordion-body span{
+  color: var(--main-text-color);
+}
+/* Start Box Instructor Info */
+.rightBox .instructorInfo h5,
+.rightBox .skillsAssociated h5,
+.rightBox .team h5 {
+  color: var(--main-color-title);
+  font-size: 20px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+}
+.rightBox .instructorInfo h5::after,
+.rightBox .skillsAssociated h5::after,
+.rightBox .team h5::after {
+  border: 1px solid var(--main-color-title);
+  bottom: -5px;
+  content: "";
+  left: 0;
+  margin: 0 auto;
+  position: absolute;
+  right: 0;
+  width: 20%;
+}
+.rightBox .instructorInfo .follow {
+  border: 1px solid #ccc9c9;
+  font-weight: 600;
+  color: var(--blue-color);
+}
+.rightBox .instructorInfo .follow:hover {
+  border: 1px solid var(--blue-color);
+}
+.rightBox .instructorInfo .subscribe {
+  border: 1px solid #ccc9c9;
+  font-weight: 600;
+  color: var(--color);
+}
+.rightBox .instructorInfo .subscribe:hover {
+  border: 1px solid var(--color);
+
+}
+.rightBox .instructorInfo .instructor {
+  padding: 20px;
+  background-color: white;
+  border: 1px solid rgb(221, 220, 220);
+  border-radius: 3px;
+  position: relative;
+}
+.rightBox .instructorInfo .instructor img {
+  position: absolute;
+  right: 5px;
+  top: 15px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 2px solid rgb(221, 220, 220);
+}
+.rightBox .instructorInfo .instructor a {
+    text-decoration: none;
+}
+.rightBox .instructorInfo .profession {
+  color: var(--main-text-color);
+  font-style: italic;
+  font-size: 12px;
+}
+.rightBox .instructorInfo .bi-check2-circle {
+  color: var(--color);
+  font-weight: bold;
+  font-size: 20px;
+}
+.rightBox .instructorInfo .row .boxOne {
+  font-weight: bold;
+  font-size: 12px;
+}
+.rightBox .instructorInfo .row .boxTwo {
+  position: absolute;
+  right: 100px;
+  font-weight: bold;
+  font-size: 12px;
+}
+.rightBox .instructorInfo .row .boxTwo span:nth-child(2){
+  color: var(--star-color);
+  margin: 0px 5px;
+}
+.rightBox .instructorInfo .row .boxTwo span:nth-child(3){
+  color: var(--main-color-title);
+}
+.instructor .row .bi-star-fill {
+  color: var(--star-color);
+  font-size: 10px;
+}
+.instructorInfo .bi-person-bounding-box {
+  color: var(--color);
+  margin-left: 5px;
+}
+.instructorInfo .bi-person-bounding-box:hover {
+  color: var(--color-hover);
+}
+.rightBox .instructorInfo .btn {
+  width: 100%;
+}
+
+/* Tooltip CopyLink */
+.tooltip-container {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+.contact .tooltip {
+  opacity: 0;
+  z-index: 99;
+  color: var(--hover-blue-color);
+  width: 80px;
+  display: block;
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /*box-shadow: 0 10px 10px rgba(0,0,0,0.1);*/
+  position: absolute;
+  right: -20px;
+  bottom: 45px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+.instructorInfo .tooltip {
+  opacity: 0;
+  z-index: 99;
+  color: var(--hover-blue-color);
+  width: 80px;
+  display: block;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 3px;
+  text-align: center;
+  font-weight: 700;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /*box-shadow: 0 10px 10px rgba(0,0,0,0.1);*/
+  position: absolute;
+  right: -30px;
+  bottom: 30px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+.curriculum .tooltip {
+  opacity: 0;
+  z-index: 99;
+  color: var(--hover-blue-color);
+  width: 120px;
+  display: block;
+  font-size: 16px;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 700;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  /*box-shadow: 0 10px 10px rgba(0,0,0,0.1);*/
+  position: absolute;
+  right: -30px;
+  bottom: 64px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+.tooltip-container:hover .tooltip,a:hover .tooltip {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+/* Start Bow Contact */
+.rightBox .contact .btn {
+  background-color: var(--blue-color);
+  width: 100%;
+}
+.rightBox .contact .btn:hover {
+  background-color: var(--red-color);
+}
+.rightBox .contact .bi {
+  color: var(--main-text-color);
+  border-radius: 5px;
+  border: 1px solid rgb(155, 153, 153);
+  padding: 6px;
+}
+.rightBox .contact .bi:hover {
+  color: #fff;
+}
+.rightBox .contact .bi-facebook {
+  background-color: #3b5998;
+  border: 1px solid #3b5998;
+  color: #fff;
+}
+.rightBox .contact .bi-linkedin {
+  background-color: #0077b5;
+  border: 1px solid #0077b5;
+  color: #fff;
+}
+.rightBox .contact .bi-twitter {
+  background-color: #55acee;
+  border: 1px solid #55acee;
+  color: #fff;
+}
+.rightBox .contact .bi-skype {
+  background-color: #00aff0;
+  border: 1px solid #00aff0;
+  color: #fff;
+}
+.rightBox .contact .bi-instagram {
+  background-color: #cd486b;
+  border: 1px solid #cd486b;
+  color: #fff;
+}
+.rightBox .contact .bi-facebook:hover {
+  background-color: #5275c2;
+  border: 1px solid #5275c2;
+}
+.rightBox .contact .bi-linkedin:hover {
+  background-color: #2495d1;
+  border: 1px solid #2495d1;
+}
+.rightBox .contact .bi-twitter:hover {
+  background-color: #7fbeee;
+  border: 1px solid #7fbeee;
+}
+.rightBox .contact .bi-skype:hover {
+  background-color: #3bc3f5;
+  border: 1px solid #3bc3f5;
+}
+.rightBox .contact .bi-instagram:hover {
+  background-color: #d86b88;
+  border: 1px solid #d86b88;
+}
+.rightBox .contact .bi-back {
+  background-color: #54a1db;
+  border: 1px solid #54a1db;
+  color: #fff;
+}
+.rightBox .contact .bi-back:hover {
+  background-color: #7bb5e0;
+  border: 1px solid #7bb5e0;
+}
+.section-details .box_btn .btn {
+    background-color: var(--blue-color);
+    color: #fff;
+    position: absolute;
+    left: 50%;
+}
+@media(min-width: 992px) {
+    .section-details .box_btn .btn {
+        width: 15%;
+    }
+}
+.section-details .box_btn .btn:hover {
+    background-color: var(--hover-blue-color);
+}

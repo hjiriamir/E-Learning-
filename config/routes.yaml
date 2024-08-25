@@ -1,0 +1,13 @@
+controllers:
+    resource: ../src/Controller/
+    type: annotation
+
+kernel:
+    resource: ../src/Kernel.php
+    type: annotation
+app_save_quizz:
+    path: /quizz/save_quizz
+    methods: [GET,POST]
+resultat:
+    path: /result1/{id}
+    controller: App\Controller\QuizzController::result

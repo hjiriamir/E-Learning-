@@ -1,0 +1,126 @@
+
+
+
+   {#         {% set global_level = "" %}
+            {% set all_levels = ['Beginner', 'Advanced', 'Intermediate', 'Professionnel'] %}
+            {% set global_level1 = all_levels %} 
+            {% set amir1 = 0 %}
+{% if vale == 'all' %}
+{% elseif vale == 'Beginner' %}
+    {% set global_level1 = ['Beginner'] %}
+{% elseif vale == 'Advanced' %}
+    {% set global_level1 = ['Advanced'] %}
+{% elseif vale == 'Intermediate' %}
+    {% set global_level1 = ['Intermediate'] %}
+{% elseif vale == 'Professionnel' %}
+    {% set global_level1 = ['Professionnel'] %}
+{% endif %}
+
+
+  {% set global_variable1 = [1, 2, 3, 4] %}
+            {% if amir == 'All_Languages' %}
+           {% set global_variable1 = [1, 2, 3, 4] %}
+          
+            {% elseif amir == 'English' %}
+               {% set global_variable1 = [1] %}
+            {% elseif amir == 'arab' %}
+               {% set global_variable1 = [2] %}
+            {% elseif amir == 'Español' %}
+                {% set global_variable1 = [3] %}
+            {% elseif amir == 'Français' %}
+               {% set global_variable1 = [4] %}
+            {% endif %}#}
+<p>Nb {{ coursess|length }}</p>
+
+ {% for coursee in coursess %}
+                                
+                         
+                                
+                                <div class="cardProduct cardCourseProduct swiper-slide" data-category="{{ coursee.course.courseStatus }}">
+                                    <div class="card98 course-card course-card1">
+                                        <div class="row no-gutters">
+                                            <div class="col-12" style="position:relative;">
+                                                <div class="labelImg" style="position:absolute;">Course</div>
+                                                <img src="{{coursee.course.imageCours}}" class="card-img" alt="Course Image">
+                                            </div>
+                                            <div class="col-12">
+                                                <div class="card-body">
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="vendor/hatlone/assets/user/imgs/testimonials/testimonials-3.jpg" alt="Profile Image" class="rounded-circle" width="50" height="50" style="margin-top:-20px !important;position:absolute;">
+                                                        <div class="ml-3 mx-5">
+                                                           <h5 class="mb-0 profName mx-2 mt-1">{{ coursee.user.firstname }}</h5>
+                                                            <div class="text-warning mx-2">
+                                                                <small>★ <span>{{ coursee.ratings }}</span> <span style="color:#6c757d;font-weight:500;">({{ coursee.followers }})</span></small>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                                        <div class="price98 mt-3 mx-1">
+                                                            <span class="newPrice98 font-weight-bold">${{ coursee.course.prix }}</span><br>
+                                                        </div>
+                                                        <div class="price-icons">
+                                                            <div class="icons98 ml-3">
+                                                                <i class="bi bi-heart"></i>
+                                                                <i class="bi bi-cart-plus"></i>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="details mb-1">
+                                                        <div class="d-flex align-items-center mb-2">
+                                                            <div class="mr-3">
+                                                                <i class="far fa-clock"></i> {{ coursee.course.dateOperation|date('H:i') }}
+                                                            </div>
+                                                            <div class="mr-3 mx-3">
+
+                                                                {% if coursee.course.langue == 1 %}
+                                                                    <i class="fas fa-globe"></i>  EN<br>
+                                                                {% elseif coursee.course.langue == 2 %}
+                                                                    <i class="fas fa-globe"></i>  AR<br>
+                                                                {% elseif coursee.course.langue == 3 %}
+                                                                    <i class="fas fa-globe"></i>  SP<br>
+                                                                {% elseif coursee.course.langue == 4 %}
+                                                                    <i class="fas fa-globe"></i>  FR<br>
+                                                                {% else %}
+                                                                    <i class="fas fa-globe"></i>  Inconnu<br>
+
+                                                                {% endif %}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="d-flex align-items-center justify-content-between">
+                                                        <h4 class="card-title98 mb-0">{{ coursee.course.titre }}</h4>
+                                                        <div class="badge badge-danger new-badge mx-3">{{ coursee.course.courseStatus }}</div>
+                                                    </div>
+
+                                                    <div class="details mb-3 mt-3" style="padding-top:10px !important;border-top:1px solid #eee9e9;">
+                                                        <div class="d-flex align-items-center" style="justify-content:space-between !important;">
+                                                            <div class="mr-3">
+                                                                <i class="bi-star-fill"></i> {{ coursee.ratings2}} ({{ coursee.course.id }})
+                                                            </div>
+                                                            <div class="mr-3">
+                                                                <i class="fa fa-user" style="color:#6c757d;"></i> {{ coursee.followers }}
+                                                            </div>
+                                                            <div class="mr-3">
+                                                                <i class="bi bi-bar-chart"></i>{{ coursee.label1}}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+
+                                 
+                            {% endfor %}
+                            
+                       
+                       {# search/ContentPag.html.twig 
+{% for coursee in coursess %}
+    <div>{{ coursee.course.id }}</div>
+{% else %}
+    <p>No courses found</p>
+{% endfor %}#}
+
+

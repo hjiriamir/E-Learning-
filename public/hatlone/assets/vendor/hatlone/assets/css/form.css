@@ -1,0 +1,354 @@
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #01132b;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+  --error-text-color: rgb(249, 111, 111);
+}
+input:focus {
+  outline: none;
+}
+#step_2,
+#step_3,
+#step_4 {
+  display:none;
+}
+.right {
+  margin: 35px auto 0px auto; 
+}
+@media(max-width: 280px) {
+  .boxButton .btn {
+    font-size: 12px;
+  }
+}
+.boxButton .btn,
+.boxButton .btn:focus {
+  cursor: pointer!important;
+  text-decoration: none!important;
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  border-radius: 0px!important;
+}
+.boxButton .btn:hover {
+  background-color: var(--hover-blue-color)!important;
+}
+.boxButton {
+  float: right;
+}
+.rightBox .text span,
+.skill .box1 .text,
+.highlights .box1 .text {
+  font-size: 16px;
+  font-weight: 500;
+  color: #000;
+}
+.tabForm .rightBox .bi {
+  font-size: 5px;
+  position: relative;
+  top: -4px;
+  right: 5px;
+}
+.tabForm .rightBox .good,
+.highlights .box1 .good {
+  color: green;
+  font-weight: 500;
+  font-size: 16px;
+}
+.tabForm .rightBox .bad,
+.highlights .box1 .bad {
+  color: red;
+  font-weight: 500;
+  font-size: 16px;
+}
+.tabForm .rightBox a {
+  color: var(--blue-color);
+  margin-top: 10px;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 16px;
+}
+.tabForm .rightBox a:hover {
+  color: var(--hover-blue-color);
+}
+.arrow_box,
+.arrow,
+.arrowPrice,
+.arrowFeature {
+  position:relative;
+  background: #fbfbfb;
+  border: 1px solid #d2d2d2;
+}
+.arrow_box:after,
+.arrow_box::before,
+.arrow:after,
+.arrow::before,
+.arrowPrice:after,
+.arrowPrice::before,
+.arrowFeature:after,
+.arrowFeature::before {
+  right: 100%;
+  top: 50%;
+  border: solid transparent;
+  content: "";
+  height: 0;
+  position: absolute;
+  pointer-events: none;
+}
+.arrow_box:after {
+  border-right-color: #fbfbfb;
+  border-width: 15px;
+  margin-top: -40px;
+}
+.arrow_box:before {
+  border-right-color: #bbbbbb;
+  border-width: 16px;
+  margin-top: -41px;
+}
+.arrow:after {
+  border-right-color: #fbfbfb;
+  border-width: 15px;
+  margin-top: -15px;
+}
+.arrow:before {
+  border-right-color: #bbbbbb;
+  border-width: 16px;
+  margin-top: -16px;
+}
+.arrowPrice:after {
+  border-right-color: #fbfbfb;
+  border-width: 15px;
+  margin-top: -17px;
+}
+.arrowPrice:before {
+  border-right-color: #bbbbbb;
+  border-width: 16px;
+  margin-top: -18px;
+}
+.arrowFeature:after {
+  border-right-color: #fbfbfb;
+  border-width: 12px;
+  margin-top: -8px;
+}
+.arrowFeature:before {
+  border-right-color: #bbbbbb;
+  border-width: 13px;
+  margin-top: -9px;
+}
+.tabForm h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--main-color-title);
+  margin: 0px;
+}
+.form-control:focus {
+  box-shadow: none!important;
+  border-color: var(--main-text-color)!important;
+}
+.tabForm .caracter {
+  font-size: 14px;
+  color: var(--main-text-color);
+}
+
+.has-error .form-control {
+  border: 1px solid var(--error-text-color);
+}
+.has-error span {
+  color: var(--main-color-title);
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.step1 input,
+.highlights input {
+  padding: 15px 20px;
+}
+
+/* step2 */
+.step2 .courses span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+}
+.uploadImg,
+.uploadVd {
+  position: relative;
+  border: 1px solid #c7c7c7;
+	width: 100%;
+	height: 500px;
+	border-radius: 5px;
+}
+@media(max-width: 540px) {
+  .uploadImg,
+  .uploadVd {
+    height: 225px;
+  }
+}
+.uploadImg .iconImg,
+.uploadVd .iconVd {
+  position: absolute; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 80px;
+  color: var(--main-color-title);
+}
+.has-error .label {
+  border: 1px solid var(--error-text-color);
+	width: 100%;
+	height: 500px;
+	border-radius: 5px;
+}
+.uploadImg img,
+.uploadVd video {
+  width: 100%;
+  height: 100%;
+}
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.requiredField {
+  color: transparent;
+  width: 0em;
+}
+.addImage,
+.addVd {
+  display: flex;
+  background: var(--blue-color);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color:#fff;
+  padding: 10px 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+.addImage:hover,
+.addVd:hover {
+  background: var(--hover-blue-color);
+}
+
+/* step3 */
+.step3 p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.category label {
+  cursor: pointer;
+  color: #000;
+}
+
+/* step4 */
+#tags-list, #selected-tags-list {
+  margin-top: 10px;
+  padding: 0;
+  list-style: none;
+  display: none;
+}
+#tags-list li {
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #ccc;
+}
+#tags-list li:hover {
+  background-color: rgb(222, 222, 222);
+  font-weight: 500;
+}
+#selected-tags-list li {
+  display: inline-block;
+  background-color: var(--red-color);
+  padding: 7px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+}
+.close-btn {
+  cursor: pointer;
+  margin-left: 15px;
+  font-weight: bold;
+}
+.selectedSkills p { 
+  font-weight: bold;
+  margin: 0px 0px 5px 20px;
+  color: var(--blue-color);
+  text-decoration: underline;
+  font-size: 20px;
+}
+.my-button {
+  border: 1px solid #dfdcdc;
+  padding: 3px 15px;
+  font-size: 15px;
+  border-radius: 25px;
+  margin-bottom: 5px;
+  cursor: pointer;
+  background-color: #fff;
+  margin-right: 5px;
+}
+
+.my-button.added {
+  margin-top: 5px;
+  background-color: var(--red-color);
+  padding: 7px 10px;
+  margin-right: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+}
+.my-button.delete {
+  background-color: transparent;
+  border: none;
+}
+.skills p { 
+  font-weight: 600;
+  font-size: 15px;
+  margin: 0px 0px 5px 20px;
+}
+.highlights input {
+  padding: 15px 20px;
+}
+@media(min-width: 992px) {
+  .overflow1 {
+    width: 80%!important;
+  }
+  .overflow2 {
+    width: 39%!important;
+  }
+}
+.moreHighlights {
+  color: var(--blue-color);
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addInputs input {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  width: 95%;
+}
+@media(max-width:540px) {
+  .addInputs input {
+    width: 85%;
+  }
+}
+.btn-delete {
+  color: var(--blue-color);
+  cursor: pointer;
+}
+.btn-delete:hover {
+  color: var(--hover-blue-color);
+}

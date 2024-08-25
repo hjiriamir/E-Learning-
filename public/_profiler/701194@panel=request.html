@@ -1,0 +1,3449 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="robots" content="noindex,nofollow" />
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <title>Symfony Profiler</title>
+        <link rel="icon" type="image/x-icon" sizes="16x16" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAFEUlEQVR4AZVXA4wm2RMf27bXDM/+3/+sYBGfrbVtezc6BWtzfPbYXtvDL9906t6v0vWl05me7q1JzXuvvu4yXnvZgJ9hH6bwZYXLFR739vauUGuDwhq1L1N4Uv/tRYUhFjwcg49hn6aYr1V4TiGp86CoP9Oh1tV414KnM6t9fHymKUZ3DAI0hW4b1AyK3lE8phh5OxWeoJgUGhi5mLm95YzBwcHuhIQEV1JSEoWGhoKWHxYWFmenhJ/B5W0GwZpDt5Ovry9lZWWRyWOu5ORk7JsUpogsq5gnmISTU+HKQoLFQv/qq6/os88+I+EVFRUlSsRZ5oRiVmwlXMWShQkahUdERJCfnx/vd+3aRTU1NXTixAmqrq6mK1eu0PTp05mnrmD+QK6XhLO0XP2O2FJAQICRjjMU4P1PP/1EfX19NGfOHM8Z0N7ezueQkBBXYGAgSWIaQ5Em2T5QzFNSUig9PV3OHOe4uDjZ87p//34C7Nm7x/NcRUUFAX799Vec8Y7m7+8Pz92SfBDXr7VwPYRbxn/MmDG8Tps2jQBd3V30/PPPe35/6qmnaPXq1TR69Gg+h4eHiwwosdLT4dBkQDSXWmJiIq/vv/8+/fvvv3ThwgWqr6+n/Px8oyCmAerq6jy03Nxc2Yv7ySSjQzrmi4i92fVpaWlYOZ79/f2MW7dtpSlTptDp06epo6ODPvroI850ASiGdyZOnEjXrl2jyspKT4XA9cgjkaPL/D8UWG62HokieyQQoKSkRGiMs2bNotraWmprayOBNWvWyO+scGdnp5zF/WYvLEb8TwpRykp1MV7feust6uzqJMD169fpueeeY/rDDz/MKzzgdrsJoGkaffvtt/TFF19wQsIDmzZtssojt+6Fo1CgzKiAvAB3DRs2jAULtLS0eErPGB5Ad3c3lZaWUnFxMfeAd955h5+JjY3FaqXAPwhBnRCNySK4b98+Aoilv/z6i/zGggSk1g0opWupAMvGP91yt96zadWqVdTc3Ezz58/31LOAy+US6zgHBP766y+mDR8+HBUgFWSnQI2EAFnqlpcaGxsJIFkMN8L9AnPnzmX6jRs3SACeAi0vL888JwYPgTEJpauhnADo6/LSgQMHCHD37l2Cp15//XXq7eslgKb+Fi1exM9lZmbaCDclIcpQQhATE4OVsrOzuamg+cyePZuzG64Hrlu3jp9ZuWolCdy+fZueeOIJpkdHR1sLHqgM0Yh0bTRz1m7fvp2KiopYkYKCApo8ebLZIwzlFeXSOXEnsLPe2Ij+p5DbYYdOdOtDQ0rNjFya5sTcsGGDcTDZoXTcNoVBMoxWyzDS2yXmOyeUtGSskmDjx4/nRgPAfBDmMpZtUIbRcsi2GsfSD2QYyd2OcdmyZSSwdu1apuXk5GB16v4bak0yX0imyIUEgwNovFTglhMZGcm0srIy43zAVUxuTLbW4xn17Fci23wly9dngUummrTaixcvMpOtW7fiiBwQpqKYU9efHuxDJE5hC9wvL9TW1RLg+PHjPGTQ8wsLC4WpDC5Y5UR4k5qKMSLT6lqeAiX0nuAaMmSI9sMPP9CZM2foyJEj9O677wpTVIuTjidNp0HibvttoH9E5OMqbWKkSaNSlojldoLF7TEP+nUEmKI62y1kOBINbVaNarcI0PuGGUlHyfYvLHg7/jhFSFYqZh0P8KHSptd5ksOPU3tvqAEUot/hFmOIYJLp87wGe9Dwm95eg5xa/R8G6d8U5EcFhwAAAABJRU5ErkJggg==">
+
+                    <style nonce="05e9e7d13038f6e0c9e7f1a5c0c221dc">
+                *{-webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box}html{font-family:sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}body{margin:0}article,aside,details,figcaption,figure,footer,header,hgroup,main,menu,nav,section,summary{display:block}audio,canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],template{display:none}a{background-color:transparent}a:active,a:hover{outline:0}abbr[title]{border-bottom:1px dotted}b,strong{font-weight:700}dfn{font-style:italic}h1{margin:.67em 0;font-size:2em}mark{color:#000;background:#ff0}small{font-size:80%}sub,sup{position:relative;font-size:75%;line-height:0;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root){overflow:hidden}figure{margin:1em 40px}hr{height:0;-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box}pre{overflow:auto}code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}button,input,optgroup,select,textarea{margin:0;font:inherit;color:inherit}button{overflow:visible}button,select{text-transform:none}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer}button[disabled],html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{padding:0;border:0}input{line-height:normal}input[type="checkbox"],input[type="radio"]{-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;padding:0}input[type="number"]::-webkit-inner-spin-button,input[type="number"]::-webkit-outer-spin-button{height:auto}input[type="search"]{-webkit-box-sizing:content-box;-moz-box-sizing:content-box;box-sizing:content-box;-webkit-appearance:textfield}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none}fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid silver}legend{padding:0;border:0}textarea{overflow:auto}optgroup{font-weight:700}table{border-spacing:0;border-collapse:collapse}td,th{padding:0}
+
+:root {
+    --font-sans-serif: Helvetica, Arial, sans-serif;
+    --page-background: #f9f9f9;
+    --color-text: #222;
+    --color-muted: #999;
+    --color-link: #218BC3;
+    /* when updating any of these colors, do the same in toolbar.css.twig */
+    --color-success: #4f805d;
+    --color-warning: #a46a1f;
+    --color-error: #b0413e;
+    --badge-background: #f5f5f5;
+    --badge-color: #666;
+    --badge-warning-background: #FEF3C7;
+    --badge-warning-color: #B45309;
+    --badge-danger-background: #FEE2E2;
+    --badge-danger-color: #B91C1C;
+    --tab-background: #fff;
+    --tab-color: #444;
+    --tab-active-background: #666;
+    --tab-active-color: #fafafa;
+    --tab-disabled-background: #f5f5f5;
+    --tab-disabled-color: #999;
+    --log-filter-button-background: #fff;
+    --log-filter-button-border: #999;
+    --log-filter-button-color: #555;
+    --log-filter-active-num-color: #2563EB;
+    --log-timestamp-color: #555;
+    --metric-value-background: #fff;
+    --metric-value-color: inherit;
+    --metric-unit-color: #999;
+    --metric-label-background: #e0e0e0;
+    --metric-label-color: inherit;
+    --trace-selected-background: #F7E5A1;
+    --table-border: #e0e0e0;
+    --table-background: #fff;
+    --table-header: #e0e0e0;
+    --info-background: #ddf;
+    --tree-active-background: #F7E5A1;
+    --exception-title-color: var(--base-2);
+    --shadow: 0px 0px 1px rgba(128, 128, 128, .2);
+    --border: 1px solid #e0e0e0;
+    --background-error: var(--color-error);
+    --highlight-comment: #969896;
+    --highlight-default: #222222;
+    --highlight-keyword: #a71d5d;
+    --highlight-string: #183691;
+    --highlight-selected-line: rgba(255, 255, 153, 0.5);
+    --base-0: #fff;
+    --base-1: #f5f5f5;
+    --base-2: #e0e0e0;
+    --base-3: #ccc;
+    --base-4: #666;
+    --base-5: #444;
+    --base-6: #222;
+    --card-label-background: #eee;
+    --card-label-color: var(--base-6);
+}
+
+.theme-dark {
+    --page-background: #36393e;
+    --color-text: #e0e0e0;
+    --color-muted: #777;
+    --color-link: #93C5FD;
+    --color-error: #d43934;
+    --badge-background: #555;
+    --badge-color: #ddd;
+    --badge-warning-background: #B45309;
+    --badge-warning-color: #FEF3C7;
+    --badge-danger-background: #B91C1C;
+    --badge-danger-color: #FEE2E2;
+    --tab-background: #555;
+    --tab-color: #ccc;
+    --tab-active-background: #888;
+    --tab-active-color: #fafafa;
+    --tab-disabled-background: var(--page-background);
+    --tab-disabled-color: #777;
+    --log-filter-button-background: #555;
+    --log-filter-button-border: #999;
+    --log-filter-button-color: #ccc;
+    --log-filter-active-num-color: #93C5FD;
+    --log-timestamp-color: #ccc;
+    --metric-value-background: #555;
+    --metric-value-color: inherit;
+    --metric-unit-color: #999;
+    --metric-label-background: #777;
+    --metric-label-color: #e0e0e0;
+    --trace-selected-background: #71663acc;
+    --table-border: #444;
+    --table-background: #333;
+    --table-header: #555;
+    --info-background: rgba(79, 148, 195, 0.5);
+    --tree-active-background: var(--metric-label-background);
+    --exception-title-color: var(--base-2);
+    --shadow: 0px 0px 1px rgba(32, 32, 32, .2);
+    --border: 1px solid #666;
+    --background-error: #b0413e;
+    --highlight-comment: #dedede;
+    --highlight-default: var(--base-6);
+    --highlight-keyword: #ff413c;
+    --highlight-string: #70a6fd;
+    --highlight-selected-line: rgba(14, 14, 14, 0.5);
+    --base-0: #2e3136;
+    --base-1: #444;
+    --base-2: #666;
+    --base-3: #666;
+    --base-4: #666;
+    --base-5: #e0e0e0;
+    --base-6: #f5f5f5;
+    --card-label-background: var(--tab-active-background);
+    --card-label-color: var(--tab-active-color);
+}
+
+html, body  {
+    height: 100%;
+    width: 100%;
+}
+body {
+    background-color: var(--page-background);
+    color: var(--base-6);
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-sans-serif);
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+h2, h3, h4 {
+    font-weight: 500;
+    margin: 1.5em 0 .5em;
+}
+h2 + h3,
+h3 + h4 {
+    margin-top: 1em;
+}
+h2 {
+    font-size: 24px;
+}
+h3 {
+    font-size: 21px;
+}
+h4 {
+    font-size: 18px;
+}
+h2 span, h3 span, h4 span,
+h2 small, h3 small, h4 small {
+    color: var(--color-muted);
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 16px;
+    margin-bottom: 1em;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a.link-inverse {
+    text-decoration: underline;
+}
+a.link-inverse:hover {
+    text-decoration: none;
+}
+a:active,
+a:hover {
+    outline: 0;
+}
+h2 a,
+h3 a,
+h4 a {
+    text-decoration: underline;
+}
+h2 a:hover,
+h3 a:hover,
+h4 a:hover {
+    text-decoration: none;
+}
+
+abbr {
+    border-bottom: 1px dotted var(--base-5);
+    cursor: help;
+}
+
+code, pre {
+    font-family: monospace;
+    font-size: 13px;
+}
+
+button {
+    font-family: var(--font-sans-serif);
+}
+.btn {
+    background: #777;
+    border-radius: 2px;
+    border: 0;
+    color: #f5f5f5;
+    display: inline-block;
+    padding: .5em .75em;
+}
+.btn:hover {
+    cursor: pointer;
+    opacity: 0.8;
+    text-decoration: none;
+}
+.btn-sm {
+    font-size: 12px;
+}
+.btn-sm svg {
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+}
+.btn-link {
+    border-color: transparent;
+    color: var(--color-link);
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    border: 0;
+    padding: 0;
+    cursor: pointer;
+}
+.btn-link:hover {
+    text-decoration: underline;
+}
+table, tr, th, td {
+    background: var(--table-background);
+    border-collapse: collapse;
+    line-height: 1.5;
+    vertical-align: top;
+}
+table {
+    background: var(--base-0);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    margin: 1em 0;
+    width: 100%;
+}
+
+table th, table td {
+    padding: 8px 10px;
+}
+
+table th {
+    font-weight: bold;
+    text-align: left;
+}
+table thead th {
+    background-color: var(--table-header);
+}
+table thead th.key {
+    width: 19%;
+}
+table thead.small th {
+    font-size: 12px;
+    padding: 4px 10px;
+}
+
+table tbody th,
+table tbody td {
+    border: 1px solid var(--base-2);
+    border-width: 1px 0;
+    font-family: monospace;
+    font-size: 13px;
+}
+
+table tbody div {
+    margin: .25em 0;
+}
+table tbody ul {
+    margin: 0;
+    padding: 0 0 0 1em;
+}
+
+table thead th.num-col,
+table tbody td.num-col {
+    text-align: center;
+}
+
+.block {
+    display: block;
+}
+.full-width {
+    width: 100%;
+}
+.hidden {
+    display: none;
+}
+.nowrap {
+    white-space: pre;
+}
+.prewrap {
+    white-space: pre-wrap;
+}
+.newline {
+    display: block;
+}
+.break-long-words {
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+.text-small {
+    font-size: 12px !important;
+}
+.text-muted {
+    color: var(--color-muted);
+}
+.text-danger {
+    color: var(--color-error);
+}
+.text-bold {
+    font-weight: bold;
+}
+.text-right {
+    text-align: right;
+}
+.text-center {
+    text-align: center;
+}
+.font-normal {
+    font-family: var(--font-sans-serif);
+    font-size: 14px;
+}
+.help {
+    color: var(--color-muted);
+    font-size: 14px;
+    margin-bottom: .5em;
+}
+.empty {
+    border: 4px dashed var(--base-2);
+    color: var(--color-muted);
+    margin: 1em 0;
+    padding: .5em 2em;
+}
+
+.label {
+    background-color: var(--base-4);
+    color: #FAFAFA;
+    display: inline-block;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 3px 7px;
+    white-space: nowrap;
+}
+.label.same-width {
+    min-width: 70px;
+    text-align: center;
+}
+.label.status-success { background: var(--color-success); color: #FFF; }
+.label.status-warning { background: var(--color-warning); color: #FFF; }
+.label.status-error   { background: var(--background-error); color: #FFF; }
+
+.metrics {
+    margin: 1em 0 0;
+    overflow: auto;
+}
+.metrics .metric {
+    float: left;
+    margin: 0 1em 1em 0;
+}
+
+.metric {
+    background: var(--metric-value-background);
+    border: 1px solid var(--table-border);
+    box-shadow: var(--shadow);
+    color: var(--metric-value-color);
+    min-width: 100px;
+    min-height: 70px;
+}
+.metric .value {
+    display: block;
+    font-size: 28px;
+    padding: 8px 15px 4px;
+    text-align: center;
+}
+.metric .value svg {
+    margin: 5px 0 -5px;
+}
+.metric .unit {
+    color: var(--metric-unit-color);
+    font-size: 18px;
+    margin-left: -4px;
+}
+.metric .label {
+    background: var(--metric-label-background);
+    color: var(--metric-label-color);
+    display: block;
+    font-size: 12px;
+    padding: 5px;
+    text-align: center;
+}
+
+.metrics-horizontal .metric {
+    min-height: 0;
+    min-width: 0;
+}
+.metrics-horizontal .metric .value,
+.metrics-horizontal .metric .label {
+    display: inline;
+    padding: 2px 6px;
+}
+.metrics-horizontal .metric .label {
+    display: inline-block;
+    padding: 6px;
+}
+.metrics-horizontal .metric .value {
+    font-size: 16px;
+}
+.metrics-horizontal .metric .value svg {
+    max-height: 14px;
+    line-height: 10px;
+    margin: 0;
+    padding-left: 4px;
+    vertical-align: middle;
+}
+
+.metric-divider {
+    float: left;
+    margin: 0 1em;
+    min-height: 1px; }
+
+.card {
+    background: var(--base-0);
+    border: var(--border);
+    box-shadow: var(--shadow);
+    margin: 1em 0;
+    padding: 10px;
+}
+.card-block + .card-block {
+    border-top: 1px solid var(--base-2);
+    padding-top: 10px;
+}
+.card *:first-child,
+.card-block *:first-child {
+    margin-top: 0;
+}
+.card .label {
+    background-color: var(--card-label-background);
+    color: var(--card-label-color);
+}
+
+.status-success {
+    background: rgba(94, 151, 110, 0.3);
+}
+.status-warning {
+    background: rgba(240, 181, 24, 0.3);
+}
+.status-error {
+    background: rgba(176, 65, 62, 0.2);
+}
+.status-success td,
+.status-warning td,
+.status-error td {
+    background: transparent;
+}
+tr.status-error td,
+tr.status-warning td {
+    border-bottom: 1px solid var(--base-2);
+    border-top: 1px solid var(--base-2);
+}
+
+.status-warning .colored {
+    color: var(--color-warning);
+}
+.status-error .colored  {
+    color: var(--color-error);
+}
+
+.highlight pre {
+    margin: 0;
+    white-space: pre-wrap;
+}
+
+.highlight .keyword   { color: #8959A8; font-weight: bold; }
+.highlight .word      { color: var(--color-text); }
+.highlight .variable  { color: #916319; }
+.highlight .symbol    { color: var(--color-text); }
+.highlight .comment   { color: #999999; }
+.highlight .backtick  { color: #718C00; }
+.highlight .string    { color: #718C00; }
+.highlight .number    { color: #F5871F; font-weight: bold; }
+.highlight .error     { color: #C82829; }
+
+.sf-icon {
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+}
+.sf-icon svg {
+    width: 16px;
+    height: 16px;
+}
+.sf-icon.sf-medium,
+.sf-icon.sf-medium svg {
+    width: 24px;
+    height: 24px;
+}
+.sf-icon.sf-large,
+.sf-icon.sf-large svg {
+    width: 32px;
+    height: 32px;
+}
+
+
+.container {
+    max-width: 1300px;
+    padding-right: 15px;
+}
+#header {
+    flex: 0 0 auto;
+}
+#header .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+#summary {
+    flex: 0 0 auto;
+}
+#content {
+    height: 100%;
+}
+#main {
+    display: flex;
+    flex-direction: row;
+    min-height: 100%;
+}
+#sidebar {
+    flex: 0 0 220px;
+}
+#collector-wrapper {
+    flex: 0 1 100%;
+    min-width: 0;
+}
+#collector-content {
+    margin: 0 0 30px 0;
+    padding: 14px 0 14px 20px;
+}
+
+#main h2:first-of-type {
+    margin-top: 0;
+}
+
+#header {
+    background-color: #222;
+    overflow: hidden;
+}
+#header h1 {
+    color: #fff;
+    flex: 1;
+    font-weight: normal;
+    font-size: 21px;
+    margin: 0;
+    padding: 10px 10px 8px;
+}
+#header h1 span {
+    color: #ccc;
+}
+#header h1 svg {
+    height: 40px;
+    width: 40px;
+    margin-top: -4px;
+    vertical-align: middle;
+}
+#header h1 svg path,
+#header h1 svg .sf-svg-path {
+    fill: #fff;
+}
+#header .search {
+    padding-top: 11px;
+}
+#header .search input {
+    border: 1px solid #ddd;
+    margin-right: 4px;
+    padding: 7px 8px;
+    width: 200px;
+}
+
+#summary .status {
+    background: var(--base-2);
+    border: solid rgba(0, 0, 0, 0.1);
+    border-width: 2px 0;
+    padding: 10px;
+}
+#summary h2,
+#summary h2 a {
+    color: var(--base-6);
+    font-size: 21px;
+    margin: 0;
+    text-decoration: none;
+    vertical-align: middle;
+}
+#summary h2 a:hover {
+    text-decoration: underline;
+}
+#summary h2 a.referer {
+    margin-left: .5em;
+    font-size: 75%;
+    color: rgba(255, 255, 255, 0.5);
+}
+#summary h2 a.referer:before {
+    content: '\1F503\00a0';
+}
+
+#summary .status-success { background: var(--color-success); }
+#summary .status-warning { background: var(--color-warning); }
+#summary .status-error   { background: var(--background-error);   }
+
+#summary .status-success h2,
+#summary .status-success a,
+#summary .status-warning h2,
+#summary .status-warning a,
+#summary .status-error h2,
+#summary .status-error a {
+    color: #FFF;
+}
+
+#summary dl.metadata,
+#summary dl.metadata a {
+    margin: 5px 0 0;
+    color: rgba(255, 255, 255, 0.75);
+}
+#summary dl.metadata dt,
+#summary dl.metadata dd {
+    display: inline-block;
+    font-size: 13px;
+}
+#summary dl.metadata dt {
+    font-weight: bold;
+}
+#summary dl.metadata dt:after {
+    content: ':';
+}
+#summary dl.metadata dd {
+    margin: 0 1.5em 0 0;
+}
+
+#summary dl.metadata .label {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+#sidebar {
+    background: #444;
+    color: #ccc;
+    padding-bottom: 30px;
+    position: relative;
+    width: 220px;
+    z-index: 9999;
+}
+#sidebar .module {
+    padding: 10px;
+    width: 220px;
+}
+
+#sidebar #sidebar-shortcuts {
+    background: #333;
+    width: 220px;
+}
+#sidebar #sidebar-shortcuts .shortcuts {
+    position: relative;
+    padding: 16px 10px;
+}
+#sidebar-shortcuts .icon {
+    display: block;
+    float: left;
+    width: 50px;
+    margin: 2px 0 0 -10px;
+    text-align: center;
+}
+#sidebar #sidebar-shortcuts .btn {
+    color: #f5f5f5;
+}
+#sidebar #sidebar-shortcuts .btn + .btn {
+    margin-left: 5px;
+}
+#sidebar #sidebar-shortcuts .btn {
+    padding: .5em;
+}
+
+#sidebar-search .form-group:first-of-type {
+    padding-top: 20px;
+}
+#sidebar-search .form-group {
+    clear: both;
+    overflow: hidden;
+    padding-bottom: 10px;
+}
+#sidebar-search .form-group label {
+    float: left;
+    font-size: 13px;
+    line-height: 24px;
+    width: 60px;
+}
+#sidebar-search .form-group input,
+#sidebar-search .form-group select {
+    float: left;
+    font-size: 13px;
+    padding: 3px 6px;
+}
+#sidebar-search .form-group input {
+    background: #ccc;
+    border: 1px solid var(--color-muted);
+    color: #222;
+    width: 120px;
+}
+#sidebar-search .form-group select {
+    color: #222;
+}
+#sidebar-search .form-group .btn {
+    float: right;
+    margin-right: 10px;
+}
+
+#menu-profiler {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+#menu-profiler li {
+    position: relative;
+    margin-bottom: 0;
+}
+#menu-profiler li a {
+    border: solid transparent;
+    border-width: 2px 0;
+    color: var(--base-3);
+    display: block;
+}
+#menu-profiler li a:hover {
+    text-decoration: none;
+}
+#menu-profiler li a .label {
+    background: transparent;
+    color: #EEE;
+    display: block;
+    padding: 8px 10px 8px 50px;
+    overflow: hidden;
+    white-space: nowrap;
+}
+#menu-profiler li a .label .icon {
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    width: 50px;
+    text-align: center;
+}
+#menu-profiler .label .icon img,
+#menu-profiler .label .icon svg {
+    height: 24px;
+    max-width: 24px;
+}
+#menu-profiler li a .label .icon svg path,
+#menu-profiler li a .label .icon svg .sf-svg-path {
+    fill: #DDD;
+}
+#menu-profiler li a .label strong {
+    font-size: 16px;
+    font-weight: normal;
+}
+#menu-profiler li a .label.disabled {
+    opacity: .25;
+}
+#menu-profiler li a:hover .label.disabled,
+#menu-profiler li.selected a .label.disabled {
+    opacity: 1;
+}
+
+#menu-profiler li.selected a,
+#menu-profiler:hover li.selected a:hover,
+#menu-profiler li a:hover {
+    background: #666;
+    border: solid #555;
+    border-width: 2px 0;
+}
+#menu-profiler li.selected a .label,
+#menu-profiler li a:hover .label {
+    color: #FFF;
+}
+#menu-profiler li.selected a .icon svg path,
+#menu-profiler li.selected a .icon svg .sf-svg-path,
+#menu-profiler li a:hover .icon svg path,
+#menu-profiler li a:hover .icon svg .sf-svg-path {
+    fill: #fff;
+}
+
+#menu-profiler li a .count {
+    background-color: #666;
+    color: #fff;
+    display: inline-block;
+    font-weight: bold;
+    min-width: 10px;
+    padding: 2px 6px;
+    position: absolute;
+    right: 10px;
+    text-align: center;
+    vertical-align: baseline;
+    white-space: nowrap;
+}
+#menu-profiler li a span.count span {
+    font-size: 12px;
+
+}
+#menu-profiler li a span.count span + span::before {
+    content: " / ";
+    color: #AAA;
+}
+
+#menu-profiler .label-status-warning .count {
+    background: var(--color-warning);
+}
+#menu-profiler .label-status-error .count {
+    background: var(--background-error);
+}
+
+#timeline-control {
+    background: var(--table-background);
+    box-shadow: var(--shadow);
+    margin: 1em 0;
+    padding: 10px;
+}
+#timeline-control label {
+    font-weight: bold;
+    margin-right: 1em;
+}
+#timeline-control input {
+    background: var(--metric-value-background);
+    border: 1px solid var(--table-border);
+    font-size: 16px;
+    padding: 4px;
+    text-align: right;
+    width: 5em;
+}
+#timeline-control .help {
+    margin-left: 1em;
+}
+
+.sf-profiler-timeline .legends {
+    font-size: 12px;
+    line-height: 1.5em;
+}
+.sf-profiler-timeline + p.help {
+    margin-top: 0;
+}
+
+.tab-navigation {
+    margin: 0 0 1em 0;
+    padding: 0;
+}
+.tab-navigation li {
+    background: var(--tab-background);
+    border: 1px solid var(--table-border);
+    color: var(--tab-color);
+    cursor: pointer;
+    display: inline-block;
+    font-size: 16px;
+    margin: 0 0 0 -1px;
+    padding: .5em .75em;
+    z-index: 1;
+}
+.tab-navigation li .badge {
+    background-color: var(--base-1);
+    color: var(--base-4);
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    margin-left: 8px;
+    min-width: 10px;
+    padding: 1px 6px;
+    text-align: center;
+    white-space: nowrap;
+}
+.tab-navigation li.disabled {
+    background: var(--tab-disabled-background);
+    color: var(--tab-disabled-color);
+}
+.tab-navigation li.active {
+    background: var(--tab-active-background);
+    color: var(--tab-active-color);
+    z-index: 1100;
+}
+.tab-navigation li.active .badge {
+    background-color: var(--base-5);
+    color: var(--base-2);
+}
+.tab-content > *:first-child {
+    margin-top: 0;
+}
+.tab-navigation li .badge.status-warning { background: var(--color-warning); color: #FFF; }
+.tab-navigation li .badge.status-error { background: var(--background-error); color: #FFF; }
+
+.sf-tabs .tab:not(:first-child) { display: none; }
+
+.sf-toggle-content {
+    -moz-transition: display .25s ease;
+    -webkit-transition: display .25s ease;
+    transition: display .25s ease;
+}
+.sf-toggle-content.sf-toggle-hidden {
+    display: none;
+}
+.sf-toggle-content.sf-toggle-visible {
+    display: block;
+}
+
+[data-filters] { position: relative; }
+[data-filtered] { cursor: pointer; }
+[data-filtered]:after { content: '\00a0\25BE'; }
+[data-filtered]:hover .filter-list li { display: inline-flex; }
+[class*="filter-hidden-"] { display: none; }
+.filter-list { position: absolute; border: var(--border); box-shadow: var(--shadow); margin: 0; padding: 0; display: flex; flex-direction: column; }
+.filter-list :after { content: ''; }
+.filter-list li {
+    background: var(--tab-disabled-background);
+    border-bottom: var(--border);
+    color: var(--tab-disabled-color);
+    display: none;
+    list-style: none;
+    margin: 0;
+    padding: 5px 10px;
+    text-align: left;
+    font-weight: normal;
+}
+.filter-list li.active {
+    background: var(--tab-background);
+    color: var(--tab-color);
+}
+.filter-list li.last-active {
+    background: var(--tab-active-background);
+    color: var(--tab-active-color);
+}
+
+.filter-list-level li { cursor: s-resize; }
+.filter-list-level li.active { cursor: n-resize; }
+.filter-list-level li.last-active { cursor: default; }
+.filter-list-level li.last-active:before { content: '\2714\00a0'; }
+.filter-list-choice li:before { content: '\2714\00a0'; color: transparent; }
+.filter-list-choice li.active:before { color: unset; }
+
+#twig-dump pre {
+    font-size: 12px;
+    line-height: 1.7;
+    background-color: var(--base-0);
+    border: var(--border);
+    padding: 15px;
+    box-shadow: 0 0 1px rgba(128, 128, 128, .2);
+}
+#twig-dump span {
+    border-radius: 2px;
+    padding: 1px 2px;
+}
+#twig-dump .status-error   { background: transparent; color: var(--color-error); }
+#twig-dump .status-warning { background: rgba(240, 181, 24, 0.3);     }
+#twig-dump .status-success { background: rgba(100, 189, 99, 0.2);     }
+#twig-dump .status-info    { background: var(--info-background);      }
+
+#twig-table tbody td {
+    vertical-align: middle;
+}
+#twig-table tbody td > a {
+    margin-left: -5px;
+}
+#twig-table tbody td div {
+    margin: 0;
+}
+
+.icon-twig {
+    vertical-align: text-bottom;
+}
+.icon-twig svg path {
+    fill: #7eea12;
+}
+
+.badge {
+    background: var(--badge-background);
+    border-radius: 4px;
+    color: var(--badge-color);
+    font-size: 12px;
+    font-weight: bold;
+    padding: 1px 4px;
+}
+.badge-warning {
+    background: var(--badge-warning-background);
+    color: var(--badge-warning-color);
+}
+
+.log-filters {
+    display: flex;
+}
+.log-filters .log-filter {
+    position: relative;
+}
+.log-filters .log-filter + .log-filter {
+    margin-left: 15px;
+}
+.log-filters .log-filter summary {
+    align-items: center;
+    background: var(--log-filter-button-background);
+    border-radius: 2px;
+    border: 1px solid var(--log-filter-button-border);
+    color: var(--log-filter-button-color);
+    cursor: pointer;
+    display: flex;
+    padding: 5px 8px;
+}
+.log-filters .log-filter summary .icon {
+    height: 18px;
+    width: 18px;
+    margin: 0 7px 0 0;
+}
+.log-filters .log-filter summary svg {
+    height: 18px;
+    width: 18px;
+    opacity: 0.7;
+}
+.log-filters .log-filter summary .filter-active-num {
+    color: var(--log-filter-active-num-color);
+    font-weight: bold;
+    padding: 0 1px;
+}
+.log-filter .tab-navigation {
+    margin-bottom: 0;
+}
+.log-filter .tab-navigation li:first-child {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+.log-filter .tab-navigation li:last-child {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+.log-filter .tab-navigation li {
+    border-color: var(--log-filter-button-border);
+    padding: 0;
+}
+.log-filter .tab-navigation li + li {
+    margin-left: -5px;
+}
+.log-filter .tab-navigation li .badge {
+    font-size: 13px;
+    padding: 0 6px;
+}
+.log-filter .tab-navigation li input {
+    display: none;
+}
+.log-filter .tab-navigation li label {
+    align-items: center;
+    cursor: pointer;
+    padding: 5px 10px;
+    display: inline-flex;
+    font-size: 14px;
+}
+
+.log-filters .log-filter .log-filter-content {
+    background: var(--base-0);
+    border: 1px solid var(--table-border);
+    border-radius: 2px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    padding: 15px;
+    position: absolute;
+    left: 0;
+    top: 36px;
+    max-width: 400px;
+    min-width: 200px;
+    z-index: 9999;
+}
+.log-filters .log-filter .log-filter-content .log-filter-option {
+    align-items: center;
+    display: flex;
+}
+.log-filter .filter-select-all-or-none {
+    margin-bottom: 10px;
+}
+.log-filter .filter-select-all-or-none button + button {
+    margin-left: 15px;
+}
+.log-filters .log-filter .log-filter-content .log-filter-option + .log-filter-option {
+    margin: 7px 0 0;
+}
+.log-filters .log-filter .log-filter-content .log-filter-option label {
+    cursor: pointer;
+    flex: 1;
+    padding-left: 10px;
+}
+
+table.logs .metadata {
+    display: block;
+    font-size: 12px;
+}
+.theme-dark tr.status-error td,
+.theme-dark tr.status-warning td { border-bottom: unset; border-top: unset; }
+
+table.logs .log-timestamp {
+    color: var(--log-timestamp-color);
+}
+table.logs .log-metadata {
+    margin: 8px 0 0;
+}
+table.logs .log-metadata > span {
+    display: inline-block;
+}
+table.logs .log-metadata > span + span {
+    margin-left: 10px;
+}
+table.logs .log-metadata .log-channel {
+    color: var(--base-1);
+    font-size: 13px;
+    font-weight: bold;
+}
+table.logs .log-metadata .log-num-occurrences {
+    color: var(--color-muted);
+    font-size: 13px;
+}
+.log-type-badge {
+    display: inline-block;
+    font-family: var(--font-sans-serif);
+    margin-top: 5px;
+}
+.log-type-badge.badge-deprecation {
+    background: var(--badge-warning-background);
+    color: var(--badge-warning-color);
+}
+.log-type-badge.badge-error {
+    background: var(--badge-danger-background);
+    color: var(--badge-danger-color);
+}
+.log-type-badge.badge-silenced {
+    background: #EDE9FE;
+    color: #6D28D9;
+}
+.theme-dark .log-type-badge.badge-silenced {
+    background: #5B21B6;
+    color: #EDE9FE;
+}
+
+tr.log-status-warning {
+    border-left: 4px solid #F59E0B;
+}
+tr.log-status-error {
+    border-left: 4px solid #EF4444;
+}
+tr.log-status-silenced {
+    border-left: 4px solid #A78BFA;
+}
+
+.container-compilation-logs {
+    background: var(--table-background);
+    border: 1px solid var(--base-2);
+    margin-top: 30px;
+    padding: 15px;
+}
+.container-compilation-logs summary {
+    cursor: pointer;
+}
+.container-compilation-logs summary h4 {
+    margin: 0 0 5px;
+}
+.container-compilation-logs summary p {
+    margin: 0;
+}
+
+.sql-runnable {
+    background: var(--base-1);
+    margin: .5em 0;
+    padding: 1em;
+}
+.sql-explain {
+    overflow-x: auto;
+    max-width: 920px;
+}
+.sql-explain table td, .sql-explain table tr {
+    word-break: normal;
+}
+.queries-table pre {
+    margin: 0;
+    white-space: pre-wrap;
+    -ms-word-break: break-all;
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+    -moz-hyphens: auto;
+    hyphens: auto;
+}
+
+#collector-content .decision-log .voter_result td {
+    border-top-width: 1px;
+    border-bottom-width: 0;
+    padding-bottom: 0;
+}
+
+#collector-content .decision-log .voter_details td {
+    border-top-width: 0;
+    border-bottom-width: 1px;
+    padding-bottom: 0;
+}
+
+#collector-content .decision-log .voter_details table {
+    border: 0;
+    margin: 0;
+    box-shadow: unset;
+}
+
+#collector-content .decision-log .voter_details table td {
+    border: 0;
+    padding: 0 0 8px 0;
+}
+
+
+#collector-content .sf-validator {
+    margin-bottom: 2em;
+}
+
+#collector-content .sf-validator .sf-validator-context,
+#collector-content .sf-validator .trace {
+    border: var(--border);
+    background: var(--base-0);
+    padding: 10px;
+    margin: 0.5em 0;
+    overflow: auto;
+}
+#collector-content .sf-validator .trace {
+    font-size: 12px;
+}
+#collector-content .sf-validator .trace li {
+    margin-bottom: 0;
+    padding: 0;
+}
+#collector-content .sf-validator .trace li.selected {
+    background: var(--highlight-selected-line);
+}
+
+
+#collector-content .message-bus .trace {
+    border: var(--border);
+    background: var(--base-0);
+    padding: 10px;
+    margin: 0.5em 0;
+    overflow: auto;
+}
+#collector-content .message-bus .trace {
+    font-size: 12px;
+}
+#collector-content .message-bus .trace li {
+    margin-bottom: 0;
+    padding: 0;
+}
+#collector-content .message-bus .trace li.selected {
+    background: var(--highlight-selected-line);
+}
+
+pre.sf-dump, pre.sf-dump .sf-dump-default {
+    z-index: 1000 !important;
+}
+
+#collector-content .sf-dump {
+    margin-bottom: 2em;
+}
+#collector-content pre.sf-dump,
+#collector-content .sf-dump code,
+#collector-content .sf-dump samp {
+    font-family: monospace;
+    font-size: 13px;
+}
+#collector-content .sf-dump a {
+    cursor: pointer;
+}
+#collector-content .sf-dump pre.sf-dump,
+#collector-content .sf-dump .trace {
+    border: var(--border);
+    padding: 10px;
+    margin: 0.5em 0;
+    overflow: auto;
+}
+
+#collector-content pre.sf-dump,
+#collector-content .sf-dump-default {
+    background: none;
+}
+#collector-content .sf-dump-ellipsis { max-width: 100em; }
+
+#collector-content .sf-dump {
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+}
+
+#collector-content .dump-inline .sf-dump {
+    display: inline;
+    white-space: normal;
+    font-size: inherit;
+    line-height: inherit;
+}
+#collector-content .dump-inline .sf-dump:after {
+    display: none;
+}
+
+#collector-content .sf-dump .trace {
+    font-size: 12px;
+}
+#collector-content .sf-dump .trace li {
+    margin-bottom: 0;
+    padding: 0;
+}
+
+#search-results td {
+    font-family: var(--font-sans-serif);
+    vertical-align: middle;
+}
+
+#search-results .sf-search {
+    visibility: hidden;
+    margin-left: 2px;
+}
+#search-results tr:hover .sf-search {
+    visibility: visible;
+}
+
+
+.visible-small {
+    display: none;
+}
+.hidden-small {
+    display: inherit;
+}
+
+@media (max-width: 768px) {
+    #sidebar {
+        flex-basis: 50px;
+        overflow-x: hidden;
+        transition: flex-basis 200ms ease-out;
+    }
+    #sidebar:hover, #sidebar.expanded {
+        flex-basis: 220px;
+    }
+
+    #sidebar-search {
+        display: none;
+    }
+    #sidebar:hover #sidebar-search.sf-toggle-visible, #sidebar.expanded #sidebar-search.sf-toggle-visible {
+        display: block;
+    }
+
+    #sidebar .module {
+        display: none;
+    }
+    #sidebar:hover .module, #sidebar.expanded .module {
+        display: block;
+    }
+
+    #sidebar:not(:hover):not(.expanded) .label .count {
+        border-radius: 50%;
+        border: 1px solid #eee;
+        height: 8px;
+        min-width: 0;
+        padding: 0;
+        right: 4px;
+        text-indent: -9999px;
+        top: 50%;
+        width: 8px;
+    }
+
+    .visible-small {
+        display: inherit;
+    }
+    .hidden-small {
+        display: none;
+    }
+
+    .btn-sm svg {
+        margin-left: 2px;
+    }
+}
+
+body.width-full .container {
+    max-width: 100%;
+}
+
+body.theme-light #collector-content .sf-dump pre.sf-dump,
+body.theme-light #collector-content .sf-dump .trace {
+    background: #FFF;
+}
+body.theme-light #collector-content pre.sf-dump,
+body.theme-light #collector-content .sf-dump-default {
+    color: #CC7832;
+}
+body.theme-light #collector-content .sf-dump-str { color: #629755; }
+body.theme-light #collector-content .sf-dump-private,
+body.theme-light #collector-content .sf-dump-protected,
+body.theme-light #collector-content .sf-dump-public { color: #262626; }
+body.theme-light #collector-content .sf-dump-note { color: #6897BB; }
+body.theme-light #collector-content .sf-dump-key { color: #789339; }
+body.theme-light #collector-content .sf-dump-ref { color: #6E6E6E; }
+body.theme-light #collector-content .sf-dump-ellipsis { color: #CC7832; max-width: 100em; }
+body.theme-light #collector-content .sf-dump-ellipsis-path { max-width: 5em; }
+body.theme-light #collector-content .sf-dump .trace li.selected {
+    background: rgba(255, 255, 153, 0.5);
+}
+
+            </style>
+            </head>
+    <body>
+        <script nonce="bb491253f582395055771b51404745ca">
+            if (null === localStorage.getItem('symfony/profiler/theme') || 'theme-auto' === localStorage.getItem('symfony/profiler/theme')) {
+                document.body.classList.add((matchMedia('(prefers-color-scheme: dark)').matches ? 'theme-dark' : 'theme-light'));
+                // needed to respond dynamically to OS changes without having to refresh the page
+                window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+                    document.body.classList.remove('theme-light', 'theme-dark');
+                    document.body.classList.add(e.matches ? 'theme-dark' : 'theme-light');
+                });
+            } else {
+                document.body.classList.add(localStorage.getItem('symfony/profiler/theme'));
+            }
+
+            document.body.classList.add(localStorage.getItem('symfony/profiler/width') || 'width-normal');
+        </script>
+
+            <div id="header">
+    <div class="container">
+        <h1><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M12 .9C5.8.9.9 5.8.9 12a11 11 0 1 0 22.2 0A11 11 0 0 0 12 .9zm6.5 6c-.6 0-.9-.3-.9-.8 0-.2 0-.4.2-.6l.2-.4c0-.3-.5-.4-.6-.4-1.8.1-2.3 2.5-2.7 4.4l-.2 1c1 .2 1.8 0 2.2-.3.6-.4-.2-.7-.1-1.2.1-.3.5-.5.7-.6.5 0 .7.5.7.9 0 .7-1 1.8-3 1.8l-.6-.1-.6 2.4c-.4 1.6-.8 3.8-2.4 5.7-1.4 1.7-2.9 1.9-3.5 1.9-1.2 0-1.9-.6-2-1.5 0-.8.7-1.3 1.2-1.3.6 0 1.1.5 1.1 1s-.2.6-.4.6c-.1.1-.3.2-.3.4 0 .1.1.3.4.3.5 0 .8-.3 1.1-.5 1.2-.9 1.6-2.7 2.2-5.7l.1-.7.7-3.2c-.8-.6-1.3-1.4-2.4-1.7-.6-.1-1.1.1-1.5.5-.4.5-.2 1.1.2 1.5l.7.6c.7.8 1.2 1.6 1 2.5-.3 1.5-2 2.6-4 1.9-1.8-.6-2-1.8-1.8-2.5.2-.6.6-.7 1.1-.6.5.2.6.7.6 1.2l-.1.3c-.2.1-.3.3-.3.4-.1.4.4.6.7.7.7.3 1.6-.2 1.8-.8a1 1 0 0 0-.4-1.1l-.7-.8c-.4-.4-1.1-1.4-.7-2.6.1-.5.4-.9.7-1.3a4 4 0 0 1 2.8-.6c1.2.4 1.8 1.1 2.6 1.8.5-1.2 1-2.4 1.8-3.5.9-.9 1.9-1.6 3.1-1.7 1.3.2 2.2.7 2.2 1.6 0 .4-.2 1.1-.9 1.1z"/></svg>
+ Symfony <span>Profiler</span></h1>
+
+        <div class="search">
+            <form method="get" action="https://symfony.com/search" target="_blank">
+                <div class="form-row">
+                    <input name="q" id="search-id" type="search" placeholder="search on symfony.com">
+                    <button type="submit" class="btn">Search</button>
+                </div>
+           </form>
+        </div>
+    </div>
+</div>
+
+
+    <div id="summary">
+                                                                    
+                <div class="status status-success">
+                    <div class="container">
+                        <h2 class="break-long-words">
+                                                            <a href="../search1.html">http://13.39.131.193:8002/search1</a>
+                                                    </h2>
+
+                        
+                        
+                        <dl class="metadata">
+                            <dt>Method</dt>
+                            <dd>GET</dd>
+
+                            <dt>HTTP Status</dt>
+                            <dd>200</dd>
+
+                            <dt>IP</dt>
+                            <dd>
+                                <a href="http://13.39.131.193:8002/_profiler/701194/search/results?limit=10&amp;ip=127.0.0.1">127.0.0.1</a>
+                            </dd>
+
+                            <dt>Profiled on</dt>
+                            <dd><time datetime="2024-07-04T15:15:44+00:00">Thu, 04 Jul 2024 15:15:44 +0000</time></dd>
+
+                            <dt>Token</dt>
+                            <dd>701194</dd>
+                        </dl>
+                    </div>
+                </div>
+                        </div>
+
+    <div id="content" class="container">
+        <div id="main">
+            <div id="sidebar">
+                <div id="sidebar-shortcuts">
+                    <div class="shortcuts">
+                        <a href="701194@panel=request.html#" id="sidebarShortcutsMenu" class="visible-small">
+                            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M2.6 17.5h18.8c.9 0 1.6.7 1.6 1.6v1.5c0 1-.7 1.6-1.6 1.6H2.6c-.9 0-1.6-.7-1.6-1.6v-1.5c0-.9.7-1.6 1.6-1.6zM1 11.2v1.6c0 .9.7 1.6 1.6 1.6h18.8c.9 0 1.6-.7 1.6-1.6v-1.6c0-.8-.7-1.6-1.6-1.6H2.6A1.6 1.6 0 0 0 1 11.2zm0-7.8v1.5a1.6 1.6 0 0 0 1.6 1.6h18.8c.9 0 1.6-.7 1.6-1.6V3.4c0-1-.7-1.6-1.6-1.6H2.6A1.6 1.6 0 0 0 1 3.4z"/></svg>
+</span>
+                        </a>
+
+                        <a class="btn btn-sm" href="http://13.39.131.193:8002/_profiler/search?limit=10">Last 10</a>
+                        <a class="btn btn-sm" href="http://13.39.131.193:8002/_profiler/latest?panel=request">Latest</a>
+
+                        <a class="sf-toggle btn btn-sm" data-toggle-selector="#sidebar-search" >
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M11.6.4A8 8 0 0 0 5.2 13L.8 17.5a1.3 1.3 0 0 0-.4.9c0 .3.1.6.4.9s.5.3.9.3c.3 0 .6 0 .9-.3l4.3-4.5a7.9 7.9 0 0 0 4.7 1.5 8 8 0 0 0 0-16zm5.5 8a5.5 5.5 0 0 1-5.5 5.4 5.5 5.5 0 1 1 5.5-5.5z"/></svg>
+ <span class="hidden-small">Search</span>
+                        </a>
+
+                        <div id="sidebar-search" class="hidden">
+    <form action="http://13.39.131.193:8002/_profiler/search" method="get">
+        <div class="form-group">
+            <label for="ip">IP</label>
+            <input type="text" name="ip" id="ip" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="method">Method</label>
+            <select name="method" id="method">
+                <option value="">Any</option>
+                                    <option >DELETE</option>
+                                    <option >GET</option>
+                                    <option >HEAD</option>
+                                    <option >PATCH</option>
+                                    <option >POST</option>
+                                    <option >PUT</option>
+                            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="status_code">Status</label>
+            <input type="number" name="status_code" id="status_code" min="100" max="599" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="url">URL</label>
+            <input type="text" name="url" id="url" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="token">Token</label>
+            <input type="text" name="token" id="token" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="start">From</label>
+            <input type="date" name="start" id="start" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="end">Until</label>
+            <input type="date" name="end" id="end" value="">
+        </div>
+
+        <div class="form-group">
+            <label for="limit">Results</label>
+            <select name="limit" id="limit">
+                                    <option >10</option>
+                                    <option >50</option>
+                                    <option >100</option>
+                            </select>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-sm">Search</button>
+        </div>
+    </form>
+</div>
+
+                    </div>
+                </div>
+
+                                    <ul id="menu-profiler">
+                                                                                                                <li class="request selected">
+                                    <a href="701194@panel=request.html">    <span class="label">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M15.8 6.4h-1.1s-.1.1-.1 0l.8-.7c.5-.5.5-1.3 0-1.9L14 2.4c-.5-.5-1.4-.5-1.9 0l-.6.8c-.1 0 0 0 0-.1v-1c0-.8-1-1.4-1.8-1.4h-2c-.8 0-1.9.6-1.9 1.4v1.1l.1.1-.8-.8c-.5-.5-1.3-.5-1.9 0L1.8 3.9c-.5.5-.5 1.4 0 1.9l.8.6c0 .1 0 0-.1 0H1.4C.7 6.4 0 7.5 0 8.2v2C0 11 .7 12 1.4 12h1.2l.1-.1-.8.7c-.5.5-.5 1.3 0 1.9L3.3 16c.5.5 1.4.5 1.9 0l.6-.8-.1.1v1.2c0 .8 1.1 1.4 1.9 1.4h2c.8 0 1.8-.6 1.8-1.4v-1.2s-.1-.1 0-.1l.7.8c.5.5 1.3.5 1.9 0l1.4-1.4c.5-.5.5-1.4 0-1.9l-.8-.7.1.1h1.1c.8 0 1.3-1.1 1.3-1.8v-2c0-.8-.6-1.9-1.3-1.9zM8.6 13a3.8 3.8 0 1 1 3.8-3.8A4 4 0 0 1 8.6 13zm13.7 2.6l-.6.2s0 .1 0 0l.3-.5c.2-.4 0-.8-.4-1l-1-.4c-.4-.2-.8 0-1 .4l-.1.5-.2-.6c-.2-.4-.8-.5-1.2-.3l-1.1.4c-.4.2-.8.7-.7 1.1l.2.6h.1l-.5-.3c-.4-.2-.8 0-1 .4l-.4 1c-.2.4 0 .8.4 1l.5.1-.6.2c-.4.2-.5.8-.4 1.2l.4 1.1c.2.4.7.8 1.1.7l.6-.2s0-.1 0 0l-.3.5c-.2.4 0 .8.4 1l1 .4c.4.2.8 0 1-.4l.1-.5.2.6c.2.4.9.5 1.2.3l1.1-.4c.4-.2.8-.7.6-1.1l-.2-.6s-.1 0 0 0l.5.3c.4.2.8 0 1-.4l.4-1c.2-.4 0-.8-.4-1l-.5-.1.6-.2c.4-.2.5-.8.3-1.2l-.4-1.1c-.1-.4-.6-.8-1-.7zm-2.4 4.9a2 2 0 0 1-2.7-1.2 2 2 0 0 1 1.2-2.7 2 2 0 0 1 2.7 1.2 2 2 0 0 1-1.2 2.7z"/></svg>
+</span>
+        <strong>Request / Response</strong>
+    </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="time ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=time">    <span class="label">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M15.1 4.3a13 13 0 0 0-6.2 0c-.3 0-.7-.2-.7-.5v-.4c0-1.2 1-2.3 2.3-2.3h3c1.2 0 2.3 1 2.3 2.3v.3c0 .4-.4.6-.7.6zm5.8 9.7a9 9 0 0 1-17.8 0 9 9 0 0 1 17.8 0zm-4.2 1c0-.6-.4-1-1-1H13V8.4c0-.6-.4-1-1-1s-1 .4-1 1v6.2c0 .6.4 1.3 1 1.3h3.7c.5.1 1-.3 1-.9z"/></svg>
+</span>
+        <strong>Performance</strong>
+    </span>
+</a>
+                                </li>
+                                                                                                                                                                                                                            <li class="validator ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=validator">    <span class="label disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#aaa" d="M19.5 22.5H4.3a2.9 2.9 0 0 1-2.9-2.9V4.4a2.9 2.9 0 0 1 2.9-2.9h14.2a1 1 0 0 1 0 2H4.3a.9.9 0 0 0-.9.9v15.2a.9.9 0 0 0 .9.9h15.2a.9.9 0 0 0 1-.9v-8.3a1 1 0 1 1 2 0v8.3a2.9 2.9 0 0 1-3 2.9zM13 17.3L22.9 6a1.5 1.5 0 1 0-2.3-2L12 14 8 9.1A1.5 1.5 0 0 0 5.7 11l5 6.3a1.5 1.5 0 0 0 1.2.5 1.5 1.5 0 0 0 1.1-.5z"/></svg>
+</span>
+        <strong>Validator</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                                                                                                            <li class="form ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=form">    <span class="label label-status- disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M20.5 4H18V2.5c0-.8-.7-1.5-1.5-1.5h-9C6.7 1 6 1.7 6 2.5V4H3.5C2.7 4 2 4.7 2 5.5v16c0 .8.7 1.5 1.5 1.5h17c.8 0 1.5-.7 1.5-1.5v-16c0-.8-.7-1.5-1.5-1.5zM9 4h6v1H9V4zm10 16H5V7h1.1c.2.6.8 1 1.4 1h9c.7 0 1.2-.4 1.4-1H19v13zm-2-9c0 .6-.4 1-1 1H8c-.6 0-1-.4-1-1s.4-1 1-1h8c.6 0 1 .4 1 1zm0 3c0 .6-.4 1-1 1H8c-.6 0-1-.4-1-1s.4-1 1-1h8c.6 0 1 .4 1 1zm-4 3c0 .6-.4 1-1 1H8c-.6 0-1-.4-1-1s.4-1 1-1h4c.6 0 1 .4 1 1z"/></svg>
+</span>
+        <strong>Forms</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="exception ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=exception">    <span class="label disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M23.5 9.5c0-.2-1.2.2-1.6.2l.4-.8C23 7.4 22 6.6 21 7.5c-.4.4 0 1.1 0 1.8v.3l-.6-.3c-.5-.8-1.1-.2-1.1 0 0 .3.7.9 1.1.9h.2v.5c0 .7-.8 1.1-1.7 1.2V9.1c0-4.3-3.3-6.4-6.9-6.4-3.5 0-6.9 2-6.9 6.4v2.8c-.9-.2-1.8-.5-1.8-1.2v-.2h.2c.5 0 1.1-.2 1.1-.4.2-1.4-.6-.5-1.1-.5h-.3l.1-.4c0-.5 1.2-1.7-.8-1.9-.4 0-.5.9-.4 1.3l.4 1.2c-.1-.2-.3-.2-.5-.3-.2-.2-1.6-1.9-1.9 0-.1 1.1 1 1.2 1.9 1l.3-.1-.2 1.2c0 1.3 1.5 1.6 2.9 1.7v5.2c0 1.6.5 2.8 2.2 2.8 1.8 0 2.4-1.3 2.4-2.9 0 1.6.6 2.9 2.3 2.9s2.3-2.2 2.3-2.8c0 1.7.7 2.8 2.4 2.8s2.2-1.2 2.2-2.9v-5.1c1.4-.1 2.9-.4 2.9-1.7l-.1-1c.4.5 1.1.8 1.7.5 1.2-.7.2-1.4.2-1.6zM6.8 8.4c0-1.5 1-2.5 2.3-2.5 1.3 0 2.3 1.1 2.3 2.5s-1 2.6-2.2 2.6c.6 0 1.1-.5 1.1-1.2 0-.6-.5-1.2-1.2-1.2-.6 0-1.2.5-1.2 1.2 0 .6.5 1.2 1.2 1.2-1.3 0-2.3-1.1-2.3-2.6zm5.1 7.5c-2.9-.1-3.1-1.6-3.1-2.5 0-.9 1.7-.3 3.2-.3 1.5 0 3.1-.7 3.1.2 0 1-.8 2.7-3.2 2.6zM15 11c.6-.1 1-.6 1-1.2s-.5-1.2-1.2-1.2c-.6 0-1.2.5-1.2 1.2 0 .6.5 1.2 1.1 1.2-1.3 0-2.3-1.2-2.3-2.6 0-1.5 1-2.5 2.3-2.5C16 5.9 17 7 17 8.4c.1 1.4-.8 2.5-2 2.6z"/></svg>
+</span>
+        <strong>Exception</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="logger ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=logger">    <span class="label label-status-none ">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M21 4v13.8c0 2.7-2.5 5.2-5.2 5.2H6c-.6 0-1-.4-1-1s.4-1 1-1h9.8c1.6 0 3.2-1.7 3.2-3.2V4c0-.6.4-1 1-1s1 .4 1 1zM5.5 20A2.5 2.5 0 0 1 3 17.5v-14C3 2.1 4.1 1 5.5 1h10.1C16.9 1 18 2.1 18 3.5v14.1c0 1.4-1.1 2.5-2.5 2.5h-10zM9 11.4c0 .3.3.6.6.6h1.8c.3 0 .6-.3.6-.6V4.6c0-.3-.3-.6-.6-.6H9.6c-.3 0-.6.3-.6.6v6.8zm0 5c0 .3.3.6.6.6h1.8c.3 0 .6-.3.6-.6v-1.8c0-.3-.3-.6-.6-.6H9.6c-.3 0-.6.3-.6.6v1.8z"/></svg>
+</span>
+        <strong>Logs</strong>
+                    <span class="count">
+                <span>1</span>
+            </span>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="events ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=events"><span class="label">
+    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M19.2 20.8c.4.7.1 1.6-.6 2l-.7.2c-.5 0-1-.3-1.3-.8l-3.7-6.7-1 .1-.9-.1-3.7 6.7c-.4.5-.9.8-1.5.8l-.7-.2c-.7-.4-1-1.3-.6-2l3.8-6.9c-.5-.7-.9-1.6-.9-2.6.1-2.4 2-4.3 4.4-4.3s4.3 1.9 4.3 4.3c0 .9-.3 1.8-.8 2.5l3.9 7zM5.2 11c.6 0 1-.3 1-.8 0-2.1 1.6-3.8 3.7-4.1.5-.1.9-.6.8-1.2-.1-.5-.6-.9-1.1-.9-3.1.5-5.3 3-5.3 6.1-.1.6.4.9.9.9zm8.4-5c2.1.3 3.7 2.1 3.8 4.2 0 .5.5.8 1 .8.6 0 1-.3 1-.8 0-3.1-2.4-5.6-5.5-6.1-.5-.1-1.1.3-1.1.8-.2.6.2 1 .8 1.1zM9 3c.5-.1.9-.6.8-1.1-.1-.6-.6-.9-1.1-.8a9 9 0 0 0-7.4 8.7c0 .6.4 1.2 1 1.2.5 0 1-.6 1-1.2C3.3 6.5 5.7 3.5 9 3zm5.7-2c-.5-.1-1.1.3-1.1.9s.3 1.1.8 1.1c3.3.5 5.8 3.4 5.8 6.8 0 .5.5 1.2 1 1.2.6 0 1-.7 1-1.2A9 9 0 0 0 14.7 1z"/></svg>
+</span>
+    <strong>Events</strong>
+</span>
+</a>
+                                </li>
+                                                                                                                                            <li class="router ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=router"><span class="label">
+    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M13 3v18c0 1.1-.9 2-2 2s-2-.9-2-2V3c0-1.1.9-2 2-2s2 .9 2 2zm10.2 1.6l-1.8-1.4c-.2-.3-.6-.2-1-.2H14v5h6.4c.4 0 .8-.3 1.1-.5l1.8-1.6c.3-.3.3-1-.1-1.3zm-3.7 4.8c-.3-.3-.7-.4-1.1-.4H14v5h4.4a2 2 0 0 0 1.1-.3l1.8-1.5c.4-.3.4-.9 0-1.3l-1.8-1.5zM3.5 7c-.4 0-.7 0-1 .3L.7 8.8c-.4.3-.4.9 0 1.3l1.8 1.6c.3.2.6.3 1 .3H8V7H3.5z"/></svg>
+</span>
+    <strong>Routing</strong>
+</span>
+</a>
+                                </li>
+                                                                                                                                            <li class="cache ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=cache">    <span class="label ">
+    <span class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M2.3 6l9-4.6a1.5 1.5 0 0 1 1.4 0l9 4.7a1.5 1.5 0 0 1 0 2.6l-9 4.7a1.5 1.5 0 0 1-1.4 0l-9-4.7a1.5 1.5 0 0 1 0-2.6zm18.3 5L12 15.4 3.4 11a1.4 1.4 0 0 0-1.2 2.4l9.2 4.8a1.4 1.4 0 0 0 1.2 0l9.2-4.8a1.4 1.4 0 0 0-1.3-2.4zm0 4.5L12 19.9l-8.6-4.4a1.4 1.4 0 0 0-1.2 2.4l9.2 4.7a1.4 1.4 0 0 0 1.2 0l9.2-4.7a1.4 1.4 0 0 0-1.3-2.5z"/></svg>
+
+    </span>
+    <strong>Cache</strong>
+</span>
+</a>
+                                </li>
+                                                                                                                                            <li class="translation ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=translation">    <span class="label label-status- disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M5.4 6H7v.3c0 1.2-.7 1.9-1.7 1.9-1.1 0-1.4-.4-1.4-1.1 0-.9.6-1.1 1.5-1.1zm3.8-6H2.7C1.2 0 0 .9 0 2.4v6.5C0 10.4 1.2 11 2.7 11h1.2l3.3 3.2c.4.2.8.3.8-.1V9.9l.1-1.1h-.4c-.3.1-.7-.1-.7-.4v-.5c0 .7-1 1-1.8 1-1.5 0-2.4-.7-2.4-2s1.1-2 2.6-2H7v-.4c0-1-.4-1.6-1.5-1.6-.7 0-1.1.2-1.5.7l-.3.2a.4.4 0 0 1-.4-.4l.1-.2c.4-.7 1-1.2 2.2-1.2C7.2 2 8 3 8 4.5v3c1-1.4 1.8-2.4 4-2.4V2.4C12 .9 10.7 0 9.2 0zm11.5 6h-8C10.8 6 9 7.2 9 9v8c0 1.8 2 3.3 4 3.3v3c0 .5.5.7.9.3l4-3.7h2.7c1.8 0 3.3-1.2 3.3-3V9c.1-1.8-1.4-3-3.2-3zM13 9h7v.8s-.7.3-1.1.3h-4.8a10 10 0 0 1-1.1-.4V9zm-.5 7.9l-.6-.5c1-.8 1.8-2.1 2.2-3.4l.7.3c-.6 1.5-1.4 2.6-2.3 3.6zM17 12v4.8c0 .7-.2.8-1.2.8l-1.4-.1-.2-.7 1.4.1c.4 0 .4 0 .4-.3V12h-2.9l-1.1.1v-.8s.7-.4 1.1-.4h6.8c.5 0 1.1.4 1.1.4v.8l-1.1-.1H17zm3.7 4.8c-1-1.1-1.6-1.9-2.3-3.6l.6-.2a9 9 0 0 0 2.2 3.3l-.5.5z"/></svg>
+</span>
+        <strong>Translation</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="security ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=security">    <span class="label disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M21 20.4V22H3v-1.6c0-3.7 2.4-6.9 5.8-8-1.7-1.1-2.9-3-2.9-5.2 0-3.4 2.7-6.1 6.1-6.1s6.1 2.7 6.1 6.1c0 2.2-1.2 4.1-2.9 5.2 3.4 1.1 5.8 4.3 5.8 8z"/></svg>
+</span>
+        <strong>Security</strong>
+    </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="twig ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=twig">    <span class="label ">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M8.932 22.492c.016-6.448-.971-11.295-5.995-11.619 4.69-.352 7.113 2.633 9.298 6.907C12.205 6.354 9.882 1.553 4.8 1.297c7.433.07 10.028 5.9 11.508 14.293 1.171-2.282 3.56-5.553 5.347-1.361-1.594-2.04-3.607-1.617-3.978 8.262H8.933z"/></svg>
+</span>
+        <strong>Twig</strong>
+    </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="http_client ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=http_client"><span class="label disabled">
+    <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M20.4 12c-1 0-1.8.6-2.2 1.4l-2.6-.9c.1-.3.1-.5.1-.8 0-1.2-.6-2.2-1.5-2.9l1.5-2.6c.3.1.6.2 1 .2 1.4 0 2.5-1.1 2.5-2.5s-1.1-2.5-2.5-2.5-2.5 1.1-2.5 2.5c0 .8.4 1.5.9 1.9l-1.5 2.6c-.5-.3-1-.4-1.6-.4-.9 0-1.7.3-2.3.9L7.4 6.6c.3-.4.5-.9.5-1.5 0-1.4-1.1-2.5-2.5-2.5S2.7 3.7 2.7 5.1s1.1 2.5 2.5 2.5c.6 0 1.1-.2 1.5-.5L9 9.4c-.5.6-.8 1.4-.8 2.3 0 .7.2 1.4.6 2l-3.9 3.8c-.4-.3-.9-.5-1.5-.5C2 17 .9 18.1.9 19.5S2.2 22 3.6 22s2.5-1.1 2.5-2.5c0-.5-.2-1-.5-1.5l3.8-3.7c.7.7 1.6 1.1 2.6 1.1h.2l.4 2.4c-1 .3-1.7 1.3-1.7 2.4 0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5-1.1-2.5-2.5-2.5l-.4-2.5c1-.3 1.9-1 2.3-2l2.6.9v.4c0 1.4 1.1 2.5 2.5 2.5s2.5-1.1 2.5-2.5c.1-1.4-1.1-2.5-2.5-2.5z"/></svg>
+</span>
+    <strong>HTTP Client</strong>
+    </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="db ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=db">    <span class="label  disabled">
+        <span class="icon"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="24" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+    <path fill="#AAAAAA" d="M5,8h14c1.7,0,3-1.3,3-3s-1.3-3-3-3H5C3.3,2,2,3.3,2,5S3.3,8,5,8z M18,3.6c0.8,0,1.5,0.7,1.5,1.5S18.8,6.6,18,6.6s-1.5-0.7-1.5-1.5S17.2,3.6,18,3.6z M19,9H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,9,19,9z M18,13.6
+    c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,13.6,18,13.6z M19,16H5c-1.7,0-3,1.3-3,3s1.3,3,3,3h14c1.7,0,3-1.3,3-3S20.7,16,19,16z M18,20.6c-0.8,0-1.5-0.7-1.5-1.5s0.7-1.5,1.5-1.5s1.5,0.7,1.5,1.5S18.8,20.6,18,20.6z"/>
+</svg>
+</span>
+        <strong>Doctrine</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="doctrine_migrations ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=doctrine_migrations">                                            <span class="label ">
+            <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    <polygon fill="#AAA" points="0 0 24 0 24 7 17.5 7 16.5 3 15.5 7 11 7 12 3 3 3 4 7 0 7" />
+    <polygon fill="#AAA" points="0 8.5 4.5 8.5 6 15.5 0 15.5" />
+    <polygon fill="#AAA" points="10.5 8.5 15 8.5 13.5 15.5 9 15.5" />
+    <polygon fill="#AAA" points="18 8.5 24 8.5 24 15.5 19.5 15.5" />
+    <polygon fill="#AAA" points="0 17 6.5 17 7.5 21 8.5 17 13 17 12 21 21 21 20 17 24 17 24 24 0 24" />
+</svg>
+</span>
+            <strong>Migrations</strong>
+                    </span>
+    </a>
+                                </li>
+                                                                                                                                            <li class="dump ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=dump">    <span class="label disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M12 22.6c-5.8 0-10.5-4.7-10.5-10.5S6.2 1.5 12 1.5 22.5 6.2 22.5 12c0 5.9-4.7 10.6-10.5 10.6zm0-18.1c-4.2 0-7.5 3.4-7.5 7.5 0 4.2 3.4 7.5 7.5 7.5s7.5-3.4 7.5-7.5-3.3-7.5-7.5-7.5z"/><path fill="#AAA" d="M12 9.1c-.8 0-1.5-.7-1.5-1.5v-6c0-.8.7-1.5 1.5-1.5s1.5.7 1.5 1.5v6c0 .8-.7 1.5-1.5 1.5zm1.5 13.3v-6c0-.8-.7-1.5-1.5-1.5s-1.5.7-1.5 1.5v6c0 .8.7 1.5 1.5 1.5s1.5-.7 1.5-1.5zM23.9 12c0-.8-.7-1.5-1.5-1.5h-6c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h6c.8 0 1.5-.7 1.5-1.5zM9.1 12c0-.8-.7-1.5-1.5-1.5h-6c-.8 0-1.5.7-1.5 1.5s.7 1.5 1.5 1.5h6c.8 0 1.5-.7 1.5-1.5z"/></svg>
+</span>
+        <strong>Debug</strong>
+    </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="messenger ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=messenger">    <span class="label disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#aaa" d="M16 9a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2h-3V4a1 1 0 0 0-1-1H8a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2h3v6H8a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v2a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2h3v9a1 1 0 0 0 2 0v-5h3a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2h-3V9zm2.52-2.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1zm0 1.63h3a.5.5 0 0 1 .5.5.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5.5.5 0 0 1 .5-.52zm-13-2.82h-3a.5.5 0 0 1-.5-.5.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5.5.5 0 0 1-.54.48zm0-1.62h-3a.5.5 0 0 1-.5-.5.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5.5.5 0 0 1-.54.48zm0 9.62h-3a.5.5 0 0 1-.5-.5.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5.5.5 0 0 1-.54.48zm0-1.62h-3a.5.5 0 0 1-.5-.5.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5.5.5 0 0 1-.54.48zm13 2.81h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1zm0 1.63h3a.5.5 0 0 1 .5.5.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5.5.5 0 0 1 .5-.52z"/></svg>
+</span>
+        <strong>Messages</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="mailer ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=mailer">    
+    <span class="label disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAAAAA" d="M22,4.9C22,3.9,21.1,3,20.1,3H3.9C2.9,3,2,3.9,2,4.9v13.1C2,19.1,2.9,20,3.9,20h16.1c1.1,0,1.9-0.9,1.9-1.9V4.9z M8.3,14.1l-3.1,3.1c-0.2,0.2-0.5,0.3-0.7,0.3S4,17.4,3.8,17.2c-0.4-0.4-0.4-1,0-1.4l3.1-3.1c0.4-0.4,1-0.4,1.4,0S8.7,13.7,8.3,14.1z M20.4,17.2c-0.2,0.2-0.5,0.3-0.7,0.3s-0.5-0.1-0.7-0.3l-3.1-3.1c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l3.1,3.1C20.8,16.2,20.8,16.8,20.4,17.2z M20.4,7.2l-7.6,7.6c-0.2,0.2-0.5,0.3-0.7,0.3s-0.5-0.1-0.7-0.3L3.8,7.2c-0.4-0.4-0.4-1,0-1.4s1-0.4,1.4,0l6.9,6.9L19,5.8c0.4-0.4,1-0.4,1.4,0S20.8,6.8,20.4,7.2z"/></svg>
+</span>
+
+        <strong>E-mails</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="notifier ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=notifier">    
+    <span class="label disabled">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M11.23,4.8c-3,.83-5.07,3.18-5.07,5.9H7.39c0-2.21,1.77-4,4.17-4.72ZM7.49,0A12.22,12.22,0,0,0,0,11.59H2.07A10.14,10.14,0,0,1,8.23,2Zm8.24,2a10.14,10.14,0,0,1,6.16,9.64H24A12.24,12.24,0,0,0,16.47,0ZM4.41,15.64V10.7a7.57,7.57,0,0,1,15.14,0v4.94l3.3,4.4H1.11Zm4.45,5.3A3.06,3.06,0,0,0,11.92,24H12a3.07,3.07,0,0,0,3.07-3.06Z"/></svg>
+</span>
+
+        <strong>Notifications</strong>
+            </span>
+</a>
+                                </li>
+                                                                                                                                            <li class="config ">
+                                    <a href="http://13.39.131.193:8002/_profiler/701194?panel=config">    <span class="label label-status-red">
+        <span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M11 5.1C11 3.4 9.6 2 7.9 2H5.1A3.1 3.1 0 0 0 2 5.1V18c0 1.6 1.4 3 3.1 3H8c1.7 0 3.1-1.4 3.1-3.1V5.1zM5.2 4h2.7C8.4 4 9 4.8 9 5.3V11H4V5.3C4 4.8 4.6 4 5.2 4zM22 5.1C22 3.4 20.6 2 18.9 2H16c-1.6 0-3 1.4-3 3.1V18c0 1.7 1.4 3.1 3.1 3.1H19c1.7 0 3.1-1.4 3.1-3.1V5.1zM16 4h2.8c.6 0 1.2.8 1.2 1.3V8h-5V5.3c0-.5.5-1.3 1-1.3z"/></svg>
+</span>
+        <strong>Configuration</strong>
+    </span>
+</a>
+                                </li>
+                                                                        </ul>
+                
+                <style>
+#open-settings {
+    color: var(--color-muted);
+    display: block;
+    margin: 15px 15px 5px;
+}
+
+.modal-wrap {
+    -webkit-transition: all 0.3s ease-in-out;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    opacity: 1;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    transition: all 0.3s ease-in-out;
+    visibility: hidden;
+    width: 100%;
+    z-index: 100000;
+}
+.modal-wrap.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.modal-wrap .modal-container {
+    box-shadow: 5px 5px 10px 0px rgba(0, 0, 0, 0.5);
+    color: var(--base-6);
+    margin: 1em;
+    max-width: 94%;
+    width: 600px;
+}
+
+.modal-wrap .modal-header {
+    align-items: center;
+    background: var(--table-header);
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 30px;
+}
+.modal-wrap .modal-header h3 {
+    color: var(--base-6);
+    margin: 0;
+}
+.modal-wrap .modal-header .close-modal {
+    background: transparent;
+    border: 0;
+    color: var(--base-4);
+    cursor: pointer;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.modal-wrap .modal-header .close-modal:hover { opacity: 1; }
+
+.modal-wrap .modal-content {
+  background: var(--base-1);
+  margin: 0;
+  padding: 15px 30px;
+  width: 100%;
+  z-index: 100000;
+}
+.modal-content h4 {
+    border-bottom: var(--border);
+    margin: 0 0 15px;
+    padding: 0 0 5px;
+}
+.modal-content input, .modal-content .form-help {
+    margin-left: 15px;
+}
+.modal-content label {
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 3px;
+}
+.modal-content .form-help {
+    color: var(--color-muted);
+    font-size: 14px;
+    margin: 5px 0 15px 33px;
+}
+.modal-content .form-help + h4 {
+    margin-top: 45px;
+}
+
+@media (max-width: 768px) {
+    #open-settings {
+        color: transparent;
+    }
+    #sidebar:hover #open-settings, #sidebar.expanded #open-settings {
+        color: var(--color-muted);
+    }
+    #open-settings:before {
+        content: '\2699';
+        font-weight: bold;
+        font-size: 25px;
+        color: var(--color-muted);
+    }
+    #sidebar:hover #open-settings:before, #sidebar.expanded #open-settings:before {
+        content: '';
+    }
+}
+</style>
+
+<a href="701194@panel=request.html#" id="open-settings">Settings</a>
+
+<div class="modal-wrap" id="profiler-settings">
+    <div class="modal-container">
+        <div class="modal-header">
+            <h3>Configuration Settings</h3>
+            <button class="close-modal">&times;</button>
+        </div>
+
+        <div class="modal-content">
+            <h4>Theme</h4>
+
+            <input class="config-option" type="radio" name="theme" value="auto" id="settings-theme-auto">
+            <label for="settings-theme-auto">Auto</label>
+            <p class="form-help"><strong>Default theme</strong>. It switches between Light and Dark automatically to match the operating system theme.</p>
+
+            <input class="config-option" type="radio" name="theme" value="light" id="settings-theme-light">
+            <label for="settings-theme-light">Light</label>
+            <p class="form-help">Provides greatest readability, but requires a well-lit environment.</p>
+
+            <input class="config-option" type="radio" name="theme" value="dark" id="settings-theme-dark">
+            <label for="settings-theme-dark">Dark</label>
+            <p class="form-help">Reduces eye fatigue. Ideal for low light environments.</p>
+
+            <h4>Page Width</h4>
+
+            <input class="config-option" type="radio" name="width" value="normal" id="settings-width-normal">
+            <label for="settings-width-normal">Normal</label>
+            <p class="form-help">Fixed page width. Improves readability.</p>
+
+            <input class="config-option" type="radio" name="width" value="full" id="settings-width-full">
+            <label for="settings-width-full">Full-page</label>
+            <p class="form-help">Dynamic page width. As wide as the browser window.</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const configOptions = document.querySelectorAll('.config-option');
+    const allSettingValues = ['theme-auto', 'theme-ligh', 'theme-dark', 'width-normal', 'width-full'];
+    [...configOptions].forEach(option => {
+        option.addEventListener('change', function (event) {
+            const optionName = option.name;
+            const optionValue = option.value;
+            const settingName = 'symfony/profiler/' + optionName;
+            const settingValue = optionName + '-' + optionValue;
+
+            localStorage.setItem(settingName, settingValue);
+
+            document.body.classList.forEach((cssClass) => {
+                if (cssClass.startsWith(optionName)) {
+                    document.body.classList.remove(cssClass);
+                }
+            });
+
+            if ('theme-auto' === settingValue) {
+                document.body.classList.add((matchMedia('(prefers-color-scheme: dark)').matches ? 'theme-dark' : 'theme-light'));
+            } else {
+                document.body.classList.add(settingValue);
+            }
+        });
+    });
+
+    const openModalButton = document.getElementById('open-settings');
+    const modalWindow = document.getElementById('profiler-settings');
+    const closeModalButton = document.getElementsByClassName('close-modal')[0];
+    const modalWrapper = document.getElementsByClassName('modal-wrap')[0]
+
+    openModalButton.addEventListener('click', function(event) {
+        document.getElementById('settings-' + (localStorage.getItem('symfony/profiler/theme') || 'theme-auto')).checked = 'checked';
+        document.getElementById('settings-' + (localStorage.getItem('symfony/profiler/width') || 'width-normal')).checked = 'checked';
+
+        modalWindow.classList.toggle('visible');
+        event.preventDefault();
+    });
+
+    closeModalButton.addEventListener('click', function() {
+        modalWindow.classList.remove('visible');
+    });
+    modalWrapper.addEventListener('click', function(event) {
+        if (event.target == event.currentTarget) {
+            modalWindow.classList.remove('visible');
+        }
+    });
+})();
+</script>
+
+            </div>
+
+            <div id="collector-wrapper">
+                <div id="collector-content">
+                    <script nonce="bb491253f582395055771b51404745ca">/*<![CDATA[*/
+    
+if (typeof Sfjs === 'undefined' || typeof Sfjs.loadToolbar === 'undefined') {
+    Sfjs = (function() {
+        "use strict";
+
+        if ('classList' in document.documentElement) {
+            var hasClass = function (el, cssClass) { return el.classList.contains(cssClass); };
+            var removeClass = function(el, cssClass) { el.classList.remove(cssClass); };
+            var addClass = function(el, cssClass) { el.classList.add(cssClass); };
+            var toggleClass = function(el, cssClass) { el.classList.toggle(cssClass); };
+        } else {
+            var hasClass = function (el, cssClass) { return el.className.match(new RegExp('\\b' + cssClass + '\\b')); };
+            var removeClass = function(el, cssClass) { el.className = el.className.replace(new RegExp('\\b' + cssClass + '\\b'), ' '); };
+            var addClass = function(el, cssClass) { if (!hasClass(el, cssClass)) { el.className += " " + cssClass; } };
+            var toggleClass = function(el, cssClass) { hasClass(el, cssClass) ? removeClass(el, cssClass) : addClass(el, cssClass); };
+        }
+
+        var noop = function() {};
+
+        var profilerStorageKey = 'symfony/profiler/';
+
+        var addEventListener;
+
+        var el = document.createElement('div');
+        if (!('addEventListener' in el)) {
+            addEventListener = function (element, eventName, callback) {
+                element.attachEvent('on' + eventName, callback);
+            };
+        } else {
+            addEventListener = function (element, eventName, callback) {
+                element.addEventListener(eventName, callback, false);
+            };
+        }
+
+        if (navigator.clipboard) {
+            document.addEventListener('readystatechange', () => {
+                if (document.readyState !== 'complete') {
+                    return;
+                }
+
+                document.querySelectorAll('[data-clipboard-text]').forEach(function (element) {
+                    removeClass(element, 'hidden');
+                    element.addEventListener('click', function () {
+                        navigator.clipboard.writeText(element.getAttribute('data-clipboard-text'));
+
+                        if (element.classList.contains("label")) {
+                            let oldContent = element.textContent;
+
+                            element.textContent = "✅ Copied!";
+                            element.classList.add("status-success");
+
+                            setTimeout(() => {
+                                element.textContent = oldContent;
+                                element.classList.remove("status-success");
+                            }, 7000);
+                        }
+                    });
+                });
+            });
+        }
+
+        var request = function(url, onSuccess, onError, payload, options, tries) {
+            var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+            options = options || {};
+            options.retry = options.retry || false;
+            tries = tries || 1;
+            /* this delays for 125, 375, 625, 875, and 1000, ... */
+            var delay = tries < 5 ? (tries - 0.5) * 250 : 1000;
+
+            xhr.open(options.method || 'GET', url, true);
+            xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+            xhr.onreadystatechange = function(state) {
+                if (4 !== xhr.readyState) {
+                    return null;
+                }
+
+                if (xhr.status == 404 && options.retry && !options.stop) {
+                    setTimeout(function() {
+                        if (options.stop) {
+                            return;
+                        }
+                        request(url, onSuccess, onError, payload, options, tries + 1);
+                    }, delay);
+
+                    return null;
+                }
+
+                if (200 === xhr.status) {
+                    (onSuccess || noop)(xhr);
+                } else {
+                    (onError || noop)(xhr);
+                }
+            };
+
+            if (options.onSend) {
+                options.onSend(tries);
+            }
+
+            xhr.send(payload || '');
+        };
+
+        var getPreference = function(name) {
+            if (!window.localStorage) {
+                return null;
+            }
+
+            return localStorage.getItem(profilerStorageKey + name);
+        };
+
+        var setPreference = function(name, value) {
+            if (!window.localStorage) {
+                return null;
+            }
+
+            localStorage.setItem(profilerStorageKey + name, value);
+        };
+
+        var requestStack = [];
+
+        var extractHeaders = function(xhr, stackElement) {
+            /* Here we avoid to call xhr.getResponseHeader in order to */
+            /* prevent polluting the console with CORS security errors */
+            var allHeaders = xhr.getAllResponseHeaders();
+            var ret;
+
+            if (ret = allHeaders.match(/^x-debug-token:\s+(.*)$/im)) {
+                stackElement.profile = ret[1];
+            }
+            if (ret = allHeaders.match(/^x-debug-token-link:\s+(.*)$/im)) {
+                stackElement.profilerUrl = ret[1];
+            }
+            if (ret = allHeaders.match(/^Symfony-Debug-Toolbar-Replace:\s+(.*)$/im)) {
+                stackElement.toolbarReplaceFinished = false;
+                stackElement.toolbarReplace = '1' === ret[1];
+            }
+        };
+
+        var successStreak = 4;
+        var pendingRequests = 0;
+        var renderAjaxRequests = function() {
+            var requestCounter = document.querySelector('.sf-toolbar-ajax-request-counter');
+            if (!requestCounter) {
+                return;
+            }
+            requestCounter.textContent = requestStack.length;
+
+            var infoSpan = document.querySelector(".sf-toolbar-ajax-info");
+            if (infoSpan) {
+                infoSpan.textContent = requestStack.length + ' AJAX request' + (requestStack.length !== 1 ? 's' : '');
+            }
+
+            var ajaxToolbarPanel = document.querySelector('.sf-toolbar-block-ajax');
+            if (requestStack.length) {
+                ajaxToolbarPanel.style.display = 'block';
+            } else {
+                ajaxToolbarPanel.style.display = 'none';
+            }
+            if (pendingRequests > 0) {
+                addClass(ajaxToolbarPanel, 'sf-ajax-request-loading');
+            } else if (successStreak < 4) {
+                addClass(ajaxToolbarPanel, 'sf-toolbar-status-red');
+                removeClass(ajaxToolbarPanel, 'sf-ajax-request-loading');
+            } else {
+                removeClass(ajaxToolbarPanel, 'sf-ajax-request-loading');
+                removeClass(ajaxToolbarPanel, 'sf-toolbar-status-red');
+            }
+        };
+
+        var startAjaxRequest = function(index) {
+            var tbody = document.querySelector('.sf-toolbar-ajax-request-list');
+            if (!tbody) {
+                return;
+            }
+
+            var nbOfAjaxRequest = tbody.rows.length;
+            if (nbOfAjaxRequest >= 100) {
+                tbody.deleteRow(0);
+            }
+
+            var request = requestStack[index];
+            pendingRequests++;
+            var row = document.createElement('tr');
+            request.DOMNode = row;
+
+            var requestNumberCell = document.createElement('td');
+            requestNumberCell.textContent = index + 1;
+            row.appendChild(requestNumberCell);
+
+            var profilerCell = document.createElement('td');
+            profilerCell.textContent = 'n/a';
+            row.appendChild(profilerCell);
+
+            var methodCell = document.createElement('td');
+            methodCell.textContent = request.method;
+            row.appendChild(methodCell);
+
+            var typeCell = document.createElement('td');
+            typeCell.textContent = request.type;
+            row.appendChild(typeCell);
+
+            var statusCodeCell = document.createElement('td');
+            var statusCode = document.createElement('span');
+            statusCode.textContent = 'n/a';
+            statusCodeCell.appendChild(statusCode);
+            row.appendChild(statusCodeCell);
+
+            var pathCell = document.createElement('td');
+            pathCell.className = 'sf-ajax-request-url';
+            if ('GET' === request.method) {
+                var pathLink = document.createElement('a');
+                pathLink.setAttribute('href', request.url);
+                pathLink.textContent = request.url;
+                pathCell.appendChild(pathLink);
+            } else {
+                pathCell.textContent = request.url;
+            }
+            pathCell.setAttribute('title', request.url);
+            row.appendChild(pathCell);
+
+            var durationCell = document.createElement('td');
+            durationCell.className = 'sf-ajax-request-duration';
+            durationCell.textContent = 'n/a';
+            row.appendChild(durationCell);
+
+            request.liveDurationHandle = setInterval(function() {
+                durationCell.textContent = (new Date() - request.start) + ' ms';
+            }, 100);
+
+            row.className = 'sf-ajax-request sf-ajax-request-loading';
+            tbody.insertBefore(row, null);
+
+            var toolbarInfo = document.querySelector('.sf-toolbar-block-ajax .sf-toolbar-info');
+            toolbarInfo.scrollTop = toolbarInfo.scrollHeight;
+
+            renderAjaxRequests();
+        };
+
+        var finishAjaxRequest = function(index) {
+            var request = requestStack[index];
+            clearInterval(request.liveDurationHandle);
+
+            if (!request.DOMNode) {
+                return;
+            }
+
+            if (request.toolbarReplace && !request.toolbarReplaceFinished && request.profile) {
+                /* Flag as complete because finishAjaxRequest can be called multiple times. */
+                request.toolbarReplaceFinished = true;
+                /* Search up through the DOM to find the toolbar's container ID. */
+                for (var elem = request.DOMNode; elem && elem !== document; elem = elem.parentNode) {
+                    if (elem.id.match(/^sfwdt/)) {
+                        Sfjs.loadToolbar(elem.id.replace(/^sfwdt/, ''), request.profile);
+                        break;
+                    }
+                }
+            }
+
+            pendingRequests--;
+            var row = request.DOMNode;
+            /* Unpack the children from the row */
+            var profilerCell = row.children[1];
+            var methodCell = row.children[2];
+            var statusCodeCell = row.children[4];
+            var statusCodeElem = statusCodeCell.children[0];
+            var durationCell = row.children[6];
+
+            if (request.error) {
+                row.className = 'sf-ajax-request sf-ajax-request-error';
+                methodCell.className = 'sf-ajax-request-error';
+                successStreak = 0;
+            } else {
+                row.className = 'sf-ajax-request sf-ajax-request-ok';
+                successStreak++;
+            }
+
+            if (request.statusCode) {
+                if (request.statusCode < 300) {
+                    statusCodeElem.setAttribute('class', 'sf-toolbar-status');
+                } else if (request.statusCode < 400) {
+                    statusCodeElem.setAttribute('class', 'sf-toolbar-status sf-toolbar-status-yellow');
+                } else {
+                    statusCodeElem.setAttribute('class', 'sf-toolbar-status sf-toolbar-status-red');
+                }
+                statusCodeElem.textContent = request.statusCode;
+            } else {
+                statusCodeElem.setAttribute('class', 'sf-toolbar-status sf-toolbar-status-red');
+            }
+
+            if (request.duration) {
+                durationCell.textContent = request.duration + ' ms';
+            }
+
+            if (request.profilerUrl) {
+                profilerCell.textContent = '';
+                var profilerLink = document.createElement('a');
+                profilerLink.setAttribute('href', request.profilerUrl);
+                profilerLink.textContent = request.profile;
+                profilerCell.appendChild(profilerLink);
+            }
+
+            renderAjaxRequests();
+        };
+
+        
+        return {
+            hasClass: hasClass,
+
+            removeClass: removeClass,
+
+            addClass: addClass,
+
+            toggleClass: toggleClass,
+
+            getPreference: getPreference,
+
+            setPreference: setPreference,
+
+            addEventListener: addEventListener,
+
+            request: request,
+
+            renderAjaxRequests: renderAjaxRequests,
+
+            getSfwdt: function(token) {
+                if (!this.sfwdt) {
+                    this.sfwdt = document.getElementById('sfwdt' + token);
+                }
+
+                return this.sfwdt;
+            },
+
+            load: function(selector, url, onSuccess, onError, options) {
+                var el = document.getElementById(selector);
+
+                if (el && el.getAttribute('data-sfurl') !== url) {
+                    request(
+                        url,
+                        function(xhr) {
+                            el.innerHTML = xhr.responseText;
+                            el.setAttribute('data-sfurl', url);
+                            removeClass(el, 'loading');
+                            var pending = pendingRequests;
+                            for (var i = 0; i < requestStack.length; i++) {
+                                startAjaxRequest(i);
+                                if (requestStack[i].duration) {
+                                    finishAjaxRequest(i);
+                                }
+                            }
+                            /* Revert the pending state in case there was a start called without a finish above. */
+                            pendingRequests = pending;
+                            (onSuccess || noop)(xhr, el);
+                        },
+                        function(xhr) { (onError || noop)(xhr, el); },
+                        '',
+                        options
+                    );
+                }
+
+                return this;
+            },
+
+            showToolbar: function(token) {
+                var sfwdt = this.getSfwdt(token);
+                removeClass(sfwdt, 'sf-display-none');
+
+                if (getPreference('toolbar/displayState') == 'none') {
+                    document.getElementById('sfToolbarMainContent-' + token).style.display = 'none';
+                    document.getElementById('sfToolbarClearer-' + token).style.display = 'none';
+                    document.getElementById('sfMiniToolbar-' + token).style.display = 'block';
+                } else {
+                    document.getElementById('sfToolbarMainContent-' + token).style.display = 'block';
+                    document.getElementById('sfToolbarClearer-' + token).style.display = 'block';
+                    document.getElementById('sfMiniToolbar-' + token).style.display = 'none';
+                }
+            },
+
+            hideToolbar: function(token) {
+                var sfwdt = this.getSfwdt(token);
+                addClass(sfwdt, 'sf-display-none');
+            },
+
+            initToolbar: function(token) {
+                this.showToolbar(token);
+
+                var hideButton = document.getElementById('sfToolbarHideButton-' + token);
+                var hideButtonSvg = hideButton.querySelector('svg');
+                hideButtonSvg.setAttribute('aria-hidden', 'true');
+                hideButtonSvg.setAttribute('focusable', 'false');
+                addEventListener(hideButton, 'click', function (event) {
+                    event.preventDefault();
+
+                    var p = this.parentNode;
+                    p.style.display = 'none';
+                    (p.previousElementSibling || p.previousSibling).style.display = 'none';
+                    document.getElementById('sfMiniToolbar-' + token).style.display = 'block';
+                    setPreference('toolbar/displayState', 'none');
+                });
+
+                var showButton = document.getElementById('sfToolbarMiniToggler-' + token);
+                var showButtonSvg = showButton.querySelector('svg');
+                showButtonSvg.setAttribute('aria-hidden', 'true');
+                showButtonSvg.setAttribute('focusable', 'false');
+                addEventListener(showButton, 'click', function (event) {
+                    event.preventDefault();
+
+                    var elem = this.parentNode;
+                    if (elem.style.display == 'none') {
+                        document.getElementById('sfToolbarMainContent-' + token).style.display = 'none';
+                        document.getElementById('sfToolbarClearer-' + token).style.display = 'none';
+                        elem.style.display = 'block';
+                    } else {
+                        document.getElementById('sfToolbarMainContent-' + token).style.display = 'block';
+                        document.getElementById('sfToolbarClearer-' + token).style.display = 'block';
+                        elem.style.display = 'none'
+                    }
+
+                    setPreference('toolbar/displayState', 'block');
+                });
+            },
+
+            loadToolbar: function(token, newToken) {
+                var that = this;
+                var triesCounter = document.getElementById('sfLoadCounter-' + token);
+
+                var options = {
+                    retry: true,
+                    onSend: function (count) {
+                        if (count === 3) {
+                            that.initToolbar(token);
+                        }
+
+                        if (triesCounter) {
+                            triesCounter.textContent = count;
+                        }
+                    },
+                };
+
+                var cancelButton = document.getElementById('sfLoadCancel-' + token);
+                if (cancelButton) {
+                    addEventListener(cancelButton, 'click', function (event) {
+                        event.preventDefault();
+
+                        options.stop = true;
+                        that.hideToolbar(token);
+                    });
+                }
+
+                newToken = (newToken || token);
+
+                this.load(
+                    'sfwdt' + token,
+                    'http\u003A\/\/13.39.131.193\u003A8002\/_wdt\/xxxxxx'.replace(/xxxxxx/, newToken),
+                    function(xhr, el) {
+                        /* Do nothing in the edge case where the toolbar has already been replaced with a new one */
+                        if (!document.getElementById('sfToolbarMainContent-' + newToken)) {
+                            return;
+                        }
+
+                        /* Evaluate in global scope scripts embedded inside the toolbar */
+                        var i, scripts = [].slice.call(el.querySelectorAll('script'));
+                        for (i = 0; i < scripts.length; ++i) {
+                            eval.call({}, scripts[i].firstChild.nodeValue);
+                        }
+
+                        el.style.display = -1 !== xhr.responseText.indexOf('sf-toolbarreset') ? 'block' : 'none';
+
+                        if (el.style.display == 'none') {
+                            return;
+                        }
+
+                        that.initToolbar(newToken);
+
+                        /* Handle toolbar-info position */
+                        var toolbarBlocks = [].slice.call(el.querySelectorAll('.sf-toolbar-block'));
+                        for (i = 0; i < toolbarBlocks.length; ++i) {
+                            toolbarBlocks[i].onmouseover = function () {
+                                var toolbarInfo = this.querySelectorAll('.sf-toolbar-info')[0];
+                                var pageWidth = document.body.clientWidth;
+                                var elementWidth = toolbarInfo.offsetWidth;
+                                var leftValue = (elementWidth + this.offsetLeft) - pageWidth;
+                                var rightValue = (elementWidth + (pageWidth - this.offsetLeft)) - pageWidth;
+
+                                /* Reset right and left value, useful on window resize */
+                                toolbarInfo.style.right = '';
+                                toolbarInfo.style.left = '';
+
+                                if (elementWidth > pageWidth) {
+                                    toolbarInfo.style.left = 0;
+                                }
+                                else if (leftValue > 0 && rightValue > 0) {
+                                    toolbarInfo.style.right = (rightValue * -1) + 'px';
+                                } else if (leftValue < 0) {
+                                    toolbarInfo.style.left = 0;
+                                } else {
+                                    toolbarInfo.style.right = '0px';
+                                }
+                            };
+                        }
+
+                        renderAjaxRequests();
+                        addEventListener(document.querySelector('.sf-toolbar-ajax-clear'), 'click', function() {
+                            requestStack = [];
+                            renderAjaxRequests();
+                            successStreak = 4;
+                            document.querySelector('.sf-toolbar-ajax-request-list').innerHTML = '';
+                        });
+                        addEventListener(document.querySelector('.sf-toolbar-block-ajax'), 'mouseenter', function (event) {
+                            var elem = document.querySelector('.sf-toolbar-block-ajax .sf-toolbar-info');
+                            elem.scrollTop = elem.scrollHeight;
+                        });
+                        addEventListener(document.querySelector('.sf-toolbar-block-ajax > .sf-toolbar-icon'), 'click', function (event) {
+                            event.preventDefault();
+
+                            toggleClass(this.parentNode, 'hover');
+                        });
+
+                        var dumpInfo = document.querySelector('.sf-toolbar-block-dump .sf-toolbar-info');
+                        if (null !== dumpInfo) {
+                            addEventListener(dumpInfo, 'sfbeforedumpcollapse', function () {
+                                dumpInfo.style.minHeight = dumpInfo.getBoundingClientRect().height+'px';
+                            });
+                            addEventListener(dumpInfo, 'mouseleave', function () {
+                                dumpInfo.style.minHeight = '';
+                            });
+                        }
+                    },
+                    function(xhr) {
+                        if (xhr.status !== 0 && !options.stop) {
+                            var sfwdt = that.getSfwdt(token);
+                            sfwdt.innerHTML = '\
+                                <div class="sf-toolbarreset">\
+                                    <div class="sf-toolbar-icon"><svg width="26" height="28" xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 26 28" enable-background="new 0 0 26 28" xml:space="preserve"><path fill="#FFFFFF" d="M13 0C5.8 0 0 5.8 0 13c0 7.2 5.8 13 13 13c7.2 0 13-5.8 13-13C26 5.8 20.2 0 13 0z M20 7.5 c-0.6 0-1-0.3-1-0.9c0-0.2 0-0.4 0.2-0.6c0.1-0.3 0.2-0.3 0.2-0.4c0-0.3-0.5-0.4-0.7-0.4c-2 0.1-2.5 2.7-2.9 4.8l-0.2 1.1 c1.1 0.2 1.9 0 2.4-0.3c0.6-0.4-0.2-0.8-0.1-1.3C18 9.2 18.4 9 18.7 8.9c0.5 0 0.8 0.5 0.8 1c0 0.8-1.1 2-3.3 1.9 c-0.3 0-0.5 0-0.7-0.1L15 14.1c-0.4 1.7-0.9 4.1-2.6 6.2c-1.5 1.8-3.1 2.1-3.8 2.1c-1.3 0-2.1-0.6-2.2-1.6c0-0.9 0.8-1.4 1.3-1.4 c0.7 0 1.2 0.5 1.2 1.1c0 0.5-0.2 0.6-0.4 0.7c-0.1 0.1-0.3 0.2-0.3 0.4c0 0.1 0.1 0.3 0.4 0.3c0.5 0 0.9-0.3 1.2-0.5 c1.3-1 1.7-2.9 2.4-6.2l0.1-0.8c0.2-1.1 0.5-2.3 0.8-3.5c-0.9-0.7-1.4-1.5-2.6-1.8c-0.8-0.2-1.3 0-1.7 0.4C8.4 10 8.6 10.7 9 11.1 l0.7 0.7c0.8 0.9 1.3 1.7 1.1 2.7c-0.3 1.6-2.1 2.8-4.3 2.1c-1.9-0.6-2.2-1.9-2-2.7c0.2-0.6 0.7-0.8 1.2-0.6 c0.5 0.2 0.7 0.8 0.6 1.3c0 0.1 0 0.1-0.1 0.3C6 15 5.9 15.2 5.9 15.3c-0.1 0.4 0.4 0.7 0.8 0.8c0.8 0.3 1.7-0.2 1.9-0.9 c0.2-0.6-0.2-1.1-0.4-1.2l-0.8-0.9c-0.4-0.4-1.2-1.5-0.8-2.8c0.2-0.5 0.5-1 0.9-1.4c1-0.7 2-0.8 3-0.6c1.3 0.4 1.9 1.2 2.8 1.9 c0.5-1.3 1.1-2.6 2-3.8c0.9-1 2-1.7 3.3-1.8C20 4.8 21 5.4 21 6.3C21 6.7 20.8 7.5 20 7.5z"/></svg></div>\
+                                    An error occurred while loading the web debug toolbar. <a href="http\u003A\/\/13.39.131.193\u003A8002\/_profiler\/' + newToken + '>Open the web profiler.</a>\
+                                </div>\
+                            ';
+                            sfwdt.setAttribute('class', 'sf-toolbar sf-error-toolbar');
+                        }
+                    },
+                    options
+                );
+
+                return this;
+            },
+
+            toggle: function(selector, elOn, elOff) {
+                var tmp = elOn.style.display,
+                    el = document.getElementById(selector);
+
+                elOn.style.display = elOff.style.display;
+                elOff.style.display = tmp;
+
+                if (el) {
+                    el.style.display = 'none' === tmp ? 'none' : 'block';
+                }
+
+                return this;
+            },
+
+            createTabs: function() {
+                var tabGroups = document.querySelectorAll('.sf-tabs:not([data-processed=true])');
+
+                /* create the tab navigation for each group of tabs */
+                for (var i = 0; i < tabGroups.length; i++) {
+                    var tabs = tabGroups[i].querySelectorAll(':scope > .tab');
+                    var tabNavigation = document.createElement('ul');
+                    tabNavigation.className = 'tab-navigation';
+
+                    var selectedTabId = 'tab-' + i + '-0'; /* select the first tab by default */
+                    for (var j = 0; j < tabs.length; j++) {
+                        var tabId = 'tab-' + i + '-' + j;
+                        var tabTitle = tabs[j].querySelector('.tab-title').innerHTML;
+
+                        var tabNavigationItem = document.createElement('li');
+                        tabNavigationItem.setAttribute('data-tab-id', tabId);
+                        if (hasClass(tabs[j], 'active')) { selectedTabId = tabId; }
+                        if (hasClass(tabs[j], 'disabled')) { addClass(tabNavigationItem, 'disabled'); }
+                        tabNavigationItem.innerHTML = tabTitle;
+                        tabNavigation.appendChild(tabNavigationItem);
+
+                        var tabContent = tabs[j].querySelector('.tab-content');
+                        tabContent.parentElement.setAttribute('id', tabId);
+                    }
+
+                    tabGroups[i].insertBefore(tabNavigation, tabGroups[i].firstChild);
+                    addClass(document.querySelector('[data-tab-id="' + selectedTabId + '"]'), 'active');
+                }
+
+                /* display the active tab and add the 'click' event listeners */
+                for (i = 0; i < tabGroups.length; i++) {
+                    tabNavigation = tabGroups[i].querySelectorAll(':scope > .tab-navigation li');
+
+                    for (j = 0; j < tabNavigation.length; j++) {
+                        tabId = tabNavigation[j].getAttribute('data-tab-id');
+                        document.getElementById(tabId).querySelector('.tab-title').className = 'hidden';
+
+                        if (hasClass(tabNavigation[j], 'active')) {
+                            document.getElementById(tabId).className = 'block';
+                        } else {
+                            document.getElementById(tabId).className = 'hidden';
+                        }
+
+                        tabNavigation[j].addEventListener('click', function(e) {
+                            var activeTab = e.target || e.srcElement;
+
+                            /* needed because when the tab contains HTML contents, user can click */
+                            /* on any of those elements instead of their parent '<li>' element */
+                            while (activeTab.tagName.toLowerCase() !== 'li') {
+                                activeTab = activeTab.parentNode;
+                            }
+
+                            /* get the full list of tabs through the parent of the active tab element */
+                            var tabNavigation = activeTab.parentNode.children;
+                            for (var k = 0; k < tabNavigation.length; k++) {
+                                var tabId = tabNavigation[k].getAttribute('data-tab-id');
+                                document.getElementById(tabId).className = 'hidden';
+                                removeClass(tabNavigation[k], 'active');
+                            }
+
+                            addClass(activeTab, 'active');
+                            var activeTabId = activeTab.getAttribute('data-tab-id');
+                            document.getElementById(activeTabId).className = 'block';
+                        });
+                    }
+
+                    tabGroups[i].setAttribute('data-processed', 'true');
+                }
+            },
+
+            createToggles: function() {
+                var toggles = document.querySelectorAll('.sf-toggle:not([data-processed=true])');
+
+                for (var i = 0; i < toggles.length; i++) {
+                    var elementSelector = toggles[i].getAttribute('data-toggle-selector');
+                    var element = document.querySelector(elementSelector);
+
+                    addClass(element, 'sf-toggle-content');
+
+                    if (toggles[i].hasAttribute('data-toggle-initial') && toggles[i].getAttribute('data-toggle-initial') == 'display') {
+                        addClass(toggles[i], 'sf-toggle-on');
+                        addClass(element, 'sf-toggle-visible');
+                    } else {
+                        addClass(toggles[i], 'sf-toggle-off');
+                        addClass(element, 'sf-toggle-hidden');
+                    }
+
+                    addEventListener(toggles[i], 'click', function(e) {
+                        e.preventDefault();
+
+                        if ('' !== window.getSelection().toString()) {
+                            /* Don't do anything on text selection */
+                            return;
+                        }
+
+                        var toggle = e.target || e.srcElement;
+
+                        /* needed because when the toggle contains HTML contents, user can click */
+                        /* on any of those elements instead of their parent '.sf-toggle' element */
+                        while (!hasClass(toggle, 'sf-toggle')) {
+                            toggle = toggle.parentNode;
+                        }
+
+                        var element = document.querySelector(toggle.getAttribute('data-toggle-selector'));
+
+                        toggleClass(toggle, 'sf-toggle-on');
+                        toggleClass(toggle, 'sf-toggle-off');
+                        toggleClass(element, 'sf-toggle-hidden');
+                        toggleClass(element, 'sf-toggle-visible');
+
+                        /* the toggle doesn't change its contents when clicking on it */
+                        if (!toggle.hasAttribute('data-toggle-alt-content')) {
+                            return;
+                        }
+
+                        if (!toggle.hasAttribute('data-toggle-original-content')) {
+                            toggle.setAttribute('data-toggle-original-content', toggle.innerHTML);
+                        }
+
+                        var currentContent = toggle.innerHTML;
+                        var originalContent = toggle.getAttribute('data-toggle-original-content');
+                        var altContent = toggle.getAttribute('data-toggle-alt-content');
+                        toggle.innerHTML = currentContent !== altContent ? altContent : originalContent;
+                    });
+
+                    /* Prevents from disallowing clicks on links inside toggles */
+                    var toggleLinks = toggles[i].querySelectorAll('a');
+                    for (var j = 0; j < toggleLinks.length; j++) {
+                        addEventListener(toggleLinks[j], 'click', function(e) {
+                            e.stopPropagation();
+                        });
+                    }
+
+                    /* Prevents from disallowing clicks on "copy to clipboard" elements inside toggles */
+                    var copyToClipboardElements = toggles[i].querySelectorAll('span[data-clipboard-text]');
+                    for (var k = 0; k < copyToClipboardElements.length; k++) {
+                        addEventListener(copyToClipboardElements[k], 'click', function(e) {
+                            e.stopPropagation();
+                        });
+                    }
+
+                    toggles[i].setAttribute('data-processed', 'true');
+                }
+            },
+
+            initializeLogsTable: function() {
+                Sfjs.updateLogsTable();
+
+                document.querySelectorAll('.log-filter input').forEach((input) => {
+                    input.addEventListener('change', () => { Sfjs.updateLogsTable(); });
+                });
+
+                document.querySelectorAll('.filter-select-all-or-none button').forEach((link) => {
+                    link.addEventListener('click', () => {
+                        const selectAll = link.classList.contains('select-all');
+                        link.closest('.log-filter-content').querySelectorAll('input').forEach((input) => {
+                            input.checked = selectAll;
+                        });
+
+                        Sfjs.updateLogsTable();
+                    });
+                });
+
+                document.body.addEventListener('click', (event) => {
+                    document.querySelectorAll('details.log-filter').forEach((filterElement) => {
+                        if (!filterElement.contains(event.target) && filterElement.open) {
+                            filterElement.open = false;
+                        }
+                    });
+                });
+            },
+
+            updateLogsTable: function() {
+                const selectedType = document.querySelector('#log-filter-type input:checked').value;
+                const priorities = document.querySelectorAll('#log-filter-priority input');
+                const allPriorities = Array.from(priorities).map((input) => input.value);
+                const selectedPriorities = Array.from(priorities).filter((input) => input.checked).map((input) => input.value);
+                const channels = document.querySelectorAll('#log-filter-channel input');
+                const selectedChannels = Array.from(channels).filter((input) => input.checked).map((input) => input.value);
+
+                const logs = document.querySelector('table.logs');
+                if (null === logs) {
+                    return;
+                }
+
+                /* hide rows that don't match the current filters */
+                let numVisibleRows = 0;
+                logs.querySelectorAll('tbody tr').forEach((row) => {
+                    if ('all' !== selectedType && selectedType !== row.getAttribute('data-type')) {
+                        row.style.display = 'none';
+                        return;
+                    }
+
+                    const priority = row.getAttribute('data-priority');
+                    if (false === selectedPriorities.includes(priority) && true === allPriorities.includes(priority)) {
+                        row.style.display = 'none';
+                        return;
+                    }
+
+                    if ('' !== row.getAttribute('data-channel') && false === selectedChannels.includes(row.getAttribute('data-channel'))) {
+                        row.style.display = 'none';
+                        return;
+                    }
+
+                    row.style.display = 'table-row';
+                    numVisibleRows++;
+                });
+
+                document.querySelector('table.logs').style.display = 0 === numVisibleRows ? 'none' : 'table';
+                document.querySelector('.no-logs-message').style.display = 0 === numVisibleRows ? 'block' : 'none';
+
+                /* update the selected totals of all filters */
+                document.querySelector('#log-filter-priority .filter-active-num').innerText = (priorities.length === selectedPriorities.length) ? 'All' : selectedPriorities.length;
+                document.querySelector('#log-filter-channel .filter-active-num').innerText = (channels.length === selectedChannels.length) ? 'All' : selectedChannels.length;
+
+                /* update the currently selected "log type" tab */
+                document.querySelectorAll('#log-filter-type li').forEach((tab) => tab.classList.remove('active'));
+                document.querySelector(`#log-filter-type input[value="${selectedType}"]`).parentElement.classList.add('active');
+            },
+        };
+    })();
+
+    Sfjs.addEventListener(document, 'DOMContentLoaded', function() {
+        Sfjs.createTabs();
+        Sfjs.createToggles();
+    });
+}
+/*]]>*/</script>
+
+                        
+    <h2>
+            <a href="http://13.39.131.193:8002/_profiler/open?file=src/Controller/searchController.php&amp;line=14#line14" title="App\Controller\searchController">searchController :: search</a>
+    </h2>
+
+    <div class="sf-tabs">
+        <div class="tab">
+            <h3 class="tab-title">Request</h3>
+
+            <div class="tab-content">
+                <h3>GET Parameters</h3>
+
+                                    <div class="empty">
+                        <p>No GET parameters</p>
+                    </div>
+                
+                <h3>POST Parameters</h3>
+
+                                    <div class="empty">
+                        <p>No POST parameters</p>
+                    </div>
+                
+                <h4>Uploaded Files</h4>
+
+                                    <div class="empty">
+                        <p>No files were uploaded</p>
+                    </div>
+                
+                <h3>Request Attributes</h3>
+
+                                    <table class="">
+    <thead>
+        <tr>
+            <th scope="col" class="key">Key</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <th>_access_control_attributes</th>
+                <td><script> Sfdump = window.Sfdump || (function (doc) { var refStyle = doc.createElement('style'), rxEsc = /([.*+?^${}()|\[\]\/\\])/g, idRx = /\bsf-dump-\d+-ref[012]\w+\b/, keyHint = 0 <= navigator.platform.toUpperCase().indexOf('MAC') ? 'Cmd' : 'Ctrl', addEventListener = function (e, n, cb) { e.addEventListener(n, cb, false); }; refStyle.innerHTML = 'pre.sf-dump .sf-dump-compact, .sf-dump-str-collapse .sf-dump-str-collapse, .sf-dump-str-expand .sf-dump-str-expand { display: none; }'; doc.head.appendChild(refStyle); refStyle = doc.createElement('style'); doc.head.appendChild(refStyle); if (!doc.addEventListener) { addEventListener = function (element, eventName, callback) { element.attachEvent('on' + eventName, function (e) { e.preventDefault = function () {e.returnValue = false;}; e.target = e.srcElement; callback(e); }); }; } function toggle(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className, arrow, newClass; if (/\bsf-dump-compact\b/.test(oldClass)) { arrow = '&#9660;'; newClass = 'sf-dump-expanded'; } else if (/\bsf-dump-expanded\b/.test(oldClass)) { arrow = '&#9654;'; newClass = 'sf-dump-compact'; } else { return false; } if (doc.createEvent && s.dispatchEvent) { var event = doc.createEvent('Event'); event.initEvent('sf-dump-expanded' === newClass ? 'sfbeforedumpexpand' : 'sfbeforedumpcollapse', true, false); s.dispatchEvent(event); } a.lastChild.innerHTML = arrow; s.className = s.className.replace(/\bsf-dump-(compact|expanded)\b/, newClass); if (recursive) { try { a = s.querySelectorAll('.'+oldClass); for (s = 0; s < a.length; ++s) { if (-1 == a[s].className.indexOf(newClass)) { a[s].className = newClass; a[s].previousSibling.lastChild.innerHTML = arrow; } } } catch (e) { } } return true; }; function collapse(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-expanded\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function expand(a, recursive) { var s = a.nextSibling || {}, oldClass = s.className; if (/\bsf-dump-compact\b/.test(oldClass)) { toggle(a, recursive); return true; } return false; }; function collapseAll(root) { var a = root.querySelector('a.sf-dump-toggle'); if (a) { collapse(a, true); expand(a); return true; } return false; } function reveal(node) { var previous, parents = []; while ((node = node.parentNode || {}) && (previous = node.previousSibling) && 'A' === previous.tagName) { parents.push(previous); } if (0 !== parents.length) { parents.forEach(function (parent) { expand(parent); }); return true; } return false; } function highlight(root, activeNode, nodes) { resetHighlightedNodes(root); Array.from(nodes||[]).forEach(function (node) { if (!/\bsf-dump-highlight\b/.test(node.className)) { node.className = node.className + ' sf-dump-highlight'; } }); if (!/\bsf-dump-highlight-active\b/.test(activeNode.className)) { activeNode.className = activeNode.className + ' sf-dump-highlight-active'; } } function resetHighlightedNodes(root) { Array.from(root.querySelectorAll('.sf-dump-str, .sf-dump-key, .sf-dump-public, .sf-dump-protected, .sf-dump-private')).forEach(function (strNode) { strNode.className = strNode.className.replace(/\bsf-dump-highlight\b/, ''); strNode.className = strNode.className.replace(/\bsf-dump-highlight-active\b/, ''); }); } return function (root, x) { root = doc.getElementById(root); var indentRx = new RegExp('^('+(root.getAttribute('data-indent-pad') || ' ').replace(rxEsc, '\\$1')+')+', 'm'), options = {"maxStringLength":4096,"fileLinkFormat":{},"maxDepth":1}, elt = root.getElementsByTagName('A'), len = elt.length, i = 0, s, h, t = []; while (i < len) t.push(elt[i++]); for (i in x) { options[i] = x[i]; } function a(e, f) { addEventListener(root, e, function (e, n) { if ('A' == e.target.tagName) { f(e.target, e); } else if ('A' == e.target.parentNode.tagName) { f(e.target.parentNode, e); } else { n = /\bsf-dump-ellipsis\b/.test(e.target.className) ? e.target.parentNode : e.target; if ((n = n.nextElementSibling) && 'A' == n.tagName) { if (!/\bsf-dump-toggle\b/.test(n.className)) { n = n.nextElementSibling || n; } f(n, e, true); } } }); }; function isCtrlKey(e) { return e.ctrlKey || e.metaKey; } function xpathString(str) { var parts = str.match(/[^'"]+|['"]/g).map(function (part) { if ("'" == part) { return '"\'"'; } if ('"' == part) { return "'\"'"; } return "'" + part + "'"; }); return "concat(" + parts.join(",") + ", '')"; } function xpathHasClass(className) { return "contains(concat(' ', normalize-space(@class), ' '), ' " + className +" ')"; } addEventListener(root, 'mouseover', function (e) { if ('' != refStyle.innerHTML) { refStyle.innerHTML = ''; } }); a('mouseover', function (a, e, c) { if (c) { e.target.style.cursor = "pointer"; } else if (a = idRx.exec(a.className)) { try { refStyle.innerHTML = 'pre.sf-dump .'+a[0]+'{background-color: #B729D9; color: #FFF !important; border-radius: 2px}'; } catch (e) { } } }); a('click', function (a, e, c) { if (/\bsf-dump-toggle\b/.test(a.className)) { e.preventDefault(); if (!toggle(a, isCtrlKey(e))) { var r = doc.getElementById(a.getAttribute('href').slice(1)), s = r.previousSibling, f = r.parentNode, t = a.parentNode; t.replaceChild(r, a); f.replaceChild(a, s); t.insertBefore(s, r); f = f.firstChild.nodeValue.match(indentRx); t = t.firstChild.nodeValue.match(indentRx); if (f && t && f[0] !== t[0]) { r.innerHTML = r.innerHTML.replace(new RegExp('^'+f[0].replace(rxEsc, '\\$1'), 'mg'), t[0]); } if (/\bsf-dump-compact\b/.test(r.className)) { toggle(s, isCtrlKey(e)); } } if (c) { } else if (doc.getSelection) { try { doc.getSelection().removeAllRanges(); } catch (e) { doc.getSelection().empty(); } } else { doc.selection.empty(); } } else if (/\bsf-dump-str-toggle\b/.test(a.className)) { e.preventDefault(); e = a.parentNode.parentNode; e.className = e.className.replace(/\bsf-dump-str-(expand|collapse)\b/, a.parentNode.className); } }); elt = root.getElementsByTagName('SAMP'); len = elt.length; i = 0; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; if ('SAMP' == elt.tagName) { a = elt.previousSibling || {}; if ('A' != a.tagName) { a = doc.createElement('A'); a.className = 'sf-dump-ref'; elt.parentNode.insertBefore(a, elt); } else { a.innerHTML += ' '; } a.title = (a.title ? a.title+'\n[' : '[')+keyHint+'+click] Expand all children'; a.innerHTML += elt.className == 'sf-dump-compact' ? '<span>&#9654;</span>' : '<span>&#9660;</span>'; a.className += ' sf-dump-toggle'; x = 1; if ('sf-dump' != elt.parentNode.className) { x += elt.parentNode.getAttribute('data-depth')/1; } } else if (/\bsf-dump-ref\b/.test(elt.className) && (a = elt.getAttribute('href'))) { a = a.slice(1); elt.className += ' '+a; if (/[\[{]$/.test(elt.previousSibling.nodeValue)) { a = a != elt.nextSibling.id && doc.getElementById(a); try { s = a.nextSibling; elt.appendChild(a); s.parentNode.insertBefore(a, s); if (/^[@#]/.test(elt.innerHTML)) { elt.innerHTML += ' <span>&#9654;</span>'; } else { elt.innerHTML = '<span>&#9654;</span>'; elt.className = 'sf-dump-ref'; } elt.className += ' sf-dump-toggle'; } catch (e) { if ('&' == elt.innerHTML.charAt(0)) { elt.innerHTML = '&#8230;'; elt.className = 'sf-dump-ref'; } } } } } if (doc.evaluate && Array.from && root.children.length > 1) { root.setAttribute('tabindex', 0); SearchState = function () { this.nodes = []; this.idx = 0; }; SearchState.prototype = { next: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx < (this.nodes.length - 1) ? this.idx + 1 : 0; return this.current(); }, previous: function () { if (this.isEmpty()) { return this.current(); } this.idx = this.idx > 0 ? this.idx - 1 : (this.nodes.length - 1); return this.current(); }, isEmpty: function () { return 0 === this.count(); }, current: function () { if (this.isEmpty()) { return null; } return this.nodes[this.idx]; }, reset: function () { this.nodes = []; this.idx = 0; }, count: function () { return this.nodes.length; }, }; function showCurrent(state) { var currentNode = state.current(), currentRect, searchRect; if (currentNode) { reveal(currentNode); highlight(root, currentNode, state.nodes); if ('scrollIntoView' in currentNode) { currentNode.scrollIntoView(true); currentRect = currentNode.getBoundingClientRect(); searchRect = search.getBoundingClientRect(); if (currentRect.top < (searchRect.top + searchRect.height)) { window.scrollBy(0, -(searchRect.top + searchRect.height + 5)); } } } counter.textContent = (state.isEmpty() ? 0 : state.idx + 1) + ' of ' + state.count(); } var search = doc.createElement('div'); search.className = 'sf-dump-search-wrapper sf-dump-search-hidden'; search.innerHTML = ' <input type="text" class="sf-dump-search-input"> <span class="sf-dump-search-count">0 of 0<\/span> <button type="button" class="sf-dump-search-input-previous" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 1331l-166 165q-19 19-45 19t-45-19L896 965l-531 531q-19 19-45 19t-45-19l-166-165q-19-19-19-45.5t19-45.5l742-741q19-19 45-19t45 19l742 741q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> <button type="button" class="sf-dump-search-input-next" tabindex="-1"> <svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1683 808l-742 741q-19 19-45 19t-45-19L109 808q-19-19-19-45.5t19-45.5l166-165q19-19 45-19t45 19l531 531 531-531q19-19 45-19t45 19l166 165q19 19 19 45.5t-19 45.5z"\/><\/svg> <\/button> '; root.insertBefore(search, root.firstChild); var state = new SearchState(); var searchInput = search.querySelector('.sf-dump-search-input'); var counter = search.querySelector('.sf-dump-search-count'); var searchInputTimer = 0; var previousSearchQuery = ''; addEventListener(searchInput, 'keyup', function (e) { var searchQuery = e.target.value; /* Don't perform anything if the pressed key didn't change the query */ if (searchQuery === previousSearchQuery) { return; } previousSearchQuery = searchQuery; clearTimeout(searchInputTimer); searchInputTimer = setTimeout(function () { state.reset(); collapseAll(root); resetHighlightedNodes(root); if ('' === searchQuery) { counter.textContent = '0 of 0'; return; } var classMatches = [ "sf-dump-str", "sf-dump-key", "sf-dump-public", "sf-dump-protected", "sf-dump-private", ].map(xpathHasClass).join(' or '); var xpathResult = doc.evaluate('.//span[' + classMatches + '][contains(translate(child::text(), ' + xpathString(searchQuery.toUpperCase()) + ', ' + xpathString(searchQuery.toLowerCase()) + '), ' + xpathString(searchQuery.toLowerCase()) + ')]', root, null, XPathResult.ORDERED_NODE_ITERATOR_TYPE, null); while (node = xpathResult.iterateNext()) state.nodes.push(node); showCurrent(state); }, 400); }); Array.from(search.querySelectorAll('.sf-dump-search-input-next, .sf-dump-search-input-previous')).forEach(function (btn) { addEventListener(btn, 'click', function (e) { e.preventDefault(); -1 !== e.target.className.indexOf('next') ? state.next() : state.previous(); searchInput.focus(); collapseAll(root); showCurrent(state); }) }); addEventListener(root, 'keydown', function (e) { var isSearchActive = !/\bsf-dump-search-hidden\b/.test(search.className); if ((114 === e.keyCode && !isSearchActive) || (isCtrlKey(e) && 70 === e.keyCode)) { /* F3 or CMD/CTRL + F */ if (70 === e.keyCode && document.activeElement === searchInput) { /* * If CMD/CTRL + F is hit while having focus on search input, * the user probably meant to trigger browser search instead. * Let the browser execute its behavior: */ return; } e.preventDefault(); search.className = search.className.replace(/\bsf-dump-search-hidden\b/, ''); searchInput.focus(); } else if (isSearchActive) { if (27 === e.keyCode) { /* ESC key */ search.className += ' sf-dump-search-hidden'; e.preventDefault(); resetHighlightedNodes(root); searchInput.value = ''; } else if ( (isCtrlKey(e) && 71 === e.keyCode) /* CMD/CTRL + G */ || 13 === e.keyCode /* Enter */ || 114 === e.keyCode /* F3 */ ) { e.preventDefault(); e.shiftKey ? state.previous() : state.next(); collapseAll(root); showCurrent(state); } } }); } if (0 >= options.maxStringLength) { return; } try { elt = root.querySelectorAll('.sf-dump-str'); len = elt.length; i = 0; t = []; while (i < len) t.push(elt[i++]); len = t.length; for (i = 0; i < len; ++i) { elt = t[i]; s = elt.innerText || elt.textContent; x = s.length - options.maxStringLength; if (0 < x) { h = elt.innerHTML; elt[elt.innerText ? 'innerText' : 'textContent'] = s.substring(0, options.maxStringLength); elt.className += ' sf-dump-str-collapse'; elt.innerHTML = '<span class=sf-dump-str-collapse>'+h+'<a class="sf-dump-ref sf-dump-str-toggle" title="Collapse"> &#9664;</a></span>'+ '<span class=sf-dump-str-expand>'+elt.innerHTML+'<a class="sf-dump-ref sf-dump-str-toggle" title="'+x+' remaining characters"> &#9654;</a></span>'; } } } catch (e) { } }; })(document); </script><style> pre.sf-dump { display: block; white-space: pre; padding: 5px; overflow: initial !important; } pre.sf-dump:after { content: ""; visibility: hidden; display: block; height: 0; clear: both; } pre.sf-dump span { display: inline; } pre.sf-dump a { text-decoration: none; cursor: pointer; border: 0; outline: none; color: inherit; } pre.sf-dump img { max-width: 50em; max-height: 50em; margin: .5em 0 0 0; padding: 0; background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAHUlEQVQY02O8zAABilCaiQEN0EeA8QuUcX9g3QEAAjcC5piyhyEAAAAASUVORK5CYII=) #D3D3D3; } pre.sf-dump .sf-dump-ellipsis { display: inline-block; overflow: visible; text-overflow: ellipsis; max-width: 5em; white-space: nowrap; overflow: hidden; vertical-align: top; } pre.sf-dump .sf-dump-ellipsis+.sf-dump-ellipsis { max-width: none; } pre.sf-dump code { display:inline; padding:0; background:none; } .sf-dump-public.sf-dump-highlight, .sf-dump-protected.sf-dump-highlight, .sf-dump-private.sf-dump-highlight, .sf-dump-str.sf-dump-highlight, .sf-dump-key.sf-dump-highlight { background: rgba(111, 172, 204, 0.3); border: 1px solid #7DA0B1; border-radius: 3px; } .sf-dump-public.sf-dump-highlight-active, .sf-dump-protected.sf-dump-highlight-active, .sf-dump-private.sf-dump-highlight-active, .sf-dump-str.sf-dump-highlight-active, .sf-dump-key.sf-dump-highlight-active { background: rgba(253, 175, 0, 0.4); border: 1px solid #ffa500; border-radius: 3px; } pre.sf-dump .sf-dump-search-hidden { display: none !important; } pre.sf-dump .sf-dump-search-wrapper { font-size: 0; white-space: nowrap; margin-bottom: 5px; display: flex; position: -webkit-sticky; position: sticky; top: 5px; } pre.sf-dump .sf-dump-search-wrapper > * { vertical-align: top; box-sizing: border-box; height: 21px; font-weight: normal; border-radius: 0; background: #FFF; color: #757575; border: 1px solid #BBB; } pre.sf-dump .sf-dump-search-wrapper > input.sf-dump-search-input { padding: 3px; height: 21px; font-size: 12px; border-right: none; border-top-left-radius: 3px; border-bottom-left-radius: 3px; color: #000; min-width: 15px; width: 100%; } pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next, pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous { background: #F2F2F2; outline: none; border-left: none; font-size: 0; line-height: 0; } pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next { border-top-right-radius: 3px; border-bottom-right-radius: 3px; } pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-next > svg, pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-input-previous > svg { pointer-events: none; width: 12px; height: 12px; } pre.sf-dump .sf-dump-search-wrapper > .sf-dump-search-count { display: inline-block; padding: 0 5px; margin: 0; border-left: none; line-height: 21px; font-size: 12px; }pre.sf-dump, pre.sf-dump .sf-dump-default{background-color:#18171B; color:#FF8400; line-height:1.2em; font:12px Menlo, Monaco, Consolas, monospace; word-wrap: break-word; white-space: pre-wrap; position:relative; z-index:99999; word-break: break-all}pre.sf-dump .sf-dump-num{font-weight:bold; color:#1299DA}pre.sf-dump .sf-dump-const{font-weight:bold}pre.sf-dump .sf-dump-str{font-weight:bold; color:#56DB3A}pre.sf-dump .sf-dump-note{color:#1299DA}pre.sf-dump .sf-dump-ref{color:#A0A0A0}pre.sf-dump .sf-dump-public{color:#FFFFFF}pre.sf-dump .sf-dump-protected{color:#FFFFFF}pre.sf-dump .sf-dump-private{color:#FFFFFF}pre.sf-dump .sf-dump-meta{color:#B729D9}pre.sf-dump .sf-dump-key{color:#56DB3A}pre.sf-dump .sf-dump-index{color:#1299DA}pre.sf-dump .sf-dump-ellipsis{color:#FF8400}pre.sf-dump .sf-dump-ns{user-select:none;}pre.sf-dump .sf-dump-ellipsis-note{color:#1299DA}</style><pre class=sf-dump id=sf-dump-287190600 data-indent-pad="  "><span class=sf-dump-const>null</span></pre><script>Sfdump("sf-dump-287190600", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>_controller</th>
+                <td><pre class=sf-dump id=sf-dump-1889890017 data-indent-pad="  ">"<span class=sf-dump-str title="39 characters">App\Controller\searchController::search</span>"</pre><script>Sfdump("sf-dump-1889890017", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>_firewall_context</th>
+                <td><pre class=sf-dump id=sf-dump-2052208696 data-indent-pad="  ">"<span class=sf-dump-str title="34 characters">security.firewall.map.context.main</span>"</pre><script>Sfdump("sf-dump-2052208696", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>_route</th>
+                <td><pre class=sf-dump id=sf-dump-2059867248 data-indent-pad="  ">"<span class=sf-dump-str title="10 characters">searchPage</span>"</pre><script>Sfdump("sf-dump-2059867248", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>_route_params</th>
+                <td><pre class=sf-dump id=sf-dump-240801918 data-indent-pad="  ">[]</pre><script>Sfdump("sf-dump-240801918", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>_stopwatch_token</th>
+                <td><pre class=sf-dump id=sf-dump-411034622 data-indent-pad="  ">"<span class=sf-dump-str title="6 characters">813d41</span>"</pre><script>Sfdump("sf-dump-411034622", {"maxDepth":0})</script></td>
+            </tr>
+            </tbody>
+</table>
+
+                
+                <h3>Request Headers</h3>
+                <table class="">
+    <thead>
+        <tr>
+            <th scope="col" class="key">Header</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <th>accept</th>
+                <td><pre class=sf-dump id=sf-dump-1777912882 data-indent-pad="  ">"<span class=sf-dump-str title="3 characters">*/*</span>"</pre><script>Sfdump("sf-dump-1777912882", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>accept-encoding</th>
+                <td><pre class=sf-dump id=sf-dump-1840247318 data-indent-pad="  ">"<span class=sf-dump-str title="8 characters">identity</span>"</pre><script>Sfdump("sf-dump-1840247318", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>connection</th>
+                <td><pre class=sf-dump id=sf-dump-2094606326 data-indent-pad="  ">"<span class=sf-dump-str title="10 characters">Keep-Alive</span>"</pre><script>Sfdump("sf-dump-2094606326", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>content-length</th>
+                <td><pre class=sf-dump id=sf-dump-905959161 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-905959161", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>content-type</th>
+                <td><pre class=sf-dump id=sf-dump-1105157043 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-1105157043", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>host</th>
+                <td><pre class=sf-dump id=sf-dump-298306242 data-indent-pad="  ">"<span class=sf-dump-str title="18 characters">13.39.131.193:8002</span>"</pre><script>Sfdump("sf-dump-298306242", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>mod-rewrite</th>
+                <td><pre class=sf-dump id=sf-dump-1109787949 data-indent-pad="  ">"<span class=sf-dump-str title="2 characters">On</span>"</pre><script>Sfdump("sf-dump-1109787949", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>user-agent</th>
+                <td><pre class=sf-dump id=sf-dump-700284852 data-indent-pad="  ">"<span class=sf-dump-str title="11 characters">Wget/1.21.4</span>"</pre><script>Sfdump("sf-dump-700284852", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>x-forwarded-for</th>
+                <td><pre class=sf-dump id=sf-dump-861501700 data-indent-pad="  ">"<span class=sf-dump-str title="12 characters">197.17.25.72</span>"</pre><script>Sfdump("sf-dump-861501700", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>x-php-ob-level</th>
+                <td><pre class=sf-dump id=sf-dump-1785353212 data-indent-pad="  ">"<span class=sf-dump-str>1</span>"</pre><script>Sfdump("sf-dump-1785353212", {"maxDepth":1})</script></td>
+            </tr>
+            </tbody>
+</table>
+
+
+                <h3>Request Content</h3>
+
+                                    <div class="empty">
+                        <p>Request content not available (it was retrieved as a resource).</p>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="tab">
+            <h3 class="tab-title">Response</h3>
+
+            <div class="tab-content">
+                <h3>Response Headers</h3>
+
+                <table class="">
+    <thead>
+        <tr>
+            <th scope="col" class="key">Header</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <th>cache-control</th>
+                <td><pre class=sf-dump id=sf-dump-1696854106 data-indent-pad="  ">"<span class=sf-dump-str title="17 characters">no-cache, private</span>"</pre><script>Sfdump("sf-dump-1696854106", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>content-type</th>
+                <td><pre class=sf-dump id=sf-dump-1650589945 data-indent-pad="  ">"<span class=sf-dump-str title="24 characters">text/html; charset=UTF-8</span>"</pre><script>Sfdump("sf-dump-1650589945", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>date</th>
+                <td><pre class=sf-dump id=sf-dump-1594211223 data-indent-pad="  ">"<span class=sf-dump-str title="29 characters">Thu, 04 Jul 2024 15:15:44 GMT</span>"</pre><script>Sfdump("sf-dump-1594211223", {"maxDepth":1})</script></td>
+            </tr>
+                    <tr>
+                <th>x-debug-token</th>
+                <td><pre class=sf-dump id=sf-dump-1901758872 data-indent-pad="  ">"<span class=sf-dump-str title="6 characters">701194</span>"</pre><script>Sfdump("sf-dump-1901758872", {"maxDepth":1})</script></td>
+            </tr>
+            </tbody>
+</table>
+
+            </div>
+        </div>
+
+        <div class="tab disabled">
+            <h3 class="tab-title">Cookies</h3>
+
+            <div class="tab-content">
+                <h3>Request Cookies</h3>
+
+                                    <div class="empty">
+                        <p>No request cookies</p>
+                    </div>
+                
+                <h3>Response Cookies</h3>
+
+                                    <div class="empty">
+                        <p>No response cookies</p>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="tab disabled">
+            <h3 class="tab-title">Session</h3>
+
+            <div class="tab-content">
+                <h3>Session Metadata</h3>
+
+                                    <div class="empty">
+                        <p>No session metadata</p>
+                    </div>
+                
+                <h3>Session Attributes</h3>
+
+                                    <div class="empty">
+                        <p>No session attributes</p>
+                    </div>
+                
+                <h3>Session Usage</h3>
+
+                <div class="metrics">
+                    <div class="metric">
+                        <span class="value">0</span>
+                        <span class="label">Usages</span>
+                    </div>
+
+                    <div class="metric">
+                        <span class="value"><svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 12 12"><path fill="#B0413E" d="M10.4 8.4L8 6l2.4-2.4c.8-.8.7-1.6.2-2.2-.6-.5-1.4-.6-2.2.2L6 4 3.6 1.6C2.8.8 2 .9 1.4 1.4c-.5.6-.6 1.4.2 2.2L4 6 1.6 8.4c-.8.8-.7 1.6-.2 2.2.6.6 1.4.6 2.2-.2L6 8l2.4 2.4c.8.8 1.6.7 2.2.2.5-.6.6-1.4-.2-2.2z"/></svg>
+</span>
+                        <span class="label">Stateless check enabled</span>
+                    </div>
+                </div>
+
+                                    <div class="empty">
+                        <p>Session not used.</p>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="tab disabled">
+            <h3 class="tab-title">Flashes</h3>
+
+            <div class="tab-content">
+                <h3>Flashes</h3>
+
+                                    <div class="empty">
+                        <p>No flash messages were created.</p>
+                    </div>
+                            </div>
+        </div>
+
+        <div class="tab">
+            <h3 class="tab-title">Server Parameters</h3>
+            <div class="tab-content">
+                <h3>Server Parameters</h3>
+                <h4>Defined in .env</h4>
+                <table class="">
+    <thead>
+        <tr>
+            <th scope="col" class="key">Key</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <th>APP_ENV</th>
+                <td><pre class=sf-dump id=sf-dump-239396618 data-indent-pad="  ">"<span class=sf-dump-str title="3 characters">dev</span>"</pre><script>Sfdump("sf-dump-239396618", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>APP_SECRET</th>
+                <td><pre class=sf-dump id=sf-dump-699679247 data-indent-pad="  ">"<span class=sf-dump-str title="32 characters">ea882b941a3cc389c353a848b1b16cc7</span>"</pre><script>Sfdump("sf-dump-699679247", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>DATABASE_URL</th>
+                <td><pre class=sf-dump id=sf-dump-1272701521 data-indent-pad="  ">"<span class=sf-dump-str title="91 characters">mysql://dev_2:Passw0rd_dev2@127.0.0.1:3306/symfony_proj_dev_2?serverVersion=mariadb-10.4.27</span>"</pre><script>Sfdump("sf-dump-1272701521", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>JWT_EXPIRATION_TIME</th>
+                <td><pre class=sf-dump id=sf-dump-608845937 data-indent-pad="  ">"<span class=sf-dump-str title="5 characters">86400</span>"</pre><script>Sfdump("sf-dump-608845937", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>JWT_SECRET</th>
+                <td><pre class=sf-dump id=sf-dump-915103341 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">9900</span>"</pre><script>Sfdump("sf-dump-915103341", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>MAILER_DSN</th>
+                <td><pre class=sf-dump id=sf-dump-289180838 data-indent-pad="  ">"<span class=sf-dump-str title="66 characters">smtp://30660caf1dabab:ca373a11ff46e2@sandbox.smtp.mailtrap.io:2525</span>"</pre><script>Sfdump("sf-dump-289180838", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th>MESSENGER_TRANSPORT_DSN</th>
+                <td><pre class=sf-dump id=sf-dump-865854944 data-indent-pad="  ">"<span class=sf-dump-str title="31 characters">doctrine://default?auto_setup=0</span>"</pre><script>Sfdump("sf-dump-865854944", {"maxDepth":0})</script></td>
+            </tr>
+            </tbody>
+</table>
+
+
+                <h4>Defined as regular env variables</h4>
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    <table class="">
+    <thead>
+        <tr>
+            <th scope="col" class="key">Key</th>
+            <th scope="col">Value</th>
+        </tr>
+    </thead>
+    <tbody>
+                    <tr>
+                <th scope="row">APP_DEBUG</th>
+                <td><pre class=sf-dump id=sf-dump-1676262953 data-indent-pad="  ">"<span class=sf-dump-str>1</span>"</pre><script>Sfdump("sf-dump-1676262953", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">APP_FRONT_CONTROLLER</th>
+                <td><pre class=sf-dump id=sf-dump-839822347 data-indent-pad="  ">"<span class=sf-dump-str title="9 characters">index.php</span>"</pre><script>Sfdump("sf-dump-839822347", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">CLUTTER_IM_MODULE</th>
+                <td><pre class=sf-dump id=sf-dump-1049000589 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">ibus</span>"</pre><script>Sfdump("sf-dump-1049000589", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">COLORTERM</th>
+                <td><pre class=sf-dump id=sf-dump-1046373870 data-indent-pad="  ">"<span class=sf-dump-str title="9 characters">truecolor</span>"</pre><script>Sfdump("sf-dump-1046373870", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">CONTENT_LENGTH</th>
+                <td><pre class=sf-dump id=sf-dump-1935217115 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-1935217115", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">CONTENT_TYPE</th>
+                <td><pre class=sf-dump id=sf-dump-1036079512 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-1036079512", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">DBUS_SESSION_BUS_ADDRESS</th>
+                <td><pre class=sf-dump id=sf-dump-1986284986 data-indent-pad="  ">"<span class=sf-dump-str title="28 characters">unix:path=/run/user/1000/bus</span>"</pre><script>Sfdump("sf-dump-1986284986", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">DISPLAY</th>
+                <td><pre class=sf-dump id=sf-dump-406465652 data-indent-pad="  ">"<span class=sf-dump-str title="5 characters">:10.0</span>"</pre><script>Sfdump("sf-dump-406465652", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">DOCUMENT_ROOT</th>
+                <td><pre class=sf-dump id=sf-dump-1243513542 data-indent-pad="  ">"<span class=sf-dump-str title="32 characters">/myuser/dev_2/symfony_pro/public</span>"</pre><script>Sfdump("sf-dump-1243513542", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">DOCUMENT_URI</th>
+                <td><pre class=sf-dump id=sf-dump-1944890462 data-indent-pad="  ">"<span class=sf-dump-str title="10 characters">/index.php</span>"</pre><script>Sfdump("sf-dump-1944890462", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">GATEWAY_INTERFACE</th>
+                <td><pre class=sf-dump id=sf-dump-520276784 data-indent-pad="  ">"<span class=sf-dump-str title="7 characters">CGI/1.1</span>"</pre><script>Sfdump("sf-dump-520276784", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">GNOME_DESKTOP_SESSION_ID</th>
+                <td><pre class=sf-dump id=sf-dump-810400196 data-indent-pad="  ">"<span class=sf-dump-str title="18 characters">this-is-deprecated</span>"</pre><script>Sfdump("sf-dump-810400196", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">GNOME_TERMINAL_SCREEN</th>
+                <td><pre class=sf-dump id=sf-dump-744208314 data-indent-pad="  ">"<span class=sf-dump-str title="63 characters">/org/gnome/Terminal/screen/172ab497_4754_428c_a891_99433140bacd</span>"</pre><script>Sfdump("sf-dump-744208314", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">GNOME_TERMINAL_SERVICE</th>
+                <td><pre class=sf-dump id=sf-dump-2124328643 data-indent-pad="  ">"<span class=sf-dump-str title="5 characters">:1.94</span>"</pre><script>Sfdump("sf-dump-2124328643", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">GPG_AGENT_INFO</th>
+                <td><pre class=sf-dump id=sf-dump-775309062 data-indent-pad="  ">"<span class=sf-dump-str title="36 characters">/run/user/1000/gnupg/S.gpg-agent:0:1</span>"</pre><script>Sfdump("sf-dump-775309062", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">GTK_IM_MODULE</th>
+                <td><pre class=sf-dump id=sf-dump-737970903 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">ibus</span>"</pre><script>Sfdump("sf-dump-737970903", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">GTK_MODULES</th>
+                <td><pre class=sf-dump id=sf-dump-2045764697 data-indent-pad="  ">"<span class=sf-dump-str title="15 characters">gail:atk-bridge</span>"</pre><script>Sfdump("sf-dump-2045764697", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HOME</th>
+                <td><pre class=sf-dump id=sf-dump-135307785 data-indent-pad="  ">"<span class=sf-dump-str title="12 characters">/home/ubuntu</span>"</pre><script>Sfdump("sf-dump-135307785", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTPS</th>
+                <td><pre class=sf-dump id=sf-dump-2022821641 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-2022821641", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTP_ACCEPT</th>
+                <td><pre class=sf-dump id=sf-dump-1970278077 data-indent-pad="  ">"<span class=sf-dump-str title="3 characters">*/*</span>"</pre><script>Sfdump("sf-dump-1970278077", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTP_ACCEPT_ENCODING</th>
+                <td><pre class=sf-dump id=sf-dump-1647608501 data-indent-pad="  ">"<span class=sf-dump-str title="8 characters">identity</span>"</pre><script>Sfdump("sf-dump-1647608501", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTP_CONNECTION</th>
+                <td><pre class=sf-dump id=sf-dump-1588536273 data-indent-pad="  ">"<span class=sf-dump-str title="10 characters">Keep-Alive</span>"</pre><script>Sfdump("sf-dump-1588536273", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTP_HOST</th>
+                <td><pre class=sf-dump id=sf-dump-1298211559 data-indent-pad="  ">"<span class=sf-dump-str title="18 characters">13.39.131.193:8002</span>"</pre><script>Sfdump("sf-dump-1298211559", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTP_MOD_REWRITE</th>
+                <td><pre class=sf-dump id=sf-dump-958146890 data-indent-pad="  ">"<span class=sf-dump-str title="2 characters">On</span>"</pre><script>Sfdump("sf-dump-958146890", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTP_USER_AGENT</th>
+                <td><pre class=sf-dump id=sf-dump-1997415517 data-indent-pad="  ">"<span class=sf-dump-str title="11 characters">Wget/1.21.4</span>"</pre><script>Sfdump("sf-dump-1997415517", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">HTTP_X_FORWARDED_FOR</th>
+                <td><pre class=sf-dump id=sf-dump-1964657162 data-indent-pad="  ">"<span class=sf-dump-str title="12 characters">197.17.25.72</span>"</pre><script>Sfdump("sf-dump-1964657162", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">LANG</th>
+                <td><pre class=sf-dump id=sf-dump-1468906999 data-indent-pad="  ">"<span class=sf-dump-str title="7 characters">C.UTF-8</span>"</pre><script>Sfdump("sf-dump-1468906999", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">LESSCLOSE</th>
+                <td><pre class=sf-dump id=sf-dump-1761555165 data-indent-pad="  ">"<span class=sf-dump-str title="23 characters">/usr/bin/lesspipe %s %s</span>"</pre><script>Sfdump("sf-dump-1761555165", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">LESSOPEN</th>
+                <td><pre class=sf-dump id=sf-dump-259935337 data-indent-pad="  ">"<span class=sf-dump-str title="22 characters">| /usr/bin/lesspipe %s</span>"</pre><script>Sfdump("sf-dump-259935337", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">LOGNAME</th>
+                <td><pre class=sf-dump id=sf-dump-113254438 data-indent-pad="  ">"<span class=sf-dump-str title="6 characters">ubuntu</span>"</pre><script>Sfdump("sf-dump-113254438", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">LS_COLORS</th>
+                <td><pre class=sf-dump id=sf-dump-674698570 data-indent-pad="  ">"<span class=sf-dump-str title="1508 characters">rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:</span>"</pre><script>Sfdump("sf-dump-674698570", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">OLDPWD</th>
+                <td><pre class=sf-dump id=sf-dump-1598416796 data-indent-pad="  ">"<span class=sf-dump-str title="19 characters">/myuser/log_symfony</span>"</pre><script>Sfdump("sf-dump-1598416796", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PATH</th>
+                <td><pre class=sf-dump id=sf-dump-1863719708 data-indent-pad="  ">"<span class=sf-dump-str title="98 characters">/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin</span>"</pre><script>Sfdump("sf-dump-1863719708", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PATH_INFO</th>
+                <td><pre class=sf-dump id=sf-dump-2698417 data-indent-pad="  ">"<span class=sf-dump-str title="8 characters">/search1</span>"</pre><script>Sfdump("sf-dump-2698417", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PHP_BINARY</th>
+                <td><pre class=sf-dump id=sf-dump-1866714506 data-indent-pad="  ">"<span class=sf-dump-str title="15 characters">/usr/bin/php8.1</span>"</pre><script>Sfdump("sf-dump-1866714506", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PHP_PATH</th>
+                <td><pre class=sf-dump id=sf-dump-823945977 data-indent-pad="  ">"<span class=sf-dump-str title="15 characters">/usr/bin/php8.1</span>"</pre><script>Sfdump("sf-dump-823945977", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PHP_PEAR_PHP_BIN</th>
+                <td><pre class=sf-dump id=sf-dump-2008946787 data-indent-pad="  ">"<span class=sf-dump-str title="15 characters">/usr/bin/php8.1</span>"</pre><script>Sfdump("sf-dump-2008946787", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PHP_SELF</th>
+                <td><pre class=sf-dump id=sf-dump-1357377765 data-indent-pad="  ">"<span class=sf-dump-str title="18 characters">/index.php/search1</span>"</pre><script>Sfdump("sf-dump-1357377765", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PULSE_SCRIPT</th>
+                <td><pre class=sf-dump id=sf-dump-1556775871 data-indent-pad="  ">"<span class=sf-dump-str title="26 characters">/etc/xrdp/pulse/default.pa</span>"</pre><script>Sfdump("sf-dump-1556775871", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">PWD</th>
+                <td><pre class=sf-dump id=sf-dump-1921540777 data-indent-pad="  ">"<span class=sf-dump-str title="25 characters">/myuser/dev_2/symfony_pro</span>"</pre><script>Sfdump("sf-dump-1921540777", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">QT_ACCESSIBILITY</th>
+                <td><pre class=sf-dump id=sf-dump-2049453383 data-indent-pad="  ">"<span class=sf-dump-str>1</span>"</pre><script>Sfdump("sf-dump-2049453383", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">QT_IM_MODULE</th>
+                <td><pre class=sf-dump id=sf-dump-10199725 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">ibus</span>"</pre><script>Sfdump("sf-dump-10199725", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">QUERY_STRING</th>
+                <td><pre class=sf-dump id=sf-dump-1721245845 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-1721245845", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REDIRECT_STATUS</th>
+                <td><pre class=sf-dump id=sf-dump-1939196236 data-indent-pad="  ">"<span class=sf-dump-str title="3 characters">200</span>"</pre><script>Sfdump("sf-dump-1939196236", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REEXEC_STATUS_FILE</th>
+                <td><pre class=sf-dump id=sf-dump-840967444 data-indent-pad="  ">"<span class=sf-dump-str title="44 characters">/home/ubuntu/.symfony5/var/status-4047764731</span>"</pre><script>Sfdump("sf-dump-840967444", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REEXEC_WATCH_PID</th>
+                <td><pre class=sf-dump id=sf-dump-1106417994 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">4799</span>"</pre><script>Sfdump("sf-dump-1106417994", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REMOTE_ADDR</th>
+                <td><pre class=sf-dump id=sf-dump-912421369 data-indent-pad="  ">"<span class=sf-dump-str title="9 characters">127.0.0.1</span>"</pre><script>Sfdump("sf-dump-912421369", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REMOTE_PORT</th>
+                <td><pre class=sf-dump id=sf-dump-1545432667 data-indent-pad="  ">"<span class=sf-dump-str title="5 characters">37468</span>"</pre><script>Sfdump("sf-dump-1545432667", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REQUEST_METHOD</th>
+                <td><pre class=sf-dump id=sf-dump-1131242912 data-indent-pad="  ">"<span class=sf-dump-str title="3 characters">GET</span>"</pre><script>Sfdump("sf-dump-1131242912", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REQUEST_TIME</th>
+                <td><pre class=sf-dump id=sf-dump-513938390 data-indent-pad="  "><span class=sf-dump-num>1720106144</span></pre><script>Sfdump("sf-dump-513938390", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REQUEST_TIME_FLOAT</th>
+                <td><pre class=sf-dump id=sf-dump-1748697289 data-indent-pad="  "><span class=sf-dump-num>1720106144.9643</span></pre><script>Sfdump("sf-dump-1748697289", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">REQUEST_URI</th>
+                <td><pre class=sf-dump id=sf-dump-67238154 data-indent-pad="  ">"<span class=sf-dump-str title="8 characters">/search1</span>"</pre><script>Sfdump("sf-dump-67238154", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SCRIPT_FILENAME</th>
+                <td><pre class=sf-dump id=sf-dump-104437829 data-indent-pad="  ">"<span class=sf-dump-str title="42 characters">/myuser/dev_2/symfony_pro/public/index.php</span>"</pre><script>Sfdump("sf-dump-104437829", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SCRIPT_NAME</th>
+                <td><pre class=sf-dump id=sf-dump-110997774 data-indent-pad="  ">"<span class=sf-dump-str title="10 characters">/index.php</span>"</pre><script>Sfdump("sf-dump-110997774", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SERVER_NAME</th>
+                <td><pre class=sf-dump id=sf-dump-229241854 data-indent-pad="  ">"<span class=sf-dump-str title="9 characters">127.0.0.1</span>"</pre><script>Sfdump("sf-dump-229241854", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SERVER_PORT</th>
+                <td><pre class=sf-dump id=sf-dump-442244850 data-indent-pad="  ">"<span class=sf-dump-str title="5 characters">43431</span>"</pre><script>Sfdump("sf-dump-442244850", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SERVER_PROTOCOL</th>
+                <td><pre class=sf-dump id=sf-dump-1115327122 data-indent-pad="  ">"<span class=sf-dump-str title="8 characters">HTTP/1.1</span>"</pre><script>Sfdump("sf-dump-1115327122", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SERVER_SOFTWARE</th>
+                <td><pre class=sf-dump id=sf-dump-1925649737 data-indent-pad="  ">"<span class=sf-dump-str title="40 characters">PHP 8.1.2-1ubuntu2.18 Development Server</span>"</pre><script>Sfdump("sf-dump-1925649737", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SESSION_MANAGER</th>
+                <td><pre class=sf-dump id=sf-dump-814810570 data-indent-pad="  ">"<span class=sf-dump-str title="85 characters">local/ip-172-31-11-195:@/tmp/.ICE-unix/3156,unix/ip-172-31-11-195:/tmp/.ICE-unix/3156</span>"</pre><script>Sfdump("sf-dump-814810570", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SHELL</th>
+                <td><pre class=sf-dump id=sf-dump-1693446533 data-indent-pad="  ">"<span class=sf-dump-str title="9 characters">/bin/bash</span>"</pre><script>Sfdump("sf-dump-1693446533", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SHLVL</th>
+                <td><pre class=sf-dump id=sf-dump-1439020950 data-indent-pad="  ">"<span class=sf-dump-str>2</span>"</pre><script>Sfdump("sf-dump-1439020950", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SSH_AGENT_PID</th>
+                <td><pre class=sf-dump id=sf-dump-852418324 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">3031</span>"</pre><script>Sfdump("sf-dump-852418324", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SSH_AUTH_SOCK</th>
+                <td><pre class=sf-dump id=sf-dump-1916714935 data-indent-pad="  ">"<span class=sf-dump-str title="26 characters">/run/user/1000/keyring/ssh</span>"</pre><script>Sfdump("sf-dump-1916714935", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_APPLICATION_DEFAULT_ROUTE_HOST</th>
+                <td><pre class=sf-dump id=sf-dump-509945282 data-indent-pad="  ">"<span class=sf-dump-str title="14 characters">127.0.0.1:8002</span>"</pre><script>Sfdump("sf-dump-509945282", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_APPLICATION_DEFAULT_ROUTE_PATH</th>
+                <td><pre class=sf-dump id=sf-dump-1271516966 data-indent-pad="  ">"<span class=sf-dump-str>/</span>"</pre><script>Sfdump("sf-dump-1271516966", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_APPLICATION_DEFAULT_ROUTE_PORT</th>
+                <td><pre class=sf-dump id=sf-dump-547261118 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">8002</span>"</pre><script>Sfdump("sf-dump-547261118", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_APPLICATION_DEFAULT_ROUTE_SCHEME</th>
+                <td><pre class=sf-dump id=sf-dump-68314839 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">http</span>"</pre><script>Sfdump("sf-dump-68314839", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_APPLICATION_DEFAULT_ROUTE_URL</th>
+                <td><pre class=sf-dump id=sf-dump-200283452 data-indent-pad="  ">"<span class=sf-dump-str title="22 characters">http://127.0.0.1:8002/</span>"</pre><script>Sfdump("sf-dump-200283452", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_DEFAULT_ROUTE_HOST</th>
+                <td><pre class=sf-dump id=sf-dump-1830068470 data-indent-pad="  ">"<span class=sf-dump-str title="14 characters">127.0.0.1:8002</span>"</pre><script>Sfdump("sf-dump-1830068470", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_DEFAULT_ROUTE_PATH</th>
+                <td><pre class=sf-dump id=sf-dump-1010924727 data-indent-pad="  ">"<span class=sf-dump-str>/</span>"</pre><script>Sfdump("sf-dump-1010924727", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_DEFAULT_ROUTE_PORT</th>
+                <td><pre class=sf-dump id=sf-dump-321558867 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">8002</span>"</pre><script>Sfdump("sf-dump-321558867", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_DEFAULT_ROUTE_SCHEME</th>
+                <td><pre class=sf-dump id=sf-dump-1710494026 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">http</span>"</pre><script>Sfdump("sf-dump-1710494026", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_DEFAULT_ROUTE_URL</th>
+                <td><pre class=sf-dump id=sf-dump-239758116 data-indent-pad="  ">"<span class=sf-dump-str title="22 characters">http://127.0.0.1:8002/</span>"</pre><script>Sfdump("sf-dump-239758116", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_DOCKER_ENV</th>
+                <td><pre class=sf-dump id=sf-dump-1482912710 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-1482912710", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_DOTENV_VARS</th>
+                <td><pre class=sf-dump id=sf-dump-1002731988 data-indent-pad="  ">"<span class=sf-dump-str title="97 characters">APP_ENV,APP_SECRET,JWT_SECRET,JWT_EXPIRATION_TIME,MESSENGER_TRANSPORT_DSN,DATABASE_URL,MAILER_DSN</span>"</pre><script>Sfdump("sf-dump-1002731988", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_PROJECT_DEFAULT_ROUTE_HOST</th>
+                <td><pre class=sf-dump id=sf-dump-909605936 data-indent-pad="  ">"<span class=sf-dump-str title="14 characters">127.0.0.1:8002</span>"</pre><script>Sfdump("sf-dump-909605936", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_PROJECT_DEFAULT_ROUTE_PATH</th>
+                <td><pre class=sf-dump id=sf-dump-210197048 data-indent-pad="  ">"<span class=sf-dump-str>/</span>"</pre><script>Sfdump("sf-dump-210197048", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_PROJECT_DEFAULT_ROUTE_PORT</th>
+                <td><pre class=sf-dump id=sf-dump-50535630 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">8002</span>"</pre><script>Sfdump("sf-dump-50535630", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_PROJECT_DEFAULT_ROUTE_SCHEME</th>
+                <td><pre class=sf-dump id=sf-dump-1545253670 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">http</span>"</pre><script>Sfdump("sf-dump-1545253670", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_PROJECT_DEFAULT_ROUTE_URL</th>
+                <td><pre class=sf-dump id=sf-dump-285725812 data-indent-pad="  ">"<span class=sf-dump-str title="22 characters">http://127.0.0.1:8002/</span>"</pre><script>Sfdump("sf-dump-285725812", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_TUNNEL</th>
+                <td><pre class=sf-dump id=sf-dump-297137444 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-297137444", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_TUNNEL_BRAND</th>
+                <td><pre class=sf-dump id=sf-dump-2134029061 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-2134029061", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYMFONY_TUNNEL_ENV</th>
+                <td><pre class=sf-dump id=sf-dump-350946370 data-indent-pad="  ">""</pre><script>Sfdump("sf-dump-350946370", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">SYSTEMD_EXEC_PID</th>
+                <td><pre class=sf-dump id=sf-dump-1475963803 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">3570</span>"</pre><script>Sfdump("sf-dump-1475963803", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">TERM</th>
+                <td><pre class=sf-dump id=sf-dump-2108527044 data-indent-pad="  ">"<span class=sf-dump-str title="14 characters">xterm-256color</span>"</pre><script>Sfdump("sf-dump-2108527044", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">UID</th>
+                <td><pre class=sf-dump id=sf-dump-1795609057 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">1000</span>"</pre><script>Sfdump("sf-dump-1795609057", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">USER</th>
+                <td><pre class=sf-dump id=sf-dump-2020426746 data-indent-pad="  ">"<span class=sf-dump-str title="6 characters">ubuntu</span>"</pre><script>Sfdump("sf-dump-2020426746", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">VTE_VERSION</th>
+                <td><pre class=sf-dump id=sf-dump-2011436203 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">6800</span>"</pre><script>Sfdump("sf-dump-2011436203", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XDG_CURRENT_DESKTOP</th>
+                <td><pre class=sf-dump id=sf-dump-597701477 data-indent-pad="  ">"<span class=sf-dump-str title="5 characters">GNOME</span>"</pre><script>Sfdump("sf-dump-597701477", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XDG_DATA_DIRS</th>
+                <td><pre class=sf-dump id=sf-dump-1535084593 data-indent-pad="  ">"<span class=sf-dump-str title="67 characters">/usr/share/gnome:/usr/local/share:/usr/share:/var/lib/snapd/desktop</span>"</pre><script>Sfdump("sf-dump-1535084593", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XDG_MENU_PREFIX</th>
+                <td><pre class=sf-dump id=sf-dump-113810493 data-indent-pad="  ">"<span class=sf-dump-str title="6 characters">gnome-</span>"</pre><script>Sfdump("sf-dump-113810493", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XDG_RUNTIME_DIR</th>
+                <td><pre class=sf-dump id=sf-dump-1606926943 data-indent-pad="  ">"<span class=sf-dump-str title="14 characters">/run/user/1000</span>"</pre><script>Sfdump("sf-dump-1606926943", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XDG_SESSION_CLASS</th>
+                <td><pre class=sf-dump id=sf-dump-857141820 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">user</span>"</pre><script>Sfdump("sf-dump-857141820", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XDG_SESSION_TYPE</th>
+                <td><pre class=sf-dump id=sf-dump-625828291 data-indent-pad="  ">"<span class=sf-dump-str title="3 characters">x11</span>"</pre><script>Sfdump("sf-dump-625828291", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XMODIFIERS</th>
+                <td><pre class=sf-dump id=sf-dump-531226928 data-indent-pad="  ">"<span class=sf-dump-str title="8 characters">@im=ibus</span>"</pre><script>Sfdump("sf-dump-531226928", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XRDP_PULSE_SINK_SOCKET</th>
+                <td><pre class=sf-dump id=sf-dump-1574093397 data-indent-pad="  ">"<span class=sf-dump-str title="32 characters">xrdp_chansrv_audio_out_socket_10</span>"</pre><script>Sfdump("sf-dump-1574093397", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XRDP_PULSE_SOURCE_SOCKET</th>
+                <td><pre class=sf-dump id=sf-dump-221571699 data-indent-pad="  ">"<span class=sf-dump-str title="31 characters">xrdp_chansrv_audio_in_socket_10</span>"</pre><script>Sfdump("sf-dump-221571699", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XRDP_SESSION</th>
+                <td><pre class=sf-dump id=sf-dump-915167069 data-indent-pad="  ">"<span class=sf-dump-str>1</span>"</pre><script>Sfdump("sf-dump-915167069", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">XRDP_SOCKET_PATH</th>
+                <td><pre class=sf-dump id=sf-dump-633379620 data-indent-pad="  ">"<span class=sf-dump-str title="17 characters">/run/xrdp/sockdir</span>"</pre><script>Sfdump("sf-dump-633379620", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">X_FORWARDED_PORT</th>
+                <td><pre class=sf-dump id=sf-dump-1963990191 data-indent-pad="  ">"<span class=sf-dump-str title="4 characters">8002</span>"</pre><script>Sfdump("sf-dump-1963990191", {"maxDepth":0})</script></td>
+            </tr>
+                    <tr>
+                <th scope="row">_</th>
+                <td><pre class=sf-dump id=sf-dump-1206739472 data-indent-pad="  ">"<span class=sf-dump-str title="22 characters">/usr/local/bin/symfony</span>"</pre><script>Sfdump("sf-dump-1206739472", {"maxDepth":0})</script></td>
+            </tr>
+            </tbody>
+</table>
+
+            </div>
+        </div>
+
+        
+            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            Sfjs.addEventListener(document.getElementById('sidebarShortcutsMenu'), 'click', function (event) {
+                event.preventDefault();
+                Sfjs.toggleClass(document.getElementById('sidebar'), 'expanded');
+            })
+        }());
+    </script>
+    </body>
+</html>

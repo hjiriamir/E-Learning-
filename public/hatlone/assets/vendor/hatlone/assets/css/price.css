@@ -1,0 +1,161 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #01132b;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+
+.price {
+  padding: 0px 70px;
+}
+.price .nav-item {
+  position: relative;
+  margin: 0 auto;
+}
+.price .nav-item .nav-link {
+  background-color: var(--main-text-color);
+  color: #fff;
+  font-weight: 500;
+}
+.price .nav-item .nav-link.active {
+  background-color: rgb(6, 117, 6);
+}
+.arrowPrice span {
+  font-weight: 500;
+}
+.coursePrice .title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.input-group input {
+  border-top-left-radius: 5px!important;
+  border-bottom-left-radius: 5px!important;
+  border: 1px solid var(--main-text-color);
+  padding: 0px 10px;
+}
+@media(min-width: 992px) {
+  .coursePrice .input-group input,
+  .courseDiscount .input-group input {
+    width: 20%;
+  }
+}
+.package .input-group input,
+.dripPayment .input-group input {
+  width: 60%;
+}
+.form-select,
+.form-select:focus {
+  box-shadow: none;
+  border: 1px solid var(--main-text-color);
+}
+@media(max-width: 992px) {
+  .coursePrice .input-group input,
+  .courseDiscount .input-group input {
+    width: 30%;
+  }
+}
+.input-group-text {
+  border-top-right-radius: 5px!important;
+  border-bottom-right-radius: 5px!important;
+  border: 1px solid var(--main-text-color);
+}
+.price .btns .btn {
+  background-color: var(--blue-color);
+  border-radius: 0px;
+  color: #fff;
+  font-weight: 500;
+}
+.price .btns .btn:hover {
+  background-color: var(--hover-blue-color);
+}
+
+/* checkbox */
+.buttonCheck ul li {
+  display: block;
+  position: relative;
+}
+.buttonCheck ul li input[type=checkbox] {
+  position: absolute;
+  visibility: hidden;
+}
+.buttonCheck ul li label {
+  display: block;
+  position: relative;
+  font-size: 15px;
+  padding: 25px 25px 25px 60px;
+  height: 30px;
+  z-index: 9;
+  cursor: pointer;
+  font-weight: 500;
+}
+.buttonCheck ul li .check {
+  display: block;
+  position: absolute;
+  border: 2px solid var(--main-color-title);
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  top: 30px;
+  left: 20px;
+  z-index: 5;
+}
+.buttonCheck ul li .check::before {
+  display: block;
+  position: absolute;
+  content: '';
+  border-radius: 100%;
+  height: 9px;
+  width: 9px;
+  top: 0.07em;
+  left: 0.06em;
+  margin: auto;
+}
+.buttonCheck input[type=checkbox]:checked ~ .check {
+  border: 2px solid green;
+}
+.buttonCheck input[type=checkbox]:checked ~ .check::before{
+  background: green;
+}
+.courseDiscount .input-group {
+  padding: 0px 50px;
+}
+.cardCoupon {
+  padding-left: 25px;
+}
+.cardCoupon i:hover{
+  color: var(--main-text-color);
+}
+.coupon input[type=number]::-webkit-inner-spin-button, 
+.coupon input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.coupon input[type=number] {
+  -moz-appearance: textfield;
+}
+.moreCoupon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--blue-color);
+  font-size: 15px;
+  cursor: pointer;
+}
+.moreCoupon i:hover {
+  color: var(--hover-blue-color)!important;
+}
+@media (min-width: 1200px) {
+  .dripPayment .title {
+    text-align: center;
+  }
+  .dripPayment .lecture {
+    margin: 0px 80px;
+  }
+}

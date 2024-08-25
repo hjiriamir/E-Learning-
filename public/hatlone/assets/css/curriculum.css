@@ -1,0 +1,541 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #02377D;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+.tabs .tab .radioClass {
+  display: none;
+}
+.tabs .tab{
+ overflow: hidden;
+ width: 30%;  
+}
+@media(min-width: 1200px) {
+  .tabs .boxSection {
+    position: absolute;
+    opacity: 0;
+    padding: 0;
+    top: 1em;
+    left: 48%;
+    right: 22%;
+    width: 50%;
+    height: 0em;
+  }
+}
+.videoBox {
+  float: left;
+}
+.tabs>.tab .radioClass:checked ~ .boxSection {
+  opacity: 1;
+}
+/*.tabs .tab label:hover{
+  background:#314755;
+}
+.tabs>.tab .radioClass:checked + label {
+  background: #DCE9F1;
+  color: BLACK;
+}*/
+.tabs .tab label {
+  cursor: pointer;
+  /*display: block;
+  font-family: 'Saira Stencil One', cursive;
+  padding: 10px;
+  margin-bottom: 1px;
+  border-radius:0px 5px 5px 0px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);*/
+}
+
+
+.curriculum h4 {
+  font-weight: bold;
+  font-size: 20px;
+}
+.curriculum .bi-list {
+  color: var(--main-color-title);
+  font-size: 20px;
+  margin-right: 8px;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+}
+.curriculum .title {
+  color: var(--main-color-title);
+  font-weight: 600;
+  font-size: 16px;
+  margin-right: 15px;
+  position: relative;
+  top: 7px;
+}
+
+.order,
+.sectionStep {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--main-color-title);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+.assSectionStep {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--main-color-title);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+.tabs>.tab .radioClass:checked + label .title {
+  color: var(--blue-color);
+}
+.tabs>.tab .radioClass:checked + label .order,
+.tabs>.tab .radioClass:checked + .section5 label .order {
+  color: #fff;
+  background-color: var(--blue-color);
+  border: 1px solid var(--blue-color);
+}
+.sectionBox {
+  margin-left: 28px;
+}
+.curriculum .tab .btn:hover {
+    color: var(--main-text-color);
+}
+.delete1 {
+  position: relative;
+  left: 49px;
+}
+.delete2 {
+  position: relative;
+  left: 78px;
+}
+.delete3 {
+  position: relative;
+  left: 53px;
+}
+.section5 input {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  width: 180px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+  cursor: pointer;
+}
+.sectionTitle {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  width: 180px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+}
+.sectionTitle:focus {
+  outline: none;
+}
+.sectionTrash {
+  cursor: pointer;
+  color: #1a1a1a;
+  position: relative;
+  top: 5px;
+  left: 20px;
+}
+.sectionTrash:hover {
+  color: var(--main-text-color);
+}
+.confirm,
+.confirm:focus {
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-size: 12px!important;
+  position: relative!important;
+  left: 15.1em!important;
+}
+.confirm:hover {
+  background-color: var(--hover-blue-color)!important;
+  color: #fff!important;
+}
+#changeConfirm {
+  color: var(--main-color-title);
+  font-weight: 600;
+  font-size: 15px;
+}
+.itemOrder {
+  padding: 35px 0px 0px 25px;
+}
+.itemContent {
+  cursor: pointer!important;
+}
+.topBox {
+  position: relative;
+  top: 4.5em;
+}
+
+.btnsCard {
+  float: right;
+}
+.lectureAdded {
+  font-size: 18px;
+  font-weight: 500;
+  color: #383838;
+  margin-left: 0.7em;
+  margin-top: 30px;
+}
+.lectureAdded .titleLecture {
+  margin: 0px 5px 0px 10px;
+}
+.lectureAdded .fa-book {
+  font-size: 25px;
+  color: var(--main-text-color);
+  margin-right: 5px;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+.lectureAdded input {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  width: 303px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+  position: relative;
+  top: -5px;
+  margin: 0px 0px 0px 10px;
+}
+.accordion-header span,
+.accordion-header .lecture {
+  font-size: 18px;
+  font-weight: 500;
+}
+.accordion-header .fa-book {
+  font-size: 25px;
+  color: var(--main-text-color);
+  margin-right: 5px;
+  position: relative;
+  top: 2px;
+}
+.steps {
+  margin: 0px 5px;
+}
+.accordion-header .bi-list {
+  color: var(--main-color-title);
+  font-size: 20px;
+  position: relative;
+  top: 0px;
+}
+.introduction .bi-list {
+  position: relative;
+  top: -4px;
+}
+.lectureBox {
+  margin-left: 0.9em;
+}
+.editElem {
+  position: relative;
+  top: -10px;
+}
+#editable-element {
+  margin-left: 6px;
+}
+.addLecture .btn {
+  color: var(--blue-color)!important;
+}
+.addLecture span {
+  color: var(--blue-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.add_content {
+  color: var(--blue-color);
+  font-size: 13px;
+  font-weight: 500;
+}
+.add_content .bi{
+  margin-right: 5px;
+}
+.addContent {
+  color: var(--blue-color);
+  font-size: 13px;
+  font-weight: 500;
+}
+.lectureAdded .addContent {
+  color: var(--blue-color);
+  font-size: 13px;
+  font-weight: 500;
+  margin-left: 0.39em;
+}
+.addContent .bi{
+  margin-right: 5px;
+}
+.contentElement,
+.contentElement:focus {
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-size: 12px!important;
+  position: relative!important;
+  margin-left: 220px;
+}
+
+.contentElement:hover {
+  background-color: var(--hover-blue-color)!important;
+  color: #fff!important;
+}
+.box3 {
+  margin-bottom: 5em;
+}
+.edit {
+  border: 1px solid #ccc;
+  margin-left: 10px;
+  padding: 6px 10px;
+  width: 335px;
+  position: relative;
+  top: -5px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+}
+.edit:focus {
+  outline: none;
+}
+.courseIntroduction {
+  margin-left: 0.6em;
+}
+.addSection .bi{
+  color: var(--blue-color);
+}
+.addSection {
+  margin-left: 35px;
+}
+.addLect {
+  position: absolute;
+  top: 100px;
+  left: 43em;
+} 
+.addLect .bi {
+  color: var(--main-color-title);
+  margin-right: 5px;
+  font-size: 15px;
+}
+.addLect span {
+  color: var(--main-color-title);
+  font-weight: 500;
+  font-size: 15px;
+}
+.addSect {
+  margin-left: 28px;
+}
+.addSect input {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  width: 180px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+  margin-right: 23px;
+}
+.oo {
+  z-index: 2;
+}
+.tt {
+  z-index: 1;
+}
+.addSect .order {
+  width: 35px;
+  height: 35px;
+  border: 1px solid var(--main-color-title);
+  color: #000;
+  font-weight: bold;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 0px;
+  cursor: pointer;
+}
+
+.test7 {
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-size: 12px!important;
+  padding: 8px 10px;
+  border-radius: 5px;
+  position: relative;
+  top: -25px!important;
+  left: 13.3em!important;
+  cursor: pointer;
+}
+.test7:hover {
+  background-color: var(--hover-blue-color)!important;
+  color: #fff!important;
+}
+.sectionAdded {
+  margin-left: 0.2em;
+}
+.sectionAdded .bi-trash {
+  position: relative;
+  top: -35px;
+  left: 42px;
+}
+.sectionAdded input {
+  position: relative;
+  top: -34px;
+  left: 40px;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  width: 175px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+  position: relative;
+  margin: 0px 0px 0px 10px;
+}
+.ttt {
+  border: 1px solid red;
+}
+
+.dat .fa-book {
+  font-size: 25px;
+  color: var(--main-text-color);
+  margin-right: 5px;
+  position: relative;
+  top: 3px;
+  cursor: pointer;
+}
+.dat .lecture {
+  font-size: 18px;
+  color: var(--main-color-title);
+  font-weight: 500; 
+  margin-right: 5px;
+}
+.dat input {
+  border: 1px solid #ccc;
+  padding: 8px 10px;
+  width: 265px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+  cursor: pointer;
+}
+.dat .conf,
+.dat .conf:focus {
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-size: 12px!important;
+  position: relative!important;
+  
+}
+.dat .conf:hover {
+  background-color: var(--hover-blue-color)!important;
+  color: #fff!important;
+}
+
+.confirmation {
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  font-size: 12px!important;
+  position: relative!important;
+  float: right;
+}
+.lectureAdded .row {
+  position: relative;
+  left: 12px;
+}
+.confirm2 {
+  background-color: var(--blue-color);
+  text-align: center;
+  padding: 8px 12px;
+  color: #fff;
+  font-size: 12px;
+  border-radius: 5px;
+  font-weight: 500;
+}
+.sectionAdded .row {
+  position: relative;
+  top: -20px;
+}
+.section5 .addTitle {
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  width: 180px;
+  font-weight: 400;
+  color: var(--main-text-color);
+  font-size: 13px;
+}
+.section5 .addTitle:focus {
+  outline: none;
+}
+.videoModal {
+  padding-bottom: 5em;
+}
+.editBox {
+  padding: 0px 10px;
+}
+.editBox:focus {
+  outline: none;
+}
+.sectioFive textarea {
+  border: 1px solid #c0c0c0;
+}
+.sectioFive textarea:focus {
+  outline: none;
+}
+
+#target-1 {
+  display:none;
+}
+
+.sectioFive .skills div { 
+  border: 1px solid #dfdcdc;
+  padding: 3px 15px;
+  font-size: 15px;
+  border-radius: 25px;
+  cursor: pointer;
+  background-color: #fff;
+  margin-right: 5px;
+  display: inline-block;
+}
+.sectioFive .skills div:focus,
+.videoModal .skills div:focus { 
+  color: #fff;
+  background-color: var(--red-color);
+  font-weight: 500;
+}
+
+.accordion-item input {
+  border: 1px solid var(--main-text-color);
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--main-color-title);
+  width: 500px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}

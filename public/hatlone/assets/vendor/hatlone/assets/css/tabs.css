@@ -1,0 +1,76 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #01132b;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+
+@media(min-width: 992px) {
+  .left {
+    border-right: 2px solid var(--main-border-bottom);
+    min-height: 42rem;
+  }
+}
+.left .navBar {
+  margin: 25px auto 0px auto; 
+}
+.left .navBar .nav-tabs {
+  border: 0;
+}
+@media(max-width: 992px) {
+  .left .navBar .nav-tabs {
+    align-items: center;
+  }
+}
+.left .navBar .nav-item  {
+  margin: 10px 0px;
+}
+.left .navBar .navLink {
+  border: 0;
+  padding: 0px 0px 5px 10px;
+  border-radius: 0;
+  font-weight: 600;
+  font-size: 17px;
+  text-decoration: none;
+}
+
+.left .navBar .navLink.active > span {
+  color: var(--blue-color);
+  font-size: 19px;
+  font-weight: bold;
+}
+.left .navBar .navLink:hover > span {
+  color: var(--blue-color);
+}
+.left .navBar .navLink:focus {
+  outline: none;
+}
+.left .navBar .tab-pane.active  {
+  -webkit-animation: fadeIn 0.5s ease-out;
+  animation: fadeIn 0.5s ease-out;
+}
+.left .icon {
+  border-radius: 50%;
+  border-left: 0.15em dotted green;
+  border-right: 0.105em solid green;
+  width: 21px;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: 5px;
+  color: green;
+}
+.left .navLink {
+  color: var(--main-text-color);
+  transition: 0.3s;
+}
+.left .bi-check {
+  position: relative;
+  top: -2px;
+}

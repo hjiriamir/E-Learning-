@@ -1,0 +1,669 @@
+   <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Titre de la page</title>
+     <link href="http://13.39.131.193:8002/search/assets//img/favicon.png" rel="icon">
+    <link href="http://13.39.131.193:8002/search/assets//img/apple-touch-icon.png" rel="apple-touch-icon">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+    <!-- CSS Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
+          crossorigin="anonymous">
+    <!-- Botstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+    <!-- UI Kit -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/css/uikit.min.css" />
+    <!-- FontAwesome Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
+     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel/slick/slick-theme.css"/>
+  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <!-- CSS File -->
+ 
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <link rel="stylesheet" href="http://13.39.131.193:8002/vendor/hatlone/safa/infoCourss/sliderCards/css/style99.css">
+       <link rel="stylesheet" href="{{asset('vendor/hatlone/safa/infoCours/sliderCards/css/swiper-bundle.min.css')}}">
+
+
+       <link rel="stylesheet" href="{{ asset('vendor/hatlone/safa/search/assets/css/styleinst.css') }}">
+       <link rel="stylesheet" href="{{ asset('vendor/hatlone/safa/search/assets/css/style.css') }}">
+       <link rel="stylesheet" href="{{ asset('vendor/hatlone/safa/search/assets/css/price.css') }}">
+       <link rel="stylesheet" href="{{ asset('vendor/hatlone/safa/search/assets/css/navbar.css') }}">
+       <link rel="stylesheet" href="{{ asset('vendor/hatlone/safa/search/assets/css/navbar1.css') }}">
+       <link rel="stylesheet" href="{{ asset('vendor/hatlone/safa/search/assets/css/navbar_resp.css') }}">
+       <link rel="stylesheet" href="{{ asset('vendor/hatlone/safa/search/assets/css/contentSearch.css') }}">
+  
+  
+  
+</head>
+<body style="overflow-x: hidden !important;">
+
+ {% set global_level = "" %}
+            {% set all_levels = ['Beginner', 'Advanced', 'Intermediate', 'Professionnel'] %}
+            {% set global_level1 = all_levels %} 
+            {% set amir1 = 0 %}
+{% if data.selectedLevel == 'all' %}
+{% set amir1 = 2 %}
+{% elseif data.selectedLevel == 'Beginner' %}
+    {% set global_level1 = ['Beginner'] %}
+{% elseif data.selectedLevel == 'Advanced' %}
+    {% set global_level1 = ['Advanced'] %}
+{% elseif data.selectedLevel == 'Intermediate' %}
+    {% set global_level1 = ['Intermediate'] %}
+{% elseif data.selectedLevel == 'Professionnel' %}
+    {% set global_level1 = ['Professionnel'] %}
+{% endif %}
+
+<!-- Hnadling Courses Langue-->
+  {% set global_variable1 = [1, 2, 3, 4] %}
+  {% set amir = 0 %}         
+            {% if data.selectedLanguage == 'All_Languages' %}
+            {% set amir = 1 %}
+           {% set global_variable1 = [1, 2, 3, 4] %}
+          
+            {% elseif data.selectedLanguage == 'English' %}
+               {% set global_variable1 = [1] %}
+            {% elseif data.selectedLanguage == 'arab' %}
+               {% set global_variable1 = [2] %}
+            {% elseif data.selectedLanguage == 'Español' %}
+                {% set global_variable1 = [3] %}
+            {% elseif data.selectedLanguage == 'Français' %}
+               {% set global_variable1 = [4] %}
+            {% endif %} 
+  <!-- bloc pour courses -->
+  
+ 
+  <div id="courses-block" >
+<div class="d-flex align-items-center containerCourse mt-3" style="justify-content:center !important;justify-content:space-between !important;">
+    <div class="">
+        <div class="boxTitle91 mt-1 mx-5">
+            <h4>Most Related Instructor Courses </h4>
+        </div>
+    </div>
+    <div class="text-left justify-content-end float-end d-flex">
+        <i id="gridView" class="bi bi-grid-3x3-gap-fill icon-default icon-hover icon-active" style="cursor:pointer; font-size: 1.2em;"></i>
+        <i id="listView" class="bi bi-list-ul ml-3 mx-1 icon-default icon-hover" style="cursor:pointer; font-size: 1.2em;"></i>
+    </div>
+</div>
+<div class="filter-bar">
+    <button class="filter-button active" onclick="setCourseActive(this); filterCards('allCourses')">ALL</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('NEW')">NEW</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('TRENDY')">TRENDY</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('POPULAR')">POPULAR</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('FREE')">FREE</button>
+</div>
+<script>
+let currentFilter = 'allCourses';
+    function setCourseActive(button) {
+        var buttons = document.getElementsByClassName("filter-button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        button.classList.add("active");
+    }
+
+    document.getElementById('gridView').addEventListener('click', function() {
+        this.classList.add('icon-active');
+        document.getElementById('listView').classList.remove('icon-active');
+    });
+    
+    
+
+    document.getElementById('listView').addEventListener('click', function() {
+        this.classList.add('icon-active');
+        document.getElementById('gridView').classList.remove('icon-active');
+    });
+    function filterCards(filter) {
+    const cards = document.querySelectorAll('.cardProduct');
+    
+    cards.forEach(card => {
+        const courseStatus = card.getAttribute('data-category');
+        
+        if (filter === 'allCourses' || courseStatus === filter) {
+            card.style.display = 'block'; // Affiche le cours
+        } else {
+            card.style.display = 'none'; // Masque le cours
+        }
+    });
+    
+    currentFilter = filter; // Met à jour le filtre actuel
+}
+</script>
+
+
+<div id="gridContainer99">
+    <div class="productSlider container98 gridCard98 mt-5" id="gridContainer98">
+        <div class="containerProduct swiper">
+            <div class="slide-container">
+                <div class="card-wrapper swiper-wrapper">
+                   
+                    {% for item in coursess %}                   
+                    {% if item.course.langue in global_variable1 %}                    
+                    {% if item.label1 in global_level1 %}
+                    <div class="cardProduct cardCourseProduct swiper-slide" data-category="{{ item.course.courseStatus }}">                           
+                     <div class="card98 course-card course-card1">
+
+                                <div class="row no-gutters">
+                                    <div class="col-12" style="position:relative;">
+                                        <div class="labelImg" style="position:absolute;">Course</div>
+                                        <img src="{{item.course.imageCours}}" class="card-img" alt="Course Image">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <img src="vendor/hatlone/assets/user/imgs/testimonials/testimonials-3.jpg" alt="Profile Image" class="rounded-circle" width="50" height="50" style="margin-top:-20px !important;position:absolute;">
+                                                <div class="ml-3 mx-5">
+                                                    <h5 class="mb-0 profName mx-2 mt-1">{{ item.user.firstname }}</h5>
+                                                    <div class="text-warning mx-2">
+                                                        <small>★ <span>{{ item.ratings }}</span> <span style="color:#6c757d;font-weight:500;">({{ item.followers }})</span></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <div class="price98 mt-3 mx-1">
+                                                    <span class="newPrice98 font-weight-bold">${{ item.course.prix }}</span><br>
+                                                </div>
+                                                <div class="price-icons">
+                                                    <div class="icons98 ml-3">
+                                                        <i class="bi bi-heart"></i>
+                                                        <i class="bi bi-cart-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="details mb-1">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <div class="mr-3">
+                                                        <i class="far fa-clock"></i> {{ item.course.dateOperation|date('H:i') }}
+                                                    </div>
+                                                    <div class="mr-3 mx-3">
+                                                        
+  {% if item.course.langue == 1 %}
+    <i class="fas fa-globe"></i>  EN<br>
+  {% elseif item.course.langue == 2 %}
+      <i class="fas fa-globe"></i>  AR<br>
+  {% elseif item.course.langue == 3 %}
+      <i class="fas fa-globe"></i>  SP<br>
+  {% elseif item.course.langue == 4 %}
+      <i class="fas fa-globe"></i>  FR<br>
+  {% else %}
+      <i class="fas fa-globe"></i>  Inconnu<br>
+
+{% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                         <div class="d-flex align-items-center justify-content-between">
+    <h4 class="card-title98 mb-0">{{ item.course.titre }}</h4>
+        <div class="badge badge-danger new-badge mx-3">{{ item.course.courseStatus }}</div>
+</div>
+
+                                            <div class="details mb-3 mt-3" style="padding-top:10px !important;border-top:1px solid #eee9e9;">
+                                                <div class="d-flex align-items-center" style="justify-content:space-between !important;">
+                                                    <div class="mr-3">
+                                                        <i class="bi-star-fill"></i> {{ item.ratings2}} ({{ item.course.id }})
+                                                    </div>
+                                                    <div class="mr-3">
+                                                        <i class="fa fa-user" style="color:#6c757d;"></i> {{ item.followers }}
+                                                    </div>
+                                                    <div class="mr-3">
+                                                        <i class="bi bi-bar-chart"></i>{{ item.label1}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                {% endif %}
+                       {% endif %}
+                    {% endfor %}
+                </div>
+                   
+            </div>
+          <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+</div>
+
+
+             <ol class="filters d-flex justify-content-center"  style="margin-bottom:100px !important;" >
+                    <li >
+                        <a  href="{{ path('cours_list') }}" class="show-all-link">
+                            <label class="show-more-btn mb-2" style="white-space: nowrap;">Show All</label>
+                        </a>
+                    </li>
+                </ol>
+                <div class="showAllButton d-flex justify-content-center " hidden>
+<button><a href="{{ path('cours_list') }}" class="show-all-link">Show All</a></button>
+                </div>
+                
+
+                
+              
+
+
+        </div>
+
+
+
+
+
+    <!-- bloc de recherche cours -->
+    
+    <!--  end bloc de recherche des cours-->
+        <script>
+    var swiper = new Swiper(".slide-content", {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      loop: true,
+      centerSlide:'true',
+      fade:'true',
+      grabCursor:'true',
+      pagination: {
+        el: ".swiper-pagination1",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next1",
+        prevEl: ".swiper-button-prev1",
+      },
+
+      breakpoints: {
+        0: {
+            slidesPerView : 1,
+        },
+        520: {
+            slidesPerView : 2,
+        },
+        950: {
+            slidesPerView : 3,
+        },
+      },
+    });
+  </script>
+  <script>
+    var swiper = new Swiper(".slide-content1", {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      loop: true,
+      centerSlide:'true',
+      fade:'true',
+      grabCursor:'true',
+      pagination: {
+        el: ".swiper-pagination1",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next2",
+        prevEl: ".swiper-button-prev2",
+      },
+
+      breakpoints: {
+        0: {
+            slidesPerView : 1,
+        },
+        720: {
+            slidesPerView : 2,
+        },
+        950: {
+            slidesPerView : 3,
+        },
+      },
+    });
+  </script>
+   <script>
+    var swiper = new Swiper(".slide-content2", {
+      slidesPerView: 3,
+      spaceBetween: 25,
+      loop: true,
+      centerSlide:'true',
+      fade:'true',
+      grabCursor:'true',
+      pagination: {
+        el: ".swiper-pagination3",
+        clickable: true,
+        dynamicBullets: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next3",
+        prevEl: ".swiper-button-prev3",
+      },
+
+      breakpoints: {
+        0: {
+            slidesPerView : 1,
+        },
+        720: {
+            slidesPerView : 2,
+        },
+        950: {
+            slidesPerView : 3,
+        },
+      },
+    });
+  </script>
+  <script>
+    // Récupérer les éléments des filtres et des cartes
+    const filters = document.querySelectorAll('input[name="categories1"]');
+    const cards = document.querySelectorAll('.swiper-slide1');
+
+    // Ajouter un écouteur d'événements à chaque filtre
+    filters.forEach(filter => {
+        filter.addEventListener('change', function() {
+            // Récupérer la valeur du filtre sélectionné
+            const selectedCategory = this.value;
+
+            // Parcourir toutes les cartes
+            cards.forEach(card => {
+                // Récupérer la catégorie de la carte
+                const cardCategory = card.dataset.category;
+
+                // Vérifier si la carte correspond à la catégorie sélectionnée
+                if (selectedCategory === 'All' || selectedCategory === cardCategory) {
+                    // Afficher la carte
+                    card.style.display = 'block';
+                } else {
+                    // Cacher la carte
+                    card.style.display = 'none';
+                }
+            });
+          
+        });
+    });
+</script>
+ <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sélectionnez tous les boutons radio
+        const radioButtons = document.querySelectorAll('input[type="radio"][name="categories2"]');
+
+        // Écoutez les clics sur chaque bouton radio
+        radioButtons.forEach(function(radioButton) {
+            radioButton.addEventListener("click", function() {
+                // Récupérez la valeur de la catégorie sélectionnée
+                const selectedCategory = this.value;
+
+                // Sélectionnez tous les cards
+                const cards = document.querySelectorAll('.card3');
+
+                // Si la catégorie sélectionnée est "allCoaching", affichez tous les cards
+                if (selectedCategory === "allCoaching") {
+                    cards.forEach(function(card) {
+                        card.style.display = 'block';
+                    });
+                } else {
+                    // Sinon, affichez seulement les cards correspondants à la catégorie sélectionnée
+                    cards.forEach(function(card) {
+                        if (card.dataset.category === selectedCategory) {
+                            card.style.display = 'block';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Sélectionnez les boutons
+        var listCoachingTabButton = document.getElementById("listCoaching-tab");
+        var gridCoachingTabButton = document.getElementById("gridCoaching-tab");
+        
+        // Sélectionnez l'élément à masquer
+        var tabContent = document.getElementById("gridCoaching-tab-pane");
+        
+        // Ajoutez un gestionnaire d'événements pour le clic sur le premier bouton
+        listCoachingTabButton.addEventListener("click", function() {
+            // Masquer l'élément en définissant son style sur "display: none;"
+            tabContent.style.display = "none";
+    });
+        
+        // Ajoutez un gestionnaire d'événements pour le clic sur le deuxième bouton
+        gridCoachingTabButton.addEventListener("click", function() {
+            // Afficher à nouveau l'élément en définissant son style sur "display: block;"
+            tabContent.style.display = "block";
+        });
+    });
+</script>
+
+
+
+
+
+  <script>
+      document.querySelectorAll('.star-checkbox').forEach(input => {
+          input.addEventListener('change', function() {
+              if (this.checked) {
+                  // Trouver l'étiquette correspondante
+                  const label = document.querySelector(`label[for="${this.id}"]`);
+                  // Ajouter la classe "selected" aux étoiles de l'étiquette
+                  label.querySelectorAll('.bi-star-fill').forEach(star => {
+                      star.classList.add('selected');
+                  });
+              } else {
+                  // Trouver l'étiquette correspondante
+                  const label = document.querySelector(`label[for="${this.id}"]`);
+                  // Supprimer la classe "selected" des étoiles de l'étiquette
+                  label.querySelectorAll('.bi-star-fill').forEach(star => {
+                      star.classList.remove('selected');
+                  });
+              }
+          });
+      });
+
+  </script>
+  <script>
+     // Fonction pour masquer la classe tablet-mobile-view
+    function hideTabletMobileView() {
+        var tabletMobileView = document.querySelector('.tablet-mobile-view');
+        if (tabletMobileView) {
+            tabletMobileView.style.display = 'none'; // Masquer la classe tablet-mobile-view
+        }
+    }
+      function showTabletMobileView() {
+        var tabletMobileView = document.querySelector('.tablet-mobile-view');
+        if (tabletMobileView) {
+            tabletMobileView.style.display = 'block'; // Masquer la classe tablet-mobile-view
+        }
+    }
+     function hideTabletMobileView1() {
+        var tabletMobileView = document.querySelector('.tablet-mobile-view1');
+        if (tabletMobileView) {
+            tabletMobileView.style.display = 'none'; // Masquer la classe tablet-mobile-view
+        }
+    }
+      function showTabletMobileView1() {
+        var tabletMobileView = document.querySelector('.tablet-mobile-view1');
+        if (tabletMobileView) {
+            tabletMobileView.style.display = 'block'; 
+        }
+    }
+
+    // Associer la fonction à plusieurs boutons
+    document.getElementById('list-tab').addEventListener('click', hideTabletMobileView);
+        document.getElementById('grid-tab').addEventListener('click', showTabletMobileView);
+    document.getElementById('listCoaching-tab').addEventListener('click', hideTabletMobileView1);
+        document.getElementById('gridCoaching-tab').addEventListener('click', showTabletMobileView1);
+</script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const navButtons = document.querySelectorAll('.nav-button');
+
+    navButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const subProducts = button.querySelector('.sub-products');
+
+            if (subProducts) {
+                subProducts.classList.toggle('show');
+            }
+        });
+    });
+});
+
+
+
+
+</script>
+<script>
+// Sélection de tous les boutons de navigation cliquables
+var navButtons = document.querySelectorAll('.clickable');
+
+// Ajout d'un écouteur d'événement pour chaque bouton de navigation
+navButtons.forEach(function(navButton) {
+    navButton.addEventListener('click', function() {
+        // Recherche de l'élément dropdown correspondant
+        var dropdownContent = this.nextElementSibling;
+
+        // Appel de la fonction toggleDropdown avec l'élément dropdown trouvé
+        toggleDropdown(dropdownContent);
+    });
+});
+
+// Fonction pour afficher ou masquer le dropdown
+function toggleDropdown(dropdownContent) {
+    if (dropdownContent.style.display === "block") {
+        dropdownContent.style.display = "none";
+    } else {
+        dropdownContent.style.display = "block";
+    }
+}
+
+</script>
+<script>
+// Récupérer tous les sous-produits
+const subProducts = document.querySelectorAll('.subProduct');
+// Variable pour stocker les sous-produits cochés
+let checkedSubProducts = [];
+
+// Ajouter un écouteur d'événement à chaque sous-produit
+subProducts.forEach(subProduct => {
+    subProduct.addEventListener('click', (event) => {
+        event.stopPropagation(); // Empêcher la propagation de l'événement click pour éviter la fermeture du menu
+        
+        // Créer un élément span pour le symbole de coche
+        const tick = document.createElement('span');
+        tick.className = 'tick';
+        tick.textContent = '✔'; // Symbole de coche
+        
+        // Vérifier si le sous-produit est déjà coché
+        const isChecked = subProduct.classList.contains('checked');
+
+        // Si le sous-produit est déjà coché, on le décoche
+        if (isChecked) {
+            subProduct.classList.remove('checked');
+            subProduct.querySelector('.tick').remove();
+            // Supprimer le sous-produit de la liste des sous-produits cochés
+            const index = checkedSubProducts.indexOf(subProduct.textContent.trim());
+            if (index !== -1) {
+                checkedSubProducts.splice(index, 1);
+            }
+        } else { // Sinon, on le coche
+            subProduct.classList.add('checked');
+            subProduct.appendChild(tick);
+            // Ajouter le sous-produit à la liste des sous-produits cochés
+            checkedSubProducts.push(subProduct.textContent.trim());
+        }
+    });
+});
+
+// Écouter les clics sur le document pour masquer les sous-produits mais laisser les sous-produits cochés visibles
+document.addEventListener('click', (event) => {
+    subProducts.forEach(subProduct => {
+        // Vérifier si le clic se produit à l'intérieur d'un sous-produit
+        if (!subProduct.contains(event.target)) {
+            // Cacher le sous-produit mais laisser les sous-produits cochés visibles
+            if (!checkedSubProducts.includes(subProduct.textContent.trim())) {
+                subProduct.classList.remove('checked');
+                if (subProduct.querySelector('.tick')) {
+                    subProduct.querySelector('.tick').remove();
+                }
+            }
+        }
+    });
+});
+var swiper = new Swiper(".slide-container", {
+  slidesPerView: 2,
+  spaceBetween: 20,
+  sliderPerGroup: 4,
+  loop: true,
+  centerSlide: "true",
+  fade: "true",
+  grabCursor: "true",
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    520: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    991: {
+      slidesPerView: 2,
+    },
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+});
+
+
+</script>
+
+        <script src="{{asset('vendor/hatlone/safa/infoCours/sliderCards/js/swiper-bundle.min.js')}}"></script>
+
+    <!-- JavaScript Bottstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous">
+    </script>
+
+    <!-- UI Kit -->
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/js/uikit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/js/uikit-icons.min.js"></script>
+    <!-- Template Main JS File -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+   <script src="{{asset('vendor/hatlone/safa/search/assets/js/script.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/js/main.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/playButton.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/contentCertificatnav.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/buyCourse.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/preferCourse.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/preferCoaching.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/preferInstructor.js')}}"></script>
+    <!-- Inclure le fichier JavaScript -->
+<script src="{{asset('vendor/hatlone/safa/search/assets/js/contentSearch.js')}}"></script>
+        </body>

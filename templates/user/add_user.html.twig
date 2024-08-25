@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <!-- Favicons -->
+        <link href="{{asset('hatlone/assets/assets/img/favicon.png')}}" rel="icon">
+        <link href="{{asset('hatlone/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
+        <!-- Google Fonts -->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+        <!-- CSS Bootstrap -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" 
+              crossorigin="anonymous">
+        <!-- Botstrap Icons -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
+        <!-- UI Kit -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/css/uikit.min.css" />
+        <!-- Font Awesome Icons-->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.7/css/all.css">
+        <!-- Material Icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <!-- CSS File -->
+  <!-- CSS File -->
+    <link rel="stylesheet" href="{{asset('hatlone/assets/css/propos.css')}}" />
+    <link rel="stylesheet" href="{{asset('hatlone/assets/css/user.css')}}" />
+    <style>  
+        [data-tab-info] {
+            display: none;
+        }
+          
+        .active[data-tab-info] {
+            display: block;
+        }  
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <div class="toppane">
+                    <div class="row">
+                        <div class=" col tabs d-flex">
+                            <div class="nav-item" role="presentation">
+                                <input type="radio" class="nav-link tabLinks active" data-tab-value="#tab_1" id="radio-about" name="radio1" checked/> 
+                                <label for="radio-about" class="label-radio">About</label>
+                           </div>
+
+                           <div class="nav-item" role="presentation">
+                                <input type="radio" class="nav-link tabLinks" data-tab-value="#tab_2" id="radio-Photo" name="radio1"/>
+                                <label for="radio-Photo" class="label-radio">Photo</label>
+                           </div>
+
+                           <div class="nav-item" role="presentation">                                
+                                 <input type="radio" class="nav-link tabLinks" data-tab-value="#tab_3" id="radio-Description" name="radio1"/>
+                                 <label for="radio-Description" class="label-radio">Description</label>
+                           </div>
+
+                           <div class="nav-item" role="presentation">                                
+                                <input type="radio" class="nav-link tabLinks" data-tab-value="#tab_4" id="radio-Video" name="radio1"/>
+                                <label for="radio-Video" class="label-radio">Video</label>
+                           </div>
+
+                           <div class="nav-item" role="presentation">                               
+                                <input type="radio" class="nav-link tabLinks" data-tab-value="#tab_5" id="radio-Subject" name="radio1"/>
+                                <label for="radio-Subject" class="label-radio">Subject taught</label>
+                           </div>
+
+                           <div class="nav-item" role="presentation">                              
+                                <input type="radio" class="nav-link tabLinks" data-tab-value="#tab_6" id="radio-Pricing" name="radio1"/>
+                                <label for="radio-Pricing" class="label-radio">Pricing</label>
+                           </div>
+
+                           <div class="nav-item" role="presentation">                               
+                                <input type="radio" class="nav-link tabLinks" data-tab-value="#tab_7" id="radio-Background" name="radio1"/>
+                                <label for="radio-Background" class="label-radio">Background</label>
+                           </div>
+
+                           <div class="nav-item" role="presentation"> 
+                                 <input type="radio" class="nav-link tabLinks" data-tab-value="#tab_8" id="radio-Delete" name="radio1"/>
+                                 <label for="radio-Delete" class="label-radio">Delete account</label>
+                           </div>
+                        </div>
+                    </div>
+        </div> <!--end leftpane-->
+
+        <!--start middlepane-->
+        <div class="middlepane tab-content">
+                
+            <!--start a propos container-->
+           <div class="tabs__tab fade show active" id="tab_1" data-tab-info>
+             <div class="propos">
+                <h4 class="fw-bold">About</h4> 
+                    <form id="myForm"> 
+                        <div class="row">
+                            <label for="prenom" class="label1">First name</label><br>
+                            <input type="text" id="prenom" name="prenom" value="{{ User.firstname }}" ><br>
+                        </div>
+
+                        <div class="row">
+                            <label for="name" class="label1">Last name</label><br>
+                            <input type="text" id="name" name="nom" value="{{ User.lastname }}" >
+                        </div>
+
+                        <div class="row">
+                            <label for="Psoeudo" class="label1">Psoeudo</label><br>
+                            <input type="text" id="Psoeudo" name="Psoeudo"><br>
+                        </div>
+
+                        <div class="accordion" id="accordionCourses">                
+                            <div class="row">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <label class="label2">Country of origine</label>          
+                                    
+                                </h2>
+                                <div class="accordion-item rounded-0">  
+                                    <div class="">
+                                            <select class="form-select" name="selected_country" id="selectedCountry" onchange="updateSelectedCountryButton(this.value)">
+                                                <option selected disabled>Select a country</option>
+                                                <option value="1">Tunisia</option>
+                                                <option value="2">Italy</option>
+                                                <option value="3">France</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            
+                            <div class="row">
+                                <h2 class="accordion-header" id="headingOne"> 
+                                    <label class="label2">Timezone</label>     
+                                </h2>
+                                <div class="accordion-item rounded-0">  
+                                    <div>
+                                            <select class="form-select" name="selected_Timezone" id="selectedTimezone" onchange="updateSelectedTimezoneButton(this.value)">
+                                                <option selected disabled>Select a country</option>
+                                                <option value="1">Tunisia</option>
+                                                <option value="2">Italy</option>
+                                                <option value="3">France</option>
+                                            </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="languagesContainer">
+                            <div class="row language-row">
+                                <div class="col">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <label class="label2">Languages spoken</label>
+                                        <div data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                            <select class="form-select" name="selected_language[]" id="selectedLanguage">
+                                                <option selected disabled>Select a language</option>
+                                                {% for language in languages %}
+                                                <option value="{{ language.idLangage }}">{{ language.label }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                    </h2>
+                                </div>
+                                <div class="col">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <label class="label2">Level</label>
+                                        <div class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapse6">
+                                            <select class="form-select select-accordion" name="selected_level[]" id="selectedLevel">
+                                                <option selected disabled>Select a level</option>
+                                            </select>
+                                        </div>
+                                    </h2>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="add-certif-wrapper d-flex">
+                            <i class="bi bi-plus-circle" onclick="addLanguage()"></i>
+                            <span>Add language</span>
+                        </div>
+
+                        <div id="languageContainer">
+                        <!-- Existing language code here -->
+                        </div>
+                        <div class="add-certif-wrapper d-flex" hidden>
+                        <i class="bi bi-plus-circle" onclick="addanotherLanguage()"></i>
+                            <span >Add another language</span><br>
+                        </div>
+
+                        <script>
+                            const levelsByLanguage = [
+                                {% for language in languages %}
+                                {
+                                    "idLangage": "{{ language.idLangage }}",
+                                    "levels": [
+                                        {% for niveau in LangagesNiveau %}
+                                        {% if niveau.idLangage == language.idLangage %}
+                                        {
+                                            "idNiveau": "{{ niveau.idNiveau }}",
+                                            "label": "{{ niveau.label }}"
+                                        },
+                                        {% endif %}
+                                        {% endfor %}
+                                    ]
+                                },
+                                {% endfor %}
+                            ];
+
+                            function addLanguage() {
+                                const languagesContainer = document.getElementById("languagesContainer");
+                                const clonedLanguages = languagesContainer.firstElementChild.cloneNode(true);
+                                languagesContainer.appendChild(clonedLanguages);
+                                const clonedLanguageSelect = clonedLanguages.querySelector("[name='selected_language[]']");
+                                const clonedLevelSelect = clonedLanguages.querySelector("[name='selected_level[]']");
+                                clonedLanguageSelect.addEventListener("change", function() {
+                                    const selectedLanguage = clonedLanguageSelect.value;
+                                    const levels = levelsByLanguage.find(item => item.idLangage === selectedLanguage)?.levels || [];
+                                    // Clear previous options
+                                    clonedLevelSelect.innerHTML = "";
+                                    // Add new options
+                                    for (const level of levels) {
+                                        const option = document.createElement("option");
+                                        option.value = level.idNiveau;
+                                        option.text = level.label;
+                                        clonedLevelSelect.appendChild(option);
+                                    }
+                                });
+                            }
+
+                        function addanotherLanguage() {
+                        const container = document.getElementById('languageContainer');
+
+                        // Create row div
+                        const rowDiv = document.createElement('div');
+                        rowDiv.classList.add('row');
+                        container.appendChild(rowDiv);
+
+                        // Create first column div
+                        const col1Div = document.createElement('div');
+                        col1Div.classList.add('col');
+                        rowDiv.appendChild(col1Div);
+
+                        // Create language label
+                        const languageLabel = document.createElement('label');
+                        languageLabel.textContent = 'Languages spoken';
+                        languageLabel.classList.add('label2');
+                        col1Div.appendChild(languageLabel);
+
+                        // Create language input
+                        const languageInput = document.createElement('input');
+                        languageInput.classList.add('form-control');
+                        languageInput.setAttribute('name', 'newlanguage[]');
+                        languageInput.setAttribute('type', 'text');
+                        languageInput.setAttribute('placeholder', 'Language');
+                        col1Div.appendChild(languageInput);
+
+                        // Create second column div
+                        const col2Div = document.createElement('div');
+                        col2Div.classList.add('col');
+                        rowDiv.appendChild(col2Div);
+
+                        // Create level label
+                        const levelLabel = document.createElement('label');
+                        levelLabel.textContent = 'Level';
+                        levelLabel.classList.add('label2');
+                        col2Div.appendChild(levelLabel);
+
+                        // Create level input
+                        const levelInput = document.createElement('input');
+                        levelInput.classList.add('form-control');
+                        levelInput.setAttribute('name', 'newlevel[]');
+                        levelInput.setAttribute('type', 'text');
+                        levelInput.setAttribute('placeholder', 'Level');
+                        col2Div.appendChild(levelInput);
+                        }
+
+
+                        </script>
+
+                        <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            const languageSelect = document.getElementById("selectedLanguage");
+                            const levelSelect = document.getElementById("selectedLevel");
+                            const levelsByLanguage = [
+                            {% for language in languages %}
+                                {
+                                "idLangage": "{{ language.idLangage }}",
+                                "levels": [
+                                    {% for niveau in LangagesNiveau %}
+                                    {% if niveau.idLangage == language.idLangage %}
+                                        {
+                                        "idNiveau": "{{ niveau.idNiveau }}",
+                                        "label": "{{ niveau.label }}"
+                                        },
+                                    {% endif %}
+                                    {% endfor %}
+                                ]
+                                },
+                            {% endfor %}
+                            ];
+
+                            languageSelect.addEventListener("change", function() {
+                            const selectedLanguage = languageSelect.value;
+                            const levels = levelsByLanguage.find(
+                                (item) => item.idLangage === selectedLanguage
+                            ).levels;
+
+                            // Clear previous options
+                            levelSelect.innerHTML = "";
+
+                            // Add new options
+                            for (const level of levels) {
+                                const option = document.createElement("option");
+                                option.value = level.idNiveau;
+                                option.text = level.label;
+                                levelSelect.appendChild(option);
+                            }
+                            });
+                        });
+                        </script>
+
+
+                        <div class="row">
+                            <label for="gmail" class="label1">Gmail Compte</label><br>
+                            <input type="text" id="gmail" name="gmail" placeholder="Rebecca@website.com"><br>
+                        </div>
+
+                        <div class="row">
+                                <label for="facebook" class="label1">Facebook</label><br>
+                                <input type="text" id="facebook" name="facebook" placeholder="https://www.facebook.com/profile.p?">
+                        </div>
+
+                        <div class="row">
+                            <label for="Linkedin" class="label1">Linkedin</label><br>
+                            <input type="text" id="Linkedin" name="Linkedin" placeholder="https://www.linkedin.com/in/yourname"><br>
+                        </div>
+
+                        <div class="row">
+                            <label for="siteweb" class="label1">Siteweb</label><br>
+                            <input type="text" id="siteweb" name="siteweb"><br>
+                        </div>   
+
+
+                        
+
+                        <div class="row">                 
+                            <h2 class="accordion-header" id="headingOne"> 
+                                <label class="label2" for=""> Subject taught</label>        
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse9" type="button">
+                                   French
+                                </button>
+                              </h2>
+                            <div class="accordion-item rounded-0">  
+                                <div id="collapse9" class="collapse" aria-labelledby="heading9" data-bs-parent="#accordionCourses">
+                                    <div class="accordion-body">
+                                        <label class="mb-2" for="ai">AI</label>
+                                        <input type="checkbox" name="Subjecttaught[]" id="ai" value="1"><br>
+                            
+                                        <label class="mb-2" for="ma">Machine Learning</label>
+                                        <input type="checkbox" name="Subjecttaught[]" id="ma" value="2"><br>
+                            
+                                        <label class="mb-2" for="franc">French</label>
+                                        <input type="checkbox" name="Subjecttaught[]" id="franc" value="3"><br>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div class="add-certif-wrapper d-flex" hidden>
+                                <i class="bi bi-plus-circle"></i>
+                                <span> Add another certificate</span>
+                            </div>
+                        </div>
+                        <div class="row">            
+                            <h2 class="accordion-header" id="headingOne">
+                                <label class="label2" for="">Describe your teaching experience</label>         
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse10" type="button">
+                                    I have formal teaching experience
+                                </button>
+                              </h2>
+                                <div class="accordion-item rounded-0">  
+                                    <div id="collapse10" class="collapse" aria-labelledby="heading10" data-bs-parent="#accordionCourses">
+                                        <div class="accordion-body">
+                                            <label class="mb-2" for="exp1">I’ve been teaching for years</label>
+                                            <input type="radio" name="experience" id="exp1" value="1"><br>
+                                
+                                            <label class="mb-2" for="exp2">This is my first job application</label>
+                                        <input type="radio" name="experience" id="exp2" value="2"><br>
+                                
+                                            <label class="mb-2" for="exp3">I’ve worked as a Montessori teacher for a year</label>
+                                            <input type="radio" name="experience" id="exp3" value="3"><br>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+
+                        <div class="row">
+                            <h2 class="accordion-header" id="headingOne">   
+                                <label class="label2" for="">Describe your current situation</label>      
+                                <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse11" type="button">
+                                    I have a job as a teacher
+                                </button>
+                              </h2>
+                            <div class="accordion-item rounded-0">  
+                                <div id="collapse11" class="collapse" aria-labelledby="heading11" data-bs-parent="#accordionCourses">
+                                  <div class="accordion-body">
+                                    <label class="mb-2" for="situat1"> I have a job as a teacher</label>
+                                    <input type="checkbox" name="situations[]"  id="situat1" value="1"><br>
+                        
+                                    <label class="mb-2" for="situat2"> I have a job as a Data analyst</label>
+                                    <input type="checkbox" name="situations[]"  id="situat2" value="2"><br>
+                        
+                                    <label class="mb-2" for="situat3">I have a job as a Web developer</label>
+                                    <input type="checkbox" name="situations[]"  id="situat3" value="3"><br>
+                                  </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="row">
+                        <label for="" class="label3">Phone number <span class="sp2">(optional)</span></label>
+                        <input type="text">
+                        <p>Receive notifications of new messages sent by students</p>
+                    </div>
+                    <button class="svg-btn" type="submit" id="save">Save</button>
+
+                    
+                </form>
+            </div>
+            </div><!--end about container-->
+            
+            <div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="successModalLabel">Success</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Form submitted successfully!
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-bs-dismiss="modal">OK</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script>
+            $(document).ready(function() {
+            $('#myForm').on('submit', function(event) {
+                    event.preventDefault(); // Prevent form submission
+
+                    var currentContainer = $('.propos');
+
+                    // Serialize form data
+                    var formData = $(this).serialize();
+
+                    // Send AJAX request
+                    $.ajax({
+                        url: '/user/save_proposuser', 
+                        type: 'POST',
+                        data: formData,
+                        success: function() {
+                            // Show success message
+                           /* var successMessage = $('<p>').text('Form submitted successfully!');
+                            currentContainer.append(successMessage);*/
+                           // var successAlert = $('<div>').addClass('alert alert-success').attr('role', 'alert').text('Form submitted successfully!');
+                            //    currentContainer.append(successAlert);
+
+                                $('#successModal').modal('show');
+                            // Clear form fields
+                            //$('#myForm')[0].reset();
+                        },
+                        error: function() {
+                            // Show error message
+                           var errorAlert = $('<div>').addClass('alert alert-danger').attr('role', 'alert').text('An error occurred while submitting the form.');
+                               currentContainer.append(errorAlert);
+                        }
+                    });
+                });
+            });
+            </script>
+            <!--start a photo container-->
+            <div class="tabs__tab " id="tab_2" data-tab-info>
+                <div class="photo-container">
+                 <form id="photoForm"> 
+                    <h4 class="fw-bold"> Profile photo</h4>
+                    <div class="row">
+                        <div class="col">
+                            <h5>Make a great first impression</h5>
+                            <p>Tutors who look friendly and professional get the most students</p>
+                            <div class="btn-box d-flex">              
+                                    <button class="upload-btn" type="button" onclick="document.getElementById('file-uploader').click();"><i class="fa fa-fw fa-camera"></i>Upload image</button>
+                                    <p>JPG or PNG format <br> Maximum 5MB</p>
+                                <input id="file-uploader" type="file" class="file-uploader pull-left" style="display: none;" name="photo" accept=".jpg,.png">
+                            </div>
+                       
+
+                            <div class="row photo-wrapper">
+                                <div class="d-flex">
+                                    <div class="photo">
+                                        <img id="show_photo" src="{{asset('hatlone/assets/imgs/testimonials/testimonials-2.jpg')}}" alt="">
+                                    </div>
+                                    <div class="left-box-gray">
+                                        <button class="btn1"></button><br>
+                                        <button class="btn2"></button><br>
+                                        <button class="btn2"></button><br>
+                                        <button class="btn2"></button><br>
+                                        <button class="btn2"></button><br>
+                                    </div>
+                                </div>
+                                <div class="bottom-box-gray d-flex">
+                                    <div class="box-two">
+                                        <button class="btn2"></button>
+                                        
+                                    </div>
+                                    <div class="box-three">
+                                        <button class=" btn3"></button>
+                                            
+                                    </div>
+                                </div>
+                            </div>                       
+                            
+                        </div>
+
+                        <div class="col rightbox">
+                            <h5>Tips for an amazing photo</h5>
+                            <div class="row photos-tests w-50">
+                                <div class="col m-0 p-1" >
+                                    <img src="{{asset('hatlone/assets/imgs/testimonials/testimonials-1.jpg')}}" width="1200" alt="">
+                                </div>
+                                <div class="col m-0 p-1">
+                                    <img src="{{asset('hatlone/assets/imgs/testimonials/testimonials-3.jpg')}}" alt="">
+                                </div>
+                                <div class="col m-0 p-1">
+                                    <img src="{{asset('hatlone/assets/imgs/testimonials/testimonials-5.jpg')}}" alt="">
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="details d-flex">
+                                    <br>
+                                    <i class="material-icons">task_alt</i>
+                                    <span>Smile and look at the camera</span>
+                                </div>
+                                <div class=" details d-flex">
+                                    <i class="material-icons">task_alt</i>
+                                    <span>Frame your head and shoulders</span>
+                                </div>
+                                <div class="details d-flex">
+                                    <i class="material-icons">task_alt</i>
+                                    <span>Your photo is centered and upright</span>
+                                </div>
+                                <div class="details d-flex">
+                                    <i class="material-icons">task_alt</i>
+                                    <span>Use neutral lighting and background</span>
+                                </div>
+                                <div class="details d-flex">
+                                    <i class="material-icons">task_alt</i>
+                                    <span>Your face and eyes are fully visible (except for religious reasons)</span>
+                                </div>
+                                <div class="details d-flex">
+                                    <i class="material-icons">task_alt</i>
+                                    <span>Avoid logos and contact informtaion</span>
+                                </div>
+                                <div class="details d-flex">
+                                    <i class="material-icons">task_alt</i>
+                                    <span>You are the only person in the photo</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="save-btn" type="submit">Save</button>
+                 </form>
+                </div>
+            </div>
+            <!--end a photo container-->
+            <script type="text/javascript">
+                document.addEventListener('DOMContentLoaded', function() {
+                    // Photo input change event handler
+                    document.getElementById('file-uploader').addEventListener('change', function(event) {
+                        var photoPath = URL.createObjectURL(event.target.files[0]);
+                        console.log('Photo Path:', photoPath);
+                        document.getElementById('show_photo').src = photoPath;
+                        document.getElementById('show_photo_profile').src = photoPath;
+                    });
+                });
+                </script>
+            <script>
+            document.getElementById('photoForm').addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevent the default form submission
+
+                // Get the form data
+                var formData = new FormData(this);
+                // Make an AJAX request to submit the form data
+                var xhr = new XMLHttpRequest();
+                xhr.open('POST', '/user/save_photo', true); 
+                xhr.onload = function() {
+                    if (xhr.status === 200) {
+                        // Handle the successful form submission
+                        var response = JSON.parse(xhr.responseText);
+                        if (response.status === 'Success') {
+                            // Form submission was successful
+                        
+                            // alert('Form submitted successfully!');
+                            $('#successModal').modal('show');
+                        } else {
+                            // Form submission encountered an error
+                            var errorMessage = $('<p>').text('An error occurred while submitting the form.');
+                            currentContainer.append(errorMessage);
+                            console.error('Error submitting form:', response.error);
+                        }
+                    } else {
+                        // Handle the AJAX request error
+                        console.error('AJAX request failed:', xhr.status);
+                    }
+                };
+                xhr.onerror = function() {
+                    // Handle the AJAX request error
+                    console.error('AJAX request failed');
+                };
+                xhr.send(formData);
+            });
+        </script>
+
+            <!--start a description container-->
+            <div class="tabs__tab" id="tab_3" data-tab-info>
+                <div class="description-container">
+                    <form id="descriptionForm">
+                      <h4 class="fw-bold"> Profile description</h4>
+                        <div class="row">
+                            <p>Update or create a new profile headline and description. It will 
+                                appear on your tutor card on the "Find tutors" page
+                            </p>
+                            <div class="row">
+                                <h5>Description for English-speaking students</h5>
+                                <div class="row d-flex">
+                                    <div class="col m-1 p-2 photo-description">
+                                        <img id="show_photo_profile" src="{{asset('hatlone/assets/imgs/testimonials/testimonials-2.jpg')}}" alt="">
+                                        <div class="right-side">
+                                            <label for="" class="label4">{{ User.firstname }} {{ User.lastname }}   </label><br>
+                                            <input name="headline" type="text" placeholder="Write your headline in English">
+                                            <p>Good example: "Certified tutor with 5 years of experience</p>
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="row">
+                                <label for="" class="label2">Introduce yourself and share briefly about your interests</label><br>
+                                <textarea name="introduction" class="p-3" placeholder="Hello, my name is... and I'm fine" rows="2"></textarea>
+                            </div>
+                            <div class="row">
+                                <label for="" class="label2">Describe your teaching experience, certification and methodology</label><br>
+                                <textarea name="experience" class="p-3" placeholder="I have 5 years of teaching experience, I'm TEFL certified, and my classes are..." rows="2"></textarea>
+                            </div>
+                            <div class="row">
+                                <label for="" class="label2">Motivate students to book a trial lesson with you</label><br>
+                                <textarea name="motivation" class="p-3" placeholder="Book a trial lesson with me so we can discuss your goals and how I can help you reach them..." rows="2"></textarea>
+                            </div>
+                            <div class="row">
+                                <p class="p1">400 characters minimum, 0 characters currently.</p>
+                            </div>
+                        
+                                <div class="mt-2">
+                                    <button class="btn btn-primary" type="button" onclick="document.getElementById('file-uploader_cv').click();" >
+                                        <i class="fa fa-fw fa-file-pdf-o"></i>
+                                        <span id="file-uploader_cv_label" for="file-uploader_cv" class="file-uploader-label">CV</span>
+                                    </button>
+                                    <input id="file-uploader_cv" type="file" class="file-uploader pull-left" style="display: none;" name="cvupload" accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx">
+                                </div>
+                            </div>
+                        <button class="save-btn" type="submit">Save</button>
+                    </form>
+                </div>
+            </div><!--end a description container-->
+
+            
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+                    // CV input change event handler
+                    document.getElementById('file-uploader_cv').addEventListener('change', function(event) {
+                        var cvPath = URL.createObjectURL(event.target.files[0]);
+                        console.log('CV Path:', cvPath);
+                    document.getElementById('file-uploader_cv_label').textContent = event.target.files[0].name;
+                     console.log(event.target.files[0].name);
+                    });
+                });
+    $(document).ready(function() {
+    $('#descriptionForm').submit(function(event) {
+            event.preventDefault(); // Prevent form submission
+
+        var currentContainer = $('.description-container');
+
+        // Create a new FormData object
+        var formData = new FormData(this);  
+
+            // Send AJAX request
+             $.ajax({
+            url: '/user/save_description',
+            type: 'POST',
+            data: formData,
+            processData: false, 
+            contentType: false, 
+            success: function() {
+                  
+                    // Clear form fields
+                    // $('#descriptionForm')[0].reset();  
+                    // Show success message
+                    $('#successModal').modal('show');
+                },
+                error: function() {
+                    // Show error message   
+                    alert('An error occurred while submitting the form!');
+                }
+            });
+        });
+    });
+</script>
+
+
+
+            <!--start a video container-->
+            <div class="tabs__tab" id="tab_4" data-tab-info>
+                <form id="videoForm">   
+                <div class="video-container">
+                    <h4 class="fw-bold"> Video introduction</h4>
+                    <div class="row">
+                        <script src="https://cdn.jsdelivr.net/npm/recordrtc@5.6.1/RecordRTC.js"></script>
+
+                        <div class="col leftbox">
+                            <h5>Record your video</h5>
+                            <p>Now introduce yourself to students! You can watch and re-record your intro
+                                before you submit it.
+                            </p>
+                            <div class="video-recorder">
+                                <video id="video-preview" controls autoplay playsinline width="1800"></video>
+                               <div class="d-flex">
+                                  <button id="btn-start-recording">Start</button>
+                                  <button id="btn-stop-recording" disabled>Stop</button>
+                                  <button class="record-btn">
+                                     <i class="bi bi-arrow-repeat"></i>
+                                     <span>Re-record</span>
+                                     <input type="hidden" id="hidden-video-input" name="video">
+
+                                   </button>
+                               </div>
+                               <script src="{{asset('hatlone/assets/js/record.js')}}"></script>
+                            </div>
+                            <p>Have a pre-recorded video on YouTube on Vimeo?
+                                <span class="sp3">Insert link</span>
+                            </p>
+                            <br>
+                            <div class="row">
+                                <div class="col">
+                                <h5>Make a great Description</h5>
+                                <p>Have a pre-recorded video?</p>
+                                    <div class="btn-box d-flex">              
+                                            <button class="upload-btn" type="button" onclick="document.getElementById('video-uploader').click();"><i class="fa fa-fw fa-video-camera"></i> Upload video</button>
+                                            <p>JPG or PNG format <br> Maximum 5MB</p>
+                                        <input id="video-uploader" type="file" class="file-uploader pull-left" style="display: none;" name="videoupload" accept="video/*">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="upload-container">
+                                <div class="upload-wrapper d-flex">
+                                    <i class="bi bi-image"></i>
+                                    <div class="text">
+                                        <h6>Make your video more appealing</h6>
+                                        <p>Upload a custom image to use as your video thumbnail.
+                                            Don't worry if you don't have one, we'll use the preview above.
+                                            <br>
+                                            <span>Do not include</span>
+                                            your last name, contact, information, price or discount.
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="btn-sect d-flex">
+                                    <button type="button" onclick="document.getElementById('file-uploader-thumbnail').click();">Upload</button>
+                                   <div><p> JPG or PNG format; maximum size of 20MB.</p></div>
+                                   <input id="file-uploader-thumbnail" type="file" class="file-uploader pull-left" style="display: none;" name="thumbnail" accept=".jpg,.png">
+                                </div>
+                                 
+                            </div>
+                        </div>
+
+                        <div class="col rightbox">
+                            <h5>Tips for a great video</h5>
+                            <h6>Technical</h6>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Keep your video between 30 seconds and 2 minutes long</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Record in a horizontal mode</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Position the camera at eye level</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Use neutral lighting and background</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Your face and eyes are fully visible (except for religious reasons)</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>No logos, links or contact details</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>No slideshows or presentation </span>
+                            </div>
+                           
+                            <h6>Content</h6>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Greet your students warmly</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Highlight any teaching certification</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Present your tutoring experience</span>
+                            </div>
+                            <div class=" details d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <span>Invite students to book a trial lesson</span>
+                            </div>
+                            
+                            <h6>Example</h6>
+                            <div class=" details d-flex">
+                                <i class="bi bi-camera-video-fill"></i>
+                                <a href="">Example 1</a>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="svg-btn btn-save-video" type="submit">Save</button>
+                </div>
+                </form>
+            </div><!-- end video container -->
+            <script src="{{asset('hatlone/assets/js/record.js')}}"></script>
+
+<script>
+const input = document.getElementById('video-uploader');
+const videoPreview = document.getElementById('video-preview');
+const hiddenVideoInput = document.getElementById('hidden-video-input');
+
+input.addEventListener('change', function() {
+  const files = this.files || [];
+
+  if (!files.length) return;
+  
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    videoPreview.src = e.target.result;
+    hiddenVideoInput.value = e.target.result;
+    videoPreview.load();
+    videoPreview.play();
+  };
+  
+  reader.onprogress = function (e) {
+    console.log('progress: ', Math.round((e.loaded * 100) / e.total));
+  };
+  
+  reader.readAsDataURL(files[0]);
+});
+
+
+</script>
+<script>
+     document.getElementById('videoForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Get the form data
+        var formData = new FormData(this);
+
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', '/user/save_video', true); 
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                // Handle the successful form submission
+                var response = JSON.parse(xhr.responseText);
+                if (response.status === 'Success') {
+                    // Form submission was successful
+                    $('#successModal').modal('show');
+                } else {
+                    // Form submission encountered an error
+                    console.error('Error submitting form:', response.error);
+                    alert('Error submitting form!');
+                }
+            } else {
+                // Handle the AJAX request error
+                console.error('AJAX request failed:', xhr.status);
+            }
+        };
+        xhr.onerror = function() {
+            // Handle the AJAX request error
+            console.error('AJAX request failed');
+        };
+        xhr.send(formData);
+    }); 
+</script>
+
+            <!-- start subject container -->
+            <div class="tabs__tab" id="tab_5" data-tab-info>
+                <div class="subject-container">
+                    <h4 class="fw-bold">Tutoring subjects</h4><br>
+                    <div class="row">
+                        <form id="TutoringForm">
+                        <div class="col">
+                            <label for="" class="label2">Years of experience</label><br>
+                            <input name="yearsOfExperience" type="number" step="any">
+                        </div>
+                        <div class="subject-level">
+                            <label for="" class="label2">Student proficiency level</label><br>
+
+                            <input type="checkbox" name="proficiencyLevels[]" id="check1" value="1">
+                            <label class="mb-2" for="check1">Beginner</label><br>
+
+                            <input type="checkbox" name="proficiencyLevels[]" id="check2" value="2">
+                            <label class="mb-2" for="check2">Pre intermediate</label><br>
+
+                            <input type="checkbox" name="proficiencyLevels[]" id="check3" value="3">
+                            <label class="mb-2" for="check3">Intermediate</label><br>
+
+                            <input type="checkbox" name="proficiencyLevels[]" id="check4" value="4">
+                            <label class="mb-2" for="check4">Uper intermediate</label><br>
+
+                            <input type="checkbox" name="proficiencyLevels[]" id="check5" value="5">
+                            <label class="mb-2" for="check5">Advanced</label><br>
+
+                            <input type="checkbox" name="proficiencyLevels[]" id="check6" value="6">
+                            <label class="mb-2" for="check6">Proficiency</label><br>
+
+                            <input type="checkbox" name="proficiencyLevels[]" id="check7" value="7">
+                            <label class="mb-2" for="check7">No Specified</label>               
+                        </div>
+
+                        <div class="subject-age">
+                            <label for="" class="label2">Preferred age group</label><br>
+                            <input type="checkbox" name="ageGroups[]" id="check8" value="8">
+                            <label class="mb-2" for="check8">Toddlers (1-3)</label><br>
+
+                            <input type="checkbox" name="ageGroups[]" id="check9" value="9">
+                            <label class="mb-2" for="check9">Preschoolers (4-6)</label><br>
+
+                            <input type="checkbox" name="ageGroups[]" id="check10" value="10">
+                            <label class="mb-2" for="check10">Primary school (6-12)</label><br>
+
+                            <input type="checkbox" name="ageGroups[]" id="check11" value="11">
+                            <label class="mb-2" for="check11">Secondary school (12-17)</label><br>
+
+                            <input type="checkbox" name="ageGroups[]" id="check12" value="12">
+                            <label class="mb-2" for="check12">Students (17-22)</label><br>
+
+                            <input type="checkbox" name="ageGroups[]" id="check13" value="13">
+                            <label class="mb-2" for="check13">Adults (23-40)</label><br>
+
+                            <input type="checkbox" name="ageGroups[]" id="check14" value="14">
+                            <label class="mb-2" for="check14">Adults (40+)</label>
+                                    
+                        </div>
+                        <button class="save-btn" type="submit">Save</button>
+                      </form>
+                    </div>
+                </div>
+            </div><!-- end subject container -->
+<script>
+$(document).ready(function() {
+    $('#TutoringForm').submit(function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        var currentContainer = $('.subject-container');
+
+        // Serialize form data
+        var formData = $(this).serialize();
+
+        // Send AJAX request
+        $.ajax({
+            url: '/user/save_tutoring_subjects', 
+            type: 'POST',
+            data: formData,
+            success: function() {
+                // Show success message
+                $('#successModal').modal('show');
+                // Clear form fields
+                //$('#TutoringForm')[0].reset();
+                
+            },
+            error: function() {
+                // Show error message
+                var errorMessage = $('<p>').text('An error occurred while submitting the form.');
+                currentContainer.append(errorMessage);
+            }
+        });
+    });
+});
+</script>
+            <!-- start pricing container -->
+            <div class="tabs__tab" id="tab_6" data-tab-info>
+                <div class="pricing-container">
+                    <h4 class="fw-bold">Set your hourly base rate</h4>
+                    <div class="row">
+                        <p>To get students to your profile, we recommend a base of $4 <br>
+                            per hour for new tutors in your subject and with your experience level
+                        </p>
+                        <div class="price d-flex">
+                            <input type="number" value="">
+                            <p>$ USD</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="info d-flex">
+                            <i class="bi bi-info-circle"></i>
+                            <span>Change your base rate in settings after approval</span>
+                        </div>
+                    </div>
+                    <button class="svg-btn">Save</button>
+                </div>
+            </div><!-- end pricing container -->
+
+
+            <!--start background container -->
+    <div class="tabs__tab" id="tab_7" data-tab-info>
+       
+        <div class="background-container">
+                 <h5> Profile verification</h5>    
+                       
+                        <div class="row">
+                            <div class="verifbox d-flex">
+                                <i class="material-icons">task_alt</i>
+                                <p>
+                                    <span>You passed verification</span><br>
+                                    You can withdraw your money safely. Plus, we marked your profile
+                                    with a blue badge to show students that you're verified tutor.
+                                </p>
+                            </div>
+                        </div>
+
+            <div class="teaching-container" id="teachingContainer">
+                    <!-- <form id="certificationForm" enctype="multipart/form-data">-->
+                    
+                <div id="certification" name="cenrtifications[]">
+                    <div class="row teaching-container"> 
+                        <h5> Teaching certification</h5>
+   
+                         <input type="hidden" id="certificationCount" value="1">
+                        <div class="accordion" id="accordionCourses">                
+                            <div class="row">
+                                <h2 class="accordion-header" id="headingOne">
+                                    <label class="label2">Subject</label>          
+                                    <a class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse12">
+                                        Choose subject ...
+                                    </a>
+                                  </h2>
+                                <div class="accordion-item rounded-0">
+                                    <div id="collapse12" class="collapse" aria-labelledby="heading12" data-bs-parent="#accordionCourses">
+                                        <div class="accordion-body">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="subject${certificationCount}[]" id="sub1" value="1">
+                                                <label class="form-check-label" for="sub1">Information retrieval</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="subject${certificationCount}[]" id="sub2" value="2">
+                                                <label class="form-check-label" for="sub2">Programmation OO</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="subject${certificationCount}[]" id="sub3" value="3">
+                                                <label class="form-check-label" for="sub3">Gaming</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <label for="" class="label2">Certificate</label>
+                                <input name="certificate${certificationCount}" type="text"><br>
+
+                                <label for="" class="label2">Description</label>
+                                <input name="description${certificationCount}" type="text"><br>
+
+                                <label for="" class="label2">Issued by</label>
+                                <input name="issued_by${certificationCount}" type="text"><br>
+                            </div>
+
+                            <div class="row">
+                                <div class="col">
+                                    <h2 class="accordion-header" id="headingOne">
+                                    <label class="label2">Years of study</label>
+                                    <div class="collapsed" data-bs-toggle="collapse">
+                                        <select class="form-select select-accordion collapsed" name="Debutyear${certificationCount}[]" id="Debutyear">
+                                        <option class="accordion-button collapsed" value="">Debut</option>
+                                        </select>
+                                    </div>
+                                    </h2>
+                                </div>
+                                
+                                <div class="col">
+                                    <h2 class="accordion-header acc2" id="headingOne">
+                                    <label class="label2"></label>
+                                    <div class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapse6">
+                                        <select class="form-select select-accordion collapsed" name="Finyear${certificationCount}[]" id="Finyear">
+                                        <option class="accordion-button collapsed" value="">Fin</option>
+                                        </select>
+                                    </div>
+                                    </h2>
+                                </div>
+                                <script>
+                                   $(document).ready(function() {   
+                                    const certificationCountInput = $('#certificationCountInput');
+                                    const certificationCount = parseInt(certificationCountInput.val());
+                                    const currentYear = new Date().getFullYear();
+
+                                    const debutYearSelect = $(`#Debutyear`);
+                                    const finYearSelect = $(`#Finyear`);
+
+                                    // Populate options for Debutyear
+                                    for (let year = currentYear - 1; year >= 1900; year--) {
+                                        const option = $('<option>').val(year).text(year);
+                                        debutYearSelect.append(option);
+                                    }
+
+                                    // Populate options for Finyear
+                                    for (let year = currentYear; year >= 1900; year--) {
+                                        const option = $('<option>').val(year).text(year);
+                                        finYearSelect.append(option);
+                                    }
+
+                                    // Add onchange event handler to Debutyear
+                                    debutYearSelect.on('change', function() {
+                                        const debutYear = parseInt($(this).val());
+                                        const finYear = parseInt(finYearSelect.val());
+
+                                        if (debutYear > finYear) {
+                                        alert('Year Debut should be less than Year Fin.');
+                                        $(this).val(''); // Reset the selected value
+                                        }
+                                    });
+
+                                    // Add onchange event handler to Finyear
+                                    finYearSelect.on('change', function() {
+                                        const finYear = parseInt($(this).val());
+                                        const debutYear = parseInt(debutYearSelect.val());
+
+                                        if (debutYear > finYear) {
+                                        alert('Year Debut should be less than Year Fin.');
+                                        $(this).val(''); // Reset the selected value
+                                        }
+                                    });
+                                    });
+
+                                </script>
+                            </div> 
+
+                        </div>
+                    </div>
+                </div>
+                  
+                    <div id="certification-container">
+                    <!-- Existing certification code here -->
+                    </div>
+
+                    <div class="add-certif-wrapper d-flex">
+                        <i class="bi bi-plus-circle" onclick="addAnotherCertificate()"></i>
+                        <span> Add another certificate</span>
+                    </div>
+                    
+                    <button class="svg-btn" id="savecertification" onclick="saveCertificate()">Save</button>
+                      
+                     <!-- </form>-->
+            </div>
+                    <script>
+
+                    function addAnotherCertificate() {
+                    const certificationContainer = document.getElementById('certification-container');
+                    const certificationCountInput = document.getElementById('certificationCount');
+                    const certificationCount = parseInt(certificationCountInput.value);
+
+                    const newCertificate = document.createElement('div');
+                    newCertificate.classList.add('row', 'teaching-container');
+                    newCertificate.innerHTML = `
+                        <h5>Teaching certification</h5>
+                        <div class="accordion" id="accordionCourses">
+                        <!-- Subject section -->
+                        <div class="row">
+                            <h2 class="accordion-header" id="headingOne">
+                            <label class="label2">Subject</label>
+                            <button type="button" class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse${certificationCount + 1}">
+                                Choose subject ...
+                            </button>
+                            </h2>
+                            <div class="accordion-item rounded-0">
+                            <div id="collapse${certificationCount + 1}" class="collapse" aria-labelledby="heading${certificationCount + 1}" data-bs-parent="#accordionCourses">
+                                <div class="accordion-body">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="subject${certificationCount + 1}[]" id="sub1${certificationCount + 1}" value="1">
+                                    <label class="form-check-label" for="sub1${certificationCount + 1}">Information retrieval</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="subject${certificationCount + 1}[]" id="sub2${certificationCount + 1}" value="2">
+                                    <label class="form-check-label" for="sub2${certificationCount + 1}">Programmation OO</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="subject${certificationCount + 1}[]" id="sub3${certificationCount + 1}" value="3">
+                                    <label class="form-check-label" for="sub3${certificationCount + 1}">Gaming</label>
+                                </div>
+                                </div>
+                            </div>
+                            </div>
+                        </div>
+
+                        <!-- Certificate section -->
+                        <div class="row">
+                            <label for="" class="label2">Certificate</label>
+                            <input name="certificate${certificationCount + 1}[]" type="text"><br>
+
+                            <label for="" class="label2">Description</label>
+                            <input name="description${certificationCount + 1}[]" type="text"><br>
+
+                            <label for="" class="label2">Issued by</label>
+                            <input name="issued_by${certificationCount + 1}[]" type="text"><br>
+                        </div>
+
+                        <!-- Years of study section -->
+                        <div class="row">
+                        <div class="col">
+                            <h2 class="accordion-header" id="headingOne">
+                            <label class="label2">Years of study</label>
+                            <div class="collapsed" data-bs-toggle="collapse">
+                                <select class="form-select select-accordion collapsed" name="Debutyear${certificationCount}[]" id="Debutyear${certificationCount}">
+                                <option class="accordion-button collapsed" value="">Debut</option>
+                                </select>
+                            </div>
+                            </h2>
+                        </div>
+                        <div class="col">
+                            <h2 class="accordion-header acc2" id="headingOne">
+                            <label class="label2"></label>
+                            <div class="collapsed" data-bs-toggle="collapse" data-bs-target="#collapse6">
+                                <select class="form-select select-accordion collapsed" name="Finyear${certificationCount}[]" id="Finyear${certificationCount}">
+                                <option class="accordion-button collapsed" value="">Fin</option>
+                                </select>
+                            </div>
+                            </h2>
+                        </div>
+                        </div>
+                        </div>`;
+
+                    certificationContainer.appendChild(newCertificate);
+
+                    // Update the certification count input value
+                    certificationCountInput.value = certificationCount + 1;
+                     // Populate options for Debutyear
+                        var currentYear = new Date().getFullYear();
+
+                        var debutYearSelect = document.getElementById(`Debutyear${certificationCount}`);
+                        for (var year = currentYear - 1; year >= 1900; year--) {
+                            var option = new Option(year, year);
+                            debutYearSelect.appendChild(option);
+                        }
+
+                        var finYearSelect = document.getElementById(`Finyear${certificationCount}`);
+                        for (var year = currentYear; year >= 1900; year--) {
+                            var option = new Option(year, year);
+                            finYearSelect.appendChild(option);
+                        }
+
+                        // Add onchange event handler to Debutyear
+                        debutYearSelect.addEventListener('change', function() {
+                            var debutYear = parseInt(debutYearSelect.value);
+                            var finYear = parseInt(finYearSelect.value);
+
+                            if (debutYear > finYear) {
+                                alert('Year Debut should be less than Year Fin.');
+                                debutYearSelect.value = ''; // Reset the selected value
+                            }
+                        });
+
+                        // Add onchange event handler to Finyear
+                        finYearSelect.addEventListener('change', function() {
+                            var debutYear = parseInt(debutYearSelect.value);
+                            var finYear = parseInt(finYearSelect.value);
+
+                            if (debutYear > finYear) {
+                                alert('Year Debut should be less than Year Fin.');
+                                finYearSelect.value = ''; // Reset the selected value
+                            }
+                        });
+
+                    }
+                    </script>
+                    <script>
+
+                   function saveCertificate() {
+                        let certificationContainers = document.querySelectorAll('#certification, #certification-container');
+
+                        if (certificationContainers.length === 0) {
+                            alert('No certificates to save.');
+                            return;
+                        }
+
+                        const certificates = [];
+
+                        certificationContainers.forEach(function (container) {
+                            const subject = container.querySelector(`input[name^="subject"]:checked`);
+                            const certificateInput = container.querySelector(`input[name^="certificate"]`);
+                            const descriptionInput = container.querySelector(`input[name^="description"]`);
+                            const issuedByInput = container.querySelector(`input[name^="issued_by"]`);
+                            const debutYear = container.querySelector(`select[name^="Debutyear"]`);
+                            const finYear = container.querySelector(`select[name^="Finyear"]`);
+
+                            if (subject === null || certificateInput === null || descriptionInput === null ||
+                            issuedByInput === null || debutYear === null || finYear === null) {
+                            alert('Please fill in all certificate fields.');
+                            return;
+                            }
+
+                            const certificate = {
+                            subject: subject.value || '',
+                            certificate: certificateInput.value.trim(),
+                            description: descriptionInput.value.trim(),
+                            issuedBy: issuedByInput.value.trim(),
+                            debutYear: debutYear.value.trim(),
+                            finYear: finYear.value.trim()
+                            };
+
+                            certificates.push(certificate);
+                        });
+
+                        if (certificates.length === 0) {
+                            alert('Please fill in all certificate fields.');
+                            return;
+                        }
+
+                        const xhr = new XMLHttpRequest();
+                        xhr.open('POST', '/user/save_certification_data'); // Update the endpoint URL accordingly
+                        xhr.setRequestHeader('Content-Type', 'application/json');
+                        xhr.onload = function () {
+                            if (xhr.status === 200) {
+                            // alert('Certificates saved successfully.');
+                            // Clear the input fields or perform any other actions as needed
+                            $('#successModal').modal('show');
+                            } else {
+                            alert('Failed to save certificates. Please try again.');
+                            }
+                        };
+                        xhr.send(JSON.stringify(certificates));
+                    }
+
+
+
+                    </script>  
+                <div class="education-container" id="educationContainer">
+                
+                    <div id="educations" name="educations[]">
+                        <div class="row education-container">
+                            <h5>Education</h5>
+                            <input type="hidden" id="educationCount" value="1">
+                            <label for="" class="label2">University</label><br>
+                            <input name="university${educationCount}[]" type="text" placeholder="E.g. Mount Royal University"><br>
+
+                            <label for="" class="label2">Degree</label><br>
+                            <input name="degree${educationCount}[]" type="text" placeholder="E.g. Bachelor's degree in English"><br>
+
+                            <div class="accordion" id="accordionCourses">
+                                <div class="row">
+                                    <h2 class="accordion-header" id="headingOne">
+                                        <label class="label2">Degree type</label>
+                                        <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse15" type="button">
+                                            Choose degree type ...
+                                        </button>
+                                    </h2>
+                                    <div class="accordion-item rounded-0">
+                                        <div id="collapse15" class="collapse" aria-labelledby="heading15" data-bs-parent="#accordionCourses">
+                                            <div class="accordion-body">
+                                                <input class="form-check-input" type="radio" name="degreeType${educationCount}[]" id="deg1" value="1">
+                                                <label class="mb-2" for="deg1">Degree 1</label><br>
+
+                                                <input class="form-check-input" type="radio" name="degreeType${educationCount}[]" id="deg2" value="2">
+                                                <label class="mb-2" for="deg2">Degree 2</label><br>
+
+                                                <input class="form-check-input" type="radio" name="degreeType${educationCount}[]" id="deg3" value="3">
+                                                <label class="mb-2" for="deg3">Degree 3</label><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row Specialization-wrapper">
+                                    <label for="" class="label2">Specialization</label><br>
+                                    <input name="specialization${educationCount}[]" type="text" placeholder="E.g. Teaching English as a Foreign"><br>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <h2 class="accordion-header" id="headingOne">
+                                            <label class="label2">Years of study</label>
+                                            <div class="collapsed" data-bs-toggle="collapse">
+                                                <select class="form-select select-accordion collapsed" name="debutYearEdu${educationCount}[]" id="debutYearEdu">
+                                                    <option class="accordion-button collapsed" value="">Debut</option>
+                                                </select>
+                                            </div>
+                                        </h2>
+                                    </div>
+                                        
+
+                                    <div class="col">
+                                        <h2 class="accordion-header acc3" id="headingOne">
+                                            <label class="label2"></label>
+                                            <div class="collapsed" data-bs-toggle="collapse">
+                                                <select class="form-select select-accordion collapsed" name="finYearEdu${educationCount}[]" id="finYearEdu">
+                                                        <option class="accordion-button collapsed" value="">Fin</option>
+                                                </select>
+                                            </div>
+                                        </h2>
+                                    </div>
+                                </div>
+                                <script>
+                                var currentYear = new Date().getFullYear();
+
+                                    var debutYearSelect = document.getElementById(`debutYearEdu`);
+                                    for (var year = currentYear - 1; year >= 1900; year--) {
+                                        var option = new Option(year, year);
+                                        debutYearSelect.appendChild(option);
+                                    }
+
+                                    var finYearSelect = document.getElementById(`finYearEdu`);
+                                    for (var year = currentYear; year >= 1900; year--) {
+                                        var option = new Option(year, year);
+                                        finYearSelect.appendChild(option);
+                                    }
+
+                                    // Add onchange event handler to debutYearSelect
+                                    debutYearSelect.addEventListener('change', function() {
+                                        var debutYear = parseInt(debutYearSelect.value);
+                                        var finYear = parseInt(finYearSelect.value);
+
+                                        if (debutYear > finYear) {
+                                            alert('Debut Year should be less than Fin Year.');
+                                            debutYearSelect.value = ''; // Reset the selected value
+                                        }
+                                    });
+
+                                    // Add onchange event handler to finYearSelect
+                                    finYearSelect.addEventListener('change', function() {
+                                        var debutYear = parseInt(debutYearSelect.value);
+                                        var finYear = parseInt(finYearSelect.value);
+
+                                        if (debutYear > finYear) {
+                                            alert('Debut Year should be less than Fin Year.');
+                                            finYearSelect.value = ''; // Reset the selected value
+                                        }
+                                    });
+
+                                    </script>
+
+                                <div class="row">
+                                    <div class="diploma-wrapper">
+                                        <div class="diplomaBox d-flex">
+                                            <i class="bi bi-file-earmark-text"></i>
+                                            <p>
+                                                <span>Get a "Diploma verified" badge</span><br>
+                                                Upload your diploma to boost your credibility! Our team will review
+                                                it and add the badge to your profile. Once reviewed,
+                                                your file will be deleted.
+                                            </p>
+                                        </div>
+                                        <div class="upload-diploma d-flex">
+                                            <button class="upload-btn-2" type="button" onclick="document.getElementById('file-uploader-diploma').click();">Upload</button>
+                                            <p>JPG or PNG format; maximum size of 20MB.</p>
+                                            <input id="file-uploader-diploma" type="file" class="file-uploader pull-left" style="display: none;" name="diploma${educationCount}[]" accept=".jpg,.png">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div id="education-container">
+                            <!-- Existing education code here -->
+                        </div>
+
+                        <div class="add-certif-wrapper d-flex">
+                            <i class="bi bi-plus-circle" onclick="addAnotherEducation()"></i>
+                            <span> Add another education</span>
+                        </div>
+
+                        <button class="svg-btn" id="saveEducation" onclick="saveEducation()">Save</button>
+                    
+                </div>
+            </div>
+        </div>  
+    </div>
+ <!--end background container -->
+            
+  
+            <script>
+
+                function addAnotherEducation() {
+                const educationContainer = document.getElementById('education-container');
+                const educationCountInput = document.getElementById('educationCount');
+                const educationCount = parseInt(educationCountInput.value);
+
+                const newEducation = document.createElement('div');
+                newEducation.classList.add('row', 'education-container');
+                newEducation.innerHTML = `
+                <h5>Education</h5>
+
+                <label for="" class="label2">University</label><br>
+                <input name="university${educationCount + 1}[]" type="text" placeholder="E.g. Mount Royal University"><br>
+
+                <label for="" class="label2">Degree</label><br>
+                <input name="degree${educationCount + 1}[]" type="text" placeholder="E.g. Bachelor's degree in English"><br>
+
+                <div class="accordion" id="accordionCourses">
+                    <div class="row">
+                        <h2 class="accordion-header" id="headingOne${educationCount + 1}">
+                            <label class="label2">Degree type</label>
+                            <button class="accordion-button collapsed" data-bs-toggle="collapse" data-bs-target="#collapse${educationCount + 1}" type="button">
+                                Choose degree type ...
+                            </button>
+                        </h2>
+                        <div class="accordion-item rounded-0">
+                            <div id="collapse${educationCount + 1}" class="collapse" aria-labelledby="headingOne${educationCount + 1}" data-bs-parent="#accordionCourses">
+                                <div class="accordion-body">
+                                    <input class="form-check-input" type="radio" name="degreeType${educationCount + 1}[]" id="deg1${educationCount + 1}" value="1">
+                                    <label class="mb-2" for="deg1${educationCount + 1}">Degree 1</label><br>
+
+                                    <input class="form-check-input" type="radio" name="degreeType${educationCount + 1}[]" id="deg2${educationCount + 1}" value="2">
+                                    <label class="mb-2" for="deg2${educationCount + 1}">Degree 2</label><br>
+
+                                    <input class="form-check-input" type="radio" name="degreeType${educationCount + 1}[]" id="deg3${educationCount + 1}" value="3">
+                                    <label class="mb-2" for="deg3${educationCount + 1}">Degree 3</label><br>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row Specialization-wrapper">
+                        <label for="" class="label2">Specialization</label><br>
+                        <input name="specialization${educationCount + 1}[]" type="text" placeholder="E.g. Teaching English as a Foreign"><br>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <h2 class="accordion-header" id="headingOne${educationCount + 1}">
+                                <label class="label2">Years of study</label>
+                                <div class="collapsed" data-bs-toggle="collapse">
+                                    <select class="form-select select-accordion collapsed" name="debutYearEdu${educationCount + 1}[]" id="debutYearEdu${educationCount + 1}">
+                                        <option class="accordion-button collapsed" value="">Debut</option>
+                                    </select>
+                                </div>
+                            </h2>
+                        </div>
+
+                        <div class="col">
+                            <h2 class="accordion-header acc3" id="headingOne${educationCount + 1}">
+                                <label class="label2"></label>
+                                <div class="collapsed" data-bs-toggle="collapse">
+                                    <select class="form-select select-accordion collapsed" name="finYearEdu${educationCount + 1}[]" id="finYearEdu${educationCount + 1}">
+                                        <option class="accordion-button collapsed" value="">Fin</option>
+                                    </select>
+                                </div>
+                            </h2>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="diploma-wrapper">
+                            <div class="diplomaBox d-flex">
+                                <i class="bi bi-file-earmark-text"></i>
+                                <p>
+                                    <span>Get a "Diploma verified" badge</span><br>
+                                    Upload your diploma to boost your credibility! Our team will review
+                                    it and add the badge to your profile. Once reviewed,
+                                    your file will be deleted.
+                                </p>
+                            </div>
+                            <div class="upload-diploma d-flex">
+                                <button class="upload-btn-2" type="button" onclick="document.getElementById('file-uploader-diploma${educationCount + 1}').click();">Upload</button>
+                                <p>JPG or PNG format; maximum size of 20MB.</p>
+                                <input id="file-uploader-diploma${educationCount + 1}" type="file" class="file-uploader pull-left" style="display: none;" name="diploma${educationCount + 1}[]" accept=".jpg,.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                `;
+
+                                    educationContainer.appendChild(newEducation);
+
+                                    // Increment education count
+                                    educationCountInput.value = educationCount + 1;
+
+                                    // Initialize dynamic year select elements
+                                    
+                                    var currentYear = new Date().getFullYear();
+
+                var debutYearSelect = document.getElementById(`debutYearEdu${educationCount + 1}`);
+                for (var year = currentYear - 1; year >= 1900; year--) {
+                    var option = new Option(year, year);
+                    debutYearSelect.appendChild(option);
+                }
+
+                var finYearSelect = document.getElementById(`finYearEdu${educationCount + 1}`);
+                for (var year = currentYear; year >= 1900; year--) {
+                    var option = new Option(year, year);
+                    finYearSelect.appendChild(option);
+                }
+
+                // Add onchange event handler to debutYearSelect
+                debutYearSelect.addEventListener('change', function() {
+                    var debutYear = parseInt(debutYearSelect.value);
+                    var finYear = parseInt(finYearSelect.value);
+
+                    if (debutYear > finYear) {
+                        alert('Debut Year should be less than Fin Year.');
+                        debutYearSelect.value = ''; // Reset the selected value
+                    }
+                });
+
+                // Add onchange event handler to finYearSelect
+                finYearSelect.addEventListener('change', function() {
+                    var debutYear = parseInt(debutYearSelect.value);
+                    var finYear = parseInt(finYearSelect.value);
+
+                    if (debutYear > finYear) {
+                        alert('Debut Year should be less than Fin Year.');
+                        finYearSelect.value = ''; // Reset the selected value
+                    }
+                });
+
+                }
+                </script>
+                <script>
+                function saveEducation() {
+                let educationContainers = document.querySelectorAll('#educations, #education-container');
+
+                if (educationContainers.length === 0) {
+                    alert('No education data to save.');
+                    return;
+                }
+
+                const formData = new FormData();
+
+                educationContainers.forEach(function (container) {
+                    const universityInput = container.querySelector('input[name^="university"]');
+                    const degreeInput = container.querySelector('input[name^="degree"]');
+                    const specializationInput = container.querySelector('input[name^="specialization"]');
+                    const degreeTypeInput = container.querySelector('input[name^="degreeType"]:checked');
+                    const debutYearSelect = container.querySelector('select[name^="debutYearEdu"]');
+                    const finYearSelect = container.querySelector('select[name^="finYearEdu"]');
+                    const diplomaInput = container.querySelector('input[name^="diploma"]');
+
+                    if (universityInput === null || degreeInput === null || specializationInput === null ||
+                    degreeTypeInput === null || debutYearSelect === null || finYearSelect === null) {
+                    alert('Please fill in all education fields.');
+                    return;
+                    }
+
+                    const university = universityInput.value.trim();
+                    const degree = degreeInput.value.trim();
+                    const specialization = specializationInput.value.trim();
+                    const degreeType = degreeTypeInput.value;
+                    const debutYear = debutYearSelect.value.trim();
+                    const finYear = finYearSelect.value.trim();
+                    const diploma = diplomaInput.files[0];
+
+                    if (!university || !degree || !specialization || !degreeType || !debutYear || !finYear) {
+                    alert('Please fill in all education fields.');
+                    return;
+                    }
+
+                    const education = {
+                    university: university,
+                    degree: degree,
+                    specialization: specialization,
+                    degreeType: degreeType,
+                    debutYear: debutYear,
+                    finYear: finYear,
+                    };
+
+                    formData.append('educations[]', JSON.stringify(education));
+                    formData.append('diploma[]', diploma); // Append diploma file to the form data
+                });
+
+                if (!formData.get('educations[]') || formData.get('educations[]').length === 0) {
+                    alert('Please fill in all education fields.');
+                    return;
+                }
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '/user/save_education_data');
+                xhr.onload = function () {
+                    if (xhr.status === 200) {
+                    //alert('Education saved successfully.');
+                    $('#successModal').modal('show');
+                    } else {
+                    alert('Failed to save education data. Please try again.');
+                    }
+                };
+                xhr.send(formData);
+                }
+
+
+                </script>
+        </div>
+        <script type="text/javascript" src="{{asset('hatlone/assets/js/userMain.js')}}"></script>
+    </main>
+
+     <!-- JavaScript Bottstrap -->
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" 
+     integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" 
+     crossorigin="anonymous">
+ </script>
+ <!-- UI Kit -->
+ <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/js/uikit.min.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/js/uikit-icons.min.js"></script>
+    
+    
+</body>
+</html>

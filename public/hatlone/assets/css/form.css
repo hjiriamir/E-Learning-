@@ -1,0 +1,300 @@
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #02377D;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+  --error-text-color: rgb(249, 111, 111);
+}
+
+#description_thumbnail,
+#category_language_level,
+#skills_highlights {
+    display:none;
+}
+.form-control:focus {
+  box-shadow: none!important;
+  border-color: var(--main-text-color)!important;
+}
+.tabForm .caracter {
+  font-size: 14px;
+  color: var(--main-text-color);
+}
+.has-error {
+  color: var(--error-text-color);
+}
+.has-error .form-control {
+  border: 1px solid var(--error-text-color);
+}
+.has-error span {
+  color: var(--main-color-title)!important;
+  font-size: 14px!important;
+  font-weight: 400!important;
+}
+
+.tabForm h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--main-color-title);
+  margin: 0px;
+}
+
+.tabForm h1 label {
+  color: var(--error-text-color);
+}
+.rightBox .text span,
+.skill .box1 .text,
+.highlights .box1 .text {
+  font-size: 16px!important;
+  font-weight: 500!important;
+  color: #000;
+}
+.tabForm .rightBox .bi {
+  font-size: 5px;
+  position: relative;
+  top: -4px;
+  right: 5px;
+}
+.tabForm .rightBox .good,
+.highlights .box1 .good {
+  color: green;
+  font-weight: 500;
+  font-size: 16px;
+}
+.tabForm .rightBox .bad,
+.highlights .box1 .bad {
+  color: red;
+  font-weight: 500;
+  font-size: 16px;
+}
+.tabForm .rightBox a {
+  color: var(--blue-color);
+  margin-top: 10px;
+  text-decoration: underline;
+  font-weight: 500;
+  font-size: 16px;
+}
+.tabForm .rightBox a:hover {
+  color: var(--hover-blue-color);
+}
+
+.info input,
+.highlights input {
+  padding: 15px 20px;
+}
+.highlights .level span {
+  color: green;
+  font-weight: 600;
+}
+.highlights .level span:nth-child(5) {
+  color: red;
+  font-weight: 600;
+}
+.highlights .option {
+  width: 100%;
+  border: 1px solid #d0d0d0;
+  padding: 15px 20px;
+}
+.highlights .add {
+  cursor: pointer;
+}
+.description .courses span {
+  font-size: 12px;
+  font-weight: 700;
+  color: #000;
+}
+.firstInput {
+  width: 1px;
+  height: 1px;
+}
+
+.upload {
+	width: 100%;
+	background: #fff;
+	border-radius: 30px;
+}
+
+.has-error .label {
+  border: 1px solid var(--error-text-color)!important;
+}
+.has-error .labelVd {
+  border: 1px solid var(--error-text-color)!important;
+  border-radius: 5px;
+}
+.labelVd {
+  border: 1px solid #c0c0c0;
+  border-radius: 5px;
+}
+.img-area {
+  position: relative;
+  border: 1px solid #c7c7c7;
+	width: 100%;
+	height: 500px;
+	border-radius: 5px;
+	overflow: hidden;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+}
+
+.addInput {
+  width: 100%;
+}
+
+.formField p{
+  color: red;
+  margin: 0px!important;
+}
+
+.alertBox {
+  font-style:italic!important;
+  font-size:85%!important;
+  display:block!important;
+  padding: 5px!important;
+  color: red!important;
+}
+
+.invalid {
+  background: #f9e7e7!important;
+  padding: 10px!important;
+  border-radius: 5px!important;
+  /* font-size: 115%!important; */
+  /* width: 90%!important; */
+  border: 1px solid red!important;
+  transition: all .2s ease-in!important;
+  margin: 10px!important;
+}
+
+.box1 p {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+.categories .overflow-auto span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.inputRemove{
+  display: inline-block;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  text-decoration:none;
+  line-height: 54px;
+  border: 1px solid #e3e1e1;
+  background-color: #b9b8b8;
+  padding: 0px 20px;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: 500;
+}
+/*.inputRemove{
+  display: inline-block;
+  font-weight: 500;
+  margin-left: -25px!important;
+  cursor: pointer;
+  text-align:center;
+  border: 1px solid #d0d0d0;
+  width: 50px;
+  height: 50px;
+  color: red;
+}*/
+.highlights .optionInput {
+  border: 1px solid #d0d0d0;
+  padding: 15px 20px;
+  border-radius: 5px;
+  width: 41.2em;
+}
+
+
+.boxButton .btn,
+.boxButton .btn:focus {
+  cursor: pointer!important;
+  text-decoration: none!important;
+  background-color: var(--blue-color)!important;
+  color: #fff!important;
+  font-weight: 500!important;
+  border-radius: 0px!important;
+}
+.boxButton .btn:hover {
+  background-color: var(--hover-blue-color)!important;
+  color: #fff!important;
+}
+.info .boxButton {
+  float: right;
+}
+.boxButton .rightBtns {
+  float: right;
+}
+/*
+.info .boxButton .btn{
+  float: right;
+*/
+/*
+@media (min-width: 992px) {
+  .info .boxButton .save {
+    margin-left: 37em;
+  }
+  .description .boxButton .save,
+  .categories .boxButton .save,
+  .skillHighlights .boxButton .save  {
+    margin-left: 30.1em;
+  }
+}*/
+
+
+.category .box1 label,
+.level .box1 label,
+.language .box1 label {
+  cursor: pointer;
+  color: #000;
+}
+.has-error label {
+  color: #000!important;
+}
+
+.tooltip-container {
+  cursor: pointer;
+  position: relative;
+  display: inline-block;
+}
+.tooltipRemove {
+  opacity: 0;
+  z-index: 99;
+  color: var(--hover-blue-color);
+  display: block;
+  font-size: 12px;
+  position: absolute;
+  background-color: #fff;
+  right: -20px;
+  bottom: 45px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  width: 100px;
+  border-radius: 5px;
+  -webkit-transition: all .2s ease-in-out;
+  -moz-transition: all .2s ease-in-out;
+  -o-transition: all .2s ease-in-out;
+  -ms-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -o-transform: scale(0);
+  -ms-transform: scale(0);
+  transform: scale(0);
+}
+.tooltip-container:hover .tooltipRemove,a:hover .tooltipRemove {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -o-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+

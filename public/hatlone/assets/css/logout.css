@@ -1,0 +1,92 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #02377D;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+  --pw-wrapper-width:250px;
+}
+
+.card{
+    background-color: rgba(128, 128, 128, 0.895);
+    border: none;
+}
+.img-wrap{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+.img-wrap i{
+    font-size: 80px;
+    padding: 20px 20px;
+     border-radius: 50%;
+     color: var(--main-color-title);
+     border: 2px solid white;
+ }
+.card h1{
+    font-size: 30px;
+    text-align: center;
+    line-height: 40px;
+    margin-bottom: 30px;
+    color: white;
+    font-weight: 500;
+}
+    .login-wrap{
+        display: flex;
+        justify-content: center;
+        justify-content: space-between;
+        margin-top: 50px;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+    .logout-btn{
+        font-size: 15px;
+        height: 50px;
+        border-radius: 15px;
+        border: none;
+        background-color: var(--blue-color);
+        color: white;
+        font-weight: 500;
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .cancel-btn{
+        font-size: 15px;
+        font-weight: 500;
+        height: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        border: 2px solid var(--blue-color);
+        border-radius: 15px;
+        background-color: var(--main-border-bottom);
+        color: var(--blue-color);
+    }
+    .card p{
+        margin-top: -10px;
+        
+    }
+    .card a{
+        color: white;
+        font-weight: 500;
+        font-size: 15px;
+        text-decoration: underline;
+    }
+    .footer{
+        margin-top: -50px !important;
+        color: white;
+    }
+    .save-wrap {
+        text-align: center;
+        display: flex !important;
+        justify-content: center !important;
+        align-items: center;
+    }
+    .save-wrap button{
+        text-align: center !important;
+        margin-right: 0px !important;
+    }

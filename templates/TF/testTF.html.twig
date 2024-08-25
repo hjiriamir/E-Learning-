@@ -1,0 +1,461 @@
+
+<title>TF</title>
+<style>
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: 'Hertical Smooth', sans-serif;
+  }
+ .TF-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background-color: #f5f5f5;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: 'Hertical Smooth', sans-serif;
+}
+
+.TF-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.TF-description {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #888;
+  font-family: 'Aleo Light', serif;
+}
+.box{
+   margin-bottom: 40px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+.question {
+  margin-bottom: 10px;
+  font-family: 'Alegreya Medium', serif;
+    display: block;
+    font-size: 1.2rem;
+}
+
+.question-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;  
+  display: inline-block; 
+  text-align: right; 
+  padding-right: 10px;
+}
+
+.submit-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 12px 24px;
+  background-color: #01132b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  font-family: 'Alegreya Medium', serif;
+}
+
+.submit-btn:hover {
+  background-color: #02295D;
+}
+
+.TF-title {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 30px;
+  text-align: center;
+}
+.TF-description{
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+.confirmation-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+        z-index: 9999;
+        text-align: center;
+    }
+
+    .confirmation-popup h3 {
+        margin-top: 0;
+    }
+
+    .confirmation-popup button {
+        padding: 10px 20px;
+        background-color: #01132b;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .button {
+        display: block;
+        text-align: center;
+        padding: 20px;
+        background-color: #01132b;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-size: 20px;
+        border: none;
+        cursor: pointer;
+        font-family: 'Alegreya Sans', sans-serif;
+        transition: background-color 0.3s ease-in-out;
+    }
+   .container-result {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .button-wrapper {
+    margin-right: 10px;
+  }
+
+  .button-separator {
+    background-color: #ccc;
+    margin: 0 10px;
+  }
+     
+/* */
+
+    .popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.8) 100%);
+}
+
+.popup-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 400px;
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.popup h3 {
+  font-size: 24px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  color: #4CAF50;
+  font-family: 'Roboto', sans-serif;
+}
+
+.result-info {
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.result-info p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.result-info span {
+  font-weight: bold;
+}
+
+.popup button {
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+}
+
+.popup button:hover {
+  background-color: #45a049;
+}
+.result-info.correct {
+        color: green;
+    }
+
+    .result-info.incorrect {
+        color: red;
+    }
+
+    .result-info.percentage {
+        font-weight: bold;
+        font-size: 18px;
+        font-family:'Alegreya', serif;
+    }
+
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Roboto';font-size: 22px;
+    font-family: 'Glacial Indifference', sans-serif;
+    font-family: 'Alegreya Sans', sans-serif;  
+}
+
+</style>
+<style>
+.custom-radio {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.custom-radio input {
+  display: none;
+}
+
+.radio-button {
+  display: inline-block;
+  width: 20px; /* Updated size */
+  height: 20px; /* Updated size */
+  border-radius: 50%;
+  border: 2px solid #000;
+  margin-right: 10px;
+  position: relative;
+}
+
+.radio-button:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 14px; /* Updated size */
+  height: 14px; /* Updated size */
+  border-radius: 50%;
+  background-color: #00b894;
+  transition: transform 0.3s ease;
+}
+
+.custom-radio input:checked + .radio-button:before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.radio-label {
+  align-items: center;
+  cursor: pointer;
+}
+
+    .choice {
+    margin-bottom: 10px;
+    box-sizing: inherit;
+    font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-size: 1.2rem;
+    color: #454545;
+    display: block;
+}
+</style>
+
+<script>
+    function selectRadioButton(labelElement) {
+        const radioButtons = document.getElementsByName(labelElement.getAttribute("name"));
+        const labels = document.getElementsByClassName("radio-button-label");
+
+        for (let i = 0; i < radioButtons.length; i++) {
+            labels[i].classList.remove("selected");
+        }
+
+        labelElement.classList.add("selected");
+        console.log(' onclick="selectRadioButton(this)"')
+    }
+</script>
+</head>
+<form id="TF-form" data-action="{{ path('result_TF') }}" method="POST">
+    <p style="font-family: Roboto;font-size: 20px;">Course: <strong>{{ Tcours }}</strong></p>
+    <h3 style="font-family: Hertical Smooth, sans-serif; font-size: 18px;">Section {{ orderS }} - {{ TSection }}</h3>
+    <p style="font-family: 'Aleo Light', serif;">Lecture {{ orderL }} - {{ TLecture }}</p>
+     <h1 class="TF-title">TF : {{TContent}}</h1>
+  <p class="TF-description">Description: This TF is designed to test your comprehension of the different methods.</p>
+
+    <p style="font-family:'Alegreya', serif;font-size: 17px;">Instructions: Choose the correct answer</p>
+
+
+  {% for question in questions %}
+  {% set alphabet = ['a' , 'b' , 'c' ,'d', 'e', 'f' ] %}
+
+     <div class="box">
+        <h4 class="question">
+            <span class="question-number">{{ loop.index }}.</span>{{ question.question }}
+        </h4>
+        <div class="choice">
+          <input class="radio-button" type="radio" name="Answers[{{ question.idQuestion }}]" value="true" id="true_{{ question.idQuestion }}">
+          <label class="radio-label" for="true_{{ question.idQuestion }}">True</label>
+        </div>  
+        
+         <div class="choice">
+          <input class="radio-button" type="radio" name="Answers[{{ question.idQuestion }}]" value="false" id="false_{{ question.idQuestion }}">
+          <label class="radio-label" for="false_{{ question.idQuestion }}">False</label>
+        </div>
+    </div>
+  {% endfor %}
+    <button class="submit-btn" type="button" onclick="showConfirmationPopup(event)">Terminer le test</button>
+
+
+</form>
+
+<div id="confirmation-popup" class="confirmation-popup" style="display: none;">
+    <h3>Are you sure you want to save the TF?</h3>
+    <button id="confirm-btn">Yes</button>
+    <button id="cancel-btn">No</button>
+  </div>
+  
+<div id="success-popup" class="popup" style="display: none;">
+  <div class="popup-content">
+    <h3>QA Saved Successfully!</h3>
+    <div class="result-info">
+      <p>You have answered 
+      <span class="result-info correct" id="correct-count"></span>
+      out of
+      <span id="total-questions"></span>questions correctly!</p>
+      <p>Your Score :
+      <span class="result-info percentage" id="percentage"></span>%</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <div id="donut-chart-container" >
+                <canvas class="donut-chart" id="donut-chart" width="70" height="70"></canvas>
+            </div>
+
+            <div class="container-result">
+              <div class="button-wrapper">
+                  <a class="button" href="{{ path('add_TF' , {'idContent': content}) }}">Restart</a>
+              </div>
+                <span class="button-separator"></span>
+              <div class="button-wrapper">
+                <a class="button" href="{{ path('correction_TF') }}">Correction</a>    
+              </div>
+            </div>
+  </div>
+</div>
+
+</html>
+
+<script>
+    // Show the confirmation popup
+    function showConfirmationPopup(event) {
+        event.preventDefault(); // Prevent the default form submission
+        document.getElementById('confirmation-popup').style.display = 'block';
+    }
+
+    document.getElementById('cancel-btn').addEventListener('click', function() {
+        document.getElementById('confirmation-popup').style.display = 'none';
+    });
+  
+    document.getElementById('confirm-btn').addEventListener('click', function() {
+        // Submit the form via AJAX
+        var form = document.getElementById('TF-form');
+        var action = form.getAttribute('data-action');
+        var formData = new FormData(form);
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', action, true);
+        xhr.onload = function() {
+            if (xhr.status === 200) {
+                var response = JSON.parse(xhr.responseText);
+               showResultPopup(response);
+            }
+        };
+        xhr.send(formData);
+
+        // Hide the confirmation popup
+        document.getElementById('confirmation-popup').style.display = 'none';
+    });
+
+    document.getElementById('close-btn').addEventListener('click', function() {
+        // Hide the success popup
+        document.getElementById('success-popup').style.display = 'none';
+    });
+     function showResultPopup(result) {
+        document.getElementById('total-questions').textContent = result.totalQuestions;
+        document.getElementById('correct-count').textContent = result.correctCount;
+        document.getElementById('percentage').textContent = result.percentage;
+
+        document.getElementById('success-popup').style.display = 'block';
+        var donutChartElement = document.querySelector(".donut-chart"); 
+if (donutChartElement) {
+  donutChartElement.style.height  = "none";
+ donutChartElement.classList.add("donut-chart-custom");
+  var ctx = donutChartElement.getContext('2d');   
+    var donutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Correct', 'Incorrect'],
+            datasets: [{
+                data: [result.percentage, 100 - result.percentage],
+                backgroundColor: ['#31356E', '#A6A6A6'],
+                hoverBackgroundColor: ['#36A2EB', '#DEDEDE']
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            aspectRatio: 1,
+            plugins: {
+                legend: {
+                    display: false
+                }
+            },
+            tooltips: {
+                enabled: true,
+                callbacks: {
+                    label: function(tooltipItem, data) {
+                        var dataset = data.datasets[tooltipItem.datasetIndex];
+                        var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                            return previousValue + currentValue;
+                        });
+                        var currentValue = dataset.data[tooltipItem.index];
+                        var percentage = Math.round((currentValue / total) * 100);
+                        return percentage + '%';
+                    }
+                }
+            } 
+        }
+    });
+}
+    }
+</script>
+

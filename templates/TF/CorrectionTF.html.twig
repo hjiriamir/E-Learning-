@@ -1,0 +1,264 @@
+
+
+<title>CorrectionT/F</title>
+<style>
+
+  form {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-family: 'Hertical Smooth', sans-serif;
+  background-color: #fbfbfb;
+  }
+
+  .quiz-title {
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: 'Roboto', sans-serif;
+}
+.title {
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 25px;
+  text-align: center;
+  color: #333333;
+  
+}
+.quiz-description {
+  font-size: 16px;
+  text-align: center;
+  margin-bottom: 30px;
+  color: #888;
+  font-family: 'Aleo Light', serif;
+}
+.box{
+   margin-bottom: 40px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+.question {
+  margin-bottom: 10px;
+  font-family: 'Alegreya Medium', serif;
+  font-size: 18px;  
+  color: #413f3f;
+}
+
+.question-number {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;  
+  display: inline-block; 
+  text-align: right; 
+  padding-right: 10px;
+}
+
+.choice {
+  margin-bottom: 10px;
+   box-sizing: inherit;
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+font-size: 1.2rem;
+    color: #454545;
+    display: block;
+}
+
+.quiz-description{
+  font-family: 'Glacial Indifference', sans-serif;
+  font-size: 20px;
+  text-align: center;
+  color: black;
+}
+ 
+  
+</style>
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet'>
+<link href="https://fonts.cdnfonts.com/css/glacial-indifference-2" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;1,300&display=swap" rel="stylesheet">
+
+<style>
+body {
+    font-family: 'Roboto';
+    font-size: 22px;
+    font-family: 'Glacial Indifference', sans-serif;
+    font-family: 'Alegreya Sans', sans-serif;
+    font-family: 'Hertical Sans Regular', sans-serif;}
+.Course {
+      font-family: 'sans-serif'; 
+      font-size: '18px';
+          line-height: 4;
+          color: #393737;
+      }
+
+.Section { 
+        font-family: fantasy; 
+        font-size: '20px';
+        text-indent: 20px;
+        color: #393737;
+        }
+.Lecture {
+  font-family: 'Aleo Light, serif';
+  font-size: '22px';
+  line-height: 2;
+  text-indent: 40px;
+  color: #393737;
+  }
+
+  body {
+    font-family: 'Roboto';
+    font-family: 'Glacial Indifference', sans-serif;
+    font-family: 'Alegreya Sans', sans-serif;
+  }
+  .correct-answer {
+  color: #2e8b57; /* Green color for the correct answer */
+}
+
+.justification {
+  background-color: #f9f9f9;
+  padding: 20px;
+  margin-top: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Alegreya Sans';
+  font-size: 1.2rem;
+}
+
+.correct-answer {
+  color: #2e8b57;
+  font-weight: bold;
+}
+
+
+.justification-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  font-family:'Alegreya',  sans-serif;
+}
+
+.justification-item span {
+  display: inline-block;
+  width: 30px;
+  text-align: right;
+  padding-right: 10px;
+  color: black;
+  font-weight: bold;
+}
+
+.justification-item a {
+  margin-left: 5px;
+  color: #555;
+  font-weight: normal;
+}
+.space {
+  margin-right: 10px; /* Adjust the margin value as needed */
+}
+
+</style>
+<style>
+    .radio-button {
+        display: inline-block;
+  width: 20px; /* Updated size */
+  height: 20px; /* Updated size */
+  border-radius: 50%;
+  border: 2px solid #000;
+  margin-right: 10px;
+  position: relative;
+    }
+
+    .radio-button-label {
+        display: inline-block;
+        padding: 5px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        font-size: 18px;
+        margin-right: 10px;
+    }
+
+    .radio-button:checked + .radio-button-label {
+        color: #2e8b57;
+    }
+    .radio-button:checkedIncorrect + .radio-button-label {
+        background-color: #8b2e34;
+        color: white;
+        
+    }
+       
+       .incorrect {
+          border: 2px solid red;
+          }
+
+</style>
+</head>
+<form>
+  <div class="Course">Course: <strong>{{ Tcours }}</strong></div>
+    <div class="Section">Section {{ orderS }} - {{ TSection }}</div>
+    <div class="Lecture">Lecture {{ orderL }} - {{ TLecture }}</div>
+  <h1 class="title">Correction: <strong >{{TContent}}</strong> </h1>
+
+  {% for question in questions %}
+  {% set alphabet = ['a', 'b', 'c', 'd', 'e', 'f'] %}
+  {% set alpha = [] %}
+  {% set Responses = question.selectedResponse|number_format %}
+  {% set Correction = question.Correction|number_format %}
+  {% set Incorrect =  (Responses != Correction) %}
+  {% set Correct =  (Responses == Correction) %}
+  
+  <div class="box">
+    <h4 class="question">
+      <span class="question-number" style="display: inline-block; width: 30px; text-align: right; padding-right: 10px;">{{ loop.index }}.</span>{{ question.text }}
+    </h4>
+
+    <label class="choice"  >
+        <input class="radio-button" type="radio" id="true_{{ question.idQ }}" name="choices[{{ question.idQ }}]" value="true" {% if Responses == 1 %} checked{% endif %} disabled>
+      <span class="radio-button-label"{% if Correction == 1 %} style="color: #2e8b57;"
+        {% elseif Responses == 1 and Incorrect %} style=" color: #cd5c5c; text-decoration-line:line-through;"  {% endif %}>
+        True
+      </span>
+      {% if Responses == 1 %}
+      {% if Incorrect %} 
+        <a style="color: #cd5c5c;">&#x2717;</a> 
+        {% endif %}
+        </a>
+        {% if Correct %} 
+          <a style="color: #2e8b57;">&#x2713;</a> 
+        {% endif %}
+        {% endif %}
+    </label>
+
+    <label class="choice" >
+      <input class="radio-button" type="radio" id="false_{{ question.idQ }}" name="choices[{{ question.idQ }}]" value="false" {% if Responses == 0 %}checked{% endif %} disabled>
+      <span class="radio-button-label"{% if Correction == 0 %} style="color: #2e8b57;"
+        {% elseif Responses == 0 and Incorrect %} style=" color: #cd5c5c; text-decoration-line:line-through;"  {% endif %}>
+        False
+      </span>
+      {% if Responses == 0 %}
+      {% if Incorrect %} 
+        <a style="color: #cd5c5c;">&#x2717;</a> 
+        {% endif %}
+        </a>
+        {% if Correct %} 
+          <a style="color: #2e8b57;">&#x2713;</a> 
+        {% endif %}
+        {% endif %}
+    </label>
+
+    <div class="justification">
+      <a class="correct-answer">Justification :</a>
+      <a style="font-family:'Alegreya';"></a>
+      <a style="font-family:'Alegreya'; align-items: center; margin-left: 5px;">{{ question.justification }}</a><br>
+    </div>
+  </div>
+  {% endfor %}
+</form>
+
+<script>
+</script>

@@ -1,0 +1,131 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #02377D;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+  --pw-wrapper-width:250px;
+}
+
+h1{
+    color: black;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 15px;
+}
+h3{
+    color: black;
+    font-size: 30px;
+    font-weight: 400;
+    letter-spacing: 5px;
+}
+img{
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+h4{
+    color: black;
+    font-size: 25px;
+    font-weight: 700; 
+}
+p{
+    color: black;
+    font-size: 15px;
+    font-weight: 400;
+    margin-top: 10px;
+}
+.reset-btn{
+    border: none;
+    background-color: var(--blue-color);
+    color: white;
+    border-radius: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
+    height: 40px;
+    font-size: 13px;
+    font-weight: 600;
+}
+.reset-btn:hover{
+    background-color: var(--hover-blue-color);
+    color: white;
+}
+.card{
+    border: none;
+}
+
+
+.modal-title{
+    color: var(--blue-color);
+}
+.email-wrap{
+    margin-bottom: 20px;
+}
+.modal-body label{
+    color: var(--blue-color);
+    font-weight: 600;
+    margin-right: 10px;
+}
+.modal-body input{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--blue-color);
+    width: 300px;
+}
+.modal-body input:focus{
+    border-top: none !important;
+    border-left: none;
+    border-right: none;
+    border-bottom: 2px solid var(--blue-color);
+}
+.modal-body span{
+    color: var(--red-color);
+    font-size: 13px;
+    font-style: italic;
+}
+.cancel-btn{
+    background-color: var(--main-border-bottom);
+    border: 2px solid var(--blue-color);
+    color: var(--blue-color);
+    font-weight: 600;
+}
+.cancel-btn:hover{
+    border: 2px solid var(--hover-blue-color);
+    color: var(--hover-blue-color);
+}
+.send-btn{
+    background-color:var(--blue-color);
+    border: 2px solid var(--blue-color);
+    color: white;
+    font-weight: 600;
+}
+.send-btn a{
+    color: white;
+    text-decoration: none;
+}
+.send-btn:hover{
+    color: white;
+    background-color:var(--hover-blue-color);
+    border: 2px solid var(--hover-blue-color);
+}
+#exampleModal.modal.custom-class {
+	z-index: 1029
+}
+.close{
+    color: black !important;
+}
+.modal-body-2 p{
+    text-align: left;
+}
+.back-btn{
+    background-color: white;
+    border: none;
+}
+.modal-footer{
+    margin-top: 50px;
+}

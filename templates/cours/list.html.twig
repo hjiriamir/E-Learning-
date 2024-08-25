@@ -1,0 +1,162 @@
+{#
+
+{% block title %}Liste des Cours{% endblock %}
+
+{% block body %}
+    <h1>Liste des Cours</h1>
+
+    <ul>
+        {% for item in contributors1 %}
+            <li>
+   <img src="{{item.contributors1.imageCours}}"  alt="">
+    <img src="{{item.contributors1.photo}}"  alt="">
+
+                <strong>Titre du Cours:</strong> {{ item.course.titre }}<br>
+                <strong>followers:</strong> {{ item.followers }}<br>
+                <strong>etoiles:</strong> {{ item.ratings }}<br>
+
+                <strong>prix:</strong> {{ item.course.prix }}<br>
+{% if item.course.langue == 1 %}
+    <strong>langue:</strong> EN<br>
+{% elseif item.course.langue == 2 %}
+    <strong>langue:</strong> AR<br>
+{% elseif item.course.langue == 3 %}
+    <strong>langue:</strong> SP<br>
+{% elseif item.course.langue == 4 %}
+    <strong>langue:</strong> FR<br>
+{% else %}
+    <strong>Titre du Cours:</strong> Inconnu<br>
+{% endif %}
+<strong>date:</strong> {{ item.course.dateOperation|date('H:i') }}<br>
+                <strong>Description:</strong> {{ item.course.description }}<br>
+                <strong>Utilisateur:</strong> {{ item.user.firstname }}
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+
+
+ <div class="d-flex align-items-center containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
+    <div class="">
+        <div class="boxTitle91 mt-1 mx-5">
+            <h4>Top Instructors for "Python"</h4>
+        </div>           
+    </div>
+    <div class="text-left justify-content-end float-end d-flex">
+        <i class="bi bi-grid-3x3-gap-fill" style="color:transparent !important; font-size: 1.2em;"></i>
+        <i class="bi bi-list-ul ml-3 mx-1" style="color:transparent !important; font-size: 1.2em;"></i>
+    </div>
+</div>
+
+<div class="boxTitleInstructor" hidden>
+    <h3>Top Instructors for "Python"</h3>
+</div> 
+
+<div class="topInstructorsSlider">
+    <div class="instructorCards1">
+        <section class="review instructorCards">
+            <div class="swiper review-slider">
+                <div class="swiper-wrapper">
+                    {% for contributorData in contributors1  %}
+                    <div class="swiper-slide box">
+                        <i class="fas fa-quote-left"></i>
+                        <i class="fas fa-quote-right"></i>
+                        <div class="float-end"><i class="bi bi-heart" style="font-size:21px;color:#a8a5a5;"></i></div>
+                        <img src="{{ asset('path/to/image/' ~ contributorData.user.photo) }}" alt="">
+                   
+                        <div class="d-flex justify-content-center">
+                            <h6 class="name-instructor-one fw-bold text-center">
+                                {{ contributorData.user.firstname }}
+                                {% if contributorData.user.isVerified() %}
+                                    <i class="bi bi-check2-circle"></i>
+                                {% endif %}
+                            </h6>
+                        </div>
+                        <div class="profession-one d-flex justify-content-center text-center">                                         
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/certified11.png">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/certificate1.png" alt="">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/relationPeople1png.png">
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/lisBook.png" alt="">
+                            <div class="mt-2" style="font-size:14px;">
+                                <div class="d-flex justify-content-center" style="padding-left:20px !important;padding-right:30px !important;margin-left:5px;">
+                                    <i class="fa-solid fa-user-large" style="color:#01132b;"></i>
+                                    <i class="fa-solid fa-user-large" style="color:#524f4f;margin-left:-5px;"></i>
+                                    <i class="fa-solid fa-user-large" style="color:rgb(216,81,125);margin-left:-5px;"></i>
+                                </div>
+                                <span class="fw-bold">{{ contributorData.followers }}</span>
+                            </div>
+                            <img src="vendor/hatlone/safa/search/assets/imgs/hand1.png" alt="">
+                        </div>
+
+                        <div class="d-flex justify-content-between" style="justify-content:space-between !important;">
+                            <div class="mr-3">
+                                <i class="fas fa-book"></i> {{ contributorData.contributor.id }} Courses
+                            </div>
+                            <div class="mr-3 mx-3">
+                                <i class="fas fa-star"></i> {{ contributorData.ratings }} ({{ contributorData.contributor.id }})
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <div class="swiper-pagination95"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<ol class="filters d-flex justify-content-center">
+    <li>
+        <a href="search/instructors.html" class="show-all-link">
+            <label class="show-more-btn mb-2" style="white-space: nowrap;">Show All</label>
+        </a>
+    </li>
+</ol> 
+
+<div class="showAllButton d-flex justify-content-center" hidden>
+    <button><a href="search/instructors.html" class="show-all-link">Show All</a></button>
+</div>
+
+<style>
+     .labelCoaching98 {
+      position: absolute;
+      top: 40px;
+      left: -18px;
+      background-color: rgb(216,81,125);
+      color: #fff;
+      padding: 2px 26px;
+      font-size: 14px;
+      font-weight:500;
+      border-radius: 3px;
+      transform: rotate(-45deg);
+      transform-origin: 0 0;
+      z-index: 10;
+    }
+</style>#}
+
+
+    <h1>Contributors</h1>
+    {% for item in contributors %}
+        <div>
+            <h2>{{ item.contributor.id }}</h2>
+            <p>User: {{ item.user.firstname }}</p>
+            <p>Followers: {{ item.followers }}</p>
+            <p>Ratings: {{ item.ratings }}</p>
+        </div>
+    {% endfor %}
+    <h1>Courses</h1>
+    {% for item in courses %}
+        <div>
+            <h2>{{ item.course.id }}</h2>
+            <p>User: {{ item.user.firstname }}</p>
+            <img src="{{ item.courseImage }}" alt="Course Image">
+            <img src="{{ item.userImage }}" alt="User Image">
+            <p>Followers: {{ item.followers }}</p>
+            <p>Ratings: {{ item.ratings }}</p>
+        </div>
+    {% endfor %}

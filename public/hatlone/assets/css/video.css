@@ -1,0 +1,64 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+    --red-color: rgb(216,81,125);
+    --hover-red-color: rgb(235, 111, 152);
+    --star-color: rgb(255, 213, 0);
+    --blue-color: #02377D;
+    --hover-blue-color: #546f99;
+    --main-color-title: #524f4f;
+    --main-text-color: #a8a5a5;
+    --main-border-bottom: #eee9e9;
+}
+.section_one .boxTitle .title .bi {
+    color: var(--blue-color);
+}
+.section_one .boxTitle .title span {
+    color: var(--main-text-color);
+    margin: 0px 15px 0px 5px;
+    font-weight: 500;
+    font-size: 15px;
+}
+.section_one .boxTitle .introduction span {
+    margin-left: 25px;
+    font-size: 15px;
+}
+.section_one .boxTitle .introduction .course {
+    justify-content: space-between;
+}
+.section_one .boxTitle .video {
+    padding: 0px 50px;
+}
+.section_one .boxTitle .video .bi-fast-forward-btn-fill {
+    color: var(--main-text-color);
+    margin-right: 10px;
+}
+.section_one .boxTitle .video .bi-fast-forward-btn-fill:not(:nth-child(2)) {
+    margin-left: 38px;
+}
+.section_one .boxTitle .video .bi-list {
+    margin-right: 20px;
+}
+.section_one .boxTitle .video span {
+    color: var(--main-color-title);
+    font-size: 15px;
+}
+.section_one .boxTitle .video .videoBox {
+    display: flex;
+    justify-content: space-between;
+}
+.section_one .videoBox .btn {
+    color: var(--main-color-title);
+}
+.section_one .videoBox .btn:hover {
+    color: var(--main-text-color);
+}
+.section_one .videoBox .btn:focus{
+    outline: none;
+    border: none;
+}
+
+/*.draggable-droppable {
+    cursor: pointer;
+}*/

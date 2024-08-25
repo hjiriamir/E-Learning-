@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign In page</title>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!-- Material Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <!-- CSS link -->
+    <link rel="stylesheet" href="{{asset('hatlone/assets/css/signup.css')}}">
+</head>
+<style>
+    body {
+        background-image: url({{asset('hatlone/assets/imgs/student-class-looking-course.jpg')}});
+        background-size: cover;
+    }
+</style>
+<body>
+<section class="vh-100 gradient-custom">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card text-white login-card" style="border-radius: 1rem;">
+                    <div class="card-body p-5">
+                        <div class="mb-md-5 mt-md-4 pb-5">
+                            <div class="signup-wrap">
+                                <h2>Sign Up</h2>
+                                <div class="section-divider">
+                                    <hr>
+                                    <span>OR</span>
+                                    <hr>
+                                </div>
+                                <div class="d-flex justify-content-center">
+                                    <button>Sign Up with Google</button>
+                                </div>
+                            </div>
+                            
+                            {{ form_start(registrationForm) }}
+                    
+                                {{ form_row(registrationForm.lastname) }}
+                                {{ form_row(registrationForm.firstname) }}
+                                {{ form_row(registrationForm.email) }}
+                             
+                                {{ form_row(registrationForm.address) }}
+                                {{ form_row(registrationForm.zipcode) }}
+                                {{ form_row(registrationForm.city) }}
+                     
+                                {{ form_row(registrationForm.plainPassword, {
+                                    label: false
+                                }) }}
+                                <div class="agree-box required-input">
+                                    
+                                        <div id="check0">
+                                            <span>&#x2022; 8 Character minimum</span>
+                                        </div>                
+                                        <div id="check1">
+                                            <span>&#x2022; 1 Uppercase character</span>
+                                        </div>                                
+                                        <div id="check2">
+                                            <span>&#x2022; 1 Number</span>
+                                        </div>
+                                        <div id="check3">
+                                        <span>&#x2022; 1 Lowercase character</span>
+                                        </div>
+                                    
+                                
+                     <div class="agree-box required-input">
+                                {{ form_row(registrationForm.RGPDConsent) }}
+                                </div>
+                                </div>                    
+                                 <div class="login-wrap d-flex justify-content-center">
+                            <button type="submit" class="btn btn-block sign-btn ">Sign Up</button>
+                            </div>
+                            <div class="footer-wrap">
+                                <p >I have an account<a href="{{ path('app_login') }}"> Sign in </a>  </p>
+                            </div>
+                            {{ form_end(registrationForm) }}
+                        </div></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

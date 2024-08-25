@@ -1,0 +1,1897 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+    --red-color: rgb(216,81,125);
+    --hover-red-color: rgb(235, 111, 152);
+    --star-color: rgb(255, 213, 0);
+    --blue-color: #02377D;
+    --hover-blue-color: #546f99;
+    --main-color-title: #524f4f;
+    --main-text-color: #a8a5a5;
+    --main-border-bottom: #eee9e9;
+}
+
+/* Start Setion One */
+@media (min-width: 992px){
+  .sectionOne .boxInstructor{
+    display: flex;
+  }
+}
+.sectionOne img {
+  border-radius: 50%;
+  border-radius:38% 62% 63% 37% / 41% 44% 56% 59% ;
+  margin-right: 50px;
+}
+@media (max-width: 992px){
+  .sectionOne img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 20px;
+  }
+}
+.sectionOne .follow {
+  color: var(--red-color);
+  border: 1px solid var(--red-color);
+  width: 100%;
+  font-weight: 600;
+}
+.sectionOne .follow:hover {
+    color: var(--hover-red-color);
+    border: 1px solid var(--hover-red-color);
+}
+.sectionOne .subscribe {
+  background-color: var(--red-color);
+  color: #fff;
+  width: 100%;
+  font-weight: 600;
+}
+.sectionOne .subscribe:hover {
+  background-color: var(--hover-red-color);
+}
+.sectionOne .firstBox .title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: var(--main-color-title);
+}
+.sectionOne .bi-check2-circle {
+  color: var(--red-color);
+}
+.sectionOne .firstBox span:nth-child(2) {
+  color: var(--main-text-color);
+  font-size: 15px;
+  font-weight: 500;
+}
+.sectionOne .firstBox span:nth-child(5) {
+  color: var(--red-color);
+  font-weight: 500;
+  font-size: 15px;
+}
+.sectionOne .firstBox .fa-thumbs-up {
+  background: linear-gradient(90deg, #02377D 50%, #D8517D 50%);
+  color: #fff;
+  padding: 10px;
+  border-radius: 50%;
+  font-size: 12px; 
+  margin: 10px 5px 5px 40px;
+}
+.sectionOne .firstBox span:nth-child(8) {
+  color: var(--main-color-title);
+  font-size: 15px;
+  font-weight: 500;
+}
+.sectionOne .stats {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.sectionOne .stats span:nth-child(1) {
+  color: #5c5b5b;
+  font-size: 15px;
+  font-weight: 600;
+}
+.sectionOne .stats span:nth-child(3) {
+  color: #575656;
+  font-size: 12px;
+  font-weight: 500;
+}
+.sectionOne .stats .bi {
+  color: var(--star-color);
+}
+/* End Section One */
+
+/* Start Vd */
+.sectionTwo {
+  padding: 0px 40px;
+}
+@media (min-width: 992px) {
+  .sectionTwo .boxVd {
+    display: flex;
+  }
+  .sectionTwo .box {
+    padding: 20px 30px;
+    margin-top: 5%;
+  }
+}
+@media (min-width: 1200px) {
+  .sectionTwo {
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.boxVd .btn,
+.boxVd .btn:focus {
+  background-color: var(--red-color);
+  border: var(--red-color);
+  border-radius: 50%;
+  width: 70px;
+  height: 70px;
+  display: block;
+  position: relative;
+  margin-left: 160px;
+  top: 170px;
+  z-index: 1;
+  color: #fff;
+  font-size: 30px;
+}
+.boxVd .btn:hover {
+  background-color: var(--hover-red-color);
+}
+.sectionTwo .vdBox {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.sectionTwo .box span:first-child {
+  font-weight: bold;
+  font-size: 25px;
+  color: var(--main-color-title);
+}
+.sectionTwo .box span {
+  font-size: 16px;
+}
+.sectionTwo .vd:hover .vd-img a::after {
+  opacity: 1;
+}
+.sectionTwo .vd-img {
+  position: relative;
+}
+.sectionTwo .vd-img>a {
+  display: block;
+  cursor: pointer;
+}
+.sectionTwo .vd-img>a::after {
+  background: rgba(0, 0, 0, 0.418);
+  bottom: 0;
+  content: "";
+  height: 100%;
+  border-radius: 5px;
+  left: 0;
+  position: absolute;
+  transition: all 0.5s ease 0s;
+  width: 100%;
+  opacity: 0;
+}
+.sectionTwo .accordion-button {
+  color: blue;
+  font-size: 16px;
+}
+/* End Vd */
+
+/* Reort Button */
+.reportBtn {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--main-color-title);
+  text-decoration: underline;
+  margin-top: 9px;
+}
+.reportBtn:hover {
+  color: var(--main-color-title);
+}
+/* Start Tabs */
+.boxTabs .tabOne {
+    align-items: center;
+    justify-content: center;
+}
+.boxTabs .tabs .nav-tabs {
+  border: 0;
+}
+.boxTabs .tabs .tabLinks {
+    border: 0;
+    padding: 10px 50px;
+    transition: 0.3s;
+    color: #a8a5a5;
+    border-radius: 0;
+    border-bottom: 2px solid #e2e7e4;
+    font-weight: 600;
+    font-size: 20px;
+}
+.boxTabs .tabs .tabLinks:hover {
+    color: var(--blue-color);
+}
+.boxTabs .tabs .tabLinks.active {
+    color: var(--blue-color);
+    border-color: var(--blue-color);
+}
+.boxTabs .tabs .tab-pane.active {
+    -webkit-animation: fadeIn 0.5s ease-out;
+    animation: fadeIn 0.5s ease-out;
+}
+.boxTabs .tabs .details h3 {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: var(--main-color-title);
+}
+.boxTabs .tabs .details p:last-child {
+    margin-bottom: 0;
+}
+/* End Tabs */
+
+/* Start Left Box */
+.leftBox {
+  padding: 20px 30px;
+}
+.tab-content .leftBox label{
+  font-size: 15px;
+  font-weight: 450;
+  cursor: pointer;
+}
+.boxTabs .tabs .tabLinks.active {
+  color: var(--blue-color);
+  border-color: var(--blue-color);
+}
+.tab-content .leftBox input[type=checkbox]{
+ margin-left: 20px;
+ opacity: 0;
+}
+.tab-content .leftBox input[type=checkbox]:checked {
+  opacity: 1;
+  width: 14px;
+  margin-left: 12px;
+  border-radius: 0;
+  transition: all 0.3s ease;
+}
+/* Start Categories Box */
+.leftBox .accordion-button:focus {
+  border: none;
+    outline: 0 !important;
+    color: #000;
+    background-color: #f5f6f7;
+}
+
+.leftBox .accordion-body label:hover {
+  color: var(--red-color);
+}
+.leftBox .accordion-body {
+    background-color: #f5f6f7;
+}
+.tab-pane .leftBox h3 {
+  position: relative;
+  font-weight: bold;
+  font-size: 25px;
+}
+.tab-pane .leftBox h3:before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 35px;
+}
+/* End Categories Box */
+
+/* Start Price Box */
+.level label:hover,
+.duration label:hover,
+.language label:hover,
+.price label:hover {
+  color: var(--red-color);
+}
+.price .price-input{
+  width: 100%;
+  display: flex;
+  margin: 10px 0 15px;
+  padding: 0px 45px;
+}
+.price .marketPrice{
+  width: 100%;
+  display: flex;
+}
+.price .price-input .field,
+.price .marketPrice .field {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  align-items: center;
+}
+.price .price-input .field span:first-child,
+.price .marketPrice .field span:first-child {
+  margin-right: 10px;
+}
+.price .field input{
+  width: 100%;
+  height: 100%;
+  outline: none;
+  font-size: 15px;
+  border: none;
+ /* -moz-appearance: textfield;*/
+}
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+.price .price-input .separator,
+.price .marketPrice .separator {
+  width: 130px;
+  display: flex;
+  font-size: 19px;
+  align-items: center;
+  justify-content: center;
+}
+.price .slider{
+  height: 5px;
+  position: relative;
+  background: #ddd;
+  border-radius: 5px;
+}
+.price .slider .progress{
+  height: 100%;
+  left: 25%;
+  right: 25%;
+  position: absolute;
+  border-radius: 5px;
+  background: #02377D;
+}
+.price .range-input{
+  position: relative;
+}
+.price .range-input input{
+  position: absolute;
+  width: 100%;
+  height: 5px;
+  top: -5px;
+  background: none;
+  pointer-events: none;
+  /*-webkit-appearance: none;
+  -moz-appearance: none;*/
+}
+.price input[type="range"]::-webkit-slider-thumb{
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
+  background: #02377D;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+.price input[type="range"]::-moz-range-thumb{
+  height: 17px;
+  width: 17px;
+  border: none;
+  border-radius: 50%;
+  background: #02377D;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0,0,0,0.05);
+}
+/* End Price Box */
+
+/* Start Skills */
+.leftBox .skill input { 
+  display: none;  margin-top: 50px;
+}
+.leftBox .skill span:hover {
+  color: var(--red-color);
+}
+.leftBox .skill .seatButton { 
+  border: 1px solid #dfdcdc;
+  padding: 3px 15px;
+  font-size: 15px;
+  border-radius: 25px;
+  line-height: 40px; 
+}
+.leftBox .skill input:checked + .seatButton {
+  color: var(--red-color);
+  border: 1px solid var(--red-color);
+}
+/* End Skills */
+/* End Left Box */
+
+/* Start Courses */
+.tabs .boxList button{
+    color: var(--main-text-color);
+    font-weight: 600;
+    font-size: 20px;
+    padding: 0px 5px;
+    text-decoration: none;
+    border: none;
+}
+.tabs .boxList .links:hover {
+    color: var(--red-color);
+}
+.tabs .boxList .links.active {
+    color: var(--red-color);
+}
+.courses,
+.webinars,
+.coachings {
+  padding: 15px 30px;
+}
+/* Grid */
+.courses .grid .boxOne,
+.webinars .gridWebinars .boxOne,
+.coachings .gridCoaching .boxOne {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 10px;
+}
+.courses .grid .boxOne .price,
+.webinars .gridWebinars .boxOne .price,
+.coachings .gridCoaching .boxOne .price{
+  color: var(--main-color-title);
+  font-size: 20px;
+  font-weight: bold; 
+  margin-right: 10px;
+}
+.courses .grid .boxOne .label,
+.webinars .gridWebinars .boxOne .label,
+.coachings .gridCoaching .boxOne .label {
+    background-color: var(--red-color);
+    color: white;
+    font-weight: bold;
+    padding: 5px 5px;
+    margin-bottom: 45px;
+    border-radius: 5px;
+    font-size: 10px;
+}
+.courses .grid .boxOne  .icons .bi,
+.webinars .gridWebinars .boxOne  .icons .bi,
+.coachings .gridCoaching .boxOne  .icons .bi{
+  font-size: 17px;
+  color: var(--main-text-color);
+}
+.courses .grid .boxOne .icons .bi:hover,
+.webinars .gridWebinars .icons .bi:hover,
+.coachings .gridCoaching .icons .bi:hover {
+  color: var(--red-color);
+}
+.courses .grid .boxOne  .icons .bi-heart,
+.webinars .gridWebinars .boxOne  .icons .bi-heart,
+.coachings .gridCoaching .boxOne  .icons .bi-heart { 
+  margin-right: 5px;
+}
+.courses .grid .boxTwo .text,
+.webinars .gridWebinars .boxTwo .text,
+.coachings .gridCoaching .boxTwo .text {
+  margin-top: -40px;
+  border-bottom: 1px solid #eee9e9;
+}
+.courses .grid .boxTwo .time {
+  color: var(--main-text-color);
+  font-size: 10px;
+  margin-top: -15px;
+}
+.courses .grid .boxTwo .title,
+.webinars .gridWebinars .boxTwo .title,
+.coachings .gridCoaching .boxTwo .title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--main-color-title);
+  margin-right: 5px;
+}
+.courses .grid .boxTwo a:hover,
+.webinars .gridWebinars .boxTwo a:hover,
+.coachings .gridCoaching .boxTwo a:hover {
+  color: var(--red-color);
+  text-decoration: none;
+}
+.courses .grid .boxTwo .language {
+  border: 1px solid var(--main-color-title);
+  border-radius: 50%;
+  font-size: 7px;
+  padding: 2px;
+  color: var(--main-color-title);
+}
+.courses .grid .boxTwo .level,
+.webinars .level,
+.coachings .gridCoaching .boxTwo .level {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--main-text-color);
+}
+.sidenav-item input{
+  border: 1px solid #dbd6d6;
+  padding: 7px;
+  outline: none;
+  margin-top: -20px !important;
+}
+@media(min-width: 992px) {
+  .sidenav-item input{
+    float: right;
+  }
+}
+@media(max-width: 992px) {
+  .boxGrid{
+    text-align: center;
+  }
+  .sidenav-item input {
+    margin-top: 10px;
+  }
+}
+.tab-content .navFilter button {
+  background-color: var(--main-border-bottom) !important;
+  color: var(--blue-color);
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  border: none;
+  margin-right: 3px;
+}
+.tab-content .navFilter .nav-link.active,
+.tab-content .navFilter .nav-link:hover {
+  color: #fff;
+  background-color: var(--blue-color);
+}
+
+/* List */
+.courses .list .card-title,
+.webinars .listWebinars .card-title,
+.coachings .listCoaching .card-title{
+  justify-content: space-between;
+}
+.courses .list .card-title .btn,
+.webinars .listWebinars .card-title .btn,
+.coachings .listCoaching .card-title .btn {
+  color: var(--main-text-color);
+  font-size: 20px;
+}
+.courses .list .card-title .bi-heart,
+.webinars .listWebinars .card-title .bi-heart,
+.coachings .listCoaching .card-title .bi-heart {
+  margin-right: -15px;
+}
+.courses .list .card-title .btn:hover,
+.webinars .listWebinars .card-title .btn:hover,
+.coachings .listCoaching .card-title .btn:hover {
+  color: var(--red-color);
+}
+.courses .list .card-title span:first-child,
+.webinars .listWebinars .card-title span:first-child,
+.coachings .listCoaching .card-title span:first-child {
+  color: var(--main-color-title);
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.courses .list .card-text span:nth-child(1),
+.webinars .listWebinars .card-text span:nth-child(1),
+.coachings .listCoaching .card-text span:nth-child(1) { 
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--main-color-title);
+}
+.courses .list .card-text a:hover,
+.webinars .listWebinars .card-text a:hover,
+.coachings .listCoaching .card-text a:hover { 
+  text-decoration: none;
+}
+.courses .list .card-text .title span:hover,
+.webinars .listWebinars .card-text .title span:hover,
+.coachings .listCoaching .card-text .title span:hover { 
+  color: var(--red-color);
+}
+.courses .list .card-text .text,
+.webinars .listWebinars .card-text .text,
+.coachings .listCoaching .card-text span:nth-child(4) { 
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--main-color-title);
+}
+.language{ 
+  border: 1px solid var(--main-color-title);
+  border-radius: 50%;
+  font-size: 7px;
+  padding: 3px;
+  height: 21px;
+  width: 21px;
+}
+.courses .list .card-title .label,
+.webinars .listWebinars  .label,
+.coachings .listCoaching .card-title .label {
+  background-color: var(--red-color);
+  color: white;
+  font-weight: bold;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.courses .list .card-text .time {
+    color: var(--main-color-title);
+    font-size: 12px;
+}
+.courses .list .card-text .level,
+.coachings .listCoaching .card-text .level  {
+    font-size: 12px;
+    justify-content: space-between;
+    color: var(--main-text-color);
+}
+.courses .list .card-text .level .bi-star-fill,
+.coachings .listCoaching .card-text .level .bi-star-fill {
+   color: var(--star-color);
+}
+.courses .list .card-text .btn {
+    background-color: var(--red-color);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px;
+    width: 25%;
+    font-weight: 500;
+}
+.courses .list .card-text .btn:hover{
+  background-color: var(--hover-red-color);
+}
+/* End Courses */
+
+/* Start Webinars */
+/* Grid */
+.webinars .gridWebinars .boxTwo .planning {
+  justify-content: space-between;
+  margin-top: -15px;
+}
+.webinars .gridWebinars .boxTwo .time,
+.webinars .gridWebinars .boxTwo .date  {
+  color: var(--main-text-color);
+  font-size: 10px;
+}
+.webinars .gridWebinars .boxTwo p,
+.coachings .gridCoaching .boxTwo p {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--main-color-title);
+  margin-top: 2px;
+}
+.webinars .gridWebinars .boxTwo .language {
+  border: 1px solid var(--main-color-title);
+  border-radius: 50%;
+  font-size: 7px;
+  padding: 2px;
+  color: var(--main-color-title);
+}
+.webinars .gridWebinars .material-icons,
+.webinars .listWebinars .level .material-icons {
+  position: absolute;
+}
+.webinars .gridWebinars .material-icons:nth-child(1),
+.webinars .listWebinars .level .material-icons:nth-child(1) {
+  color: var(--red-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(2),
+.webinars .listWebinars .level .material-icons:nth-child(2) {
+  left: 8px;
+  color: var(--red-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(3),
+.webinars .listWebinars .level .material-icons:nth-child(3) {
+  left: 16px;
+  color: var(--red-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(4),
+.webinars .listWebinars .level .material-icons:nth-child(4) {
+  left: 24px;
+  color: var(--red-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(5),
+.webinars .listWebinars .level .material-icons:nth-child(5){
+  left: 32px;
+  color: var(--red-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(6),
+.webinars .listWebinars .level .material-icons:nth-child(6){
+  left: 40px;
+  color: var(--red-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(7),
+.webinars .listWebinars .level .material-icons:nth-child(7){
+  left: 48px;
+  color: var(--main-text-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(8),
+.webinars .listWebinars .level .material-icons:nth-child(8) {
+  left: 56px;
+  color: var(--main-text-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(9),
+.webinars .listWebinars .level .material-icons:nth-child(9) {
+  left: 64px;
+  color: var(--main-text-color);
+}
+.webinars .gridWebinars .material-icons:nth-child(10),
+.webinars .listWebinars .level .material-icons:nth-child(10){
+  left: 72px;
+  color: var(--main-text-color);
+}
+.webinars .gridWebinars .boxTwo .icon span {
+  margin-left: 100px;
+  font-size: 12px;
+}
+.webinars .gridWebinars .boxTwo .btn{
+  background-color: var(--red-color);
+  color: #fff;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 95%;
+}
+.webinars .gridWebinars .boxTwo .btn:hover {
+    background-color: var(--hover-red-color);
+}
+.gridWebinars .instructor,
+.marketplace .instructor{
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 5px #ddd;
+  margin-left: 10px;
+  margin-top: -25px;
+}
+.gridWebinars .uk-card-media-top span{
+  color: var(--main-text-color);
+  font-family: 800;
+  font-size: 15px;
+}
+.gridWebinars .uk-card-media-top .bi{
+color: var(--star-color);
+font-size: 12px;
+}
+.relatedWebinars .courses {
+  padding: 0px 14px;
+}
+.relatedWebinars .courses h3 {
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  color: var(--main-color-title);
+}
+.relatedWebinars .courses h3:before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+}
+.relatedWebinars .courses h3:hover {
+  color: var(--red-color);
+}
+/* list */
+.webinars .listWebinars .bi-heart,
+.coachings .listCoaching .bi-heart {
+  margin-left: -30px;
+}
+.webinars .listWebinars .time,
+.webinars .listWebinars .date  {
+  color: var(--main-color-title);
+  font-size: 12px;
+}
+.webinars .listWebinar .level {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  align-items: center !important;
+}
+.webinars .listWebinars .level span {
+  font-size: 20px !important;
+  color: var(--main-color-title);
+}
+.webinars .listWebinars .level .prices-product {
+  font-size: 20px !important;
+  color: var(--main-color-title);
+  margin-top: -12px;
+  margin-left: -20px !important;
+}
+.webinars .listWebinars .icon {
+    color: var(--red-color);
+    position: relative;
+}
+.webinars .listWebinars .level {
+  position: relative;
+  justify-content: space-between;
+}
+.webinars .listWebinars .level .btn{
+  background-color: var(--red-color);
+  color: #fff;
+}
+.webinars .listWebinars .level .btn:hover{
+  background-color: var(--hover-red-color);
+}
+.webinars .listWebinars .card-text .language{ 
+  border: 1px solid var(--main-color-title);
+  color: var(--main-color-title);
+  border-radius: 50%;
+  font-size: 8px;
+  padding: 3px;
+  margin-left: 5px !important;
+}
+/* End Webinars */
+
+/* Start Coaching */
+/* Grid */
+.coachings .gridCoaching .boxTwo .timer {
+  color: var(--main-text-color);
+  font-size: 12px;
+  margin-top: -15px;
+}
+.coachings .gridCoaching .coach-buttons{
+  display: flex;
+  flex-direction: column;
+}
+.coachings .gridCoaching .btn {
+    background-color: var(--red-color);
+    color: #fff;
+    font-size: 12px;
+    padding: 5px;
+    width: 100%;
+    font-weight: 500;
+}
+.coachings .gridCoaching .btn:hover {
+    background-color: var(--hover-red-color);
+}
+.coachings .gridCoaching .btnList a{
+  color: var(--main-text-color);
+  font-size: 12px;
+  display: block;
+  left: 100px;
+  text-decoration: underline;
+}
+.coachings .gridCoaching .btnList {
+  margin-top: -25px;
+}
+.coachings .gridCoaching .coach-buttons a {
+  color: var(--main-text-color);
+  font-size: 12px;
+  text-align: center;
+  text-decoration: underline;
+}
+.coachings .gridCoaching .coach-buttons a:hover{
+  color: var(--main-text-color);
+}
+.relatedCoaching .courses {
+  padding: 0px 14px;
+}
+.relatedCoaching .courses h3 {
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  color: var(--main-color-title);
+}
+.relatedCoaching .courses h3:before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+}
+.relatedCoaching .courses h3:hover {
+  color: var(--red-color);
+}
+.relatedCoaching .instructor{
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 5px #ddd;
+  margin-left: 10px;
+  margin-top: -25px;
+}
+.relatedCoaching .uk-card-media-top span{
+  color: var(--main-text-color);
+  font-family: 800;
+  font-size: 15px;
+}
+.relatedCoaching .uk-card-media-top .bi{
+color: var(--star-color);
+font-size: 12px;
+}
+/* list */
+.coachings .listCoaching .timer {
+  color: var(--main-color-title);
+  font-size: 12px;
+}
+.coachings .btnList a{
+  color: var(--main-text-color);
+  font-size: 12px;
+  display: block;
+  left: 100px;
+  text-decoration: underline;
+}
+.coachings .btnList {
+  margin-top: -25px;
+}
+.coachings .listCoaching .card-text .btn {
+  background-color: var(--red-color);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  width: 100%;
+  font-weight: 500;
+}
+.coachings .listCoaching .card-text .btn:hover {
+  background-color: var(--hover-red-color);
+}
+.coachings .level .active {
+  color: green;
+}
+/* End Coaching */
+
+/* Start Portfolio */
+.portfolio .leftCard,
+.portfolio .rightCard {
+  padding: 15px 60px;
+}
+/* Start skills Section */
+.portfolio .leftCard .skills-section button {
+  font-size: 14px;
+  padding: 5px 20px;
+  border: 1px solid var(--blue-color);
+  color: var(--blue-color);
+  font-weight: 500;
+  background-color: #fff;
+  text-transform: uppercase;
+}
+.portfolio .leftCard .skills-section button:hover {
+  background-color: var(--blue-color);
+  color: #fff;
+}
+.portfolio .leftCard .skills-section h3{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(84,84,84);
+}
+/**********EDUCATION SECTION***********/
+.portfolio .leftCard .eductaion-section h3{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(84,84,84);
+}
+.portfolio .leftCard .eductaion-section h4{
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: -10px;
+}
+.portfolio .leftCard .eductaion-section p{
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: -20px;
+  color: gray;
+}
+/********DIPLOMAS SECTION*********/
+.portfolio .leftCard .diploma-section h3{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(84,84,84);
+}
+
+.portfolio .leftCard .diploma-section h4{
+  font-size: 15px;
+  font-weight: 600;
+  margin-top: -10px;
+}
+
+.portfolio .leftCard .diploma-section p{
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: -20px;
+  color: gray;
+}
+/**********LANGUAGES SECTION*********/
+.portfolio .leftCard .languages-section h3{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(84,84,84);
+}
+.portfolio .leftCard .languages-section p{
+  font-size: 13px;
+  font-weight: 400;
+  margin-top: -10px;
+  color: gray;
+}
+.portfolio .leftCard .languages-section p strong{
+  color: black;
+}
+ /* portfolio rihght box */
+.portfolio .rightCard .courses-section h3,
+.portfolio .certification-section h3,
+.portfolio .rightCard .recommandation-section h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--main-color-title);
+}
+.portfolio .rightCard .courses-section .wrapper-right,
+.portfolio .rightCard .certification-section .wrapper-right,
+.portfolio .rightCard .recommandation-section .wrapper-right{
+  display: flex;
+}
+.portfolio .rightCard .courses-section .title h4,
+.portfolio .rightCard .certification-section .title h4,
+.portfolio .rightCard .recommandation-section .title h4{
+  font-size: 15px;
+  font-weight: 600;
+}
+.portfolio .rightCard .courses-section .title p{
+  font-size: 10px;
+  font-weight: 300;
+  margin-top: -20px;
+  color: rgb(209,81,82); 
+}
+#title2{
+  margin-top: 30px;
+}
+/*********CERTIFICATIONS SECTION************/
+.portfolio .rightCard .certification-section .title p:nth-child(3),
+.portfolio .rightCard .recommandation-section .title p:nth-child(3){
+  font-size: 10px;
+  font-weight: 300;
+  margin-top: -14px;
+  color: rgb(209,81,82); 
+}
+.portfolio .rightCard .certification-section .title p:nth-child(2),
+.portfolio .rightCard .recommandation-section .title p:nth-child(2) {
+  color: var(--main-text-color);
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: -15px;
+}
+/*********RECOMMANDATION SECTION************/
+.portfolio .img4{
+  border-radius: 50%;
+}
+
+/*--------------------------------------------------------------
+## Project Section ##
+--------------------------------------------------------------*/
+.project {
+  padding: 20px 80px;
+}
+.project h3 {
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  color: var(--main-color-title);
+}
+.project h3:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+}
+.project .boxButton {
+  display: flex;
+  justify-content: space-between;
+}
+.project .nav-item button {
+  padding: 0px;
+  border: 0px;
+  color: var(--main-color-title);
+  font-size: 22px;
+}
+.project .nav-link.active {
+  color: var(--red-color);
+}
+.project .nav-link:hover {
+  color: var(--red-color);
+}
+.project .bi-grid-3x3-gap-fill {
+  margin-right: 10px;
+}
+/* Grid */
+.project .gridBox .icon {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: -25px;
+  margin-top: -15px;
+}
+.project .gridBox .icon .bi-heart,
+.project .gridBox .icon .bi-eye {
+  color: var(--main-text-color);
+}
+.project .gridBox .icon p {
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--main-color-title);
+  margin-top: 1px;
+}
+.project .gridBox .title-post,
+.project .listBox .title-post  {
+  display: flex;
+}
+.project .gridBox .title-post i,
+.project .listBox .title-post i {
+  color: var(--red-color);
+  margin-top: -8px;
+}
+.project .gridBox .text p:nth-child(1),
+.project .listBox .text p:nth-child(1){
+  font-size: 10px;
+  color: var(--red-color);
+  font-weight: 300;
+  margin-top: 10px;
+}
+.project .gridBox .text p:nth-child(2){
+  font-size: 12px;
+  font-weight: 400;
+  color: gray;
+  margin-top: -15px;
+}
+.project .gridBox .language span,
+.project .listBox .language span{
+  border: 1px solid var(--main-color-title);
+  border-radius: 50%;
+  font-size: 7px;
+  padding: 2px;
+}
+.project .gridBox  .language,
+.project .listBox  .language{
+  margin-top: -20px;
+}
+.project .gridBox .title-post h2,
+.project .listBox .title-post h2{
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(84,84,84);
+}
+.project .gridBox .title-post h2:hover,
+.project .listBox .title-post h2:hover{
+  color: var(--red-color);
+  text-decoration: none;
+}
+.project .gridBox .title-post a:hover,
+.project .listBox .title-post a:hover{
+  text-decoration: none;
+}
+/* List */
+.project .listBox .text p:nth-child(2){
+  font-size: 12px;
+  font-weight: 400;
+  color: gray;
+  margin-top: -15px;
+  margin-bottom: 5px;
+}
+@media(min-width: 992px) {
+  .project .listBox {
+    display: flex;
+  }
+}
+@media(max-width: 992px) {
+  .project .listBox img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.project .likes-views{
+  display: flex;
+  align-items: center;
+  margin-bottom: -30px;
+}
+.project .likes-views i{
+  color: var(--main-text-color);
+}
+.project .likes p,
+.project .views p {
+  margin-top: 0px;
+  font-size: 10px;
+  font-weight: bold;
+  color: var(--main-color-title);
+}
+.project .views{
+  text-align: center;
+  margin-left: 30px;
+}
+.project .likes{
+  text-align: center;
+}
+/* End Portfolio */
+
+/* Start Reviews Box */
+/*--------------------------------------------------------------
+## Review Box students & feedback details ##
+--------------------------------------------------------------*/
+/* Start Students Feedback */
+.reviews .feedback {
+  padding: 20px 50px;
+}
+.students-feedback h2 {
+  color: var(--main-color-title);
+  border-bottom: 1px solid #eee9e9;
+  font-size: 20px;
+}
+.feedback-chart{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.avg-rating{
+  text-align: center;
+  margin-top: -22px;
+  margin-right: 15px;
+}
+.avg-rating h1{
+  font-size: 30px;
+  font-weight: 500;
+}
+.avg-rating p{
+  font-size: 10px;
+  font-weight: 300;  
+  margin-bottom: 0px;
+}
+.avg-rating i{
+  color: var(--star-color);
+  font-size: 12px;
+}
+.pourcentage{
+  font-size: 10px;
+  font-weight: 700;
+  margin: 1px 5px 0px 5px;
+}
+.reviews-rat{
+  font-size: 10px;
+  font-weight: 700;
+  color: gray;
+  position: relative;
+  margin-top: 1px;
+}
+.feedback-chart .skill div h6{
+  font-size: 10px;
+  font-weight: 700;
+  padding-right: 5px;
+}
+.feedback-chart .skill div{
+  display: flex;
+}
+.bar{
+  background-color: rgb(231, 220, 220);
+  height: 10px;
+  width: 150px;
+  border: 1px solid rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  border-radius: 10px;
+  display: block;
+  margin-top: 4px;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25,1);
+  border: none;
+}
+@media(max-width: 992px) {
+  .bar {
+    width: 100px;
+  }
+}
+.bar span{
+  height: 10px;
+  float: left;
+  background: var(--red-color);
+}
+.five-star{
+  width: 90%;
+  animation: five 3s;
+}
+.four-star{
+  width: 70%;
+  animation: four 3s;
+}
+.three-star{
+  width: 50%;
+  animation: three 3s;
+}
+.two-star{
+  width: 30%;
+  animation: two 3s;
+}
+.one-star{
+  width: 10%;
+  animation: one 3s;
+}
+@keyframes five {
+  0%{
+      width:0%;
+  }
+  100%{
+      width:90%;
+  }
+}
+@keyframes four {
+  0%{
+      width:0%;
+  }
+  100%{
+      width:70%;
+  }
+}
+@keyframes three {
+  0%{
+      width:0%;
+  }
+  100%{
+      width:50%;
+  }
+}
+@keyframes two {
+  0%{
+      width:0%;
+  }
+  100%{
+      width:30%;
+  }
+}
+@keyframes one {
+  0%{
+      width:0%;
+  }
+  100%{
+      width:10%;
+  }
+}
+/* End Students Feedback */
+/* Start Feedback details */
+.feedback-details h2 {
+  color: var(--main-color-title);
+  border-bottom: 1px solid #eee9e9;
+  font-size: 20px;
+}
+.detail-content{
+  justify-content: space-between;
+}
+.detail-content span{
+  font-size: 13px;
+  font-weight: 500;
+}
+.detail-content .star{
+  margin-top: -22px;
+}
+.detail-content div{
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.detail-content i{
+  color: var(--star-color);
+  font-size: 12px;
+  margin-right: 2px;
+}
+#p-star{
+  font-size: 12px;
+  color: var(--star-color);
+  font-weight: 500;
+  margin-right: 2px;
+}
+.detail-content p{
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--main-color-title);
+}
+
+/* Start testimonials */
+.testimonials {
+  position: relative;
+  
+  border-top: 2px solid #eee9e9;
+  font-size: 15px;
+}
+.testimonials .btn {
+  background-color: var(--blue-color);
+  width: 10%;
+  margin-left: 73%;
+}
+@media(max-width: 992px) {
+  .testimonials .btn {
+    width: 20%;
+  }
+}
+.testimonials .btn:hover {
+  background-color: var(--hover-blue-color);
+}
+.testimonials .content {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+.testimonials .content img {
+  width: 100px;
+  border-radius: 50%;
+  margin-right: 50px;
+}
+.testimonials .title {
+  display: flex;
+  justify-content: space-between;
+}
+.testimonials .title span {
+  color: var(--main-color-title);
+}
+.testimonials .title p {
+  color: var(--main-text-color);
+  font-size: 10px;
+}
+.testimonials .content .text {
+  color: #868585;
+  font-weight: 600;
+  font-size: 12px;
+  margin-top: -20px;
+}
+.testimonials .title .stars{
+  font-size: 10px;
+  color: var(--star-color);
+}
+
+.testimonials .bi-plus-circle {
+  color: var(--blue-color);
+  cursor: pointer;
+  font-size: 25px;
+}
+/* End testimonials */
+
+/* start review */
+.review {
+  padding: 0 80px;
+}
+.review p {
+  color: var(--main-color-title);
+  font-size: 5px;
+}
+.review span,
+.review .stars {
+  color: var(--main-text-color);
+  font-size: 12px;
+}
+.review p {
+  font-size: 10px;
+  color: var(--main-color-title);
+  text-transform: uppercase;
+}
+.review textarea {
+  border-color: var(--main-text-color);
+}
+textarea:hover {
+  border-color: var(--blue-color);
+}
+textarea:focus {
+  outline: none;
+}
+.review textarea {
+  width: 100%;
+}
+.forum p {
+  font-size: 12px;
+  color: var(--main-text-color);
+}
+.forum .accordion i {
+  color: var(--main-text-color);
+  font-size: 15px;
+  margin-right: 10px;
+}
+.forum .accordion span {
+  font-size: 12px;
+  font-weight: 500;
+}
+.forum .btn,
+.review .btn {
+  background-color: var(--blue-color);
+  min-width: 25%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.forum .btn:hover,
+.review .btn:hover {
+  background-color: var(--hover-blue-color);
+}
+/* End Reviews Box */
+
+/*--------------------------------------------------------------
+## Marketplace Section ##
+--------------------------------------------------------------*/
+/* Grid */
+.marketplace .tabs{
+  padding: 10px 80px;
+}
+.marketplace .tabs h3 {
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  color: var(--main-color-title);
+}
+.marketplace .tabs h3:before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+}
+.marketplace .gridBox .firstBox {
+  display: flex;
+  justify-content: space-between;
+}
+.marketplace .gridBox .firstBox .newPrice {
+  font-size: 25px;
+  font-weight: bold;
+  color: var(--main-color-title);
+  margin-right: 10px;
+}
+.marketplace .gridBox .firstBox .label {
+  background-color: var(--red-color);
+  color: white;
+  padding: 5px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 10px;
+  margin-top: 15px;
+}
+.marketplace .gridBox .firstBox .bi{
+  font-size: 17px;
+  color: var(--main-text-color);
+}
+.marketplace .gridBox .firstBox .bi:hover{
+  color: var(--red-color);
+}
+.marketplace .gridBox .firstBox .bi-heart{ 
+  margin-right: 8px;
+}
+.marketplace .gridBox .card-text span {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--main-color-title);
+  position: absolute;
+  margin-top: -30px;
+}
+.marketplace .gridBox .card-text span:hover{
+  color: var(--red-color);
+}
+.marketplace .gridBox .card-text p {
+  font-size: 10px;
+  font-weight: 500;
+  color: var(--main-color-title);
+}
+.marketplace .gridBox .card-text{
+  border-bottom: 1px solid #eee9e9;
+}
+.marketplace .gridBox .level {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--main-text-color);
+}
+.marketplace .gridBox .btn{
+  color: var(--red-color);
+  border: 1px solid var(--hover-red-color);
+  width: 100%;
+}
+
+/* list */
+@media(min-width: 992px) {
+  .marketplace .listBox {
+    display: flex;
+  }
+}
+.marketplace .listBox .card-title  {
+  justify-content: space-between;
+}
+.marketplace .listBox .card-title .btn {
+  color: var(--main-text-color);
+  font-size: 20px;
+}
+.marketplace .listBox .card-title .bi-heart {
+  margin-right: -20px;
+}
+.marketplace .listBox .card-title .btn:hover {
+  color: var(--red-color);
+}
+.marketplace .listBox .card-title span:first-child {
+  color: var(--main-color-title);
+  margin-top: 8px;
+  font-size: 20px;
+  font-weight: bold;
+}
+.marketplace .listBox .card-text .title { 
+  font-weight: bold;
+  font-size: 15px;
+  color: var(--main-color-title);
+}
+.marketplace .listBox .card-text .title:hover{ 
+  color: var(--red-color);
+}
+.marketplace .listBox .card-text a:hover{ 
+  text-decoration: none;
+}
+.marketplace .listBox .card-text span:nth-child(3) { 
+  font-weight: 600;
+  font-size: 12px;
+  color: var(--main-color-title);
+}
+.marketplace .listBox .label {
+  background-color: var(--red-color);
+  color: white;
+  font-weight: bold;
+  padding: 5px 5px;
+  border-radius: 5px;
+  font-size: 10px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.marketplace .listBox .card-text .level {
+  font-size: 12px;
+  justify-content: space-between;
+  color: var(--main-text-color);
+}
+.marketplace .listBox .card-text .level .bi-star-fill {
+  color: var(--star-color);
+}
+.marketplace .listBox .card-text .btn  {
+  background-color: var(--red-color);
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  width: 25%;
+  font-weight: 500;
+}
+.marketplace .listBox .card-text .btn:hover {
+  background-color: var(--hover-red-color);
+}
+/* related marketplace */
+.relatedMarket .product {
+  padding: 0px 15px;
+}
+.relatedMarket .product h3 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--main-color-title);
+  top: 100px;
+}
+.relatedMarket .product h3:before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 35px;
+}
+.relatedMarket .view {
+  background-color: var(--blue-color);
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px;
+}
+.relatedMarket .view:hover {
+  background-color: var(--hover-blue-color);
+}
+.relatedMarket .label,
+.marketplace .label {
+  position: absolute;
+  background-color: var(--red-color);
+  color: white;
+  font-weight: bold;
+  padding: 5px;
+  font-size: 12px;
+}
+.relatedMarket .product .instructor{
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 5px #ddd;
+  margin-left: 10px;
+  margin-top: -25px;
+}
+.relatedMarket .product .teacher span,
+.marketplace .teacher span{
+  color: var(--main-text-color);
+  font-family: 800;
+  font-size: 15px;
+}
+.relatedMarket .product .firstBox {
+  display: flex;
+  justify-content: space-between;
+}
+.relatedMarket .product .price {
+  font-size: 20px;
+  font-weight: bold;
+  color: var(--main-color-title);
+  margin-right: 10px;
+}
+.relatedMarket .product .teacher .bi,
+.marketplace .teacher .bi{
+  color: var(--star-color);
+  font-size: 12px;
+}
+.relatedMarket .product .icons .bi{
+  font-size: 17px;
+  color: var(--main-text-color);
+}
+.relatedMarket .product .icons .bi:hover{
+  color: var(--red-color);
+}
+.relatedMarket .product .icons .bi-heart{ 
+  margin-right: 8px;
+}
+.relatedMarket .product .title{
+  border-bottom: 1px solid #eee9e9;
+  margin-top: -15px;
+}
+.relatedMarket .product .title span{
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--main-color-title);
+}
+.relatedMarket .product .title span:hover{
+  color: var(--red-color);
+}
+.relatedMarket .product .title p{
+  color: var(--main-text-color);
+  font-size: 10px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.relatedMarket .product .text {
+  padding: 0px 10px;
+}
+.relatedMarket .product .level {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--main-text-color);
+  margin-top: 5px;
+}
+.relatedMarket .product li .btn {
+  border: 1px solid var(--red-color);
+  width: 100%;
+  color: var(--red-color);
+}
+.relatedMarket .product li .btn:hover {
+  border: 1px solid var(--hover-red-color);
+  color: var(--hover-red-color);
+}
+
+/* related courses */
+.relatedCourses .grid {
+  padding: 0px 14px;
+}
+.relatedCourses .courses h3 {
+  font-size: 17px;
+  font-weight: 600;
+  position: relative;
+  color: var(--main-color-title);
+}
+.relatedCourses .courses h3:before{
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: #eef0ef;
+  bottom: 0;
+  left: 0;
+  top: 30px;
+}
+.relatedCourses .courses h3:hover {
+  color: var(--red-color);
+}
+.relatedCourses .instructor{
+  width: 50px;
+  height: 50px;
+  border: 2px solid white;
+  border-radius: 50%;
+  padding: 2px;
+  box-shadow: 0 0 5px #ddd;
+  margin-left: 10px;
+  margin-top: -25px;
+}
+.relatedCourses .uk-card-media-top span{
+  color: var(--main-text-color);
+  font-family: 800;
+  font-size: 15px;
+}
+.relatedCourses .uk-card-media-top .bi{
+color: var(--star-color);
+font-size: 12px;
+}
+
+
+/* FILTERS */
+.filters * {
+  display: inline-block;
+}
+.btnRadio {
+  visibility: hidden;
+  display: inline-block;
+}
+@media (min-width: 992px) {
+.btnRadio {
+    margin-top: -20px;
+  }
+}
+@media (max-width: 992px) {
+.btnRadio {
+    margin-top: -15px;
+  }
+}
+.filters label {
+  text-transform: uppercase;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  background-color: #faf5f5;
+  color: var(--blue-color);
+  font-size: 12px;
+  font-weight: 500;
+}
+.filters label:hover {
+  background: var(--blue-color);
+  color: #fff;
+}
+/* FILTERED ELEMENTS (POSTS) */
+.posts .post-title:hover {
+  text-decoration: underline;
+}
+
+.posts figcaption {
+  padding: 1rem;
+}
+
+.posts .post-categories {
+  margin-bottom: 0.75rem;
+  font-size: 0.75rem;
+}
+
+.posts .post-categories * {
+  display: inline-block;
+}
+
+.posts .post-categories li {
+  margin-bottom: 0.2rem;
+}
+
+.posts .post-categories a {
+  padding: 0.2rem 0.5rem;
+  border-radius: 1rem;
+  border: 1px solid;
+  line-height: normal;
+  transition: all 0.1s;
+}
+

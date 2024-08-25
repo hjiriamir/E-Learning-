@@ -1,0 +1,63 @@
+/*--------------------------------------------------------------
+## General ##
+--------------------------------------------------------------*/
+:root {
+  --red-color: rgb(216,81,125);
+  --hover-red-color: rgb(235, 111, 152);
+  --star-color: rgb(255, 213, 0);
+  --blue-color: #01132b;
+  --hover-blue-color: #546f99;
+  --main-color-title: #524f4f;
+  --main-text-color: #a8a5a5;
+  --main-border-bottom: #eee9e9;
+}
+
+@media(min-width: 992px) {
+  .features {
+    padding: 0px 70px;
+  }
+}
+.features .btns .btn {
+  background-color: var(--blue-color);
+  border-radius: 0px;
+  color: #fff;
+  font-weight: 500;
+}
+.features .btns .btn:hover {
+  background-color: var(--hover-blue-color);
+}
+.features .title {
+  font-size: 15px;
+  font-weight: 600;
+}
+.features .fa-person-circle-question {
+  background-color: var(--blue-color);
+  color: #fff;
+  width: 32px;
+  border-radius: 5px;
+  height: 32px;
+  padding: 6px;
+  position: relative;
+  top: -25px;
+  right: 26px;
+  font-size: 20px;
+}
+.features .arrowFeature span {
+  margin-left: -38px;
+  font-weight: 500;
+}
+.selectFeatures select {
+  width: 50%;
+}
+.features .input-group input {
+  width: 50%;
+}
+.features .months {
+  border: 1px solid var(--main-text-color);
+  margin-top: 1.3em;
+}
+@media(max-width: 992px) {
+  .features .months {
+    width: 70%;
+  }
+}
