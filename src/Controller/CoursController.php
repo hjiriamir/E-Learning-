@@ -59,7 +59,7 @@ class CoursController extends AbstractController
 
 
     #[Route('/course', name: 'course')]
-    public function index(Request $request,ServiceCourseService $coursService,CoachingService $coachingService): Response
+    public function index( SessionInterface $session,Request $request,ServiceCourseService $coursService,CoachingService $coachingService): Response
     {
     
         //Récuperation du barre de filtrage 
@@ -81,8 +81,28 @@ class CoursController extends AbstractController
         
         $maxPrice = $request->get('max'); // Récupère la valeur du champ max
        // dd($maxPrice);
-
-      // $durations = $request->query->get('duration', []);
+       $durMin = null;
+       $durMax = null;
+       $durations = $request->get('durations', []);
+     
+       
+       // Vérification des valeurs de $durations et définition des variables en fonction de celles-ci
+       if ($durations === '15--30') {
+           $durMin = 15;
+           $durMax = 30;
+       } elseif ($durations === '30-1h') {
+           $durMin = 31;
+           $durMax = 60;
+       } elseif ($durations === 'Sup_1h2') {
+           $durMin = 61;
+           $durMax = 10000;
+       } else {
+           // Gestion du cas où la valeur de $durations ne correspond à aucun des cas spécifiés
+           $durMin = null;
+           $durMax = null;
+       }
+       
+       //dd($durations);
 
        // Afficher les valeurs récupérées pour le débogage
       // dump($durations); 
@@ -90,9 +110,10 @@ class CoursController extends AbstractController
       
         $contributorsData = $coursService->getContributorsData();
         // on recupere les courses en fonction du filtre
-        $coursesData = $coursService->getCoursesData($filters,$Filterslanguage,$FiltersCategorys, $minPrice,$maxPrice ); 
+        $coursesData = $coursService->getCoursesData($filters,$Filterslanguage,$FiltersCategorys, $minPrice,$maxPrice,$durMin,$durMax ); 
         //dd($coursesData);
         $coachingData=$coachingService->getCoachingData($minPrice,$maxPrice);
+       // $session->set('coachingData', $coachingData);
         //dd($coachingData);
        // $this->sessionn->set('coachingData', $coachingData);
         //$contentCours=$coursService->getCoursContents(cours);

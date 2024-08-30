@@ -171,6 +171,67 @@ class CoachingService
 
         return $coachingsData;
     }
+    public function getCoachingDataa($maxDiscount = null, $minDiscount = null)
+    {
+        $coachings=$this->coachRepository->findAll();
+        if ($minDiscount !== null && $maxDiscount !== null) {
+            $filteredcoachings = array_filter($coachings, function($cour) use ($minDiscount, $maxDiscount) {
+                return ($cour->getDiscount() >= $minDiscount) && ($cour->getDiscount() <= $maxDiscount);
+            });
+            $coachings = $filteredcoachings;
+        }
+        $coachingsData = [];
+        $allCategories = [];
+        $contents = [];
+        foreach ($coachings as $course) {
+            $contents = [];
+            $AllCoachSteps= $this->coachingStepRepository->findAll();
+            $AllcoachContents= $this->coachingStepContentRepository->findAll();
+            foreach($AllCoachSteps as $coach){
+                if($coach->getIdCoaching() == $course->getId()){
+                    foreach($AllcoachContents as $content){
+                        if($content->getIdStep() == $coach->getIdStep()){
+                            $contents[] = $content;
+                        }
+                    }
+
+                }
+
+            }
+            $contributor = $this->contributorRepository->find($course->getIdContributor());
+            $user = $this->usersRepository->find($contributor ? $contributor->getIdUser() : null);
+            $ratings = $this->coachingRatingRepository->countByIdUser($user ? $user->getId() : null);
+            $followers = $this->contributorFollowersRepository->count(['idContributor' => $contributor ? $contributor->getId() : null]);
+            $coachCateg4=$course->getSousCategorie4();
+            $idsArray = explode(',', $coachCateg4);
+
+            // Convertir chaque élément en entier
+            $idsArray = array_map('intval', $idsArray);
+            $allCategories[] = $idsArray;
+
+           // $coachNiveauId = $course->getLevel();
+           $coachNiveauId = (int) $course->getLevel();
+ 
+           $coachNiveau = $coachNiveauId ? $this->coachingNiveauRepository->find($coachNiveauId) : null;
+           $label1 = $coachNiveau ? $coachNiveau->getLabel() : null;
+       
+            $coachingsData[] = [
+                'course' => $course,
+                'contributor' => $contributor,
+                'user' => $user,
+                'userImage' => $user ? $user->getPhoto() : null,
+                'ratings' => $ratings,
+                'coachNiveau' => $coachNiveau,
+                'label1' => $label1,
+                'followers'=>$followers,
+                'idsArray'=>$idsArray,
+                'allCategories'=>$allCategories,
+                'contents' => $contents,
+            ];
+        }
+
+        return $coachingsData;
+    }
 
   
     // filtrage coachings par mot clés 

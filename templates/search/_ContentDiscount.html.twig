@@ -1,0 +1,177 @@
+ {#{% for item in courses %}
+ {% if item.course.Discount != null %}
+                    {% if loop.index % 3 == 1 %}
+                        <div class="row">
+                    {% endif %}
+                    
+                    <div class="col-4">
+                        <div class="cardProduct cardCourseProduct" data-category="{{ item.course.courseStatus }}">
+                            <div class="card98 course-card course-card1">
+                                <div class="row no-gutters">
+                                    <div class="col-12" style="position:relative;">
+                                        <div class="labelImg" style="position:absolute;">Course</div>
+                                        <img src="{{ item.course.imageCours }}" class="card-img" alt="Course Image">
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="card-body">
+                                            <div class="d-flex align-items-center">
+                                                <img src="{{asset('vendor/hatlone/assets/user/imgs/testimonials/testimonials-3.jpg')}}" alt="Profile Image" class="rounded-circle" width="50" height="50" style="margin-top:-20px !important;position:absolute;">
+                                                <div class="ml-3 mx-5">
+                                                    <h5 class="mb-0 profName mx-2 mt-1">{{ item.user.firstname }}</h5>
+                                                    <div class="text-warning mx-2">
+                                                        <small>★ <span>{{ item.ratings }}</span> <span style="color:#6c757d;font-weight:500;">({{ item.followers }})</span></small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between mb-1">
+                                                <div class="price98 mt-3 mx-1">
+                                                    <span class="newPrice98 font-weight-bold">${{ item.course.prix }}</span><br>
+                                                </div>
+                                                <div class="price-icons">
+                                                    <div class="icons98 ml-3">
+                                                        <i class="bi bi-heart"></i>
+                                                        <i class="bi bi-cart-plus"></i>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="details mb-1">
+                                                <div class="d-flex align-items-center mb-2">
+                                                    <div class="mr-3">
+                                                        <i class="far fa-clock"></i> {{ item.course.dateOperation|date('H:i') }}
+                                                    </div>
+                                                    <div class="mr-3 mx-3">
+                                                        {% if item.course.langue == 1 %}
+                                                            <i class="fas fa-globe"></i>  EN<br>
+                                                        {% elseif item.course.langue == 2 %}
+                                                            <i class="fas fa-globe"></i>  AR<br>
+                                                        {% elseif item.course.langue == 3 %}
+                                                            <i class="fas fa-globe"></i>  SP<br>
+                                                        {% elseif item.course.langue == 4 %}
+                                                            <i class="fas fa-globe"></i>  FR<br>
+                                                        {% else %}
+                                                            <i class="fas fa-globe"></i>  Inconnu<br>
+                                                        {% endif %}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="d-flex align-items-center justify-content-between">
+                                                <h4 class="card-title98 mb-0">{{ item.course.titre }}</h4>
+                                                <div class="badge badge-danger new-badge mx-3">{{ item.course.courseStatus }}</div>
+                                            </div>
+                                            <div class="details mb-3 mt-3" style="padding-top:10px !important;border-top:1px solid #eee9e9;">
+                                                <div class="d-flex align-items-center" style="justify-content:space-between !important;">
+                                                    <div class="mr-3">
+                                                        <i class="bi-star-fill"></i> {{ item.ratings2 }} ({{ item.course.id }})
+                                                    </div>
+                                                    <div class="mr-3">
+                                                        <i class="fa fa-user" style="color:#6c757d;"></i> {{ item.followers }}
+                                                    </div>
+                                                    <div class="mr-3">
+                                                        <i class="bi bi-bar-chart"></i>{{ item.label1 }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {% if loop.index % 3 == 0 or loop.last %}
+                        </div>
+                    {% endif %}
+                     {% endif %}
+                {% endfor %}#}
+                {% for item in courses %}
+    {% if item.course.Discount != null %}
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4" style="margin-right : 2.5px">
+      <div class="card98 course-card" style="width: 96%;">
+        <div class="row no-gutters">
+          <div class="col-12" style="position:relative;">
+            <div class="labelImg" style="position:absolute;">Course</div>
+            <img src="{{ item.course.imageCours }}" class="card-img" alt="Course Image">
+          </div>
+          <div class="col-12">
+            <div class="card-body">
+              <div class="d-flex align-items-center">
+                <img src="../vendor/hatlone/assets/user/imgs/testimonials/testimonials-1.jpg" alt="Profile Image" class="rounded-circle" width="50" height="50" style="margin-top:-20px !important;position:absolute;">
+                <div class="ml-3 mx-5">
+                  <h5 class="mb-0 profName mx-2 mt-1">{{ item.user.firstname }}</h5>
+                  <div class="text-warning mx-2">
+                    <small>★ <span>{{ item.ratings }}</span> <span style="color:#6c757d;font-weight:500;">({{ item.followers }})</span></small>
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center justify-content-between mb-1">
+                <div class="price98 mt-3 mx-1">
+                  <span class="newPrice98 font-weight-bold">${{ item.course.prix }}</span>
+                  <br>
+                </div>
+                <div class="price-icons">
+                  <div class="icons98 ml-3">
+                    <i class="bi bi-heart"></i>
+                    <i class="bi bi-cart-plus"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="details mb-1">
+                <div class="d-flex align-items-center mb-2">
+                  <div class="mr-3">
+                    <i class="far fa-clock"></i> {{ item.course.dateOperation|date('H:i') }}
+                  </div>
+                  <div class="mr-3 mx-3">
+                    {% if item.course.langue == 1 %}
+                      <i class="fas fa-globe"></i> EN<br>
+                    {% elseif item.course.langue == 2 %}
+                      <i class="fas fa-globe"></i> AR<br>
+                    {% elseif item.course.langue == 3 %}
+                      <i class="fas fa-globe"></i> SP<br>
+                    {% elseif item.course.langue == 4 %}
+                      <i class="fas fa-globe"></i> FR<br>
+                    {% else %}
+                      <i class="fas fa-globe"></i> Inconnu<br>
+                    {% endif %}
+                  </div>
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <h4 class="card-title98 mb-0">{{ item.course.titre }}</h4>
+                <div class="badge badge-danger new-badge mx-3">{{ item.course.courseStatus }}</div>
+              </div>
+              <div class="details mb-3 mt-3" style="padding-top:10px !important;border-top:1px solid #eee9e9;">
+                <div class="d-flex align-items-center" style="justify-content:space-between !important;">
+                  <div class="mr-3">
+                    <i class="bi-star-fill"></i> {{ item.ratings2 }} ({{ item.followers }})
+                  </div>
+                  <div class="mr-3">
+                    <i class="fa fa-user" style="color:#6c757d;"></i> {{ item.followers }}
+                  </div>
+                  <div class="mr-3">
+                    <i class="bi bi-bar-chart"></i>{{ item.label1 }}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+        {% endif %}
+    {% endfor %}
+    <style>
+
+  @media (min-width: 768px) { /* Medium devices (tablets, 768px and up) */
+    .col-md-6 {
+      flex: 0 0 33.33%; /* Trois cartes par ligne pour les écrans moyens */
+      max-width: 33.33%; /* Trois cartes par ligne pour les écrans moyens */
+    }
+  }
+
+  @media (min-width: 992px) { /* Large devices (desktops, 992px and up) */
+    .col-lg-4 {
+      flex: 0 0 33%; /* Quatre cartes par ligne pour les grands écrans */
+      max-width: 33%; /* Quatre cartes par ligne pour les grands écrans */
+    }
+  }
+</style>

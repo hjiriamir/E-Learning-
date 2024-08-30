@@ -1,0 +1,92 @@
+ {% for item in coachingData %}
+           
+
+           
+            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                <div class="card98 course-card" style="overflow:hidden !important;">
+                    <div class="row no-gutters">
+                        <div class="col-12" style="position:relative;overflow:hidden !important;">
+                            <span class="labelCoaching98">1 to 1</span>
+                            <div style="display:flex;justify-content:center;align-items:center;position:relative;">
+                                <img src="{{ item.course.videoDescriptive }}" class="card-img" alt="Course Image">
+                                <button class="btn" data-bs-toggle="modal" data-bs-target="#vd" style="position:absolute; background-color:rgb(216,81,125);border-radius:50%;width:50px;height:50px;display:flex;align-items:center !important;">
+                                    <i class="bi bi-caret-right-fill" style="color:white !important;font-size:35px;"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="card-body">
+                                <div class="d-flex align-items-center">
+                                    <img src="{{ item.user.photo }}" alt="Profile Image" class="rounded-circle" width="50" height="50" style="margin-top:-20px !important;position:absolute;">
+                                    <div class="ml-3 mx-5">
+                                        <h5 class="mb-0 profName mx-2 mt-1">{{ item.user.firstname }}</h5>
+                                        <div class="text-warning mx-2"><small>★ <span>{{ item.ratings }}</span> <span style="color:#6c757d;font-weight:500;">({{ item.followers }})</span></small></div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center justify-content-between mb-1">
+                                    <div class="price98 mt-3 mx-1">
+                                        <span class="newPrice98 font-weight-bold">${{ item.course.prix }}</span><br>
+                                    </div>
+                                    <div class="price-icons">
+                                        <div class="icons98 ml-3">
+                                            <i class="bi bi-heart"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="details mb-1">
+                                    <div class="d-flex align-items-center mb-2">
+                                        <div class="mr-3">
+                                            <i class="far fa-clock"></i> {{ item.course.dateOperation|date('H:i') }}
+                                        </div>
+                                        <div class="mr-3 mx-3">
+                                            {% if item.course.langue == 1 %}
+                                                <i class="fas fa-globe"></i> EN<br>
+                                            {% elseif item.course.langue == 2 %}
+                                                <i class="fas fa-globe"></i> AR<br>
+                                            {% elseif item.course.langue == 3 %}
+                                                <i class="fas fa-globe"></i> SP<br>
+                                            {% elseif item.course.langue == 4 %}
+                                                <i class="fas fa-globe"></i> FR<br>
+                                            {% else %}
+                                                <i class="fas fa-globe"></i> Inconnu<br>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="d-flex align-items-center">
+                                    <h4 class="card-title98 mb-0">{{ item.course.titre }}</h4>
+                                    <div class="badge badge-danger new-badge mx-3">{{ item.course.id }}</div>
+                                </div>
+                                <div class="details mb-3 mt-3" style="padding-top:10px !important;border-top:1px solid #eee9e9;">
+                                    <div class="d-flex align-items-center" style="justify-content:space-between !important;">
+                                        <div class="mr-3">
+                                            <i class="fa fa-user" style="color:green;"></i> {{ item.followers }}
+                                        </div>
+                                        <div class="mr-3">
+                                            <i class="fa fa-user" style="color:#6c757d;"></i> 1.218
+                                        </div>
+                                        <div class="mr-3">
+                                            <i class="bi bi-bar-chart"></i>{{ item.label1 }}
+                                        </div>
+                                        <div class="mr-3">
+                                            <i class="bi-star-fill"></i> {{ item.ratings }} ({{ item.followers }})
+                                        </div>
+                                    </div>
+                                    <div class="d-flex align-items-center" style="justify-content:center !important;padding-top:15px !important;">
+                                        <span style="border-bottom:1px solid #eee9e9;color:#a8a5a5;font-weight:400;font-size:14px;cursor:pointer;">Check schedule</span>
+                                    </div>
+                                    <div class="d-flex align-items-center" style="justify-content:center !important;padding-top:10px !important;padding-left:10px;padding-right:10px;">
+                                        <button style="width:100%;padding:7px;border:none;background-color:rgb(216,81,125);color:white;font-weight:500;font-size:16px;">Book a trial</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+           
+             
+        {% endfor %}

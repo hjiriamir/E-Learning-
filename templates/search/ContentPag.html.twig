@@ -1,35 +1,3 @@
-
-
-
-   {#         {% set global_level = "" %}
-            {% set all_levels = ['Beginner', 'Advanced', 'Intermediate', 'Professionnel'] %}
-            {% set global_level1 = all_levels %} 
-            {% set amir1 = 0 %}
-{% if vale == 'all' %}
-{% elseif vale == 'Beginner' %}
-    {% set global_level1 = ['Beginner'] %}
-{% elseif vale == 'Advanced' %}
-    {% set global_level1 = ['Advanced'] %}
-{% elseif vale == 'Intermediate' %}
-    {% set global_level1 = ['Intermediate'] %}
-{% elseif vale == 'Professionnel' %}
-    {% set global_level1 = ['Professionnel'] %}
-{% endif %}
-
-
-  {% set global_variable1 = [1, 2, 3, 4] %}
-            {% if amir == 'All_Languages' %}
-           {% set global_variable1 = [1, 2, 3, 4] %}
-          
-            {% elseif amir == 'English' %}
-               {% set global_variable1 = [1] %}
-            {% elseif amir == 'arab' %}
-               {% set global_variable1 = [2] %}
-            {% elseif amir == 'Español' %}
-                {% set global_variable1 = [3] %}
-            {% elseif amir == 'Français' %}
-               {% set global_variable1 = [4] %}
-            {% endif %}#}
 <p>Nb {{ coursess|length }}</p>
 
  {% for coursee in coursess %}
@@ -114,13 +82,4 @@
 
                                  
                             {% endfor %}
-                            
-                       
-                       {# search/ContentPag.html.twig 
-{% for coursee in coursess %}
-    <div>{{ coursee.course.id }}</div>
-{% else %}
-    <p>No courses found</p>
-{% endfor %}#}
-
-
+             
