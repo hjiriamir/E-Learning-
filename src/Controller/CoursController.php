@@ -81,42 +81,45 @@ class CoursController extends AbstractController
         
         $maxPrice = $request->get('max'); // Récupère la valeur du champ max
        // dd($maxPrice);
-       $durMin = null;
-       $durMax = null;
+      
        $durations = $request->get('durations', []);
+       $contentss = $request->get('durat', []);
      
        
        // Vérification des valeurs de $durations et définition des variables en fonction de celles-ci
-       if ($durations === '15--30') {
-           $durMin = 15;
-           $durMax = 30;
-       } elseif ($durations === '30-1h') {
-           $durMin = 31;
-           $durMax = 60;
-       } elseif ($durations === 'Sup_1h2') {
-           $durMin = 61;
-           $durMax = 10000;
-       } else {
-           // Gestion du cas où la valeur de $durations ne correspond à aucun des cas spécifiés
-           $durMin = null;
-           $durMax = null;
-       }
-       
+    // Initialisation des valeurs par défaut
+$durMin = null;
+$durMax = null;
+
+if (in_array('15--30', $durations)) {
+    $durMin = 15;
+    $durMax = 30;
+} elseif (in_array('30-1h', $durations)) {
+    $durMin = 31;
+    $durMax = 60;
+} elseif (in_array('Sup_1h2', $durations)) {
+    $durMin = 61;
+    $durMax = 10000;
+} 
+            // Récupérer le mot à chercher
+            $searchQuery = $request->query->get('query');
+           // dd($searchQuery);
+       //dd($durMin,$durMax);
        //dd($durations);
 
        // Afficher les valeurs récupérées pour le débogage
       // dump($durations); 
     
       
-        $contributorsData = $coursService->getContributorsData();
+        $contributorsData = $coursService->getContributorsData($Filterslanguage,$filters,$FiltersCategorys, $minPrice,$maxPrice);
         // on recupere les courses en fonction du filtre
-        $coursesData = $coursService->getCoursesData($filters,$Filterslanguage,$FiltersCategorys, $minPrice,$maxPrice,$durMin,$durMax ); 
-        //dd($coursesData);
-        $coachingData=$coachingService->getCoachingData($minPrice,$maxPrice);
+        $coursesData = $coursService->getCoursesData($filters,$Filterslanguage,$FiltersCategorys, $minPrice,$maxPrice,$durMin,$durMax); 
+       // dd($coursesData);
+        $coachingData=$coachingService->getCoachingDataaa($Filterslanguage,$filters,$FiltersCategorys, $minPrice,$maxPrice,$durMin,$durMax);
        // $session->set('coachingData', $coachingData);
-        //dd($coachingData);
+       //dd($coachingData);
        // $this->sessionn->set('coachingData', $coachingData);
-        //$contentCours=$coursService->getCoursContents(cours);
+       //$contentCours=$coursService->getCoursContents(cours);
        
         $query = $request->query->get('query', '');
         $coursFinal= $coursService->getCours($query);
@@ -146,122 +149,96 @@ class CoursController extends AbstractController
         //************************************* */
           // On vérifie si on a une requête Ajax
           if ($request->query->get('ajax')) {
-            return new JsonResponse([
-            'content' => $this->renderView('search/ContentPag.html.twig', [
-                    // vos données ici
-            'contributors1' => $contributorsData,
-            'coursess' => $coursesData,
-            'coachingData'=>$coachingData,
-            'query' => $query,
-            'coursFinal' => $coursFinal,
-            'contributorFinal' => $contributorFinal,
-            'searchedCoachings' => $searchedCoachings,  
-          
-//recuperer les categories et sous categories des cours :
-
-            'categories'=>$categories,
-            'categories2'=>$categories2,
-            'categories3'=>$categories3,
-            'categories4'=>$categories4,
-
-//recuperer les categories et sous categories de coaching :
-
-            'coachCategorie'=>$coachCategorie,
-            'coachCategorie2'=>$coachCategorie2,
-            'coachCategorie3'=>$coachCategorie3,
-            'coachCategorie4'=>$coachCategorie4,
-            'data' => $data,
-            'vale'=>$vale,
-            'minPrice1'=>$minPrice1,
-            'maxPrice1'=>$maxPrice1,
-
-            'minPrice1Coach'=>$minPrice1Coach,
-            'maxPrice1Coach'=>$maxPrice1Coach,
-            'levels9' => $levels9,
-            'filters' => $filters,
-            'categorys' => $categorys,
-            'languages' => $languages,
-            'Filterslanguage' => $Filterslanguage,
-            'FiltersCategorys' => $FiltersCategorys,
-                ])
-            ]);
-        }
-       /* if ($request->query->get('ajax')) {
             // Rendre le premier fichier Twig
             $content1 = $this->renderView('search/ContentPag.html.twig', [
                 'contributors1' => $contributorsData,
                 'coursess' => $coursesData,
-                'coachingData'=>$coachingData,
+                'coachingData' => $coachingData,
                 'query' => $query,
                 'coursFinal' => $coursFinal,
                 'contributorFinal' => $contributorFinal,
-                'searchedCoachings' => $searchedCoachings,              ]);
+                'searchedCoachings' => $searchedCoachings,
+                
+                // Récupérer les catégories et sous-catégories des cours :
+                'categories' => $categories,
+                'categories2' => $categories2,
+                'categories3' => $categories3,
+                'categories4' => $categories4,
+        
+                // Récupérer les catégories et sous-catégories de coaching :
+                'coachCategorie' => $coachCategorie,
+                'coachCategorie2' => $coachCategorie2,
+                'coachCategorie3' => $coachCategorie3,
+                'coachCategorie4' => $coachCategorie4,
+                'data' => $data,
+                'vale' => $vale,
+                'minPrice1' => $minPrice1,
+                'maxPrice1' => $maxPrice1,
+        
+                'minPrice1Coach' => $minPrice1Coach,
+                'maxPrice1Coach' => $maxPrice1Coach,
+                'levels9' => $levels9,
+                'filters' => $filters,
+                'categorys' => $categorys,
+                'languages' => $languages,
+                'Filterslanguage' => $Filterslanguage,
+                'FiltersCategorys' => $FiltersCategorys,
+            ]);
         
             // Rendre le deuxième fichier Twig
             $content2 = $this->renderView('search/_contentCoach.html.twig', [
                 'contributors1' => $contributorsData,
                 'coursess' => $coursesData,
-                'coachingData'=>$coachingData,
+                'coachingData' => $coachingData,
                 'query' => $query,
                 'coursFinal' => $coursFinal,
                 'contributorFinal' => $contributorFinal,
-                'searchedCoachings' => $searchedCoachings,              ]);
+                'searchedCoachings' => $searchedCoachings,
+            ]);
         
             // Retourner la réponse JSON avec les deux contenus
             return new JsonResponse([
                 'content1' => $content1,
                 'content2' => $content2,
             ]);
-        }*/
-
-   
-
-        //*************************************************** */
-    
+        }
+        
+        // Si ce n'est pas une requête AJAX, rendre la vue complète
         return $this->render('search/search2.html.twig', [
-
-//recuperer les categories et sous categories des contributors et cours :
-
             'contributors1' => $contributorsData,
             'coursess' => $coursesData,
-            'coachingData'=>$coachingData,
+            'coachingData' => $coachingData,
             'query' => $query,
             'coursFinal' => $coursFinal,
             'contributorFinal' => $contributorFinal,
-            'searchedCoachings' => $searchedCoachings,  
-          
-//recuperer les categories et sous categories des cours :
-
-            'categories'=>$categories,
-            'categories2'=>$categories2,
-            'categories3'=>$categories3,
-            'categories4'=>$categories4,
-
-//recuperer les categories et sous categories de coaching :
-
-            'coachCategorie'=>$coachCategorie,
-            'coachCategorie2'=>$coachCategorie2,
-            'coachCategorie3'=>$coachCategorie3,
-            'coachCategorie4'=>$coachCategorie4,
+            'searchedCoachings' => $searchedCoachings,
+        
+            // Récupérer les catégories et sous-catégories des cours :
+            'categories' => $categories,
+            'categories2' => $categories2,
+            'categories3' => $categories3,
+            'categories4' => $categories4,
+        
+            // Récupérer les catégories et sous-catégories de coaching :
+            'coachCategorie' => $coachCategorie,
+            'coachCategorie2' => $coachCategorie2,
+            'coachCategorie3' => $coachCategorie3,
+            'coachCategorie4' => $coachCategorie4,
             'data' => $data,
-            'vale'=>$vale,
-            'minPrice1'=>$minPrice1,
-            'maxPrice1'=>$maxPrice1,
-
-            'minPrice1Coach'=>$minPrice1Coach,
-            'maxPrice1Coach'=>$maxPrice1Coach,
+            'vale' => $vale,
+            'minPrice1' => $minPrice1,
+            'maxPrice1' => $maxPrice1,
+        
+            'minPrice1Coach' => $minPrice1Coach,
+            'maxPrice1Coach' => $maxPrice1Coach,
             'levels9' => $levels9,
             'filters' => $filters,
             'categorys' => $categorys,
             'languages' => $languages,
             'Filterslanguage' => $Filterslanguage,
             'FiltersCategorys' => $FiltersCategorys,
-
-            
-          
-                       // 'filteredCourseIds' => $filteredCourseIds,
-           
         ]);
+        
     }
     /*#[Route('/coachingdata', name: 'coachingdata', methods: ['POST'])]
     public function coachingdata(Request $request): Response{

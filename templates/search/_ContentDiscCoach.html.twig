@@ -8,7 +8,10 @@
                         <div class="col-12" style="position:relative;overflow:hidden !important;">
                             <span class="labelCoaching98">1 to 1</span>
                             <div style="display:flex;justify-content:center;align-items:center;position:relative;">
-                                <img src="{{ item.course.videoDescriptive }}" class="card-img" alt="Course Image">
+<video controls class="card-img">
+    <source src="{{ item.course.videoDescriptive }}" type="video/mp4">
+    Votre navigateur ne supporte pas la lecture de vidéos.
+</video>
                                 <button class="btn" data-bs-toggle="modal" data-bs-target="#vd" style="position:absolute; background-color:rgb(216,81,125);border-radius:50%;width:50px;height:50px;display:flex;align-items:center !important;">
                                     <i class="bi bi-caret-right-fill" style="color:white !important;font-size:35px;"></i>
                                 </button>

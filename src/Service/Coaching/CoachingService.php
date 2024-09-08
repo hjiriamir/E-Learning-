@@ -171,9 +171,55 @@ class CoachingService
 
         return $coachingsData;
     }
-    public function getCoachingDataa($maxDiscount = null, $minDiscount = null)
+    public function getCoachingDataa($filters = null , $Filterslanguage = null, $FiltersCategorys = null , $maxPriceDisc  = null, $minPriceDisc  = null, $durMin = null, $durMax = null,$maxDiscount = null ,$minDiscount = null)
     {
         $coachings=$this->coachRepository->findAll();
+
+        if ($filters !== null && !empty($filters)) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($filters) {
+                return in_array($cour->getLevel(), $filters);
+            });
+            $coachings = $filteredCochings;
+        }
+        if ($FiltersCategorys !== null && !empty($FiltersCategorys)) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($FiltersCategorys) {
+                return in_array($cour->getCategorie(), $FiltersCategorys);
+            });
+            $coachings = $filteredCochings;
+        }
+
+        if ($Filterslanguage !== null && !empty($Filterslanguage)) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($Filterslanguage) {
+                return in_array($cour->getLangue(), $Filterslanguage);
+            });
+            $coachings = $filteredCochings;
+        }
+        if ($minPriceDisc !== null && $maxPriceDisc !== null) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($minPriceDisc, $maxPriceDisc) {
+                return ($cour->getPrix() >= $minPriceDisc) && ($cour->getPrix() <= $maxPriceDisc) ;
+            });
+            $coachings = $filteredCochings;
+        }
+        if ($durMin !== null && $durMax !== null) {
+            // Initialiser le tableau $filteredCochings
+            $filteredCoachings = [];
+        
+            // Parcourir chaque coaching
+            foreach ($coachings as $cour) {
+                // Appeler la méthode getDuree pour obtenir la durée du coaching
+                $dure = $this->getDuree($cour->getId());
+        
+                // Vérifier si la durée est dans la plage souhaitée
+                if ($dure >= $durMin && $dure <= $durMax) {
+                    // Ajouter le coaching à la liste filtrée
+                    $filteredCoachings[] = $cour;
+                }
+            }
+        
+            // Mettre à jour $coachings avec les résultats filtrés
+            $coachings = $filteredCoachings;
+        }
+
         if ($minDiscount !== null && $maxDiscount !== null) {
             $filteredcoachings = array_filter($coachings, function($cour) use ($minDiscount, $maxDiscount) {
                 return ($cour->getDiscount() >= $minDiscount) && ($cour->getDiscount() <= $maxDiscount);
@@ -233,7 +279,109 @@ class CoachingService
         return $coachingsData;
     }
 
-  
+    public function getCoachingDataaa( $Filterslanguage = null, $filters = null, $FiltersCategorys = null,$minPrice = null,$maxPrice = null, $durMin = null, $durMax = null )
+    {
+        $coachings=$this->coachRepository->findAll();
+
+        if ($filters !== null && !empty($filters)) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($filters) {
+                return in_array($cour->getLevel(), $filters);
+            });
+            $coachings = $filteredCochings;
+        }
+      
+        if ($Filterslanguage !== null && !empty($Filterslanguage)) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($Filterslanguage) {
+                return in_array($cour->getLangue(), $Filterslanguage);
+            });
+            $coachings = $filteredCochings;
+        }
+        if ($FiltersCategorys !== null && !empty($FiltersCategorys)) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($FiltersCategorys) {
+                return in_array($cour->getCategorie(), $FiltersCategorys);
+            });
+            $coachings = $filteredCochings;
+        }
+        if ($minPrice !== null && $maxPrice !== null) {
+            $filteredCochings = array_filter($coachings, function($cour) use ($minPrice, $maxPrice) {
+                return ($cour->getPrix() >= $minPrice) && ($cour->getPrix() <= $maxPrice) ;
+            });
+            $coachings = $filteredCochings;
+        }
+        if ($durMin !== null && $durMax !== null) {
+            // Initialiser le tableau $filteredCochings
+            $filteredCoachings = [];
+        
+            // Parcourir chaque coaching
+            foreach ($coachings as $cour) {
+                // Appeler la méthode getDuree pour obtenir la durée du coaching
+                $dure = $this->getDuree($cour->getId());
+        
+                // Vérifier si la durée est dans la plage souhaitée
+                if ($dure >= $durMin && $dure <= $durMax) {
+                    // Ajouter le coaching à la liste filtrée
+                    $filteredCoachings[] = $cour;
+                }
+            }
+        
+            // Mettre à jour $coachings avec les résultats filtrés
+            $coachings = $filteredCoachings;
+        }
+        
+        
+
+        $coachingsData = [];
+        $allCategories = [];
+        $contents = [];
+        foreach ($coachings as $course) {
+            $contents = [];
+            $AllCoachSteps= $this->coachingStepRepository->findAll();
+            $AllcoachContents= $this->coachingStepContentRepository->findAll();
+            foreach($AllCoachSteps as $coach){
+                if($coach->getIdCoaching() == $course->getId()){
+                    foreach($AllcoachContents as $content){
+                        if($content->getIdStep() == $coach->getIdStep()){
+                            $contents[] = $content;
+                        }
+                    }
+
+                }
+
+            }
+            $contributor = $this->contributorRepository->find($course->getIdContributor());
+            $user = $this->usersRepository->find($contributor ? $contributor->getIdUser() : null);
+            $ratings = $this->coachingRatingRepository->countByIdUser($user ? $user->getId() : null);
+            $followers = $this->contributorFollowersRepository->count(['idContributor' => $contributor ? $contributor->getId() : null]);
+            $coachCateg4=$course->getSousCategorie4();
+            $idsArray = explode(',', $coachCateg4);
+
+            // Convertir chaque élément en entier
+            $idsArray = array_map('intval', $idsArray);
+            $allCategories[] = $idsArray;
+
+           // $coachNiveauId = $course->getLevel();
+           $coachNiveauId = (int) $course->getLevel();
+ 
+           $coachNiveau = $coachNiveauId ? $this->coachingNiveauRepository->find($coachNiveauId) : null;
+           $label1 = $coachNiveau ? $coachNiveau->getLabel() : null;
+       
+            $coachingsData[] = [
+                'course' => $course,
+                'contributor' => $contributor,
+                'user' => $user,
+                'userImage' => $user ? $user->getPhoto() : null,
+                'ratings' => $ratings,
+                'coachNiveau' => $coachNiveau,
+                'label1' => $label1,
+                'followers'=>$followers,
+                'idsArray'=>$idsArray,
+                'allCategories'=>$allCategories,
+                'contents' => $contents,
+            ];
+        }
+
+        return $coachingsData;
+    }
     // filtrage coachings par mot clés 
     public function getCoachingsByKeyWord($mot){
         $coachings = $this->coachingRepository->findAll();
@@ -249,6 +397,46 @@ class CoachingService
         }
         return $searchedcoachings;
     }
+
+    public function getDuree(int $idCoaching) {
+        // Retrieve sections by course ID
+        $steps = $this->coachingStepRepository->findBy(['idCoaching' => $idCoaching]);
+    
+        // Initialize variables to store lecture and content IDs
+        $duree = null;
+    
+        // Iterate through sections to find associated lectures and content
+        foreach ($steps as $step) {
+            // Find a lecture by section ID
+            $stepContent = $this->coachingStepContentRepository->findOneBy(['idStep' => $step->getIdStep()]);
+            
+            if ($stepContent) {
+                //echo "Found step content for step ID " . $step->getIdStep() . "\n";
+                //echo "Durée trouvée: " . $stepContent->getDure() . "\n";
+                $duree = $stepContent->getDure();
+    
+                // Check if durée is valid
+                if ($duree === null) {
+                   // echo "Aucune durée trouvée pour le contenu de l'étape ID " . $stepContent->getIdStep() . "\n";
+                } elseif ($duree == 0) {
+                   // echo "Durée est 0 pour le contenu de l'étape ID " . $stepContent->getIdStep() . "\n";
+                } else {
+                    //echo "Durée valide trouvée: " . $duree . "\n";
+                    break; // Stop after finding the first matching lecture and content
+                }
+            } else {
+                //echo "Aucun contenu trouvé pour l'étape ID " . $step->getIdStep() . "\n";
+            }
+        }
+    
+        // Debug output
+       // echo "Durée finale pour coaching ID " . $idCoaching . ": " . $duree . "\n";
+    
+        // Return the duration found, or null if no matching records were found
+        return $duree;
+    }
+    
+
 
     public function getCoachingsByStepKeyWord($mot1){
         $steps = $this->coachingStepRepository->findAll();

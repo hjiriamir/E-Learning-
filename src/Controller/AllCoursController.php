@@ -16,6 +16,9 @@ use App\Service\Coaching\CoachingService;
 
 use Symfony\Component\HttpFoundation\JsonResponse;
 
+use App\Repository\CoursCategorieRepository;
+use App\Repository\CoursLanguageRepository;
+
 
 use Symfony\Component\HttpFoundation\Request;
 use App\Service\CourseService as ServiceCourseService;
@@ -24,6 +27,18 @@ use Symfony\Component\Validator\Constraints\Json;
 
 class AllCoursController extends AbstractController
 {
+    private $coursNiveauRepository;
+    private $coursCategorieRepository;
+    private $coursLanguageRepository;
+    public function __construct(CoursNiveauRepository $coursNiveauRepository,CoursCategorieRepository $coursCategorieRepository,CoursLanguageRepository $coursLanguageRepository)
+    {
+   
+        $this->coursNiveauRepository = $coursNiveauRepository;
+        $this->coursCategorieRepository = $coursCategorieRepository;
+        $this->coursLanguageRepository = $coursLanguageRepository;
+        
+    }
+
     #[Route('/cours_list', name: 'cours_list')]
     public function index(ServiceCourseService $coursService,Request $request): Response
     {
@@ -55,17 +70,64 @@ class AllCoursController extends AbstractController
     #[Route('/coursDiscount', name: 'coursDiscount')]
     public function CourseDiscount(ServiceCourseService $coursService,Request $request,CoachingService $coachingService): Response
     {
-        $maxDiscount = $request->get('max'); // Récupère la valeur du champ max
+
+         //Récuperation du barre de filtrage 
+         $levels9 =$this->coursNiveauRepository->findAll();
+         $categorys = $this->coursCategorieRepository->findAll();
+         $languages = $this->coursLanguageRepository->findAll();
+ 
+         $filters = $request->get('levels8');
+         //dd($filters);
+ 
+         $Filterslanguage = $request->get('lang8');
+         //dd($languages);
+ 
+         $FiltersCategorys = $request->get('categs8');
+         //dd($languages);
+         $durations = $request->get('durations', []);
+          // Récupérer les valeurs des prix
+         $minPrice = $request->get('min1'); // Récupère la valeur du champ min
+         
+         $maxPrice = $request->get('max1'); // Récupère la valeur du champ max
+        // dd($maxPrice);
+        $durMin = null;
+        $durMax = null;
+        
+        if (in_array('15--30', $durations)) {
+            $durMin = 15;
+            $durMax = 30;
+        } elseif (in_array('30-1h', $durations)) {
+            $durMin = 31;
+            $durMax = 60;
+        } elseif (in_array('Sup_1h2', $durations)) {
+            $durMin = 61;
+            $durMax = 10000;
+        } 
+        $durations = $request->get('durations', []);
+
+        $minPriceDisc = $request->get('min0'); // Récupère la valeur du champ min
+       
+        $maxPriceDisc = $request->get('max0');
+       // dd($maxPriceDisc);
+        $maxDiscount = $request->get('max1'); // Récupère la valeur du champ max
         //dd($maxDiscount);
-        $minDiscount = $request->get('min'); // Récupère la valeur du champ max
+        $minDiscount = $request->get('min1'); // Récupère la valeur du champ max
         //dd($minDiscount);
 
-        $contributorsData = $coursService->getContributorsData();
+       /* $contributorsData = $coursService->getContributorsData();
         $coursesData = $coursService->getCoursesDataa($maxDiscount,$minDiscount);
-        $categories=$coursService->getCourseCategorie();
-        $query = $request->query->get('query', '');
-        $coachingData=$coachingService->getCoachingDataa($maxDiscount,$minDiscount);
+        
+        
+        $coachingData=$coachingService->getCoachingDataa($maxDiscount,$minDiscount);*/
        // dd($coachingData);
+       $categories=$coursService->getCourseCategorie();
+       $contributorsData = $coursService->getContributorsData($Filterslanguage,$filters,$FiltersCategorys, $maxPriceDisc,$minPriceDisc);
+        // on recupere les courses en fonction du filtre
+        $coursesData = $coursService->getFiltredCourses($filters,$Filterslanguage,$FiltersCategorys, $maxPriceDisc,$minPriceDisc,$durMin,$durMax, $minDiscount,$maxDiscount); 
+       // dd($coursesData);
+       // $coachingData=$coachingService->getCoachingDataaa($Filterslanguage,$filters,$FiltersCategorys, $minPrice,$maxPrice,$durMin,$durMax,$maxDiscount,$minDiscount, $maxPriceDisc,$minPriceDisc);
+
+        $coachingData=$coachingService->getCoachingDataa($filters,$Filterslanguage,$FiltersCategorys, $maxPriceDisc,$minPriceDisc,$durMin,$durMax, $maxDiscount,$minDiscount);
 
         $CoursCateg4= $coursService->getCourseCategorie4();
         foreach($CoursCateg4 as $categ){
@@ -73,6 +135,7 @@ class AllCoursController extends AbstractController
         }
         
         $subsubcategoryId = $request->query->get('subsubcategoryId');
+        $query = $request->query->get('query', '');
         $coursFinal= $coursService->getCours($query);
         $subcateg4 = $coursService->getSubCateg4($subsubcategoryId);
        /* if ($request->query->get('ajax')) {
@@ -89,21 +152,55 @@ class AllCoursController extends AbstractController
                 'content' => $content1 . $content2,
             ]);
         }*/
-        
+       
+        $coursFinal= $coursService->getCours($query);
+        $contributorFinal= $coursService->getContributors($query);
+        $searchedCoachings = $coachingService->getCoachings($query);
+
+        $categories=$coursService->getCourseCategorie();
+        $categories2=$coursService->getCourseCategorie2();
+        $categories3=$coursService->getCourseCategorie3();
+        $categories4=$coursService->getCourseCategorie4();
+
+        $coachCategorie=$coachingService->getCoachingCategorie();
+        $coachCategorie2=$coachingService->getCoachingCategorie2();
+        $coachCategorie3=$coachingService->getCoachingCategorie3();
+        $coachCategorie4=$coachingService->getCoachingCategorie4();
+
+
+        $vale="English";
+        $minPrice1 = $request->request->get('min');
+        $maxPrice1 = $request->request->get('max');
+
+        $minPrice1Coach = $request->request->get('min');
+        $maxPrice1Coach = $request->request->get('max');
         
         if ($request->query->get('ajax')) {
          
         // Rendu des vues partielles
         $content1 = $this->renderView('search/_ContentDiscount.html.twig', [
-            'courses' => $coursesData, // Remplacez par vos données de cours
+           // 'courses' => $coursesData, // Remplacez par vos données de cours
+           'courses' => $coursesData,          
+           'levels9' => $levels9,
+           'filters' => $filters,
+           'categorys' => $categorys,
+           'languages' => $languages,
+           'Filterslanguage' => $Filterslanguage,
+           'FiltersCategorys' => $FiltersCategorys,
         ]);
 
         $content2 = $this->renderView('search/_ContentDiscCoach.html.twig', [
-            'coachingData' => $coachingData, // Remplacez par vos données de coaching
+            //'coachingData' => $coachingData, // Remplacez par vos données de coaching
+            'coachingData' => $coachingData,
+            'levels9' => $levels9,
+            'filters' => $filters,
+            'categorys' => $categorys,
+            'languages' => $languages,
+            'Filterslanguage' => $Filterslanguage,
+            'FiltersCategorys' => $FiltersCategorys,
         ]);
 
-        // Séparateur HTML
-        $separator = '----------------------------------------------------------';
+      
 
         // Création du JSON
         
@@ -119,7 +216,7 @@ class AllCoursController extends AbstractController
         //return new JsonResponse($response);
        
     }
-        return $this->render('search/coursesDiscount.html.twig', [
+        return $this->render('search/CoursesDiscount.html.twig', [
             'contributors1' => $contributorsData,
             'courses' => $coursesData,
             'categories'=>$categories,
@@ -129,48 +226,22 @@ class AllCoursController extends AbstractController
             'coursFinal' => $coursFinal,
             'subcateg4' => $subcateg4,
             'coachingData' => $coachingData,
+            'levels9' => $levels9,
+            'filters' => $filters,
+            'categorys' => $categorys,
+            'languages' => $languages,
+            'Filterslanguage' => $Filterslanguage,
+            'FiltersCategorys' => $FiltersCategorys,
         ]);
     }
 
 
-   /* #[Route('/course_Discount', name: 'course_Discount')]
-    public function discount(ServiceCourseService $coursService,Request $request): Response
-    {
-        $maxDiscount = $request->get('max'); // Récupère la valeur du champ max
-        //dd($maxDiscount);
-        $contributorsData = $coursService->getContributorsData();
-        $coursesData = $coursService->getCoursesDataa($maxDiscount);
-        //dd($coursesData);
-        $categories=$coursService->getCourseCategorie();
-        $query = $request->query->get('query', '');
-        $ListCoursId=[];
-        $CoursCateg4= $coursService->getCourseCategorie4();
-        foreach($CoursCateg4 as $categ){
-                $ListCoursId=$categ->getIdCateg4();
-        }
-        
-        $subsubcategoryId = $request->query->get('subsubcategoryId');
-        $coursFinal= $coursService->getCours($query);
-        $subcateg4 = $coursService->getSubCateg4($subsubcategoryId);
-        if ($request->query->get('ajax')) {
-            return new JsonResponse([
-            'content' => $this->renderView('search/_ContentDiscount.html.twig', [
-                    // vos données ici
-                'courses' => $coursesData,
-            ])
-        ]);
-    }
-        return $this->render('search/CouDisc.html.twig', [
-            'contributors1' => $contributorsData,
-            'courses' => $coursesData,
-            'categories'=>$categories,
-            'subsubcategoryId' => $subsubcategoryId,
-            'ListCoursId' => $ListCoursId,
-            'query' => $query,
-            'coursFinal' => $coursFinal,
-            'subcateg4' => $subcateg4,
-        ]);
-    }*/
+   
+
+
+
+
+
     #[Route('/coach_Discount', name: 'coach_Discount')]
     public function discountCoach(CoachingService $coachingService,Request $request): Response
     {

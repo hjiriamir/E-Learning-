@@ -1,14 +1,21 @@
- <p>Nb {{ coachingData|length }}</p>
-{{vale}}
+ {% if coachingData|length == 0 %}
+    <p style="display:none">No coachings found according to your filter. Please consider exploring other options.</p>
+{% else %}
+    <p style="display:none">Nb {{ coachingData|length }}</p>
+{% endif %}
 
- {% for item in coachingData %}
+{% for item in coachingData %}
      {#{% if (item.course.prix >= minPrice) and (item.course.prix <= maxPrice) %}#}
 <div class="cardProduct cardCourseProduct swiper-slide" data-category="{{ item.course.description }}">                                        <div class="card98 course-card course-card1">
                                             <div class="row no-gutters">
                                                 <div class="col-12" style="position:relative;">
                                                     <div class="labelImg" style="position:absolute;">Coaching</div>
 
-                                                    <img src="{{item.course.videoDescriptive}}" class="card-img" alt="Course Image">
+                                                  <video controls class="card-img">
+    <source src="{{ item.course.videoDescriptive }}" type="video/mp4">
+    Votre navigateur ne supporte pas la lecture de vidéos.
+</video>
+
                                                 </div>
                                                 <div class="col-12">
                                                     <div class="card-body">

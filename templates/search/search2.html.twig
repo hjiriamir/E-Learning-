@@ -385,8 +385,8 @@
 
             <div class="container-product p-4">
             <h4 class="fw-bold">Product</h4>
-            <label for="all_product">All Products</label>
-            <input type="checkbox" name="all_product" id="all_product" value="all_product" class="checkbox" ><br>
+         
+
             <label for="tuto">Courses</label>
             <input type="checkbox" name="tuto" id="tuto" value="tutocourse" class="checkbox" ><br>
             <label for="coach">Coachings</label>
@@ -395,9 +395,8 @@
             <input type="checkbox" name="tutors" id="tutors" value="tutors" >
           </div>
 
- 
-            <script>
-                document.addEventListener('DOMContentLoaded', function() {
+   <script>
+              /*  document.addEventListener('DOMContentLoaded', function() {
                     const checkboxes = document.querySelectorAll('.container-product input[type="checkbox"]');
                     checkboxes.forEach(checkbox => {
                         checkbox.addEventListener('change', function() {
@@ -425,8 +424,9 @@
                                 .catch(error => console.error('Error:', error));
                         });
                     });
-                });
+                });*/
             </script>
+           
              <p> <span id="global-status-display" style="display:none">{{ data.selectedProduct }}</span></p>
             {% set global_product = "" %}
             {% set all_products = ['tutocourse', 'coaching', 'tutors'] %}
@@ -456,7 +456,7 @@
 {% endif %}
 
 
-{% if amir4 == 3 %}
+{#{% if amir4 == 3 %}
             <div class="container-category p-4 category " id="category-course">
                 <h4 class="fw-bold">Category </h4>
                 <ul class="custom-list" style="margin-left:-10px !important;">
@@ -494,7 +494,7 @@
                 </li>
                 </ul>
             </div>
-            {% endif %}
+            {% endif %}#}
   {% set amir2 = 0 %}    
    {% set global_categ = [1, 2, 3, 4, 5, 6, 7] %}     
             {% if data.selectedCategoryy == 'all_category' %}
@@ -559,20 +559,20 @@
 </script>
 
 <!-- category section for all page content -->
-{% if amir4 == 2 %}
-<form id="categForm">
-    <div class="container-category p-4 category " id="category-course">
-    <h4 class="fw-bold">Category1</h4>
-
- {% for categorie in categorys %}
-                    {# On vérifie si la catégorie est dans les paramètres #}
-                   
-
-                    <p><input type="checkbox" name="categs8[]" id="cat3{{categorie.idCategorie}}" value="{{categorie.idCategorie}}" > 
-                    <label for="cat3{{categorie.idCategorie}}">{{categorie.label}}</label></p>
+{#{% if amir4 == 2 %}#}
+  <form id="categForm">
+ <div class="container-category p-4 category " id="category-course">
+                <h4 class="fw-bold">Category </h4>
+                <ul class="custom-list" style="margin-left:-10px !important;">
+                {% for categorie in categorys %}
+                <li>
+                <label for="cat3{{categorie.idCategorie}}">{{categorie.label}}</label>
+                <input type="checkbox" name="categs8[]"  id="cat3{{categorie.idCategorie}}" value="{{categorie.idCategorie}}" class="checkbox"><br>
+                </li>
                 {% endfor %}
-</div>
-  </form>
+                </ul>
+            </div>
+            </form>
  {#<div class="container-category p-4 category " id="category-course">
                 <h4 class="fw-bold">Category1 </h4>
                 <ul class="custom-list" style="margin-left:-10px !important;">
@@ -609,10 +609,10 @@
                 <input type="checkbox" name="Teachingg" id="Teachingg"  value="Teachingg">
                 </li>
                 </ul>
-            </div>#}
-            {% endif %}
+            </div>
+            {% endif %}#}
 <!--end category section for all page content -->
-{% if amir4 == 5 %}
+{#{% if amir4 == 5 %}
 
               <div class="container-category0 p-4 category " id="category-tutors" >
                 <h4 class="fw-bold">Category Tutors</h4>
@@ -651,7 +651,7 @@
                 </li>
                 </ul>
             </div>
-            {% endif %}
+            {% endif %}#}
             <h3 style="display:none">category selectionner : {{data.selectedCategoryCoach}}</h3>
  {% set VarT = 0 %}    
    {% set global_categCoach = [1, 2, 3, 4, 5, 6, 7] %}     
@@ -720,21 +720,19 @@
 
 
              {% set global_status = 0 %}
-{% if amir4 == 2 %}
-<form id="filters1">
-     <div class="container-level p-4" id="levels0">
-    <h4 class="fw-bold">Level</h4>
-
+{#{% if amir4 == 2 %}#}
+  <form id="filters1">
+  <div class="container-level p-4" >
+            <h4 class="fw-bold">Level</h4>
  {% for categorie in levels9 %}
-                    {# On vérifie si la catégorie est dans les paramètres #}
-                   
+            <label for="cat{{categorie.idNiveau}}">{{categorie.label}}</label>
+            <input type="checkbox" id="cat{{categorie.idNiveau}}" class="float-end" name="levels8[]" value="{{categorie.idNiveau}}"><br>
 
-                    <p><input type="checkbox" name="levels8[]" id="cat{{categorie.idNiveau}}" value="{{categorie.idNiveau}}" > 
-                    <label for="cat{{categorie.idNiveau}}">{{categorie.label}}</label></p>
-                {% endfor %}
-</div>
-  </form>
-        {% endif %}
+      
+{% endfor %}
+        </div>
+        </form>
+        {#{% endif %}#}
         
             <p id="val1" style="display: none;">{{ data.val1 }}</p>
             <p id="special-message" style="display: none;">jawek bhy brrsha </p>
@@ -820,7 +818,7 @@
 {% endif %}
 
 <!-- levels section for all page content -->
-{% if amir4 == 3 %}
+{#{% if amir4 == 3 %}
   <div class="container-level p-4" id="levels0">
             <h4 class="fw-bold">Level1</h4>
 
@@ -841,7 +839,6 @@
 
         </div>
         {% endif %}
-<!-- end levels section for all page content -->
 {% if amir4 == 5 %}
             <div class="container-level0 p-4" id="levels1" >
                 <h4 class="fw-bold">Tutors Level</h4>
@@ -862,7 +859,7 @@
                 <input type="checkbox" id="tutor_Professionnel" class="float-end" name="tutor_Professionnel" value="tutor_Professionnel">
 
             </div>
-{% endif %}
+{% endif %}#}
             <p id="val1" style="display: none;">{{ data.val1 }}</p>
             <p id="special-message" style="display: none;"></p>
 
@@ -929,7 +926,7 @@
           </div>
 
           <!-- tutors duration  -->
-          {% if amir4 == 2 %}
+         {# {% if amir4 == 2 %}#}
           <form id="durationForm">
  <div class="container-durationn p-4" >
             <h4 class="fw-bold" >Durationn</h4>
@@ -944,8 +941,7 @@
             <input type="checkbox" name="durations[]" id="1h2" value="Sup_1h2">
           </div>
           </form>
-          {% endif %}
-          <h5>amir : {{data.selectedDurationCoach }}</h5>
+          {#{% endif %}#}
 
             {% set globalCoach_durationMax = 10000000000  %}
           {% set globalCoach_durationMin = 0  %}
@@ -965,12 +961,10 @@
 {% endif %}
       {% for a in coachingData %}
       {% if a.contents is defined and a.contents.dure is defined %}
-     <h5>la dure du contenu:  {{a.contents.dure}}</h5>
       {% endif %}
       {% endfor %}
 
 
- <p id="selected-duration" >{{ data.selectedDurationCoach }}</p>
 
 
 <script>
@@ -1029,7 +1023,7 @@
             </script>
           <!-- end tutors duration -->
 
-{% if amir4 == 3 %}
+{#{% if amir4 == 3 %}
           <div class="container-duration p-4">
             <h4 class="fw-bold">Duration</h4>
            
@@ -1045,7 +1039,7 @@
             <label for="1h">1h ></label>
             <input type="checkbox" name="1h" id="1h" value="Sup_1h">
           </div>
-          {% endif %}
+          {% endif %}#}
           {% set global_durationMax = 10000000000  %}
           {% set global_durationMin = 0  %}
         
@@ -1131,7 +1125,7 @@
 
   {% set global_variable = 0 %}
   {% set global_variable1 = [1, 2, 3, 4] %}
-{% if amir4 == 3 %}
+{#{% if amir4 == 3 %}
           <div class="container-language p-4" id="coursesLanguage">
             <h4 class="fw-bold">language</h4>
               <label for="All_Languages">All Languages</label>
@@ -1149,7 +1143,7 @@
             <input type="checkbox" name="Español" id="Español" value="Español"><br>
 
           </div>
-          {% endif %}
+          {% endif %}#}
  <p id="selected-language" style="display:none">{{ data.selectedLanguage }}</p>
             <p id="val1" style="display: none;">{{ data.val1 }}</p>
             <p id="special-message" style="display: none;"></p>
@@ -1195,80 +1189,27 @@
         });
     });
 });
-               /* document.addEventListener('DOMContentLoaded', function() {
-                    // Gestion des checkboxes de langue
-                    const languageCheckboxes = document.querySelectorAll('.container-language input[type="checkbox"]');
-                    const selectedLanguageElement = document.getElementById('selected-language');
-                    const val1Element = document.getElementById('val1');
-                    const specialMessageElement = document.getElementById('special-message');
-                    // Charger la langue sélectionnée à partir du serveur lorsque la page est chargée
-                    fetch('{{ path('fetch_selected_language') }}')
-                        .then(response => response.json())
-                        .then(data => {
-                            selectedLanguageElement.textContent = 'Selected Language: ' + data.selectedLanguage;
-                            if (data.selectedLanguage === '{{ vale }}') {
-                                specialMessageElement.style.display = 'block'; // Afficher le message spécial
-                            } else {
-                                specialMessageElement.style.display = 'none'; // Cacher le message spécial
-                            }
-                        });
-                    languageCheckboxes.forEach(checkbox => {
-                        checkbox.addEventListener('change', function() {
-                            // Envoi de la langue sélectionnée au serveur
-                            fetch('{{ path('handle_language_selection') }}', {
-                                method: 'POST',
-                                headers: {
-                                    'Content-Type': 'application/json',
-                                    'X-Requested-With': 'XMLHttpRequest',
-                                },
-                                body: JSON.stringify({ language: this.value })
-                            })
-                                .then(response => response.json())
-                                .then(data => {
-                                    // Mise à jour de l'interface utilisateur
-                                    selectedLanguageElement.textContent = 'Selected Language: ' + this.value;
-                                    val1Element.style.display = 'block'; // Afficher val1
-
-                                    // Mettre à jour la condition en temps réel si nécessaire
-                                    if (this.value === '{{ vale }}') {
-                                        specialMessageElement.style.display = 'block'; // Afficher le message spécial
-                                    } else {
-                                        specialMessageElement.style.display = 'none'; // Cacher le message spécial
-                                    }
-                                    window.location.reload();
-                                });
-                        });
-                    });
-                });*/
+              
             </script>
           <!--  language section for all page content -->
-          {% if amir4 == 2 %}
-          <form id="formLangue">
-  <div class="container-languagee p-4" id="coursesLanguage">
-            <h4 class="fw-bold">language11</h4>
-              {#<label for="All_Languages1">All Languages</label>
-                <input type="checkbox" name="All_Languages1" id="All_Languages1" value="All_Languages1"><br>
-            <label for="English1">English</label>
-            <input type="checkbox" name="English1" id="English1" value="English1"><br>
-
-            <label for="Français1">Français</label>
-            <input type="checkbox" name="Français1" id="Français1" value="Français1"><br>
-
-            <label for="arab1">العربية</label>
-            <input type="checkbox" name="arab1" id="arab1" value="arab1"><br>#}
+        {#  {% if amir4 == 2 %}#}
+       <form id="formLangue">
+           <div class="container-languagee p-4"  >
+                <h4 class="fw-bold">Language</h4>
 {% for lang in languages %}
-           
+                <label for="cat2{{lang.idLangue}}">{{lang.label}}</label>
+                <input type="checkbox" name="lang8[]" id="cat2{{lang.idLangue}}" value="{{lang.idLangue}}"><br>
 
-             <p><input type="checkbox" name="lang8[]" id="cat2{{lang.idLangue}}" value="{{lang.idLangue}}" > 
-                    <label for="cat2{{lang.idLangue}}">{{lang.label}}</label></p>
+               
 {% endfor %}
-          </div>
+            </div>
+
           </form>
-          {% endif %}
+          {#{% endif %}#}
           <!-- end language section for all page content -->
 
           
-{% if amir4 == 5 %}
+{#{% if amir4 == 5 %}
             <div class="container-languageCoach p-4" id="tutorsLanguage" >
                 <h4 class="fw-bold">Tutors language</h4>
 
@@ -1289,9 +1230,8 @@
 
             </div>
 
-        {% endif %}
+        {% endif %}#}
 
-<p id="selected-language" style="display:none"> {{ data.selectedCoachLanguage }}</p>
             <p id="val1" style="display: none;">{{ data.val1 }}</p>
             <p id="special-message" style="display: none;"></p>
          {% set vatCoachLang = 0 %}
@@ -1378,7 +1318,7 @@
     {% set priceMax = maxPrice1 %}
     {% set amir3 = 3 %}
 {% endif %}
-          {% if amir4 == 3 %}
+         {# {% if amir4 == 3 %}
           <div id="priceCours">
     <form id="priceForm" action="{{ path('course') }}" method="post">
         <div class="range mt-4">
@@ -1402,7 +1342,7 @@
         </div>
     </form>
 </div>
- {% endif %}
+ {% endif %}#}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('priceForm');
@@ -1440,7 +1380,7 @@ document.addEventListener('DOMContentLoaded', function() {
 {{maxPrice1}}#}
         
           <!--  price section for all page content -->
-          {% if amir4 == 2 %}
+          {#{% if amir4 == 2 %}#}
            <form id="priceForme">
     <div class="range mt-4">
         <h4 class="fw-bold m-4">Price1</h4>
@@ -1462,7 +1402,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </form>
-{% endif %}
+{#{% endif %}
    {% if amir4 == 5 %}
            <form id="priceFormeCoach" action="{{ path('course') }}" method="post">
     <div class="range mt-4">
@@ -1485,7 +1425,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
     </div>
 </form>
-{% endif %}
+{% endif %}#}
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('priceFormeCoach');
@@ -1630,7 +1570,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </li>
             </ul>
             </div>
-
+          <form id="ContentForm">
             <div class="container-content p-4" style="margin-left:-8px !important;">
                 <h4 class="fw-bold">Content</h4>
                    <ul style="list-style: none !important;margin-left:-28px !important;">
@@ -1652,7 +1592,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 </li>
                 </ul>
             </div>
-
+</form>
         </div>
 
   <div class="leftpaneMobile1" style="display:none ;" >
@@ -3376,7 +3316,7 @@ width:70px !important;
   <h4>Search results by the word 'label'</h4>
    {% endif %}
 {# templates/course/index.html.twig #}
-{% if amir4 == 2 %}
+{% if amir4 == 2 and search1 == 0 %}
 {#{% if amir4 == 3 or amir4 != 4 or A == 0 %}
 {% if  amir == 0  or amir1 == 0 or amir2 == 0 or amir3 != 0 %}#}
    {% if global_variable1|length > 0 or global_level1|length > 0 or global_categ|length > 0 %}
@@ -4259,7 +4199,7 @@ function filterCards(category) {
         {% endif %}
         {% endif %}
 
-        {% if search2 == 1 %}
+        {% if search2 == 1  %}
          <div id="instructor-block" >
  <div class="d-flex align-items-center containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
     <div class="">
@@ -4929,7 +4869,7 @@ let currentFilter = 'allCourses';
             <div class=" d-flex align-items-center  containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
                 <div class="">
                     <div class="boxTitle91 mt-1 mx-5">
-                        <h4>Top Coaching 1 to 15 </h4>
+                        <h4>Top Coaching 1 to 1 </h4>
                     </div>
                 </div>
                 <div class=" text-left   justify-content-end  float-end d-flex">
@@ -8130,6 +8070,9 @@ var swiper = new Swiper(".slide-container", {
    <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/contenu.js')}}"></script>
    <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/contenuLang.js')}}"></script>
    <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/contenuCateg.js')}}"></script>
+    <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/filtrage.js')}}"></script>
+    <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/category.js')}}"></script>
+   
 
 
 <div id="sfwdt701194" class="sf-toolbar sf-display-none" role="region" aria-label="Symfony Web Debug Toolbar">    <!-- START of Symfony Web Debug Toolbar --><div id="sfMiniToolbar-701194" class="sf-minitoolbar" data-no-turbolink>    <button type="button" title="Show Symfony toolbar" id="sfToolbarMiniToggler-701194" accesskey="D" aria-expanded="false" aria-controls="sfToolbarMainContent-701194">        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#AAA" d="M12 .9C5.8.9.9 5.8.9 12a11 11 0 1 0 22.2 0A11 11 0 0 0 12 .9zm6.5 6c-.6 0-.9-.3-.9-.8 0-.2 0-.4.2-.6l.2-.4c0-.3-.5-.4-.6-.4-1.8.1-2.3 2.5-2.7 4.4l-.2 1c1 .2 1.8 0 2.2-.3.6-.4-.2-.7-.1-1.2.1-.3.5-.5.7-.6.5 0 .7.5.7.9 0 .7-1 1.8-3 1.8l-.6-.1-.6 2.4c-.4 1.6-.8 3.8-2.4 5.7-1.4 1.7-2.9 1.9-3.5 1.9-1.2 0-1.9-.6-2-1.5 0-.8.7-1.3 1.2-1.3.6 0 1.1.5 1.1 1s-.2.6-.4.6c-.1.1-.3.2-.3.4 0 .1.1.3.4.3.5 0 .8-.3 1.1-.5 1.2-.9 1.6-2.7 2.2-5.7l.1-.7.7-3.2c-.8-.6-1.3-1.4-2.4-1.7-.6-.1-1.1.1-1.5.5-.4.5-.2 1.1.2 1.5l.7.6c.7.8 1.2 1.6 1 2.5-.3 1.5-2 2.6-4 1.9-1.8-.6-2-1.8-1.8-2.5.2-.6.6-.7 1.1-.6.5.2.6.7.6 1.2l-.1.3c-.2.1-.3.3-.3.4-.1.4.4.6.7.7.7.3 1.6-.2 1.8-.8a1 1 0 0 0-.4-1.1l-.7-.8c-.4-.4-1.1-1.4-.7-2.6.1-.5.4-.9.7-1.3a4 4 0 0 1 2.8-.6c1.2.4 1.8 1.1 2.6 1.8.5-1.2 1-2.4 1.8-3.5.9-.9 1.9-1.6 3.1-1.7 1.3.2 2.2.7 2.2 1.6 0 .4-.2 1.1-.9 1.1z"/></svg>

@@ -171,11 +171,13 @@ class CourseService
 // End Contributor section 
 
 // Course Section 
-    public function getCoursesData($filters = null , $Filterslanguage = null, $FiltersCategorys = null , $minPrice = null, $maxPrice = null, $durMin= null, $durMax = null)
+    public function getCoursesData($filters = null , $Filterslanguage = null, $FiltersCategorys = null , $minPrice = null, $maxPrice = null, $durMin = null, $durMax = null)
     {
         
         //cours Content recuperation
         $courses = $this->coursRepository->findAll();
+
+        
 
         if ($filters !== null && !empty($filters)) {
             $filteredCourses = array_filter($courses, function($cour) use ($filters) {
@@ -209,7 +211,8 @@ class CourseService
                 foreach($courses as $cour){
                     $dure = $this->getDuree($cour->getId());
                     if($dure >= $durMin && $dure <= $durMax ){
-                                $filteredCourses=$cour;
+                                //$filteredCourses=$cour;
+                                $filteredCourses[] = $cour;
                     }
               }
               $courses = $filteredCourses;
@@ -295,7 +298,140 @@ class CourseService
     }
 
 
-    public function getCoursesDataa($maxDiscount = null ,$minDiscount = null )
+    public function getFiltredCourses($filters = null , $Filterslanguage = null, $FiltersCategorys = null , $maxPriceDisc  = null, $minPriceDisc  = null, $durMin = null, $durMax = null,$minDiscount = null ,$maxDiscount = null)
+    {
+        
+        //cours Content recuperation
+        $courses = $this->coursRepository->findAll();
+
+      
+
+        if ($filters !== null && !empty($filters)) {
+            $filteredCourses = array_filter($courses, function($cour) use ($filters) {
+                return in_array($cour->getLevel(), $filters);
+            });
+            $courses = $filteredCourses;
+        }
+
+    
+
+        if ($FiltersCategorys !== null && !empty($FiltersCategorys)) {
+            $filteredCourses = array_filter($courses, function($cour) use ($FiltersCategorys) {
+                return in_array($cour->getCategorie(), $FiltersCategorys);
+            });
+            $courses = $filteredCourses;
+        }
+        if ($Filterslanguage !== null && !empty($Filterslanguage)) {
+            $filteredCourses = array_filter($courses, function($cour) use ($Filterslanguage) {
+                return in_array($cour->getLangue(), $Filterslanguage);
+            });
+            $courses = $filteredCourses;
+        }
+     
+        if ($minPriceDisc !== null && $maxPriceDisc !== null) {
+            $filteredCourses = array_filter($courses, function($cour) use ($minPriceDisc, $maxPriceDisc) {
+                return ($cour->getPrix() >= $minPriceDisc) && ($cour->getPrix() <= $maxPriceDisc) ;
+            });
+            $courses = $filteredCourses;
+        }
+      
+            if($durMin !== null && $durMax!== null){
+                foreach($courses as $cour){
+                    $dure = $this->getDuree($cour->getId());
+                    if($dure >= $durMin && $dure <= $durMax ){
+                                //$filteredCourses=$cour;
+                                $filteredCourses[] = $cour;
+                    }
+              }
+              $courses = $filteredCourses;
+            }
+            if ($minDiscount !== null && $maxDiscount !== null) {
+                $filteredCourses = array_filter($courses, function($cour) use ($minDiscount, $maxDiscount) {
+                    return ($cour->getDiscount() >= $minDiscount) && ($cour->getDiscount() <= $maxDiscount) ;
+                });
+                $courses = $filteredCourses;
+            }
+        $coursesData = [];
+
+        $contents = [];
+        $allCoursCategories = [];
+        foreach ($courses as $course) {
+           /* $AllSections= $this->coursSectionRepository->findAll();
+            $AllCoursLecture= $this->coursLectureRepository->findAll();
+            $Allcontents= $this->lectureContentRepository->findAll();*/
+            $contents = [];
+            $AllSections= $this->coursSectionRepository->findAll();
+            $AllCoursLecture= $this->coursLectureRepository->findAll();
+            $Allcontents= $this->lectureContentRepository->findAll();
+
+            foreach($AllSections as $sec){
+                if($sec->getIdCours()== $course->getId()){
+                   // $SectionsData[]=$sec;
+                    foreach($AllCoursLecture as $lec){
+                            if($lec->getIdSection()== $sec->getIdSection()){
+                                        foreach($Allcontents as $cont){
+                                                if($cont->getIdLecture()==$lec->getIdLecture()){
+                                                   // $LectureContentData []=$cont;
+                                                   $contents[] = $cont;
+                                                }
+                                        }
+                            }
+                    }
+                }
+            }
+            
+          
+
+ //end cours Content recuperation
+
+ //convertir chaine de caractere des sousCateg4 en des entiers
+            $coursCateg4=$course->getSousCategorie4();
+            $idsArray = explode(',', $coursCateg4);
+             // Convertir chaque élément en entier
+             $idsArray = array_map('intval', $idsArray);
+             $allCategories[] = $idsArray;
+
+            $contributor = $this->contributorRepository->find($course->getIdContributor());
+            $user = $this->usersRepository->find($contributor ? $contributor->getIdUser() : null);
+            $followers = $this->contributorFollowersRepository->count(['idContributor' => $contributor ? $contributor->getId() : null]);
+            $ratings = $this->contributorRatingRepository->countByIdContributor($contributor ? $contributor->getId() : null);
+            
+            $coursNiveauId = $course->getLevel();
+            $coursNiveau = $coursNiveauId ? $this->coursNiveauRepository->find($coursNiveauId) : null;
+            $label1 = $coursNiveau ? $coursNiveau->getLabel() : null;
+            $ratings1 = $this->coursRatingRepository->findAll();
+            $ratings2 = null;
+            $Id2=(int) $course->getSousCategorie4();
+            foreach ($ratings1 as $rat) {
+                if ($rat->getIdCours() == $course->getId()) {
+                    $ratings2 = $rat->getValue();
+                }
+            }
+
+            $coursesData[] = [
+                'course' => $course,
+                'contributor' => $contributor,
+                'user' => $user,
+                'courseImage' => $course->getImageCours(),
+                'userImage' => $user ? $user->getPhoto() : null,
+                'followers' => $followers,
+                'ratings' => $ratings,
+                'coursNiveau' => $coursNiveau,
+                'label1' => $label1,
+                'ratings2' => $ratings2,
+                'Id2' => $Id2,
+                'contents' => $contents,
+                'idsArray'=>$idsArray,
+                'allCategories'=>$allCategories,
+            ];
+          
+        }
+
+        return $coursesData;
+    }
+
+
+    public function getCoursesDataa($maxDiscount = null ,$minDiscount = null ,$filters = null , $Filterslanguage = null, $FiltersCategorys = null , $minPrice = null, $maxPrice = null, $durMin = null, $durMax = null)
     {
         
         //cours Content recuperation
@@ -303,11 +439,7 @@ class CourseService
 
       
            
-    /*if ($maxDiscount !== null && $minDiscount !== null  ) {
-        $courses = array_filter($courses, function ($cour) use ($maxDiscount) {
-            return $cour->getDiscount() <= $maxDiscount;
-        });        
-    }*/
+    
       // Filtrage des cours en fonction des valeurs maxDiscount et minDiscount
       if ($maxDiscount !== null && $minDiscount !== null) {
         $courses = array_filter($courses, function ($cour) use ($maxDiscount, $minDiscount) {
@@ -452,14 +584,68 @@ class CourseService
     public function getSectionsByLecture(int $id){
 
     }
-public function getDuree(int $idCours){
+/*public function getDuree(int $idCours){
     $sectionId = $this->coursSectionRepository->findBy(['idCours' => $idCours]);
-    $LectureId = $this->coursLectureRepository->findBy(['idSection'=>$sectionId]);
+    $LectureId = $this->coursLectureRepository->findOneBy(['idSection'=>$sectionId]);
     $contentId = $this->lectureContentRepository->findOneBy(['idLecture'=>$LectureId]);
     //$content1 = $this->lectureContentRepository->findOneBy(['idContent'=>$contentId]);
 
-    return $this->$LectureId->getDuree;
+    return $this->$LectureId->getDuree();
+}*/
+public function getDuree(int $idCours) {
+    // Retrieve sections by course ID
+    $sections = $this->coursSectionRepository->findBy(['idCours' => $idCours]);
+
+    // Initialize variables to store lecture and content IDs
+    $duree = null;
+
+    // Iterate through sections to find associated lectures and content
+    foreach ($sections as $section) {
+        // Find a lecture by section ID
+        $lecture = $this->coursLectureRepository->findOneBy(['idSection' => $section->getIdSection()]);
+
+        if ($lecture) {
+            // Find content by lecture ID
+            $content = $this->lectureContentRepository->findOneBy(['idLecture' => $lecture->getIdLecture()]);
+
+            if ($content) {
+                // Assuming getDuree() is a method in the Lecture entity
+                $duree = $content->getDure();
+                break; // Stop after finding the first matching lecture and content
+            }
+        }
+    }
+
+    // Return the duration found, or null if no matching records were found
+    return $duree;
 }
+public function getCoursContent(int $idCours) {
+    // Retrieve sections by course ID
+    $sections = $this->coursSectionRepository->findBy(['idCours' => $idCours]);
+
+    // Initialize variables to store lecture and content IDs
+
+    // Iterate through sections to find associated lectures and content
+    foreach ($sections as $section) {
+        // Find a lecture by section ID
+        $lecture = $this->coursLectureRepository->findOneBy(['idSection' => $section->getIdSection()]);
+
+        if ($lecture) {
+            // Find content by lecture ID
+            $content = $this->lectureContentRepository->findOneBy(['idLecture' => $lecture->getIdLecture()]);
+
+            if ($content) {
+                // Assuming getDuree() is a method in the Lecture entity
+                $duree = $content->getDure();
+                break; // Stop after finding the first matching lecture and content
+            }
+        }
+    }
+
+    // Return the duration found, or null if no matching records were found
+    return $content;
+}
+
   
     public function getCourseBykeyWord(string $mot1){
         $courses = $this->coursRepository->findAll();

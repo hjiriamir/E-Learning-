@@ -346,7 +346,7 @@
     // Initialiser l'affichage au chargement de la page avec les paramètres par défaut
     updateContent(getCombinedParams());
 };*/
-window.onload = () => {
+/*window.onload = () => {
     const FiltersForm2 = document.querySelector("#durationForm"); // Formulaire de durée
     const FiltersFormLangue = document.querySelector("#formLangue");  // Formulaire de langue
     const filtersFormNiveau = document.querySelector("#filters1");     // Formulaire de niveau
@@ -381,7 +381,7 @@ window.onload = () => {
             alert('Une erreur s\'est produite. Veuillez réessayer.');
         });
     };
-
+console.log(Url);
     // Fonction pour récupérer et combiner les paramètres des formulaires
     const getCombinedParams = () => {
         const combinedParams = new URLSearchParams();
@@ -455,4 +455,5 @@ window.onload = () => {
 
     // Initialiser l'affichage au chargement de la page avec les paramètres par défaut
     updateContent(getCombinedParams());
-};
+};*/
+console.log("Bonjour amir");

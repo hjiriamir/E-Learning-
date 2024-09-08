@@ -407,37 +407,17 @@
 
 
 <form id="DiscountForm">
-{#<div class="range mt-4">
-    <h4 class="fw-bold m-4">Discount Percentage</h4>
-    <div class="range-price">
-        <label for="min" class="from">From</label>
-        <span>%</span>
-        <input type="number" id="minDiscount" name="min" value="0" >
 
-        <label for="max" class="from">To</label>
-        <span>%</span>
-        <input type="number" id="maxDiscount" name="max" value="100">
-    </div>
-    <div class="range-slider">
-        <span class="range-selected"></span>
-    </div>
-    <div class="range-input">
-        <!-- Fixed range input at 0 -->
-        <input type="range" class="min" id="minRangeeDiscount" min="0" max="50" value="0" step="1" >
-        <!-- Adjustable range input -->
-        <input type="range" class="max" id="maxRangeeDiscount" min="0" max="100" value="100" step="1">
-    </div>
-</div>#}
  <div class="range mt-4">
             <h4 class="fw-bold m-4">Discount Percentage</h4>
             <div class="range-price">
-                <label for="min" class="from">From</label>
+                <label for="min1" class="from">From</label>
                 <span>%</span>
-                <input type="number" name="min" id="minDiscount" value="0">
+                <input type="number" name="min1" id="minDiscount" value="0">
 
-                <label for="max" class="from">To</label>
+                <label for="max1" class="from">To</label>
                 <span>%</span>
-                <input type="number" name="max" id="maxDiscount" value="100">
+                <input type="number" name="max1" id="maxDiscount" value="100">
               </div>
             <div class="range-slider">
               <span class="range-selected"></span>
@@ -449,6 +429,84 @@
           </div>
 </form>
 <style>
+/* Add some basic styling to the form */
+#DiscountForm {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the range slider */
+.range-slider {
+  position: relative;
+  height: 20px;
+  margin: 20px 0;
+}
+
+.range-slider input[type="range"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.range-slider input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #337ab7;
+  cursor: pointer;
+}
+
+.range-slider input[type="range"]::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #337ab7;
+  cursor: pointer;
+}
+
+/* Style the selected range */
+.range-selected {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background-color: #337ab7;
+  border-radius: 10px;
+  transition: width 0.2s ease-out;
+}
+
+/* Style the input fields */
+.range-input input[type="number"] {
+  width: 60px;
+  height: 30px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+}
+
+.range-input label {
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+/* Add some basic responsiveness */
+@media (max-width: 768px) {
+  #DiscountForm {
+    margin: 20px auto;
+  }
+}
+</style>
+{#<style>
 .discount-form {
     max-width: 600px;
     margin: 20px auto 0; /* Réduit la marge supérieure à 20px pour rapprocher le bloc du haut */
@@ -542,7 +600,7 @@
 }
 
 
-</style>
+</style>#}
 
    
   
@@ -569,19 +627,21 @@
         const coachingCheckbox = document.getElementById('coach');
         const courseBlock = document.getElementById('courseBlock');
         const coachingBlock = document.getElementById('coachingBlock');
-
+const filterTitle = document.getElementById('filterTitle');
         
 
         function updateVisibility() {
             if (courseCheckbox.checked) {
                 courseBlock.style.display = 'block';
                   coachingBlock.style.display = 'none';
+                   filterTitle.textContent = 'Show Courses by Discount';
             } else {
                 courseBlock.style.display = 'none';
             }
 
             if (coachingCheckbox.checked) {
                 coachingBlock.style.display = 'block';
+                filterTitle.textContent = 'Show Coaching by Discount';
             } else {
                 coachingBlock.style.display = 'none';
             }
@@ -597,105 +657,84 @@
 </script>
 
 
-            <div class="container-category p-4 category ">
+            <form id="categForm">
+ <div class="container-category p-4 category " id="category-course">
                 <h4 class="fw-bold">Category </h4>
                 <ul class="custom-list" style="margin-left:-10px !important;">
+                {% for categorie in categorys %}
                 <li>
-                <label for="Technology">Technology</label>
-                <input type="checkbox" name="Technology"  id="Technology" value="technology1" class="checkbox"><br>
+                <label for="cat3{{categorie.idCategorie}}">{{categorie.label}}</label>
+                <input type="checkbox" name="categs8[]"  id="cat3{{categorie.idCategorie}}" value="{{categorie.idCategorie}}" class="checkbox"><br>
                 </li>
-                <li>
-                <label for="business">Business and Entrepeneurship</label>
-                <input type="checkbox" name="business" id="business" value="Business"><br>
-                </li>
-                <li>
-                <label for="creative">Creative Arts</label>
-                <input type="checkbox" name="creative" id="creative" value="creative"><br>
-                </li>
-                <li>
-                <label for="Personal">Personal Development</label>
-                <input type="checkbox" name="Personal" id="Personal"  value="Personal">
-                </li>
-                <li>
-                <label for="Health">Health and Wellness</label>
-                <input type="checkbox" name="Health" id="Health" value="Health">
-                </li>
-                <li>
-                <label for="Language">Language Learning</label>
-                <input type="checkbox" name="Language" id="Language" value="Language">
-                </li>
-                <li>
-                <label for="Teaching">Teaching and Education</label>
-                <input type="checkbox" name="Teaching" id="Teaching"  value="Teaching">
-                </li>
+                {% endfor %}
                 </ul>
             </div>
+            </form>
 
-          <div class="container-level p-4">
+         <form id="filters1">
+  <div class="container-level p-4" >
             <h4 class="fw-bold">Level</h4>
-            <label for="all">All Levels</label>
-            <input type="checkbox" name="all" id="all" value="alllevel"><br>
+ {% for categorie in levels9 %}
+            <label for="cat{{categorie.idNiveau}}">{{categorie.label}}</label>
+            <input type="checkbox" id="cat{{categorie.idNiveau}}" class="float-end" name="levels8[]" value="{{categorie.idNiveau}}"><br>
 
-            <label for="Beginner">Beginner</label>
-            <input type="checkbox" name="Beginner" id="Beginner" value="Beginner"><br>
+      
+{% endfor %}
+        </div>
+        </form>
 
-            <label for="Intermediate">Intermediate</label>
-            <input type="checkbox" name="Intermediate" id="Intermediate" value="Intermediate"><br>
+                <form id="durationForm">
+ <div class="container-durationn p-4" >
+            <h4 class="fw-bold" >Durationn</h4>
+           
+            <label for="15min2">15min --> 30min</label>
+            <input type="checkbox" name="durations[]" id="15min2" value="15--30"><br>
 
-            <label for="Advanced">Advanced</label>
-            <input type="checkbox" name="Advanced" id="Advanced" value="Advanced">
+            <label for="30min2">30min -->1h</label>
+            <input type="checkbox" name="durations[]" id="30min2" value="30-1h"><br>
+
+            <label for="1h2">1h ></label>
+            <input type="checkbox" name="durations[]" id="1h2" value="Sup_1h2">
           </div>
+          </form>
 
-          <div class="container-duration p-4">
-            <h4 class="fw-bold">Duration</h4>
-            <label for="15min">15min --> 30min</label>
-            <input type="checkbox" name="15min" id="15min" value="15min"><br>
+          <form id="formLangue">
+           <div class="container-languagee p-4"  >
+                <h4 class="fw-bold">Language</h4>
+{% for lang in languages %}
+                <label for="cat2{{lang.idLangue}}">{{lang.label}}</label>
+                <input type="checkbox" name="lang8[]" id="cat2{{lang.idLangue}}" value="{{lang.idLangue}}"><br>
 
-            <label for="30min">30min -->1h</label>
-            <input type="checkbox" name="30min" id="30min" value="30min"><br>
+               
+{% endfor %}
+            </div>
 
-            <label for="1h">1h ></label>
-            <input type="checkbox" name="1h" id="1h" value="1h">
-          </div>
-
-          <div class="container-language p-4">
-            <h4 class="fw-bold">language</h4>
-            <label for="English">English</label>
-            <input type="checkbox" name="English" id="English" value="English"><br>
-
-            <label for="Français">Français</label>
-            <input type="checkbox" name="Français" id="Français" value="Français"><br>
-
-            <label for="arab">العربية</label>
-            <input type="checkbox" name="arab" id="arab" value="arab"><br>
-
-            <label for="Español">Español</label>
-            <input type="checkbox" name="Español" id="Español" value="Español"><br>
-
-          </div>
+          </form>
 
 
 
           <!-- Start Price Box -->
-          <div class="range mt-4">
-            <h4 class="fw-bold m-4">Price</h4>
-            <div class="range-price">
-                <label for="min" class="from">From</label>
-                <span>$</span>
-                <input type="number" name="min" value="700">
+                   <form id="priceForme">
+    <div class="range mt-4">
+        <h4 class="fw-bold m-4">Price</h4>
+        <div class="range-price">
+            <label for="min0" class="from">From</label>
+            <span>$</span>
+            <input type="number" id="minValuee" name="min0" value="0">
 
-                <label for="max" class="from">To</label>
-                <span>$</span>
-                <input type="number" name="max" value="1200">
-              </div>
-            <div class="range-slider">
-              <span class="range-selected"></span>
-            </div>
-            <div class="range-input">
-              <input type="range" class="min" min="0" max="2000" value="700" step="1">
-              <input type="range" class="max" min="0" max="2000" value="1200" step="1">
-            </div>
-          </div>
+            <label for="max0" class="from">To</label>
+            <span>$</span>
+            <input type="number" id="maxValuee" name="max0" value="2000">
+        </div>
+        <div class="range-slider">
+            <span class="range-selected"></span>
+        </div>
+        <div class="range-input">
+            <input type="range" id="minRangee" class="min" min="0" max="2000" value="0" step="1">
+            <input type="range" id="maxRangee" class="max" min="0" max="2000" value="2000" step="1">
+        </div>
+    </div>
+</form>
           <!-- End Price Box -->
 
         
@@ -2194,8 +2233,8 @@ label[for=nav-footer-toggle] {
 <div class=" d-flex align-items-center  containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
     <div class="">
       <div class="boxTitle91 mt-1 mx-5">
-        <h4>Show Courses or Coaching by Discount </h4>
-      </div>           
+ <h4 class="fw-bold" id="filterTitle">Show Courses by Discount</h4>
+       </div>           
     </div>
     <div class=" text-left   justify-content-end mx-5 float-end d-flex">
      <i id="gridView" class="bi bi-grid-3x3-gap-fill icon-default icon-hover icon-active" style="cursor:pointer; font-size: 1.2em;"></i>
@@ -3993,7 +4032,7 @@ document.getElementById('grid-tab1').addEventListener('click', function() {
    <script src="{{asset('../vendor/hatlone/safa/search/assets/safa/js/preferCourse.js')}}"></script>
    <script src="{{asset('../vendor/hatlone/safa/search/assets/safa/js/preferCoaching.js')}}"></script>
    <script src="{{asset('../vendor/hatlone/safa/search/assets/safa/js/preferInstructor.js')}}"></script>
-       <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/contenu.js')}}"></script>
+   <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/category1.js')}}"></script>
 
 
 
