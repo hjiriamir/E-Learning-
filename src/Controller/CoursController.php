@@ -109,13 +109,21 @@ if (in_array('15--30', $durations)) {
 
        // Afficher les valeurs récupérées pour le débogage
       // dump($durations); 
-    
+      $maxDiscount = $request->get('max1'); // Récupère la valeur du champ max
+      //dd($maxDiscount);
+      $minDiscount = $request->get('min1'); // Récupère la valeur du champ max
+    //dd($minDiscount);
+
       
         $contributorsData = $coursService->getContributorsData($Filterslanguage,$filters,$FiltersCategorys, $minPrice,$maxPrice);
         // on recupere les courses en fonction du filtre
         $coursesData = $coursService->getCoursesData($filters,$Filterslanguage,$FiltersCategorys, $minPrice,$maxPrice,$durMin,$durMax); 
-       // dd($coursesData);
+        $coursesData1 = $coursService->getFiltredCourses($filters,$Filterslanguage,$FiltersCategorys, $maxPrice,$minPrice,$durMin,$durMax, $minDiscount,$maxDiscount); 
+
+        //dd($coursesData1);
         $coachingData=$coachingService->getCoachingDataaa($Filterslanguage,$filters,$FiltersCategorys, $minPrice,$maxPrice,$durMin,$durMax);
+        $coachingData1=$coachingService->getCoachingDataa($filters,$Filterslanguage,$FiltersCategorys, $maxPrice,$minPrice,$durMin,$durMax, $maxDiscount,$minDiscount);
+
        // $session->set('coachingData', $coachingData);
        //dd($coachingData);
        // $this->sessionn->set('coachingData', $coachingData);
@@ -144,6 +152,9 @@ if (in_array('15--30', $durations)) {
 
         $minPrice1Coach = $request->request->get('min');
         $maxPrice1Coach = $request->request->get('max');
+        $search2=0;
+        $search1=0;
+        $search3=0;
 
         
         //************************************* */
@@ -153,7 +164,9 @@ if (in_array('15--30', $durations)) {
             $content1 = $this->renderView('search/ContentPag.html.twig', [
                 'contributors1' => $contributorsData,
                 'coursess' => $coursesData,
+                'coursess1' => $coursesData1,
                 'coachingData' => $coachingData,
+                'coachingData1' => $coachingData1,
                 'query' => $query,
                 'coursFinal' => $coursFinal,
                 'contributorFinal' => $contributorFinal,
@@ -189,17 +202,63 @@ if (in_array('15--30', $durations)) {
             $content2 = $this->renderView('search/_contentCoach.html.twig', [
                 'contributors1' => $contributorsData,
                 'coursess' => $coursesData,
+                'coursess1' => $coursesData1,
+                'coachingData1' => $coachingData1,
                 'coachingData' => $coachingData,
                 'query' => $query,
                 'coursFinal' => $coursFinal,
                 'contributorFinal' => $contributorFinal,
                 'searchedCoachings' => $searchedCoachings,
             ]);
-        
+            $content41 = $this->renderView('search/_ContentInstructors.html.twig', [
+                'contributors1' => $contributorsData,
+                'courses' => $coursesData,
+                'query' => $query,
+                'contributorFinal' => $contributorFinal,
+                'search2' => $search2,
+                'search1' => $search1,
+                'search3' => $search3,
+
+             ]);
+                 // Rendu des vues partielles
+        $content33 = $this->renderView('search/_ContentDiscount.html.twig', [
+            // 'courses' => $coursesData, // Remplacez par vos données de cours
+            'courses' => $coursesData,     
+            'coursess1' => $coursesData1,  
+            'coachingData1' => $coachingData1,   
+            'levels9' => $levels9,
+            'filters' => $filters,
+            'categorys' => $categorys,
+            'languages' => $languages,
+            'Filterslanguage' => $Filterslanguage,
+            'FiltersCategorys' => $FiltersCategorys,
+            'search2' => $search2,
+            'search1' => $search1,
+                 'search3' => $search3,
+         ]);
+ 
+         $content44 = $this->renderView('search/_ContentDiscCoach.html.twig', [
+             //'coachingData' => $coachingData, // Remplacez par vos données de coaching
+             'coachingData' => $coachingData,
+             'coachingData1' => $coachingData1,
+             'levels9' => $levels9,
+             'filters' => $filters,
+             'categorys' => $categorys,
+             'languages' => $languages,
+             'Filterslanguage' => $Filterslanguage,
+             'FiltersCategorys' => $FiltersCategorys,
+             'search2' => $search2,
+             'search1' => $search1,
+                 'search3' => $search3,
+         ]);
             // Retourner la réponse JSON avec les deux contenus
             return new JsonResponse([
                 'content1' => $content1,
                 'content2' => $content2,
+                'content33' => $content33,
+                'content44' => $content44,
+                'content41' => $content41,
+                
             ]);
         }
         
@@ -207,6 +266,8 @@ if (in_array('15--30', $durations)) {
         return $this->render('search/search2.html.twig', [
             'contributors1' => $contributorsData,
             'coursess' => $coursesData,
+            'coursess1' => $coursesData1,
+            'coachingData1' => $coachingData1,
             'coachingData' => $coachingData,
             'query' => $query,
             'coursFinal' => $coursFinal,

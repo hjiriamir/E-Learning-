@@ -139,9 +139,15 @@ window.onload = () => {
         })
         .then(data => {
             const contentDisc = document.querySelector("#contentDisc");
-            contentDisc.innerHTML = data.content1;
+            contentDisc.innerHTML = data.contentDisc;
             const contentDisc1 = document.querySelector("#contentDisc1");       
-            contentDisc1.innerHTML = data.content2;
+            contentDisc1.innerHTML = data.contentDisc1;
+
+            //
+            const content1 = document.querySelector("#content");
+            const content2 = document.querySelector("#content1");
+            content1.innerHTML = data.content1;
+            content2.innerHTML = data.content2;
 
             history.pushState({}, null, fullUrl); // Met à jour l'URL après la réponse
         })

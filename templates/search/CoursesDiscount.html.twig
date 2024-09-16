@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Search</title>
+    <title>Discount Page</title>
+    
     <!-- Favicons -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <link href="http://13.39.131.193:8002/search/search/assets//img/favicon.png" rel="icon">
     <link href="http://13.39.131.193:8002/search/search/assets//img/apple-touch-icon.png" rel="apple-touch-icon">
     <!-- Google Fonts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700|Raleway:300,400,400i,500,500i,700,800,900" rel="stylesheet">
     <!-- CSS Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
@@ -19,7 +23,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.2/font/bootstrap-icons.css">
     <!-- UI Kit -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.15.5/dist/css/uikit.min.css" />
-    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+      <!-- FontAwesome Icons -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -29,12 +34,14 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
      <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
+
   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <!-- CSS File -->
- 
+ <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
 
 
 
@@ -407,27 +414,27 @@
 
 
 <form id="DiscountForm">
+    <div class="range mt-4">
+        <h4 class="fw-bold m-4" style="text-align:center">Discount Percentage</h4>
+        <div class="range-price">
+            <label for="min1" class="from">From</label>
+            <span>%</span>
+            <input type="number" name="min1" id="minDiscount" value="0" readonly>
 
- <div class="range mt-4">
-            <h4 class="fw-bold m-4">Discount Percentage</h4>
-            <div class="range-price">
-                <label for="min1" class="from">From</label>
-                <span>%</span>
-                <input type="number" name="min1" id="minDiscount" value="0">
-
-                <label for="max1" class="from">To</label>
-                <span>%</span>
-                <input type="number" name="max1" id="maxDiscount" value="100">
-              </div>
-            <div class="range-slider">
-              <span class="range-selected"></span>
-            </div>
-            <div class="range-input">
-              <input type="range" class="min" id="minRangeeDiscount" min="0" max="100" value="0" step="1">
-              <input type="range" class="max" id="maxRangeeDiscount" min="0" max="100" value="100" step="1">
-            </div>
-          </div>
+            <label for="max1" class="from">To</label>
+            <span>%</span>
+            <input type="number" name="max1" id="maxDiscount" value="100" readonly>
+        </div>
+        <div class="range-slider">
+            <span class="range-selected"></span>
+        </div>
+        <div class="range-input">
+            <input type="range" class="min" id="minRangeeDiscount" min="0" max="100" value="0" step="1">
+            <input type="range" class="max" id="maxRangeeDiscount" min="0" max="100" value="100" step="1">
+        </div>
+    </div>
 </form>
+
 <style>
 /* Add some basic styling to the form */
 #DiscountForm {
@@ -506,6 +513,39 @@
   }
 }
 </style>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const minRange = document.getElementById('minRangeeDiscount');
+    const maxRange = document.getElementById('maxRangeeDiscount');
+    const minDiscount = document.getElementById('minDiscount');
+    const maxDiscount = document.getElementById('maxDiscount');
+    const rangeSelected = document.querySelector('.range-selected');
+
+    function updateRange() {
+        const minValue = parseInt(minRange.value);
+        const maxValue = parseInt(maxRange.value);
+        
+        // Mettre à jour les valeurs des champs de texte
+        minDiscount.value = minValue;
+        maxDiscount.value = maxValue;
+
+        // Calculer la largeur de la barre sélectionnée
+        const totalWidth = 100; // La largeur totale de la plage
+        const selectedWidth = ((maxValue - minValue) / totalWidth) * 100;
+
+        // Mettre à jour la largeur de la barre sélectionnée
+        rangeSelected.style.width = selectedWidth + '%';
+        rangeSelected.style.left = (minValue / totalWidth) * 100 + '%';
+    }
+
+    // Écouter les événements de changement sur les curseurs
+    minRange.addEventListener('input', updateRange);
+    maxRange.addEventListener('input', updateRange);
+
+    // Initialiser la barre de sélection
+    updateRange();
+});
+</script>
 {#<style>
 .discount-form {
     max-width: 600px;
@@ -617,6 +657,10 @@
     <input type="checkbox" name="tuto" id="tuto" value="tutocourse" class="checkbox" checked><br>
     <label for="coach">Coachings</label>
     <input type="checkbox" name="coach" id="coach" value="coaching"><br>
+    <label for="tutor">Tutors</label>
+    <input type="checkbox" name="tutor" id="tutor" value="tutors"><br>
+    <label for="tutor1">Search Page</label>
+    <input type="checkbox" name="tutor1" id="tutor1" value="tutors1"><br>
 </div>
 
 
@@ -624,16 +668,27 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         const courseCheckbox = document.getElementById('tuto');
-        const coachingCheckbox = document.getElementById('coach');
+        const coachingCheckbox = document.getElementById('coach');  
+        const tutorsCheckbox = document.getElementById('tutor');
+        const searchCheckbox = document.getElementById('tutor1');
         const courseBlock = document.getElementById('courseBlock');
         const coachingBlock = document.getElementById('coachingBlock');
-const filterTitle = document.getElementById('filterTitle');
+        const tutorsBlock = document.getElementById('tutorsDisc');
+        const searchBlock = document.getElementById('searchContent');
+         const instructorBlock = document.getElementById('instructorsContent');
+          const coachBlock = document.getElementById('coachingContent');
+          const DiscountFormBlock = document.getElementById('DiscountForm');
+        const filterTitle = document.getElementById('filterTitle');
         
 
         function updateVisibility() {
             if (courseCheckbox.checked) {
                 courseBlock.style.display = 'block';
                   coachingBlock.style.display = 'none';
+                  tutorsBlock.style.display = 'none';
+                  searchBlock.style.display = 'none';
+                   instructorBlock.style.display = 'none';
+                    coachBlock.style.display = 'none';
                    filterTitle.textContent = 'Show Courses by Discount';
             } else {
                 courseBlock.style.display = 'none';
@@ -641,9 +696,44 @@ const filterTitle = document.getElementById('filterTitle');
 
             if (coachingCheckbox.checked) {
                 coachingBlock.style.display = 'block';
+               tutorsBlock.style.display = 'none';
+               searchBlock.style.display = 'none';
+ instructorBlock.style.display = 'none';
+                    coachBlock.style.display = 'none';
+
                 filterTitle.textContent = 'Show Coaching by Discount';
             } else {
                 coachingBlock.style.display = 'none';
+            }
+             if (tutorsCheckbox.checked) {
+                coachingBlock.style.display = 'none';
+               tutorsBlock.style.display = 'block';
+               courseBlock.style.display = 'none';
+                searchBlock.style.display = 'none';
+                 instructorBlock.style.display = 'none';
+                    coachBlock.style.display = 'none';
+
+
+                filterTitle.textContent = 'Show Tutors by Discount';
+            } else {
+                tutorsBlock.style.display = 'none';
+            }
+             if (searchCheckbox.checked) {
+                coachingBlock.style.display = 'none';
+               tutorsBlock.style.display = 'none';
+               courseBlock.style.display = 'none';
+               searchBlock.style.display = 'block';
+                instructorBlock.style.display = 'block';
+                    coachBlock.style.display = 'block';
+                    DiscountFormBlock.style.display = 'none';
+               
+
+                filterTitle.textContent = 'Show search content ';
+            } else {
+                searchBlock.style.display = 'none';
+                 instructorBlock.style.display = 'none';
+                    coachBlock.style.display = 'none';
+                
             }
         }
 
@@ -653,7 +743,10 @@ const filterTitle = document.getElementById('filterTitle');
         // Ajout des écouteurs d'événements pour les cases à cocher
         courseCheckbox.addEventListener('change', updateVisibility);
         coachingCheckbox.addEventListener('change', updateVisibility);
-    });
+        tutorsCheckbox.addEventListener('change', updateVisibility);
+        searchCheckbox.addEventListener('change', updateVisibility);
+
+});
 </script>
 
 
@@ -2222,14 +2315,6 @@ label[for=nav-footer-toggle] {
 
 </style>
 
-
-
-
-
-   
-
-
-
 <div class=" d-flex align-items-center  containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
     <div class="">
       <div class="boxTitle91 mt-1 mx-5">
@@ -2242,13 +2327,13 @@ label[for=nav-footer-toggle] {
     </div>
   </div>
 
-   <div class="filter-bar">
-        <button class="filter-button active" onclick="setActive(this)">ALL</button>
-        <button class="filter-button" onclick="setActive(this)">NEW</button>
-        <button class="filter-button" onclick="setActive(this)">TRENDY</button>
-        <button class="filter-button" onclick="setActive(this)">POPULAR</button>
-        <button class="filter-button" onclick="setActive(this)">FREE</button>
-    </div>
+    <div class="filter-bar">
+    <button class="filter-button active" onclick="setCourseActive(this); filterCards('allCourses')">ALL</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('NEW')">NEW</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('TRENDY')">TRENDY</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('POPULAR')">POPULAR</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('FREE')">FREE</button>
+</div>
      <script>
         function setActive(button) {
     // Get all buttons with class="filter-button"
@@ -2509,14 +2594,662 @@ width:70px;
 
                          
          
+      <div id="tutorsDisc">
+ {% include 'search/_ContentInstructors.html.twig' %}
       
+      </div>
              
-              
+<div id="searchContent">
+<div id="courses111-block">
+    <div class="d-flex align-items-center containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
+            <div class="">
+                <div class="boxTitle91 mt-1 mx-5">
+                    <h4>Most Related Instructor Courses</h4>
+                </div>
+            </div>
+            <div class="text-left justify-content-end float-end d-flex">
+                <i id="gridView" class="bi bi-grid-3x3-gap-fill icon-default icon-hover icon-active" style="cursor:pointer; font-size: 1.2em;"></i>
+                <i id="listView" class="bi bi-list-ul ml-3 mx-1 icon-default icon-hover" style="cursor:pointer; font-size: 1.2em;"></i>
+            </div>
+        </div>
+
+    
+
+<script>
+let currentFilter = 'allCourses';
+    function setCourseActive(button) {
+        var buttons = document.getElementsByClassName("filter-button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        button.classList.add("active");
+    }
+
+    document.getElementById('gridView').addEventListener('click', function() {
+        this.classList.add('icon-active');
+        document.getElementById('listView').classList.remove('icon-active');
+    });
+    
+    
+
+    document.getElementById('listView').addEventListener('click', function() {
+        this.classList.add('icon-active');
+        document.getElementById('gridView').classList.remove('icon-active');
+    });
+    function filterCards(filter) {
+    const cards = document.querySelectorAll('.cardProduct');
+    
+    cards.forEach(card => {
+        const courseStatus = card.getAttribute('data-category');
+        
+        if (filter === 'allCourses' || courseStatus === filter) {
+            card.style.display = 'block'; // Affiche le cours
+        } else {
+            card.style.display = 'none'; // Masque le cours
+        }
+    });
+    
+    currentFilter = filter; // Met à jour le filtre actuel
+}
+</script>
+
+        <div id="gridContainer99">
+            <div class="productSlider container98 gridCard98 mt-5" id="gridContainer98">
+                <div class="containerProduct swiper">
+                 <div class="swiper-container">
+                    <div class="swiper-wrapper" id="content">
+                    
+                       {% include 'search/ContentPag.html.twig' %}
+
+        <!-- Répétez les cartes ici -->
+    </div>
+    <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+</div>
+
+            </div>
+        </div>
+
+        <style>
+        .swiper-slide {
+    width: 300px; /* Largeur des cartes */
+    height: auto;
+}
+
+.card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+            body {
+                overflow-x: hidden !important;
+            }
+            .icon-default {
+                color: #a8a5a5;
+            }
+            .icon-hover:hover {
+                color: rgb(216, 81, 125);
+            }
+            .icon-active {
+                color: rgb(216, 81, 125);
+            }
+            @media screen and (max-width: 768px) {
+                .boxTitle91 h4 {
+                    white-space: nowrap !important;
+                }
+                .text-left {
+                    margin-left: -30px !important;
+                }
+            }
+            @media screen and (max-width: 1060px) and (min-width: 500px) {
+                .containerCourse .boxTitle91 h4 {
+                    margin-left: 70px !important;
+                }
+                .boxTitleInstructor {
+                    margin-left: 6em !important;
+                }
+            }
+            @media screen and (max-width: 1070px) {
+                .listCard98 {
+                    width: 80% !important;
+                    margin-left: 70px !important;
+                }
+            }
+            @media screen and (max-width: 1060px) {
+                .productSlider {
+                    margin-left: 50px !important;
+                }
+                .boxTitle91 h4 {
+                    font-weight: 600;
+                }
+            }
+        </style>
+ <script>
+            document.getElementById('gridView').addEventListener('click', function() {
+                document.getElementById('gridContainer99').style.display = 'block';
+                document.getElementById('listContainer98').style.display = 'none';
+
+
+            });
+
+            document.getElementById('listView').addEventListener('click', function() {
+                document.getElementById('gridContainer99').style.display = 'none';
+                document.getElementById('listContainer98').style.display = 'block';
+            });
+
+
+            function filterCards(category) {
+                // Get all cards
+                var cards = document.getElementsByClassName("cardCourseProduct");
+
+                // Loop through the cards and show/hide based on the category
+                for (var i = 0; i < cards.length; i++) {
+                    if (category === "allCourses") {
+                        cards[i].style.display = "block";
+                    } else {
+                        if (cards[i].getAttribute("data-category") === category) {
+                            cards[i].style.display = "block";
+                        } else {
+                            cards[i].style.display = "none";
+                        }
+                    }
+                }
+            }
+const swiper = new Swiper('.swiper-container', {
+  // Optional parameters
+  direction: 'horizontal',
+  loop: true,
+  pagination: {
+    el: '.swiper-pagination',
+  },
+  navigation: {
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
+  },
+});
+
+        </script>
 
 
 
 
 
+
+        <ol class="filters d-flex justify-content-center"  style="margin-bottom:100px !important;" >
+            <li >
+                <a  href="{{ path('cours_list') }}" class="show-all-link">
+                    <label class="show-more-btn mb-2" style="white-space: nowrap;">Show All</label>
+                </a>
+            </li>
+        </ol>
+        <div class="showAllButton d-flex justify-content-center " hidden>
+            <button><a href="{{ path('cours_list') }}" class="show-all-link">Show All</a></button>
+        </div>
+
+
+
+
+        <style>
+            @media screen and (min-width: 1360px) {
+                .topInstructorsSlider {
+                    /* padding-left:55px !important;*/
+
+
+                }
+                .boxTitleInstructor h3{
+                    padding-left:50px;
+                }
+
+            }
+
+        </style>
+                             <div>
+                             
+    </div>
+    <div id="instructorsContent">
+  <div id="instructor-block" >
+ <div class="d-flex align-items-center containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
+    <div class="">
+        <div class="boxTitle91 mt-1 mx-5">
+            <h4>Top Instructors </h4>
+        </div>           
+    </div>
+    <div class="text-left justify-content-end float-end d-flex">
+        <i class="bi bi-grid-3x3-gap-fill" style="color:transparent !important; font-size: 1.2em;"></i>
+        <i class="bi bi-list-ul ml-3 mx-1" style="color:transparent !important; font-size: 1.2em;"></i>
+    </div>
+</div>
+
+<div class="boxTitleInstructor" hidden>
+    <h3>Top Instructors </h3>
+</div> 
+<div class="topInstructorsSlider">
+    <div class="instructorCards1">
+        <section class="review instructorCards">
+            <div class="swiper review-slider">
+                <div class="swiper-wrapper">
+                    {% for contributorData in contributors1  %}
+                    <div class="swiper-slide box">
+                        <i class="fas fa-quote-left"></i>
+                        <i class="fas fa-quote-right"></i>
+                        <div class="float-end"><i class="bi bi-heart" style="font-size:21px;color:#a8a5a5;"></i></div>
+                        <img src="{{contributorData.user.photo}}"  alt="">
+                   
+                        <div class="d-flex justify-content-center">
+                            <h6 class="name-instructor-one fw-bold text-center">
+                                {{ contributorData.user.firstname }}
+                                {% if contributorData.user.isVerified() %}
+                                    <i class="bi bi-check2-circle"></i>
+                                {% endif %}
+                            </h6>
+                        </div>
+                        <div class="profession-one d-flex justify-content-center text-center">                                         
+                            <span>{{ contributorData.contributor.domaine }}</span>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/certified11.png">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/certificate1.png" alt="">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/relationPeople1png.png">
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <img src="vendor/hatlone/safa/search/assets/imgs/lisBook.png" alt="">
+                            <div class="mt-2" style="font-size:14px;">
+                                <div class="d-flex justify-content-center" style="padding-left:20px !important;padding-right:30px !important;margin-left:5px;">
+                                    <i class="fa-solid fa-user-large" style="color:#01132b;"></i>
+                                    <i class="fa-solid fa-user-large" style="color:#524f4f;margin-left:-5px;"></i>
+                                    <i class="fa-solid fa-user-large" style="color:rgb(216,81,125);margin-left:-5px;"></i>
+                                </div>
+                                <span class="fw-bold">{{ contributorData.followers }}</span>
+                            </div>
+                            
+                            <img src="vendor/hatlone/safa/search/assets/imgs/hand1.png" alt="">
+                        </div>
+
+                        <div class="d-flex justify-content-between" style="justify-content:space-between !important;">
+                            <div class="mr-3">
+                                <i class="fas fa-book"></i> {{ contributorData.contributor.id }} Courses
+                            </div>
+                            <div class="mr-3 mx-3">
+                                <i class="fas fa-star"></i> {{ contributorData.ratings }} ({{ contributorData.contributor.id }})
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                 <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+            </div>
+        </section>
+    </div>
+</div>
+
+<ol class="filters d-flex justify-content-center">
+    <li>
+          <a href="allinstructors" class="show-all-link">
+
+            <label class="show-more-btn mb-2" style="white-space: nowrap;">Show All</label>
+        </a>
+    </li>
+</ol> 
+
+<div class="showAllButton d-flex justify-content-center" hidden>
+        <button><a  href="allinstructors" class="show-all-link">Show All</a></button>
+</div>
+
+<style>
+     .labelCoaching98 {
+      position: absolute;
+      top: 40px;
+      left: -18px;
+      background-color: rgb(216,81,125);
+      color: #fff;
+      padding: 2px 26px;
+      font-size: 14px;
+      font-weight:500;
+      border-radius: 3px;
+      transform: rotate(-45deg);
+      transform-origin: 0 0;
+      z-index: 10;
+    }
+</style>
+ <style>
+.showAllButton button{
+  border:none;
+  background-color:#01132b;
+  color:white;
+  padding:5px 20px;
+margin-bottom:15px !important;
+margin-top:30px !important;
+
+}
+.showAllButton button:hover{
+
+  background-color:rgb(216,81,125) !important;
+  color:white;
+
+
+}
+.show-all-link{
+  color:white;
+  font-weight:400;
+  text-decoration: none;
+  background-color: initial;
+  
+}
+.show-all-link:hover{
+    color: white; 
+    text-decoration: none;
+      background-color: transparent ; 
+  
+}
+
+
+
+
+      /* instructor cards style */
+      @media screen and (min-width: 1400px) {
+       .instructorCards1  {
+       /* margin-left:70px !important;*/
+ 
+
+}
+
+      }  
+
+.review .review-slider {
+    padding: 0;
+    font-size:13px;
+    padding-bottom:4rem !important;
+    padding-left:2px !important;
+    padding-right:2px !important;
+  
+
+}
+.instructorCards1 .d-flex img{
+      width: 80px !important;
+    height: 50px !important;
+    filter: brightness(1.2); /* Augmente la luminosité de 20% */
+    opacity: 0.8; /* Réduit l'opacité à 80% */
+
+}
+
+.review .review-slider .box {
+   /* border: var(--border);*/
+   /* border-radius: var(--border-radius);*/
+   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+   border-radius: 20px !important;
+    text-align: center;
+    position: relative;
+    z-index: 0;
+    padding: 1rem;
+   /* box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;*/
+   margin-top:12px !important;
+     
+
+  
+}
+
+.review .review-slider .box .fa-quote-left {
+    position: absolute;
+    top: 2rem;
+    left: 2.5rem;
+    font-size:20px;
+    color: #ccc;
+    z-index: -1;
+    display:none;
+}
+
+.review .review-slider .box .fa-quote-right {
+    position: absolute;
+    bottom: 2.5rem;
+    right: 2.5rem;
+    font-size: 20px;
+    color: #ccc;
+    z-index: -1;
+    display:none;
+}
+
+.review .review-slider .box:hover .fa-quote-left {
+    top: -6.5rem;
+}
+
+.review .review-slider .box:hover .fa-quote-right {
+    bottom: -6.5rem;
+}
+
+.review .review-slider .box img {
+    height: 5rem;
+    width: 5rem;
+    border-radius: 50%;
+    margin-bottom: .7rem;
+}
+
+.review .review-slider .box .stars {
+    padding: .5rem 0
+}
+
+.review .review-slider .box .stars i {
+    font-size:14px;
+  
+}
+
+.review .review-slider .box p {
+    font-size:12px;
+    color: #443;
+    padding: 1rem 0;
+    line-height: 1.8;
+}
+
+.review .review-slider .box h3 {
+    font-size: 12px;
+    color: #443;
+    line-height: 1.8;
+}
+
+.review .review-slider .box span {
+    font-size: 12px;
+    color: #443;
+}
+.review .bi-check2-circle{
+       color : rgb(216,81,125) !important;
+}
+.review .mr-3{
+       font-weight:700;
+}
+
+
+.review .swiper-pagination95  {
+ display:flex;
+ justify-content:center;
+ margin-top:20px !important;
+ 
+    
+}
+.review .swiper-pagination95 .swiper-pagination-bullet {
+    height:20px;
+    width: 20px;
+    border-radius: 0;
+ 
+    
+}
+
+.review .swiper-pagination95 .swiper-pagination-bullet-active {
+    background: rgb(216,81,125) !important;
+   
+}
+    </style>
+
+
+
+        </div>
+    </div>
+    <div id="coachingContent">
+         <div id="hjiri-block1" >
+            <div class=" d-flex align-items-center  containerCourse mt-3" style="display:flex !important;justify-content:center !important;justify-content:space-between !important;">
+                <div class="">
+                    <div class="boxTitle91 mt-1 mx-5">
+                        <h4>Top Coaching 1 to 1 </h4>
+                    </div>
+                </div>
+                <div class=" text-left   justify-content-end  float-end d-flex">
+                    <i id="gridCoachingView" class="bi bi-grid-3x3-gap-fill icon-default icon-hover icon-active" style="cursor:pointer; font-size: 1.2em;"></i>
+                    <i id="listCoachingView" class="bi bi-list-ul ml-3 mx-1 icon-default icon-hover" style="cursor:pointer; font-size: 1.2em;"></i>
+                </div>
+            </div>
+
+<div class="filter-bar1">
+    <button class="filter-button active" onclick="setCourseActive(this); filterCards('allCourses')">ALL</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('NEW')">NEW</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('TRENDY')">TRENDY</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('POPULAR')">POPULAR</button>
+    <button class="filter-button" onclick="setCourseActive(this); filterCards('FREE')">FREE</button>
+</div>
+
+<script>
+let currentFilter = 'allCourses';
+    function setCourseActive(button) {
+        var buttons = document.getElementsByClassName("filter-button");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].classList.remove("active");
+        }
+        button.classList.add("active");
+    }
+
+    document.getElementById('gridView').addEventListener('click', function() {
+        this.classList.add('icon-active');
+        document.getElementById('listView').classList.remove('icon-active');
+    });
+    
+    
+
+    document.getElementById('listView').addEventListener('click', function() {
+        this.classList.add('icon-active');
+        document.getElementById('gridView').classList.remove('icon-active');
+    });
+    function filterCards(filter) {
+    const cards = document.querySelectorAll('.cardProduct');
+    
+    cards.forEach(card => {
+        const courseStatus = card.getAttribute('data-category');
+        
+        if (filter === 'allCourses' || courseStatus === filter) {
+            card.style.display = 'block'; // Affiche le cours
+        } else {
+            card.style.display = 'none'; // Masque le cours
+        }
+    });
+    
+    currentFilter = filter; // Met à jour le filtre actuel
+}
+</script>
+            <div id="gridContainer99">
+                <div class="productSlider container98 gridCard98 mt-5" id="gridContainer98">
+                    <div class="containerProduct swiper">
+                         <div class="swiper-container">
+                           <div class="swiper-wrapper" id="content1">
+                           
+                           
+                          {% include "search/_contentCoach.html.twig" %}
+
+                            </div>
+                        </div>
+                        <!-- Add Arrows -->
+    <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div>
+    <!-- Pagination -->
+    <div class="swiper-pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <style>
+                body {
+                    overflow-x: hidden !important;
+                }
+                .icon-default {
+                    color: #a8a5a5;
+                }
+                .icon-hover:hover {
+                    color: rgb(216, 81, 125);
+                }
+                .icon-active {
+                    color: rgb(216, 81, 125);
+                }
+                @media screen and (max-width: 768px) {
+                    .boxTitle91 h4 {
+                        white-space: nowrap !important;
+                    }
+                    .text-left {
+                        margin-left: -30px !important;
+                    }
+                }
+                @media screen and (max-width: 1060px) and (min-width: 500px) {
+                    .containerCourse .boxTitle91 h4 {
+                        margin-left: 70px !important;
+                    }
+                    .boxTitleInstructor {
+                        margin-left: 6em !important;
+                    }
+                }
+                @media screen and (max-width: 1070px) {
+                    .listCard98 {
+                        width: 80% !important;
+                        margin-left: 70px !important;
+                    }
+                }
+                @media screen and (max-width: 1060px) {
+                    .productSlider {
+                        margin-left: 50px !important;
+                    }
+                    .boxTitle91 h4 {
+                        font-weight: 600;
+                    }
+                }
+            </style>
+            <div class="showAllButton coachingButton d-flex justify-content-center" style="left:50% !important;" hidden>
+                <button >
+                    <a href="{{ path('coaching_list') }}" class="show-all-link">Show All</a>
+                </button>
+            </div>
+            <ol  class="filters  d-flex justify-content-center  " >
+                <li  >
+                    <a href="{{ path('coaching_list') }}" class="show-all-link">
+                        <label class="show-more-btn mb-0" style="white-space: nowrap;">Show All</label>
+                    </a>
+                </li>
+            </ol>
+            <div class="swiper-button-next swiper-navBtn"></div>
+            <div class="swiper-button-prev swiper-navBtn"></div>
+            <div class="swiper-pagination"></div>
+        </div>
+        </div>
+
+        </div>
+        </div>
+        </div>
+
+        </div>
+ 
+                      
+                       <style>
+                       @media(max-width: 1070px){
+ 
+                        }
+
+                       </style>
+    </div>
+    
 
 
     </main>
@@ -3694,6 +4427,7 @@ body{
   </script>
   <script>
     var swiper = new Swiper(".slide-content1", {
+      
       slidesPerView: 3,
       spaceBetween: 25,
       loop: true,
@@ -3898,6 +4632,7 @@ body{
     document.getElementById('listCoaching-tab').addEventListener('click', hideTabletMobileView1);
         document.getElementById('gridCoaching-tab').addEventListener('click', showTabletMobileView1);
 </script>
+
 <script>
 // Récupérer tous les boutons de navigation
 const navButtons = document.querySelectorAll('.nav-button');
@@ -3940,6 +4675,42 @@ navButtons.forEach(button => {
   });
 });
 
+var swiper = new Swiper(".slide-container", {
+  slidesPerView: 2,
+  spaceBetween: 20,
+  sliderPerGroup: 4,
+  loop: true,
+  centerSlide: "true",
+  fade: "true",
+  grabCursor: "true",
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+    dynamicBullets: true,
+  },
+  navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+  },
+
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    520: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    991: {
+      slidesPerView: 2,
+    },
+    1200: {
+      slidesPerView: 3,
+    },
+  },
+});
 
 </script>
 <script>
@@ -4033,6 +4804,8 @@ document.getElementById('grid-tab1').addEventListener('click', function() {
    <script src="{{asset('../vendor/hatlone/safa/search/assets/safa/js/preferCoaching.js')}}"></script>
    <script src="{{asset('../vendor/hatlone/safa/search/assets/safa/js/preferInstructor.js')}}"></script>
    <script src="{{asset('vendor/hatlone/safa/search/assets/safa/js/category1.js')}}"></script>
+   <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+   
 
 
 

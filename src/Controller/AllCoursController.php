@@ -174,8 +174,55 @@ class AllCoursController extends AbstractController
 
         $minPrice1Coach = $request->request->get('min');
         $maxPrice1Coach = $request->request->get('max');
-        
+        $search2=0;
+        $search1=0;
+        $search3=0;
+        $amir4=0;
         if ($request->query->get('ajax')) {
+            $content4 = $this->renderView('search/ContentPag.html.twig', [
+                'contributors1' => $contributorsData,
+                'coursess' => $coursesData,
+                'coachingData' => $coachingData,
+                'query' => $query,
+                'coursFinal' => $coursFinal,
+                'contributorFinal' => $contributorFinal,
+                'searchedCoachings' => $searchedCoachings,
+                
+                // Récupérer les catégories et sous-catégories des cours :
+                'categories' => $categories,
+                'categories2' => $categories2,
+                'categories3' => $categories3,
+                'categories4' => $categories4,
+        
+                // Récupérer les catégories et sous-catégories de coaching :
+                'coachCategorie' => $coachCategorie,
+                'coachCategorie2' => $coachCategorie2,
+                'coachCategorie3' => $coachCategorie3,
+                'coachCategorie4' => $coachCategorie4,
+                'vale' => $vale,
+                'minPrice1' => $minPrice1,
+                'maxPrice1' => $maxPrice1,
+        
+                'minPrice1Coach' => $minPrice1Coach,
+                'maxPrice1Coach' => $maxPrice1Coach,
+                'levels9' => $levels9,
+                'filters' => $filters,
+                'categorys' => $categorys,
+                'languages' => $languages,
+                'Filterslanguage' => $Filterslanguage,
+                'FiltersCategorys' => $FiltersCategorys,
+            ]);
+        
+            $content3 = $this->renderView('search/_ContentInstructors.html.twig', [
+                'contributors1' => $contributorsData,
+                'courses' => $coursesData,
+                'query' => $query,
+                'contributorFinal' => $contributorFinal,
+                'search2' => $search2,
+                'search1' => $search1,
+                'search3' => $search3,
+
+             ]);
          
         // Rendu des vues partielles
         $content1 = $this->renderView('search/_ContentDiscount.html.twig', [
@@ -187,6 +234,9 @@ class AllCoursController extends AbstractController
            'languages' => $languages,
            'Filterslanguage' => $Filterslanguage,
            'FiltersCategorys' => $FiltersCategorys,
+           'search2' => $search2,
+           'search1' => $search1,
+                'search3' => $search3,
         ]);
 
         $content2 = $this->renderView('search/_ContentDiscCoach.html.twig', [
@@ -198,15 +248,10 @@ class AllCoursController extends AbstractController
             'languages' => $languages,
             'Filterslanguage' => $Filterslanguage,
             'FiltersCategorys' => $FiltersCategorys,
+            'search2' => $search2,
+            'search1' => $search1,
+                'search3' => $search3,
         ]);
-
-      
-
-        // Création du JSON
-        
-        /*$response = [
-            'content' => $content1 . $separator . $content2,
-        ];*/
 
         // Retour du JSON
         return new JsonResponse(array(
@@ -232,6 +277,12 @@ class AllCoursController extends AbstractController
             'languages' => $languages,
             'Filterslanguage' => $Filterslanguage,
             'FiltersCategorys' => $FiltersCategorys,
+            'search2' => $search2,
+            'search1' => $search1,
+            'search3' => $search3,
+            'amir4' => $amir4,
+            'coursess' => $coursesData,
+
         ]);
     }
 
